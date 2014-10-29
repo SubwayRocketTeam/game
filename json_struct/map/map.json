@@ -1,18 +1,18 @@
 {
-  id : 0,
+  "id" : 0,
   
-  objects : [
+  "objects" : [
     {
-      id : "spawn",
-      x : 0, y : 0
+      "id" : "spawn",
+      "x" : 0, "y" : 0
     },
     {
-      id : "shop",
-      x : 100, y : 100
+      "id" : "shop",
+      "x" : 100, "y" : 100
     }
     {
-      id : "light",
-      x : 50, y : 50
+      "id" : "light",
+      "x" : 50, "y" : 50
     }
   ]
 }
