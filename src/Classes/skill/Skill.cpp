@@ -5,6 +5,10 @@
 using namespace std;
 using namespace cocos2d;
 
+int Skill::id = -1;
+string Skill::tooltip;
+string Skill::name;
+
 bool Skill::init(
 	const string &dataPath){
 

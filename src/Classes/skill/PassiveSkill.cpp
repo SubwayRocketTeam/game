@@ -3,6 +3,8 @@
 using namespace std;
 using namespace cocos2d;
 
+map<string,Attribute> PassiveSkill::bonus;
+
 bool PassiveSkill::initExternalData(
 	const string &dataPath){
 
