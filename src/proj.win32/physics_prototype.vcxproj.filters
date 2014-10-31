@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\Classes\scene\GameScene.cpp">
+      <Filter>source\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Player.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Unit.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\resource.cpp">
+      <Filter>source\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\KeyboardEventListener.cpp">
+      <Filter>source\object\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\MouseEventListener.cpp">
+      <Filter>source\object\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Enemy.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\EnemyPool.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\EnemySpawner.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Bullet.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lua\LuaEngine.cpp">
+      <Filter>source\luaSupport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lua\Physics.cpp">
+      <Filter>source\luaSupport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\PhysicsFactory.cpp">
+      <Filter>source\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\PartedBody.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Scarf.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Ally.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Stage.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\jsoncpp\src\lib_json\json_reader.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\jsoncpp\src\lib_json\json_value.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\jsoncpp\src\lib_json\json_writer.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\JsonLoader.cpp">
+      <Filter>source\common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Classes\scene\GameScene.h">
+      <Filter>source\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Player.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Unit.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\resource.h">
+      <Filter>source\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\MouseEventListener.h">
+      <Filter>source\object\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\KeyboardEventListener.h">
+      <Filter>source\object\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Enemy.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemyPool.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemySpawner.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Bullet.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lua\LuaEngine.h">
+      <Filter>source\luaSupport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppMacros.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\PhysicsFactory.h">
+      <Filter>source\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\PartedBody.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Scarf.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Ally.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Stage.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\AttackData.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\src\lib_json\json_batchallocator.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\src\lib_json\json_tool.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\assertions.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\autolink.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\config.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\features.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\forwards.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\json.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\reader.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\value.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\version.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\writer.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\JsonLoader.h">
+      <Filter>source\common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="resource">
+      <UniqueIdentifier>{eb33adea-eba1-4ddd-98cf-6c0feab6d32c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{7b7b13d1-c548-42f4-9de0-c9b6863515ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\common">
+      <UniqueIdentifier>{ad8c0b96-9362-45de-ac56-fcdd3962dd63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\luaSupport">
+      <UniqueIdentifier>{fe025d1c-388c-4641-9fa9-cdd7ee11e8cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\object">
+      <UniqueIdentifier>{21303214-06e2-4615-b33a-a5b1528e0755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\object\common">
+      <UniqueIdentifier>{ca7c8225-c6ea-4e61-a412-d8508272d14f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\scene">
+      <UniqueIdentifier>{5e5fa51b-28b4-43da-b7ff-ff5997b34aec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jsoncpp">
+      <UniqueIdentifier>{58b6fc83-9927-43c5-bcff-156a2ca75c64}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\jsoncpp\src\lib_json\json_internalarray.inl">
+      <Filter>jsoncpp</Filter>
+    </None>
+    <None Include="..\jsoncpp\src\lib_json\json_internalmap.inl">
+      <Filter>jsoncpp</Filter>
+    </None>
+    <None Include="..\jsoncpp\src\lib_json\json_valueiterator.inl">
+      <Filter>jsoncpp</Filter>
+    </None>
+  </ItemGroup>
+</Project>
