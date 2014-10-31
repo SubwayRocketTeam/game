@@ -3,8 +3,6 @@
 ToDo List
 ----
 * cocos2d-x-custom 서브모듈로 import
-* 머플러 버그
-* 카메라 버그
 * 공격, 스킬의 처리
 * 몹 스폰의 처리
 
