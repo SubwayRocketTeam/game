@@ -13,4 +13,6 @@ namespace R{
 
 	_RESL(StageFloor);
 	_RESL(StageJson);
+
+	_RESL(EnemySpawner);
 };

@@ -1,5 +1,7 @@
 #include "EnemySpawner.h"
 
+#include "common/resource.h"
+
 #include "EnemyPool.h"
 #include "Enemy.h"
 
@@ -20,9 +22,8 @@ EnemySpawner *EnemySpawner::create(){
 	CC_SAFE_DELETE(e);
 	return nullptr;
 }
-
 bool EnemySpawner::init(){
-    if(!Unit::init())
+	if(!Unit::init(R::EnemySpawner))
 		return false;
 
     return true;
