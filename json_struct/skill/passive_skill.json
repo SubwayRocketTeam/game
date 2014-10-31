@@ -4,12 +4,13 @@
   "tooltip" : "엄청쎄짐",
 
   "bonus" : [
-  "hp" : {
-    "value" : 1000, // + 증가치
-    "rate" : 50 // % 증가치
-  },
-  "attack" : {
-    "value" : 0,
-    "rate" : 50
-  }]
+    "hp" : {
+      "value" : 1000, // + 증가치
+      "rate" : 50 // % 증가치
+    },
+    "attack" : {
+      "value" : 0,
+      "rate" : 50
+    }
+  ]
 }
