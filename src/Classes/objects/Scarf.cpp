@@ -39,15 +39,14 @@ void Scarf::update(
 	static float t = 0;
 	t += dt*8;
 
-	Vec2 pos = getPosition();
+	Vec2 pos = getParent()->getPosition();
 	Vec2 u = Vec2(0,1);
 	
-	u.rotate(Vec2::ZERO, getRotation());
+	u.rotate(Vec2::ZERO,
+		CC_DEGREES_TO_RADIANS(angle));
 
-	//printf("%f %f %f\n", u.x, u.y, t);
-
-	direction = -direction;//-getParent()->getRotation();
-	direction.rotate(Vec2::ZERO, std::sin(t)*0.25);
+	Vec2 startDirection = -u;
+	startDirection.rotate(Vec2::ZERO, std::sin(t)*0.25);
 
 	for (int i=Segments-1;i>0;--i){
 		scarfNode[i].point += scarfNode[i].velocity[Delay - 1];
@@ -66,16 +65,16 @@ void Scarf::update(
 	}
 
 	scarfNode[0].velocity[0] = pos - scarfNode[0].point;
-	scarfNode[0].tail += (direction - scarfNode[0].tail)*0.25;
+	scarfNode[0].tail += (startDirection - scarfNode[0].tail)*0.25;
 	scarfNode[0].point = pos;
 
-	{
-	clear();
-	Vec2 pos = getPosition() - getPosition() - getPosition().getNormalized()*20;
-	for (int i = 0; i < Segments - 1; i++){
-		drawSegment(
-			scarfNode[i].point - pos, scarfNode[i + 1].point - pos, 5 + i / 10, Color4F(1.f, 0, 0, 1.f));
-	}
+	/* draw */{
+		clear();
+		Vec2 pos = getParent()->getPosition() - getPosition() - getPosition().getNormalized()*20;
+		for (int i = 0; i < Segments - 1; i++){
+			drawSegment(
+				scarfNode[i].point - pos, scarfNode[i + 1].point - pos, 5 + i / 10, Color4F(1.f, 0, 0, 1.f));
+		}
 	}
 }
 

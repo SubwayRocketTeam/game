@@ -47,20 +47,19 @@ bool Player::init(){
 	addChild(lay);
 
 	scarf = Scarf::create();
-
 	addChild(scarf);
 
     return true;
 }
 bool Player::initPhysics(){
 	auto factory = PhysicsFactory::getInstance();
-	auto pbody = factory->make("player");
+	//auto pbody = factory->make("player");
 
-	if(pbody){
+	//if(pbody){
 		/* temporary disalbed */
 		//setPhysicsBody(pbody);
 		return true;
-	}
+	//}
 	
 	return false;
 }
@@ -81,13 +80,14 @@ void Player::processRotation(
 	body->setRotation(-degree + 90);
 	//scarf->setRotation(-degree + 90);
 
-	auto delta = Vec2(x,y) - getPosition();
+	auto delta = Vec2(x,y) - worldPos;
 	auto deltaN = delta.getNormalized();
 	printf("%f %f / %f %f\n",
 		delta.x, delta.y,
 		deltaN.x, deltaN.y);
 
 	scarf->pushDirection(deltaN);
+	scarf->pushRotation(degree + 90);
 }
 void Player::processEyeline(
 	float x,float y){
