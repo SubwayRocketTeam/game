@@ -1,5 +1,9 @@
 {
   "id" : 10,
   "name" : "him_e_power_attack",
-  "tooltip" : "힘에파워어택"
+  "tooltip" : "힘에파워어택",
+  
+  "duration" : 2,
+  "cooltime" : 5,
+  "cost" : 50
 }
