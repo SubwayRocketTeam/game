@@ -31,12 +31,6 @@
     <ClCompile Include="..\Classes\objects\Bullet.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\lua\LuaEngine.cpp">
-      <Filter>source\luaSupport</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\lua\Physics.cpp">
-      <Filter>source\luaSupport</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>source</Filter>
     </ClCompile>
@@ -104,9 +98,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\objects\Bullet.h">
       <Filter>source\object</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\lua\LuaEngine.h">
-      <Filter>source\luaSupport</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>source</Filter>
@@ -187,9 +178,6 @@
     </Filter>
     <Filter Include="source\common">
       <UniqueIdentifier>{ad8c0b96-9362-45de-ac56-fcdd3962dd63}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\luaSupport">
-      <UniqueIdentifier>{fe025d1c-388c-4641-9fa9-cdd7ee11e8cd}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\object">
       <UniqueIdentifier>{21303214-06e2-4615-b33a-a5b1528e0755}</UniqueIdentifier>

@@ -1,5 +1,5 @@
 [submodule "cocos2d-x"]
 
-	path = cocos
+	path = cocos2d
 
 	url = git@github.com:SubwayRocketTeam/cocos2d-x-custom.git

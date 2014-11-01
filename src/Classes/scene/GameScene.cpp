@@ -17,14 +17,14 @@ Scene* GameScene::scene(){
 		PhysicsWorld::DEBUGDRAW_NONE);
 	world->setGravity(Vec2(0,0));
 
-    GameScene *layer = GameScene::create();
-    scene->addChild(layer);
-    return scene;
+	GameScene *layer = GameScene::create();
+	scene->addChild(layer);
+	return scene;
 }
 
 bool GameScene::init(){
-    if (!Layer::init())
-        return false;
+	if (!Layer::init())
+		return false;
 
 	auto director = Director::getInstance();
 	auto visibleSize = director->getVisibleSize();
@@ -48,7 +48,7 @@ bool GameScene::init(){
 
 	scheduleUpdate();
 
-    return true;
+	return true;
 }
 
 void GameScene::update(

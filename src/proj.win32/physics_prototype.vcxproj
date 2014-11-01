@@ -40,12 +40,12 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\cocos\2d\cocos2dx.props" />
-    <Import Project="..\..\..\cocos\2d\cocos2d_headers.props" />
+    <Import Project="..\..\cocos2d\cocos\2d\cocos2dx.props" />
+    <Import Project="..\..\cocos2d\cocos\2d\cocos2d_headers.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="..\..\..\cocos\2d\cocos2dx.props" />
-    <Import Project="..\..\..\cocos\2d\cocos2d_headers.props" />
+    <Import Project="..\..\cocos2d\cocos\2d\cocos2dx.props" />
+    <Import Project="..\..\cocos2d\cocos\2d\cocos2d_headers.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -65,6 +65,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSdk_71A_ExecutablePath);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
+    <IncludePath>$(ProjectDir)..\Classes;$(ProjectDir)..\jsoncpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
@@ -132,8 +134,6 @@
     <ClCompile Include="..\Classes\common\PhysicsFactory.cpp" />
     <ClCompile Include="..\Classes\common\resource.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
-    <ClCompile Include="..\Classes\lua\LuaEngine.cpp" />
-    <ClCompile Include="..\Classes\lua\Physics.cpp" />
     <ClCompile Include="..\Classes\objects\Ally.cpp" />
     <ClCompile Include="..\Classes\objects\Bullet.cpp" />
     <ClCompile Include="..\Classes\objects\Stage.cpp" />
@@ -159,7 +159,6 @@
     <ClInclude Include="..\Classes\common\PhysicsFactory.h" />
     <ClInclude Include="..\Classes\common\resource.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
-    <ClInclude Include="..\Classes\lua\LuaEngine.h" />
     <ClInclude Include="..\Classes\objects\Ally.h" />
     <ClInclude Include="..\Classes\objects\AttackData.h" />
     <ClInclude Include="..\Classes\objects\Bullet.h" />
@@ -189,16 +188,19 @@
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\cocos\2d\cocos2d.vcxproj">
-      <Project>{98a51ba8-fc3a-415b-ac8f-8c7bd464e93e}</Project>
+    <ProjectReference Include="..\..\cocos2d\cocos\2d\libcocos2d.vcxproj">
+      <Project>{98A51BA8-FC3A-415B-AC8F-8C7BD464E93E}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>false</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\cocos\scripting\lua-bindings\proj.win32\liblua.vcxproj">
-      <Project>{ddc3e27f-004d-4dd4-9dd3-931a013d2159}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\external\chipmunk\proj.win32\chipmunk.vcxproj">
+    <!--
+    <ProjectReference Include="..\..\cocos2d\external\chipmunk\proj.win32\chipmunk.vcxproj">
       <Project>{207bc7a9-ccf1-4f2f-a04d-45f72242ae25}</Project>
     </ProjectReference>
+	-->
   </ItemGroup>
   <ItemGroup>
     <None Include="..\jsoncpp\src\lib_json\json_internalarray.inl" />
