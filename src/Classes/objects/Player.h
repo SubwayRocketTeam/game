@@ -6,7 +6,8 @@
 #include <string>
 
 #include "skill/Attribute.h"
-#include "skill/Skill.h"
+#include "skill/ActiveSkill.h"
+#include "skill/PassiveSkill.h"
 
 #include "Unit.h"
 #include "PartedBody.h"
@@ -16,6 +17,16 @@
 
 class Player : public Unit,
 	public MouseEventListener, public KeyboardEventListener{
+public:
+	enum SKillIndex{
+		skillMouseLeft =0,
+		skillMouseRight,
+		skillKeyboardQ,
+		skillKeyboardW,
+		skillKeyboardE,
+		skillKeyboardR,
+	};
+
 public:
 	static Player *create();
 	static Player *getInstance();
@@ -53,7 +64,8 @@ protected:
 
 protected:
 	std::map<std::string,Attribute> attrs;
-	std::map<int,Skill*> skills;
+	std::vector<ActiveSkill*> skills;
+	std::vector<PassiveSkill*> passives;
 
 	float speed;
 
