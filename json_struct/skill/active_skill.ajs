@@ -2,4 +2,8 @@ class ActiveSkillData
   int id;
   string name;
   string tooltip;
+  
+  float duration;
+  float cooltime;
+  float cost;
 end
