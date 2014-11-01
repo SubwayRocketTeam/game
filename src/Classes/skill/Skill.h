@@ -6,11 +6,14 @@
 
 #include <string>
 
+class SkillPool;
+
 class Skill : public cocos2d::Ref{
+	friend SkillPool;
 public:
-	static int id;
-	static std::string tooltip;
-	static std::string name;
+	int id;
+	std::string tooltip;
+	std::string name;
 
 protected:
 	virtual bool init(

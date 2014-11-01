@@ -6,14 +6,15 @@
 #include <string>
 
 #include "skill/Attribute.h"
-#include "skill/ActiveSkill.h"
-#include "skill/PassiveSkill.h"
 
 #include "Unit.h"
 #include "PartedBody.h"
 #include "Scarf.h"
 #include "MouseEventListener.h"
 #include "KeyboardEventListener.h"
+
+class PassiveSkill;
+class ActiveSkill;
 
 class Player : public Unit,
 	public MouseEventListener, public KeyboardEventListener{
@@ -28,12 +29,16 @@ public:
 	};
 
 public:
-	static Player *create();
+	static Player *create(
+		const std::string &name);
 	static Player *getInstance();
-    virtual bool init();
+    virtual bool init(
+		const std::string &name);
 
 protected:
 	virtual bool initPhysics();
+	virtual bool initExternalData(
+		const std::string &name);
 
 	void processRotation(
 		float x,float y);

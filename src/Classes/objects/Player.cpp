@@ -5,6 +5,12 @@
 
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
+#include "common/JsonLoader.h"
+
+#include "skill/PassiveSkill.h"
+#include "skill/ActiveSkill.h"
+#include "skill/SkillPool.h"
+#include "skill/id.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -17,12 +23,14 @@ Player::Player() :
 Player::~Player(){
 }
 
-Player *Player::create(){
+Player *Player::create(
+	const string &name){
+
 	CC_ASSERT(instance == nullptr);
 
 	instance = new Player();
 	
-	if(instance && instance->init()){
+	if(instance && instance->init(name)){
 		instance->autorelease();
 		return instance;
 	}
@@ -35,9 +43,13 @@ Player *Player::getInstance(){
 	return instance;
 }
 
-bool Player::init(){
+bool Player::init(
+	const string &name){
+
 	if (!Unit::initWithPartedBody(R::PlayerBody))
         return false;
+	if(!initExternalData(name))
+		return false;
 
 	enableMouseInput(this);
 	enableKeyboardInput(this);
@@ -62,6 +74,17 @@ bool Player::initPhysics(){
 	//}
 	
 	return false;
+}
+bool Player::initExternalData(
+	const string &name){
+
+	auto pool = SkillPool::getInstance();
+
+	auto s = (ActiveSkill*)pool->get(skillSlash);
+
+	skills.push_back(s);
+
+	return true;
 }
 
 void Player::processRotation(

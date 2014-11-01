@@ -2,14 +2,15 @@
 
 #include "cocos2d.h"
 
-#include "objects/Unit.h"
 #include "Skill.h"
+
+class Unit;
 
 class ActiveSkill : public Skill{
 public:
-	static float duration;
-	static float cooltime;
-	static float cost;
+	float duration;
+	float cooltime;
+	float cost;
 
 public:
 	virtual void use(

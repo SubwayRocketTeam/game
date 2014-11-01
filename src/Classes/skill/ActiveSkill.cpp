@@ -1,13 +1,11 @@
 #include "ActiveSkill.h"
 
+#include "objects/Unit.h"
+
 using namespace std;
 using namespace cocos2d;
 
-float ActiveSkill::duration = 0;
-float ActiveSkill::cooltime = 0;
-float ActiveSkill::cost = 0;
-
-void use(
+void ActiveSkill::use(
 	Unit *u,
 	cocos2d::Vec2 pos){
 
@@ -20,6 +18,10 @@ bool ActiveSkill::initExternalData(
 
 	if(!Skill::initExternalData(dataPath))
 		return false;
+
+	duration = json.get("duration",0).asFloat();
+	cooltime = json.get("cooltime",0).asFloat();
+	cost = json.get("cost",0).asFloat();
 
 	return true;
 }
