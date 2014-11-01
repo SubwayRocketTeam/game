@@ -1,5 +1,10 @@
 # Game
 
+Pull 할 때 주의사항
+----
+cocos2d submodule을 처음 받았을 때 꼭 download-deps.py를 실행할 것.
+
+
 ToDo List
 ----
 * 공격, 스킬의 처리
