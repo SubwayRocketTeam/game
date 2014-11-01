@@ -3,7 +3,8 @@
 using namespace std;
 using namespace cocos2d;
 
-Scarf::Scarf(){
+Scarf::Scarf() :
+	angle(0){
 }
 Scarf::~Scarf(){
 }
