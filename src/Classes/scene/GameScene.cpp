@@ -35,10 +35,7 @@ bool GameScene::init(){
 	addChild(stage);
 
 	auto pool = EnemyPool::create();
-	auto spawner = EnemySpawner::create();
-
 	addChild(pool);
-	addChild(spawner);
 
 	player = Player::create();
 
