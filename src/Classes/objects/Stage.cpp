@@ -1,6 +1,7 @@
 #include "Stage.h"
 
 #include "objects/Player.h"
+#include "objects/EnemySpawner.h"
 #include "common/resource.h"
 
 #include "common/JsonLoader.h"
@@ -33,7 +34,7 @@ bool Stage::init(){
 
 
 	floor = Sprite::create(R::StageFloor);
-	addChild(floor);
+	addChild(floor, -1);
 
 	enableMouseInput(this);
 	scheduleUpdate();
@@ -47,20 +48,48 @@ bool Stage::initExternalData(){
 	if(!JsonLoader::load(R::StageJson, root))
 		return false;
 
+	/* map id */
 	id = root.get("id", -1).asInt();
 	if(id == -1)
 		return false;
 	
+	/* object array */
 	objects = root.get("objects", -1);
 	if(objects == -1)
 		return false;
-
+	/* each object */
 	for(auto object : objects){
-		string objectId =
+		string name =
 			object.get("id", string::npos).asString();
-
-		printf("%s\n", objectId.c_str());
+		int x = object.get("x", 0).asInt();
+		int y = object.get("y", 0).asInt();
+		
+		if(!initObject(name, x,y))
+			return false;
 	}
+
+	return true;
+}
+bool Stage::initObject(
+	const string &name,
+	int x,int y){
+
+	Node *node = nullptr;
+
+	if(name == "spawn"){
+		node = EnemySpawner::create();
+	}
+	else if(name == "light")
+		node = Node::create(); /* replace me */
+	else if(name == "shop")
+		node = Node::create(); /* replace me */
+	else{
+		cocos2d::log("unknown object");
+		return false;
+	}
+
+	node->setPosition(x,y);
+	addChild(node);
 
 	return true;
 }

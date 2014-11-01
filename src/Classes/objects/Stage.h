@@ -13,6 +13,9 @@ public:
 
 protected:
 	bool initExternalData();
+	bool initObject(
+		const std::string &name,
+		int x,int y);
 	virtual void update(
 		float dt);
 
