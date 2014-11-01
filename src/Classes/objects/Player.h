@@ -2,6 +2,11 @@
 
 #include "cocos2d.h"
 
+#include <map>
+#include <string>
+
+#include "skill/Attribute.h"
+
 #include "Unit.h"
 #include "PartedBody.h"
 #include "Scarf.h"
@@ -46,6 +51,8 @@ protected:
 	virtual ~Player();
 
 protected:
+	std::map<std::string,Attribute> attrs;
+
 	float speed;
 
 	Scarf *scarf;
