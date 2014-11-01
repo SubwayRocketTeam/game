@@ -1,0 +1,5 @@
+class ActiveSkillData
+  int id;
+  string name;
+  string tooltip;
+end
