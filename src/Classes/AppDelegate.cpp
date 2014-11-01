@@ -1,9 +1,5 @@
 #include "AppDelegate.h"
-
-#include <vector>
-#include <string>
-
-#include "AppMacros.h"
+#include "Compat.h"
 
 #include "scene/GameScene.h"
 #include "common/PhysicsFactory.h"
