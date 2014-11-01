@@ -1,0 +1,11 @@
+class PassiveSkillData
+  int id;
+  string name;
+  string tooltip;
+  
+  vector<class Bonus
+    string target;
+    float value;
+    float rate;
+  > bonus;
+end
