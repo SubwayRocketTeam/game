@@ -2,7 +2,6 @@
 
 ToDo List
 ----
-* cocos2d-x-custom 서브모듈로 import
 * 공격, 스킬의 처리
 * 몹 스폰의 처리
 
