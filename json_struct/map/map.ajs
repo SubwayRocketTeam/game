@@ -1,0 +1,14 @@
+class MapData
+  int id;
+  
+  vector<class Object
+    string name;
+    int x;
+    int y;
+  end> objects;
+  
+  vector<class Point
+    int x;
+    int y;
+  end> spawn;
+end
