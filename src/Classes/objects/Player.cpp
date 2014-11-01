@@ -142,6 +142,7 @@ void Player::processAttack(
 	int btn, float x,float y){
 
 	if(btn == MOUSE_BUTTON_LEFT){
+		skills[skillMouseLeft]->use(this, Vec2(x,y));
 	}
 	else if(btn == MOUSE_BUTTON_RIGHT){
 	}
