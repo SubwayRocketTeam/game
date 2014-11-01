@@ -23,8 +23,6 @@ public:
 
 	void pushRotation(
 		float angle);
-	void pushDirection(
-		cocos2d::Vec2 direction);
 
 protected:
 	Scarf();
@@ -34,7 +32,6 @@ protected:
 
 protected:
 	ScarfNode scarfNode[Segments];
-	cocos2d::Vec2 direction;
 
 	float angle;
 };

@@ -78,12 +78,6 @@ void Player::processRotation(
 	double degree = (rad*180)/M_PI;
 
 	body->setRotation(-degree + 90);
-	//scarf->setRotation(-degree + 90);
-
-	auto delta = Vec2(x,y) - worldPos;
-	auto deltaN = delta.getNormalized();
-
-	scarf->pushDirection(deltaN);
 	scarf->pushRotation(degree + 90);
 }
 void Player::processEyeline(

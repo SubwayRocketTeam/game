@@ -27,7 +27,6 @@ bool Scarf::init(){
 		scarfNode[i].point = Vec2(i*Length, 0);
 		scarfNode[i].tail = Vec2(1, 0);
 	}
-	direction.set(1,0);
 
 	scheduleUpdate();
 	return true;
@@ -82,9 +81,4 @@ void Scarf::pushRotation(
 	float _angle){
 
 	angle = _angle;
-}
-void Scarf::pushDirection(
-	Vec2 _direction){
-
-	direction = _direction;
 }
