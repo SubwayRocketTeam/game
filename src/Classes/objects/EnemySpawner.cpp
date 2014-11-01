@@ -32,11 +32,9 @@ bool EnemySpawner::init(){
 void EnemySpawner::spawn(){
 	auto pool = EnemyPool::getInstance();
 
-	for(int i=0;i<20;i++){
-		Enemy *e = Enemy::create();
+	Enemy *e = Enemy::create();
+	e->setPosition(
+		getPosition());
 
-		e->setPosition(Vec2(rand()%800, rand()%600));
-
-		pool->push(e);
-	}
+	pool->push(e);
 }
