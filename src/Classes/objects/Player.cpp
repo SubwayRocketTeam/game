@@ -82,9 +82,6 @@ void Player::processRotation(
 
 	auto delta = Vec2(x,y) - worldPos;
 	auto deltaN = delta.getNormalized();
-	printf("%f %f / %f %f\n",
-		delta.x, delta.y,
-		deltaN.x, deltaN.y);
 
 	scarf->pushDirection(deltaN);
 	scarf->pushRotation(degree + 90);
