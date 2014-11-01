@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Enemy.h"
 
 #include "common/resource.h"

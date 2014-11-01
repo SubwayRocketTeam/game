@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Player.h"
 
 #include "EnemyPool.h"
@@ -24,13 +25,13 @@ Player::~Player(){
 }
 
 Player *Player::create(
-	const string &name){
+	const string &dataPath){
 
 	CC_ASSERT(instance == nullptr);
 
 	instance = new Player();
 	
-	if(instance && instance->init(name)){
+	if(instance && instance->init(dataPath)){
 		instance->autorelease();
 		return instance;
 	}
@@ -44,11 +45,11 @@ Player *Player::getInstance(){
 }
 
 bool Player::init(
-	const string &name){
+	const string &dataPath){
 
 	if (!Unit::initWithPartedBody(R::PlayerBody))
         return false;
-	if(!initExternalData(name))
+	if(!initExternalData(dataPath))
 		return false;
 
 	enableMouseInput(this);
@@ -76,13 +77,34 @@ bool Player::initPhysics(){
 	return false;
 }
 bool Player::initExternalData(
-	const string &name){
+	const string &dataPath){
+
+	Json::Value root;
+	if(!JsonLoader::load(dataPath,root)){
+		printf("loadfilae\n");
+		return false;
+	}
+
+	/* attr */
+	auto attrList = root.get("attrs", Json::Value::null);
+	if(attrList.isNull())
+		return false;
+
+	/* incr */
+	auto incrList = root.get("incrs", Json::Value::null);
+	if(incrList.isNull())
+		return false;
+
+	/* skill list */
+	auto skillList = root.get("skills", Json::Value::null);
+	if(skillList.isNull())
+		return false;
 
 	auto pool = SkillPool::getInstance();
-
-	auto s = (ActiveSkill*)pool->get(skillSlash);
-
-	skills.push_back(s);
+	for(auto skill : skillList){
+		skills.push_back(
+			(ActiveSkill*)pool->get(skill.asInt()));
+	}
 
 	return true;
 }

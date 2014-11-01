@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Skill.h"
 
 #include "common/JsonLoader.h"

@@ -40,12 +40,12 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\cocos2d\cocos\2d\cocos2dx.props" />
-    <Import Project="..\..\cocos2d\cocos\2d\cocos2d_headers.props" />
+    <Import Project="..\..\..\cocos\2d\cocos2dx.props" />
+    <Import Project="..\..\..\cocos\2d\cocos2d_headers.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="..\..\cocos2d\cocos\2d\cocos2dx.props" />
-    <Import Project="..\..\cocos2d\cocos\2d\cocos2d_headers.props" />
+    <Import Project="..\..\..\cocos\2d\cocos2dx.props" />
+    <Import Project="..\..\..\cocos\2d\cocos2d_headers.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -65,8 +65,6 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
-    <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSdk_71A_ExecutablePath);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
-    <IncludePath>$(ProjectDir)..\Classes;$(ProjectDir)..\jsoncpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
@@ -107,11 +105,12 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalOptions>-Zm134 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>libcocos2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -133,7 +132,6 @@
     <ClCompile Include="..\Classes\common\JsonLoader.cpp" />
     <ClCompile Include="..\Classes\common\PhysicsFactory.cpp" />
     <ClCompile Include="..\Classes\common\resource.cpp" />
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\objects\Ally.cpp" />
     <ClCompile Include="..\Classes\objects\Bullet.cpp" />
     <ClCompile Include="..\Classes\objects\Stage.cpp" />
@@ -146,19 +144,35 @@
     <ClCompile Include="..\Classes\objects\Player.cpp" />
     <ClCompile Include="..\Classes\objects\Scarf.cpp" />
     <ClCompile Include="..\Classes\objects\Unit.cpp" />
+    <ClCompile Include="..\Classes\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pch.h</PrecompiledHeaderFile>
+    </ClCompile>
     <ClCompile Include="..\Classes\scene\GameScene.cpp" />
-    <ClCompile Include="..\jsoncpp\src\lib_json\json_reader.cpp" />
-    <ClCompile Include="..\jsoncpp\src\lib_json\json_value.cpp" />
-    <ClCompile Include="..\jsoncpp\src\lib_json\json_writer.cpp" />
+    <ClCompile Include="..\Classes\skill\ActiveSkill.cpp" />
+    <ClCompile Include="..\Classes\skill\Attribute.cpp" />
+    <ClCompile Include="..\Classes\skill\PassiveSkill.cpp" />
+    <ClCompile Include="..\Classes\skill\Skill.cpp" />
+    <ClCompile Include="..\Classes\skill\SkillPool.cpp" />
+    <ClCompile Include="..\Classes\skill\type1\Slash.cpp" />
+    <ClCompile Include="..\Classes\util\Random.cpp" />
+    <ClCompile Include="..\jsoncpp\src\lib_json\json_reader.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\jsoncpp\src\lib_json\json_value.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\jsoncpp\src\lib_json\json_writer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
-    <ClInclude Include="..\Classes\AppMacros.h" />
     <ClInclude Include="..\Classes\common\JsonLoader.h" />
     <ClInclude Include="..\Classes\common\PhysicsFactory.h" />
     <ClInclude Include="..\Classes\common\resource.h" />
-    <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\Compat.h" />
     <ClInclude Include="..\Classes\objects\Ally.h" />
     <ClInclude Include="..\Classes\objects\AttackData.h" />
     <ClInclude Include="..\Classes\objects\Bullet.h" />
@@ -172,7 +186,16 @@
     <ClInclude Include="..\Classes\objects\Player.h" />
     <ClInclude Include="..\Classes\objects\Scarf.h" />
     <ClInclude Include="..\Classes\objects\Unit.h" />
+    <ClInclude Include="..\Classes\pch.h" />
     <ClInclude Include="..\Classes\scene\GameScene.h" />
+    <ClInclude Include="..\Classes\skill\ActiveSkill.h" />
+    <ClInclude Include="..\Classes\skill\Attribute.h" />
+    <ClInclude Include="..\Classes\skill\id.h" />
+    <ClInclude Include="..\Classes\skill\PassiveSkill.h" />
+    <ClInclude Include="..\Classes\skill\Skill.h" />
+    <ClInclude Include="..\Classes\skill\SkillPool.h" />
+    <ClInclude Include="..\Classes\skill\type1\Slash.h" />
+    <ClInclude Include="..\Classes\util\Random.h" />
     <ClInclude Include="..\jsoncpp\include\json\assertions.h" />
     <ClInclude Include="..\jsoncpp\include\json\autolink.h" />
     <ClInclude Include="..\jsoncpp\include\json\config.h" />
@@ -188,19 +211,16 @@
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\cocos2d\cocos\2d\libcocos2d.vcxproj">
-      <Project>{98A51BA8-FC3A-415B-AC8F-8C7BD464E93E}</Project>
+    <ProjectReference Include="..\..\..\cocos\2d\cocos2d.vcxproj">
+      <Project>{98a51ba8-fc3a-415b-ac8f-8c7bd464e93e}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <Private>false</Private>
-      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
-      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
-    <!--
-    <ProjectReference Include="..\..\cocos2d\external\chipmunk\proj.win32\chipmunk.vcxproj">
+    <ProjectReference Include="..\..\..\cocos\scripting\lua-bindings\proj.win32\liblua.vcxproj">
+      <Project>{ddc3e27f-004d-4dd4-9dd3-931a013d2159}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\external\chipmunk\proj.win32\chipmunk.vcxproj">
       <Project>{207bc7a9-ccf1-4f2f-a04d-45f72242ae25}</Project>
     </ProjectReference>
-	-->
   </ItemGroup>
   <ItemGroup>
     <None Include="..\jsoncpp\src\lib_json\json_internalarray.inl" />

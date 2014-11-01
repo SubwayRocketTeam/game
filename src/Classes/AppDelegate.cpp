@@ -1,8 +1,11 @@
+#include "pch.h"
 #include "AppDelegate.h"
 #include "Compat.h"
 
 #include "scene/GameScene.h"
 #include "common/PhysicsFactory.h"
+
+#include "skill/SkillPool.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -20,6 +23,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
 
+	SkillPool::create();
 	PhysicsFactory::create();
 
 	glview->setDesignResolutionSize(

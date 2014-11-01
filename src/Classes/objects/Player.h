@@ -30,15 +30,15 @@ public:
 
 public:
 	static Player *create(
-		const std::string &name);
+		const std::string &dataPath);
 	static Player *getInstance();
     virtual bool init(
-		const std::string &name);
+		const std::string &dataPath);
 
 protected:
 	virtual bool initPhysics();
 	virtual bool initExternalData(
-		const std::string &name);
+		const std::string &dataPath);
 
 	void processRotation(
 		float x,float y);

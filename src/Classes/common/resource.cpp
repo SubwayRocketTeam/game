@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "resource.h"
 
 namespace R{
@@ -8,4 +9,6 @@ namespace R{
 	_RESD(StageJson, "stage.json");
 
 	_RESD(EnemySpawner, "bang.png");
+
+	_RESD(SkillList, "skills.json");
 }

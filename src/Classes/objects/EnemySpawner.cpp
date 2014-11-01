@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "EnemySpawner.h"
 
 #include "common/resource.h"

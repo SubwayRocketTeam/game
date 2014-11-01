@@ -34,9 +34,6 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>source</Filter>
     </ClCompile>
@@ -66,6 +63,30 @@
     </ClCompile>
     <ClCompile Include="..\Classes\common\JsonLoader.cpp">
       <Filter>source\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\Random.cpp">
+      <Filter>source\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\ActiveSkill.cpp">
+      <Filter>source\skill\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\Attribute.cpp">
+      <Filter>source\skill\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\PassiveSkill.cpp">
+      <Filter>source\skill\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\Skill.cpp">
+      <Filter>source\skill\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\type1\Slash.cpp">
+      <Filter>source\skill\type1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\SkillPool.cpp">
+      <Filter>source\skill\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\pch.cpp">
+      <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,12 +121,6 @@
       <Filter>source\object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\AppMacros.h">
-      <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
@@ -168,6 +183,36 @@
     <ClInclude Include="..\Classes\common\JsonLoader.h">
       <Filter>source\common</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Compat.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\Random.h">
+      <Filter>source\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\ActiveSkill.h">
+      <Filter>source\skill\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\Attribute.h">
+      <Filter>source\skill\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\PassiveSkill.h">
+      <Filter>source\skill\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\Skill.h">
+      <Filter>source\skill\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\type1\Slash.h">
+      <Filter>source\skill\type1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\SkillPool.h">
+      <Filter>source\skill\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\id.h">
+      <Filter>source\skill\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\pch.h">
+      <Filter>source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">
@@ -190,6 +235,18 @@
     </Filter>
     <Filter Include="jsoncpp">
       <UniqueIdentifier>{58b6fc83-9927-43c5-bcff-156a2ca75c64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\skill">
+      <UniqueIdentifier>{f9f5925b-5959-4352-97d1-a612a23d15e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\util">
+      <UniqueIdentifier>{f199e76c-c9d1-4627-9712-cc101ff99708}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\skill\base">
+      <UniqueIdentifier>{3f04a830-a0e8-485d-a71d-801d5f9da8b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\skill\type1">
+      <UniqueIdentifier>{f55e68ab-04be-464d-ac94-9a9e935edb10}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

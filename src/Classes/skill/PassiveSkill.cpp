@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "PassiveSkill.h"
 
 using namespace std;

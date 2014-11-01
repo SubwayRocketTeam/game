@@ -15,4 +15,6 @@ namespace R{
 	_RESL(StageJson);
 
 	_RESL(EnemySpawner);
+
+	_RESL(SkillList);
 };

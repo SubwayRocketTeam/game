@@ -1,5 +1,5 @@
+#include "pch.h"
 #include "GameScene.h"
-#include "AppMacros.h"
 
 #include "objects/Stage.h"
 #include "objects/Player.h"
@@ -17,14 +17,14 @@ Scene* GameScene::scene(){
 		PhysicsWorld::DEBUGDRAW_NONE);
 	world->setGravity(Vec2(0,0));
 
-	GameScene *layer = GameScene::create();
-	scene->addChild(layer);
-	return scene;
+    GameScene *layer = GameScene::create();
+    scene->addChild(layer);
+    return scene;
 }
 
 bool GameScene::init(){
-	if (!Layer::init())
-		return false;
+    if (!Layer::init())
+        return false;
 
 	auto director = Director::getInstance();
 	auto visibleSize = director->getVisibleSize();
@@ -37,7 +37,7 @@ bool GameScene::init(){
 	auto pool = EnemyPool::create();
 	addChild(pool);
 
-	player = Player::create();
+	player = Player::create("type1.json");
 
 	player->setPosition(
 		Vec2(100,100));
@@ -45,7 +45,7 @@ bool GameScene::init(){
 
 	scheduleUpdate();
 
-	return true;
+    return true;
 }
 
 void GameScene::update(
