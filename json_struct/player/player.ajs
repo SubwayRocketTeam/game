@@ -1,0 +1,11 @@
+class PlayerData
+  string name;
+  
+  vector<class Attr
+    string target;
+    float value;
+  end> attrs;
+  vector<Attr> incrs;
+  
+  vector<int> skills;
+end
