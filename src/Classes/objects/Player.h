@@ -6,6 +6,7 @@
 #include <string>
 
 #include "skill/Attribute.h"
+#include "skill/Skill.h"
 
 #include "Unit.h"
 #include "PartedBody.h"
@@ -52,6 +53,7 @@ protected:
 
 protected:
 	std::map<std::string,Attribute> attrs;
+	std::map<int,Skill*> skills;
 
 	float speed;
 
