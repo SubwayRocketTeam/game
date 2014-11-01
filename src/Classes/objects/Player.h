@@ -8,6 +8,8 @@
 #include "MouseEventListener.h"
 #include "KeyboardEventListener.h"
 
+class Cursor;
+
 class Player : public Unit,
 	public MouseEventListener, public KeyboardEventListener{
 public:
@@ -52,4 +54,6 @@ protected:
 
 	cocos2d::DrawNode *lay;
 	cocos2d::Vec2 cursor;
+
+	Cursor* mouseCursor;
 };

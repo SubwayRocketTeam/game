@@ -65,6 +65,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\cocos2d-x\game\src\jsoncpp\include;C:\cocos2d-x\external\lua\lua;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
@@ -147,6 +148,7 @@
     <ClCompile Include="..\Classes\objects\Scarf.cpp" />
     <ClCompile Include="..\Classes\objects\Unit.cpp" />
     <ClCompile Include="..\Classes\scene\GameScene.cpp" />
+    <ClCompile Include="..\Classes\ui\Cursor.cpp" />
     <ClCompile Include="..\jsoncpp\src\lib_json\json_reader.cpp" />
     <ClCompile Include="..\jsoncpp\src\lib_json\json_value.cpp" />
     <ClCompile Include="..\jsoncpp\src\lib_json\json_writer.cpp" />
@@ -174,6 +176,7 @@
     <ClInclude Include="..\Classes\objects\Scarf.h" />
     <ClInclude Include="..\Classes\objects\Unit.h" />
     <ClInclude Include="..\Classes\scene\GameScene.h" />
+    <ClInclude Include="..\Classes\ui\Cursor.h" />
     <ClInclude Include="..\jsoncpp\include\json\assertions.h" />
     <ClInclude Include="..\jsoncpp\include\json\autolink.h" />
     <ClInclude Include="..\jsoncpp\include\json\config.h" />

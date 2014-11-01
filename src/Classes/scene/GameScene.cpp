@@ -7,6 +7,8 @@
 #include "objects/EnemySpawner.h"
 #include "objects/EnemyPool.h"
 
+#include "ui/cursor.h"
+
 using namespace cocos2d;
 
 Scene* GameScene::scene(){
@@ -46,6 +48,9 @@ bool GameScene::init(){
 		Vec2(100,100));
 	stage->addChild(player);
 
+	cursor = Cursor::getInstance("bang.png");
+	this->addChild(cursor);
+
 	scheduleUpdate();
 
     return true;
@@ -53,6 +58,5 @@ bool GameScene::init(){
 
 void GameScene::update(
 	float dt){
-
-	
+	cursor->update(dt);
 }
