@@ -2,6 +2,8 @@
 
 #include "cocos2d.h"
 
+#include <vector>
+
 class BodyAnimation;
 
 class PartedBody : public cocos2d::Sprite{
@@ -28,6 +30,9 @@ public:
 
 	cocos2d::Vec2 getHeadPosition();
 
+	std::vector<cocos2d::Sprite*>::iterator begin();
+	std::vector<cocos2d::Sprite*>::iterator end();
+
 protected:
 	PartedBody();
 	virtual ~PartedBody();
@@ -37,7 +42,7 @@ protected:
 protected:
 	int partNum;
 
-	cocos2d::Sprite* body[MaxParts];
-	cocos2d::Texture2D* bodyTexture[MaxParts];
-	cocos2d::Animation* runningAnimation[MaxParts];
+	std::vector<cocos2d::Sprite*> body;
+	std::vector<cocos2d::Texture2D*> bodyTexture;
+	std::vector<cocos2d::Animation*> runningAnimation;
 };

@@ -5,10 +5,10 @@
 using namespace std;
 using namespace cocos2d;
 
-PartedBody::PartedBody() :partNum(0){
-	ZeroMemory(body, sizeof(body));
-	ZeroMemory(bodyTexture, sizeof(bodyTexture));
-	ZeroMemory(runningAnimation, sizeof(runningAnimation));
+PartedBody::PartedBody() :
+	partNum(0),
+	body(MaxParts), bodyTexture(MaxParts),
+	runningAnimation(MaxParts){
 }
 PartedBody::~PartedBody(){
 }
@@ -160,4 +160,11 @@ void PartedBody::stopAllAnimation()
 {
 	for (int i = 0; i <= partNum; ++i)
 		stopAnimation(i);
+}
+
+vector<Sprite*>::iterator PartedBody::begin(){
+	return body.begin();
+}
+vector<Sprite*>::iterator PartedBody::end(){
+	return body.end();
 }
