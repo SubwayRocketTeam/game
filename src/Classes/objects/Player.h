@@ -79,6 +79,4 @@ protected:
 
 	cocos2d::DrawNode *lay;
 	cocos2d::Vec2 cursor;
-
-	Cursor* mouseCursor;
 };

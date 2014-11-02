@@ -126,6 +126,10 @@ void PartedBody::setRotation(
 	}
 }
 
+Vec2 PartedBody::getHeadPosition(){
+	return body[0]->getPosition();
+}
+
 
 void PartedBody::runAnimation(BodyAnimation* const animation)
 {

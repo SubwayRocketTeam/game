@@ -45,8 +45,8 @@ bool GameScene::init(){
 		Vec2(100,100));
 	stage->addChild(player);
 
-	cursor = Cursor::getInstance("bang.png");
-	this->addChild(cursor);
+	cursor = Cursor::getInstance();
+	addChild(cursor);
 
 	scheduleUpdate();
 
@@ -55,5 +55,4 @@ bool GameScene::init(){
 
 void GameScene::update(
 	float dt){
-	cursor->update(dt);
 }

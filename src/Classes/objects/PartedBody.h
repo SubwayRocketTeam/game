@@ -26,6 +26,8 @@ public:
 	void stopAnimation(const int id);
 	void stopAllAnimation();
 
+	cocos2d::Vec2 getHeadPosition();
+
 protected:
 	PartedBody();
 	virtual ~PartedBody();

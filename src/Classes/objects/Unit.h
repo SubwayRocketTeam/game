@@ -26,17 +26,19 @@ public:
 	static Unit *create(
 		const std::string &image, const int part);
 
+	void enableDebug();
+
+	PartedBody *getBody();
+
+protected:
+	Unit();
+	virtual ~Unit();
+
 	virtual bool init();
 	virtual bool init(
 		const std::string &image);
 	virtual bool init(
 		const std::string &prefix, const int part);
-
-	void enableDebug();
-
-protected:
-	Unit();
-	virtual ~Unit();
 
 	virtual bool initPhysics();
 	void updateDebug(

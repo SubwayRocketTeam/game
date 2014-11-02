@@ -63,8 +63,6 @@ bool Player::init(
 	scarf = Scarf::create();
 	addChild(scarf);
 
-	mouseCursor = Cursor::getInstance("bang.png");
-
 	return true;
 }
 bool Player::initPhysics(){
@@ -129,7 +127,6 @@ void Player::processRotation(
 	double degree = (rad*180)/M_PI;
 
 	body->setRotation(-degree + 90);
-	mouseCursor->setRotation(-degree);
 	scarf->pushRotation(degree + 90);
 }
 void Player::processEyeline(
@@ -220,9 +217,6 @@ void Player::onMouseMove(
 
 	processEyeline(x,y);
 	processRotation(x,y);
-
-	mouseCursor->setPosition(x, y);
-	cursor.set(x,y);
 }
 void Player::onMouseDown(
 	int btn, float x,float y){
