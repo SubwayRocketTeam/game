@@ -18,12 +18,12 @@ AppDelegate::~AppDelegate() {
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
-    auto director = Director::getInstance();
-    auto glview = director->getOpenGLView();
-    if(!glview) {
-        glview = GLViewImpl::create("Cpp Empty Test");
-        director->setOpenGLView(glview);
-    }
+	auto director = Director::getInstance();
+	auto glview = director->getOpenGLView();
+	if(!glview) {
+		glview = GLViewImpl::create("Cpp Empty Test");
+		director->setOpenGLView(glview);
+	}
 
 	SkillPool::create();
 	PhysicsFactory::create();
@@ -45,8 +45,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 }
 
 void AppDelegate::applicationDidEnterBackground() {
-    Director::getInstance()->stopAnimation();
+	Director::getInstance()->stopAnimation();
 }
 void AppDelegate::applicationWillEnterForeground() {
-    Director::getInstance()->startAnimation();
+	Director::getInstance()->startAnimation();
 }
