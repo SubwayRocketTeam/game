@@ -1,10 +1,12 @@
 #include "pch.h"
 #include "FrontDash.h"
-#include "objects/PartedBody.h"
 
-#include "common/resource.h"
+#include "objects/PartedBody.h"
 #include "objects/Unit.h"
 #include "objects/Afterimage.h"
+#include "common/resource.h"
+
+#include "ui/StatusConsole.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -12,6 +14,9 @@ using namespace cocos2d;
 void FrontDash::use(
 	Unit *u,
 	cocos2d::Vec2 pos){
+
+	auto console = StatusConsole::getInstance();
+	console->output("use front dash");
 
 	float angle = u->getBody()->getRotation();
 	Vec2 foward = 

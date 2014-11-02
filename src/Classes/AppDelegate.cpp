@@ -8,6 +8,7 @@
 #include "skill/SkillPool.h"
 
 #include "ui/Cursor.h"
+#include "ui/StatusConsole.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -25,6 +26,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 		director->setOpenGLView(glview);
 	}
 
+	StatusConsole::create();
 	SkillPool::create();
 	PhysicsFactory::create();
 	Cursor::create();

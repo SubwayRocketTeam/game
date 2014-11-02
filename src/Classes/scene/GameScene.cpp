@@ -8,6 +8,7 @@
 #include "objects/EnemyPool.h"
 
 #include "ui/cursor.h"
+#include "ui/StatusConsole.h"
 
 using namespace cocos2d;
 
@@ -43,10 +44,14 @@ bool GameScene::init(){
 
 	player->setPosition(
 		Vec2(100,100));
-	stage->addChild(player);
+	stage->addChild(player, 1);
 
 	cursor = Cursor::getInstance();
 	addChild(cursor);
+
+	auto console = StatusConsole::create();
+	console->setPosition(Vec2(50,0));
+	addChild(console);
 
 	scheduleUpdate();
 
