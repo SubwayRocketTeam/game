@@ -33,14 +33,14 @@ public:
 	static Player *create(
 		const std::string &dataPath);
 	static Player *getInstance();
-	virtual bool init(
-		const std::string &dataPath);
 
 	bool useSkill(
 		SKillIndex index,
 		float x,float y);
 
 protected:
+	virtual bool init(
+		const std::string &dataPath);
 	virtual bool initPhysics();
 	virtual bool initExternalData(
 		const std::string &dataPath);
