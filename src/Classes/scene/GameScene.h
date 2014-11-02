@@ -4,6 +4,7 @@
 
 class Player;
 class Stage;
+class Cursor;
 
 class GameScene : public cocos2d::Layer{
 public:
@@ -18,4 +19,5 @@ public:
 private:
 	Player *player;
 	Stage *stage;
+	Cursor *cursor;
 };

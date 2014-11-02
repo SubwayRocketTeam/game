@@ -4,6 +4,7 @@
 #include "EnemyPool.h"
 #include "Bullet.h"
 
+#include "ui/cursor.h"
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
 #include "common/JsonLoader.h"
@@ -62,6 +63,8 @@ bool Player::init(
 	scarf = Scarf::create();
 	addChild(scarf);
 
+	mouseCursor = Cursor::getInstance("bang.png");
+
     return true;
 }
 bool Player::initPhysics(){
@@ -115,7 +118,7 @@ bool Player::initExternalData(
 void Player::processRotation(
 	float x,float y){
 
-	auto screenSize = Director::getInstance()->getWinSize();
+	//auto screenSize = Director::getInstance()->getWinSize();
 	auto worldPos =
 		getParent()->convertToWorldSpace(getPosition());
 	auto half = worldPos / 2;
@@ -126,6 +129,7 @@ void Player::processRotation(
 	double degree = (rad*180)/M_PI;
 
 	body->setRotation(-degree + 90);
+	mouseCursor->setRotation(-degree);
 	scarf->pushRotation(degree + 90);
 }
 void Player::processEyeline(
@@ -217,6 +221,7 @@ void Player::onMouseMove(
 	processEyeline(x,y);
 	processRotation(x,y);
 
+	mouseCursor->setPosition(x, y);
 	cursor.set(x,y);
 }
 void Player::onMouseDown(

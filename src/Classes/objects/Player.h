@@ -15,6 +15,7 @@
 
 class PassiveSkill;
 class ActiveSkill;
+class Cursor;
 
 class Player : public Unit,
 	public MouseEventListener, public KeyboardEventListener{
@@ -78,4 +79,6 @@ protected:
 
 	cocos2d::DrawNode *lay;
 	cocos2d::Vec2 cursor;
+
+	Cursor* mouseCursor;
 };
