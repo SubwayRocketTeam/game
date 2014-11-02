@@ -9,12 +9,12 @@ Sprite::create(R::Player); /* O */
 #### common/resource.h
 ```C++
 namespace R{
-  _RESD(Player);
+  _RESL(Player);
 };
 ```
 #### common/resource.cpp
 ```C++
 namespace R{
-  _RESL(Player, "player.png");
+  _RESD(Player, "player.png");
 };
 ```
