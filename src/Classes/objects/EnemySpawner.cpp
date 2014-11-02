@@ -27,7 +27,7 @@ bool EnemySpawner::init(){
 	if(!Unit::init(R::EnemySpawner))
 		return false;
 
-    return true;
+	return true;
 }
 
 void EnemySpawner::spawn(){

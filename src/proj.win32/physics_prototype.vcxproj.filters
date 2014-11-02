@@ -91,8 +91,8 @@
     <ClCompile Include="..\Classes\ui\Cursor.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\animation\BodyAnimation.cpp">
-      <Filter>source\animation</Filter>
+    <ClCompile Include="..\Classes\objects\BodyAnimation.cpp">
+      <Filter>source\object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -222,8 +222,8 @@
     <ClInclude Include="..\Classes\ui\Cursor.h">
       <Filter>source\ui</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\animation\BodyAnimation.h">
-      <Filter>source\animation</Filter>
+    <ClInclude Include="..\Classes\objects\BodyAnimation.h">
+      <Filter>source\object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -262,9 +262,6 @@
     </Filter>
     <Filter Include="source\ui">
       <UniqueIdentifier>{ef9086b4-25ab-4032-ae43-c38c44289a9e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\animation">
-      <UniqueIdentifier>{c99f2d44-ea05-41cf-8947-7ca376195498}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

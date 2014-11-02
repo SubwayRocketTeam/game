@@ -48,8 +48,8 @@ Player *Player::getInstance(){
 bool Player::init(
 	const string &dataPath){
 
-	if (!Unit::initWithPartedBody(R::PlayerBody))
-        return false;
+	if (!Unit::init(R::PlayerBody, BodyParts))
+		return false;
 	if(!initExternalData(dataPath))
 		return false;
 
@@ -65,7 +65,7 @@ bool Player::init(
 
 	mouseCursor = Cursor::getInstance("bang.png");
 
-    return true;
+	return true;
 }
 bool Player::initPhysics(){
 	auto factory = PhysicsFactory::getInstance();

@@ -33,7 +33,7 @@ public:
 	static Player *create(
 		const std::string &dataPath);
 	static Player *getInstance();
-    virtual bool init(
+	virtual bool init(
 		const std::string &dataPath);
 
 protected:

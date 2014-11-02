@@ -2,21 +2,29 @@
 
 #include "cocos2d.h"
 
-#include <string>
+class BodyAnimation;
 
 class PartedBody : public cocos2d::Sprite{
 public:
-	static const int Parts = 6;
+	static const int MaxParts = 6;
 
 public:
 	static PartedBody *create(
-		const std::string &prefix);
-	virtual bool init(
-		const std::string &prefix);
+		const std::string &filename);
+	static PartedBody *create(
+		const std::string &prefix, const int part);
 
-	virtual float getRotation() const;
-	virtual void setRotation(
-		float angle);
+	virtual bool init(
+		const std::string &filename);
+	virtual bool init(
+		const std::string &prefix, const int part);
+
+	virtual float getRotation() const override;
+	virtual void setRotation(float angle) override;
+
+	void runAnimation(BodyAnimation* const animation);
+	void stopAnimation(const int id);
+	void stopAllAnimation();
 
 protected:
 	PartedBody();
@@ -25,5 +33,9 @@ protected:
 	void updateCharacter(float dt);
 
 protected:
-	cocos2d::Sprite *body[Parts];
+	int partNum;
+
+	cocos2d::Sprite* body[MaxParts];
+	cocos2d::Texture2D* bodyTexture[MaxParts];
+	cocos2d::Animation* runningAnimation[MaxParts];
 };

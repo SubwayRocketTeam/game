@@ -21,5 +21,5 @@ private:
 	BodyAnimation();
 
 private:
-	cocos2d::Animation* partAnimation[PartedBody::Parts];
+	cocos2d::Animation* partAnimation[PartedBody::MaxParts];
 };

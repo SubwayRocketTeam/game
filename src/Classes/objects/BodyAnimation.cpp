@@ -46,6 +46,6 @@ bool BodyAnimation::init(
 
 Animation* BodyAnimation::getPartAnimation(const int id)
 {
-	CCASSERT(id > 0 && id <= PartedBody::Parts, "BodyAnimation의 partAnimation id 범위를 초과함");
+	CCASSERT(id > 0 && id <= PartedBody::MaxParts, "BodyAnimation의 partAnimation id 범위를 초과함");
 	return partAnimation[id];
 }
