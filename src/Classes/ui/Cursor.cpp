@@ -60,6 +60,6 @@ void Cursor::onMouseMove(
 	double rad = atan2(dy, dx);
 	double degree = (rad*180)/M_PI;
 
-	setRotation(-degree);
+	setRotation(-degree - 45);
 	setPosition(x,y);
 }
