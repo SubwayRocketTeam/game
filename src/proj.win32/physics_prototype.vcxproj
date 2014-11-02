@@ -135,6 +135,7 @@
     <ClCompile Include="..\Classes\common\PhysicsFactory.cpp" />
     <ClCompile Include="..\Classes\common\resource.cpp" />
     <ClCompile Include="..\Classes\objects\Ally.cpp" />
+    <ClCompile Include="..\Classes\objects\AnimationPool.cpp" />
     <ClCompile Include="..\Classes\objects\BodyAnimation.cpp" />
     <ClCompile Include="..\Classes\objects\Bullet.cpp" />
     <ClCompile Include="..\Classes\objects\Stage.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="..\Classes\common\resource.h" />
     <ClInclude Include="..\Classes\Compat.h" />
     <ClInclude Include="..\Classes\objects\Ally.h" />
+    <ClInclude Include="..\Classes\objects\AnimationPool.h" />
     <ClInclude Include="..\Classes\objects\AttackData.h" />
     <ClInclude Include="..\Classes\objects\BodyAnimation.h" />
     <ClInclude Include="..\Classes\objects\Bullet.h" />
