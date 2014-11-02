@@ -55,5 +55,4 @@ bool GameScene::init(){
 
 void GameScene::update(
 	float dt){
-	cursor->update(dt);
 }
