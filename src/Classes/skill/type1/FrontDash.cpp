@@ -4,6 +4,7 @@
 
 #include "common/resource.h"
 #include "objects/Unit.h"
+#include "objects/Afterimage.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -20,4 +21,9 @@ void FrontDash::use(
 	u->runAction(
 		MoveBy::create(duration, foward * 250))
 	->setTag(Unit::actionMove);
+
+	auto afterimage =  Afterimage::createWithPartedBody(
+		u->getParent(),
+		u->getBody(), duration);
+	u->addChild(afterimage);
 }
