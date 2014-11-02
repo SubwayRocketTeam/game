@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Slash.h"
+#include "objects/PartedBody.h"
 
 #include "common/resource.h"
 #include "objects/Unit.h"

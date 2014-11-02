@@ -12,5 +12,7 @@ namespace R{
 
 	_RESD(SkillList, "skills.json");
 
+	_RESD(SkillSlash, "slash.png");
+
 	_RESD(Cursor, "cursor.png");
 }

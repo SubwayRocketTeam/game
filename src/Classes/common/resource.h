@@ -18,5 +18,7 @@ namespace R{
 
 	_RESL(SkillList);
 
+	_RESL(SkillSlash);
+
 	_RESL(Cursor);
 };
