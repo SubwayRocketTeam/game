@@ -7,6 +7,12 @@
 class Cursor : public cocos2d::Sprite,
 	public MouseEventListener{
 public:
+	enum Type{
+		cursorNormal,
+		cursorPressed
+	};
+
+public:
 	static Cursor* create();
 	static Cursor* getInstance();
 
