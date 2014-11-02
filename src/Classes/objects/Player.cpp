@@ -63,6 +63,8 @@ bool Player::init(
 	scarf = Scarf::create();
 	addChild(scarf);
 
+	scheduleUpdate();
+
 	return true;
 }
 bool Player::initPhysics(){
@@ -105,9 +107,49 @@ bool Player::initExternalData(
 	for(auto skill : skillList){
 		skills.push_back(
 			(ActiveSkill*)pool->get(skill.asInt()));
+		cooltimes.push_back(0);
 	}
 
 	return true;
+}
+
+bool Player::useSkill(
+	SKillIndex index,
+	float x,float y){
+
+	auto skill = skills[index];
+
+	if(cooltimes[index] > 0.0f)
+		return false;
+	if(skill->cost > attrs["mp"].get())
+		return false;
+	
+	skill->use(this, Vec2(x,y));
+
+	cooltimes[index] = skill->cooltime;
+	attrs["mp"].getValue() -= skill->cost;
+	stiff = skill->duration;
+
+	return true;
+}
+
+void Player::update(
+	float dt){
+		
+	updateConditions(dt);
+}
+void Player::updateConditions(
+	float dt){
+
+	/* cooltime */
+	for(float &cooltime : cooltimes){
+		if(cooltime > 0.0f)
+			cooltime -= dt;
+	}
+
+	/* stiff */
+	if(stiff > 0.0f)
+		stiff -= dt;
 }
 
 void Player::processRotation(
@@ -161,6 +203,8 @@ void Player::processEyeline(
 void Player::processMove(
 	EventKeyboard::KeyCode keycode){
 
+	if(stiff > 0.0f) return;
+
 	Vec2 moveBy(0,0);
 
 	switch(keycode){
@@ -188,7 +232,7 @@ void Player::processAttack(
 	int btn, float x,float y){
 
 	if(btn == MOUSE_BUTTON_LEFT){
-		skills[skillMouseLeft]->use(this, Vec2(x,y));
+		useSkill(skillMouseLeft, x,y);
 	}
 	else if(btn == MOUSE_BUTTON_RIGHT){
 	}

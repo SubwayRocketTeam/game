@@ -36,10 +36,19 @@ public:
 	virtual bool init(
 		const std::string &dataPath);
 
+	bool useSkill(
+		SKillIndex index,
+		float x,float y);
+
 protected:
 	virtual bool initPhysics();
 	virtual bool initExternalData(
 		const std::string &dataPath);
+
+	virtual void update(
+		float dt);
+	void updateConditions(
+		float dt);
 
 	void processRotation(
 		float x,float y);
@@ -74,6 +83,8 @@ protected:
 	std::vector<PassiveSkill*> passives;
 
 	float speed;
+	float stiff;
+	std::vector<float> cooltimes;
 
 	Scarf *scarf;
 
