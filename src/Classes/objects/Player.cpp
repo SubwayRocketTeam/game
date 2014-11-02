@@ -80,8 +80,6 @@ bool Player::initPhysics(){
 bool Player::initExternalData(
 	const string &dataPath){
 
-
-#ifdef DISABLED
 	Json::Value root;
 	if(!JsonLoader::load(dataPath,root)){
 		printf("loadfilae\n");
@@ -108,7 +106,6 @@ bool Player::initExternalData(
 		skills.push_back(
 			(ActiveSkill*)pool->get(skill.asInt()));
 	}
-#endif
 
 	return true;
 }
@@ -191,9 +188,7 @@ void Player::processAttack(
 	int btn, float x,float y){
 
 	if(btn == MOUSE_BUTTON_LEFT){
-#ifdef DISABLED
 		skills[skillMouseLeft]->use(this, Vec2(x,y));
-#endif
 	}
 	else if(btn == MOUSE_BUTTON_RIGHT){
 	}
