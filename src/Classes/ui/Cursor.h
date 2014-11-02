@@ -4,21 +4,15 @@
 
 #include "objects/MouseEventListener.h"
 
-class Cursor : public cocos2d::CCSprite,
+class Cursor : public cocos2d::Sprite,
 	public MouseEventListener{
+public:
+	static Cursor* create();
+	static Cursor* getInstance();
+
 private:
 	Cursor();
 	virtual ~Cursor();
-
-	static Cursor* create();
-
-	static Cursor* instance;
-public:
-
-	static Cursor* getInstance();
-	static Cursor* getInstance(const char* filename); // image°¡ ¹Ù²ï´Ù
-
-	void update(float dt);
 
 protected:
 	virtual bool init();

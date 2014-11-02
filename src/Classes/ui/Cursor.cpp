@@ -2,50 +2,36 @@
 #include "Cursor.h"
 
 #include "objects/Player.h"
+#include "common/resource.h"
 
-Cursor* Cursor::instance = nullptr;
+static Cursor *instance = nullptr;
 
 Cursor::Cursor() {
-
 }
-
 Cursor::~Cursor() {
-
 }
 
 Cursor* Cursor::create() {
-	Cursor* cursor = new Cursor();
+	instance = new Cursor();
 
-	if (cursor && cursor->init()) {
-		cursor->autorelease();
-		return cursor;
+	if (instance && instance->init()) {
+		instance->autorelease();
+		return instance;
 	}
-	else {
-		delete cursor;
-		cursor = nullptr;
-		return cursor;
-	}
+	CC_SAFE_DELETE(instance);
+	return nullptr;
 }
 bool Cursor::init(){
+	if(!Sprite::initWithFile(R::Cursor))
+		return false;
+
 	enableMouseInput(this);
 
 	return true;
 }
 
 Cursor* Cursor::getInstance() {
-	return getInstance("");
-}
-
-Cursor* Cursor::getInstance(const char* filename) {
-	if (!instance) {
-		instance = Cursor::create();
-	}
-	instance->initWithFile(filename);
 	return instance;
-}
-
-void Cursor::update(float dt) {
-	
 }
 
 void Cursor::onMouseMove(

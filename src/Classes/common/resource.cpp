@@ -11,4 +11,6 @@ namespace R{
 	_RESD(EnemySpawner, "bang.png");
 
 	_RESD(SkillList, "skills.json");
+
+	_RESD(Cursor, "cursor.png");
 }
