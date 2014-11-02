@@ -24,18 +24,17 @@ public:
 	static Unit *create(
 		const std::string &image);
 
-    virtual bool init();
-	virtual bool init(
-		const std::string &image);
-	virtual bool initWithPartedBody(
-		const std::string &prefix);
-
 	void enableDebug();
 
 protected:
 	Unit();
 	virtual ~Unit();
 
+	virtual bool init();
+	virtual bool init(
+		const std::string &image);
+	virtual bool initWithPartedBody(
+		const std::string &prefix);
 	virtual bool initPhysics();
 	void updateDebug(
 		float dt);
