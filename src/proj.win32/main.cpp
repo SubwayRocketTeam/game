@@ -14,6 +14,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	AllocConsole();
 	freopen("CONOUT$", "w", stdout);
 
+	ShowCursor(false);
+
     AppDelegate app;
     return Application::getInstance()->run();
 }
