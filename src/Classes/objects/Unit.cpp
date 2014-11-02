@@ -96,3 +96,7 @@ void Unit::updateDebug(float dt){
 		body->getRotation());
 	dbgAngle->setString(str);
 }
+
+Sprite *Unit::getBody(){
+	return body;
+}

@@ -26,6 +26,8 @@ public:
 
 	void enableDebug();
 
+	cocos2d::Sprite *getBody();
+
 protected:
 	Unit();
 	virtual ~Unit();
