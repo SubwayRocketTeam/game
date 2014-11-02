@@ -78,3 +78,7 @@ void PartedBody::setRotation(
 		part->setRotation(angle);
 	}
 }
+
+Vec2 PartedBody::getHeadPosition(){
+	return body[0]->getPosition();
+}

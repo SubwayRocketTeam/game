@@ -18,6 +18,8 @@ public:
 	virtual void setRotation(
 		float angle);
 
+	cocos2d::Vec2 getHeadPosition();
+
 protected:
 	PartedBody();
 	virtual ~PartedBody();
