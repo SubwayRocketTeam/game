@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Cursor.h"
 
 Cursor* Cursor::instance = nullptr;
