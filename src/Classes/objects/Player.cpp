@@ -235,6 +235,7 @@ void Player::processAttack(
 		useSkill(skillMouseLeft, x,y);
 	}
 	else if(btn == MOUSE_BUTTON_RIGHT){
+		useSkill(skillMouseRight, x,y);
 	}
 }
 

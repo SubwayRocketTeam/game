@@ -1,5 +1,6 @@
 #pragma once
 
 enum SkillID{
-	skillSlash = 10
+	skillSlash = 10,
+	skillFrontDash
 };
