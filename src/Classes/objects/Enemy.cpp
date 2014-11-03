@@ -5,6 +5,8 @@
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
 
+#include "Player.h"
+
 using namespace cocos2d;
 
 Enemy::Enemy(){
@@ -26,10 +28,11 @@ bool Enemy::init(){
 	if (!Unit::init(R::EnemyBody))
 		return false;
 
+	scheduleUpdate();
+
 	return true;
 }
 bool Enemy::initPhysics(){
-	/*
 	auto factory = PhysicsFactory::getInstance();
 	auto pbody = factory->make("enemy");
 
@@ -37,9 +40,19 @@ bool Enemy::initPhysics(){
 		setPhysicsBody(pbody);
 		return true;
 	}
-	*/
 
 	return true;
+}
+
+void Enemy::update(
+	float dt){
+
+	auto player = Player::getInstance();
+	auto delta = getPosition() - player->getPosition();
+
+	auto move = delta.getNormalized() * 50;
+	
+	getPhysicsBody()->setVelocity(-move);
 }
 
 void Enemy::focus(){
