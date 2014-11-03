@@ -24,6 +24,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
 
+	ShowCursor(false);
+
 	PhysicsFactory::create();
 
 	glview->setDesignResolutionSize(
