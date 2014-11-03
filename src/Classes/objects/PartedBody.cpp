@@ -138,21 +138,21 @@ void PartedBody::runAnimation(BodyAnimation* const animation)
 	{
 		Animation* partAnim = animation->getPartAnimation(i);
 		if (!partAnim) continue;
-		else if (partAnim == runningAnimation[i]) continue;
+		else if (partAnim == runningAnimation[i - 1]) continue;
 		else stopAnimation(i);
 
-		body[i]->runAction(Animate::create(partAnim));
+		body[i - 1]->runAction(Animate::create(partAnim));
 	}
 }
 
 void PartedBody::stopAnimation(const int id)
 {
 	CCASSERT(id > 0 && id <= partNum, "정지하는 애니메이션 id가 범위 밖");
-	if (runningAnimation[id])
+	if (runningAnimation[id - 1])
 	{
-		body[id]->stopAllActions();
-		body[id]->setTexture(bodyTexture[id]);
-		runningAnimation[id] = nullptr;
+		body[id - 1]->stopAllActions();
+		body[id - 1]->setTexture(bodyTexture[id - 1]);
+		runningAnimation[id - 1] = nullptr;
 	}
 }
 

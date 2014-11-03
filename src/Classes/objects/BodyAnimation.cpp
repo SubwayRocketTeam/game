@@ -35,17 +35,27 @@ bool BodyAnimation::init(
 		{
 			char buf[256];
 			sprintf(buf, "%s_%d_%d.png", filename.c_str(), i, id);
-			anim->addSpriteFrame(
-				SpriteFrameCache::getInstance()->getSpriteFrameByName(buf));
+			SpriteFrame* frame = SpriteFrameCache::getInstance()->getSpriteFrameByName(buf);
+			anim->addSpriteFrame(frame);
 		}
+		partAnimation[id - 1] = anim;
+		anim->retain();
 	}
 
 	return true;
+}
+
+BodyAnimation::~BodyAnimation()
+{
+	for (auto anim : partAnimation)
+	{
+		CC_SAFE_RELEASE(anim);
+	}
 }
 
 
 Animation* BodyAnimation::getPartAnimation(const int id)
 {
 	CCASSERT(id > 0 && id <= PartedBody::MaxParts, "BodyAnimation의 partAnimation id 범위를 초과함");
-	return partAnimation[id];
+	return partAnimation[id - 1];
 }

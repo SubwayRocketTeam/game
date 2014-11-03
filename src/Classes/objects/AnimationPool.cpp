@@ -13,6 +13,11 @@ AnimationPool* AnimationPool::create()
 	if (o && o->init())
 	{
 		o->autorelease();
+
+		CC_SAFE_RELEASE(instance);
+		CC_SAFE_DELETE(instance);
+		instance = o;
+		
 		return o;
 	}
 

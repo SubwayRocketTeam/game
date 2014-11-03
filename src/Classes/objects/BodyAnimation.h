@@ -15,6 +15,8 @@ public:
 	bool init(
 		const std::string& filename, const std::vector<int>& partsId, const int frame);
 
+	~BodyAnimation();
+
 	cocos2d::Animation* getPartAnimation(const int id);
 
 private:
