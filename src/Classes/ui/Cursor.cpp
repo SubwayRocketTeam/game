@@ -21,6 +21,10 @@ Cursor* Cursor::create() {
 	CC_SAFE_DELETE(instance);
 	return nullptr;
 }
+Cursor* Cursor::getInstance() {
+	return instance;
+}
+
 bool Cursor::init(){
 	if(!Sprite::initWithFile(R::Cursor))
 		return false;
@@ -31,22 +35,16 @@ bool Cursor::init(){
 	return true;
 }
 
-Cursor* Cursor::getInstance() {
-	return instance;
-}
-
 void Cursor::update(
 	float dt){
 
 	processRotation(mouse.x, mouse.y);
 }
-
 void Cursor::onMouseMove(
 	int btn, float x,float y){
 
 	mouse.set(x,y);
 }
-
 void Cursor::processRotation(
 	float x,float y){
 	
