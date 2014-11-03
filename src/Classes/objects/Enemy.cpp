@@ -29,6 +29,7 @@ bool Enemy::init(){
 	return true;
 }
 bool Enemy::initPhysics(){
+	/*
 	auto factory = PhysicsFactory::getInstance();
 	auto pbody = factory->make("enemy");
 
@@ -36,8 +37,9 @@ bool Enemy::initPhysics(){
 		setPhysicsBody(pbody);
 		return true;
 	}
-	
-	return false;
+	*/
+
+	return true;
 }
 
 void Enemy::focus(){
