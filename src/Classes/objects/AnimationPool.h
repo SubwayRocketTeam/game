@@ -4,7 +4,7 @@
 
 class BodyAnimation;
 
-class AnimationPool :public cocos2d::Ref
+class AnimationPool :public cocos2d::Node
 {
 public:
 	static AnimationPool* create();

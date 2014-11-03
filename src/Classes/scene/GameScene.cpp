@@ -1,11 +1,15 @@
 #include "pch.h"
 #include "GameScene.h"
 
+#include "common\resource.h"
+
 #include "objects/Stage.h"
 #include "objects/Player.h"
 #include "objects/Enemy.h"
 #include "objects/EnemySpawner.h"
 #include "objects/EnemyPool.h"
+#include "objects/BodyAnimation.h"
+#include "objects/AnimationPool.h"
 
 #include "ui/cursor.h"
 #include "ui/StatusConsole.h"
@@ -39,6 +43,10 @@ bool GameScene::init(){
 
 	auto pool = EnemyPool::create();
 	addChild(pool);
+
+	auto animPool = AnimationPool::create();
+	addChild(animPool);
+	animPool->add(BodyAnimation::create(R::Run, {1, 2, 3, 4, 5, 6}, 8), R::Run);
 
 	player = Player::create("type1.json");
 
