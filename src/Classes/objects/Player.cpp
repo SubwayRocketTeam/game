@@ -71,13 +71,14 @@ bool Player::init(
 }
 bool Player::initPhysics(){
 	auto factory = PhysicsFactory::getInstance();
-	//auto pbody = factory->make("player");
+	auto pbody = factory->make("player");
 
-	//if(pbody){
-		/* temporary disalbed */
-		//setPhysicsBody(pbody);
+	if(pbody){
+		pbody->setAngularDamping(100);
+		pbody->setLinearDamping(100);
+		setPhysicsBody(pbody);
 		return true;
-	//}
+	}
 	
 	return false;
 }
