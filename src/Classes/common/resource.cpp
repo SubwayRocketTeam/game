@@ -15,4 +15,6 @@ namespace R{
 	_RESD(SkillSlash, "slash.png");
 
 	_RESD(Cursor, "cursor.png");
+
+	_RESD(Run, "character2");
 }
