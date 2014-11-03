@@ -16,4 +16,6 @@ protected:
 	virtual ~EnemySpawner();
 
 	virtual bool init();
+	virtual void update(
+		float dt);
 };

@@ -40,7 +40,7 @@ bool GameScene::init(){
 	auto visibleSize = director->getVisibleSize();
 	auto origin = director->getVisibleOrigin();
 
-	stage = Stage::create();
+	stage = Stage::getInstance(0);
 	stage->setPosition(origin + visibleSize / 2);
 	addChild(stage);
 
