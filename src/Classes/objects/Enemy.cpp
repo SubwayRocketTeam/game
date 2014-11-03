@@ -40,7 +40,6 @@ bool Enemy::initPhysics(){
 		setPhysicsBody(pbody);
 		return true;
 	}
-
 	return true;
 }
 
@@ -51,7 +50,7 @@ void Enemy::update(
 	auto delta = getPosition() - player->getPosition();
 
 	auto move = delta.getNormalized() * 50;
-	
+
 	getPhysicsBody()->setVelocity(-move);
 }
 

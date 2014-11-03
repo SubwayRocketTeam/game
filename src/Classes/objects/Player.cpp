@@ -227,6 +227,7 @@ void Player::processMove(
 
 	float frameRate =
 		Director::getInstance()->getFrameRate();
+
 	runAction(
 		MoveBy::create(1.0/frameRate, moveBy))
 		->setTag(actionMove);
