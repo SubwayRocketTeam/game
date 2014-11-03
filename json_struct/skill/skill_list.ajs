@@ -1,0 +1,6 @@
+class SkillListData
+  vector<class SkillPath
+    int id;
+    string path;
+  end> skills;
+end
