@@ -23,10 +23,10 @@ Enemy *Enemy::create(){
 	return nullptr;
 }
 bool Enemy::init(){
-    if (!Unit::init(R::EnemyBody))
-        return false;
+	if (!Unit::init(R::EnemyBody))
+		return false;
 
-    return true;
+	return true;
 }
 bool Enemy::initPhysics(){
 	auto factory = PhysicsFactory::getInstance();
