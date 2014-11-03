@@ -4,6 +4,8 @@
 #include "EnemyPool.h"
 #include "Bullet.h"
 
+#include "AnimationPool.h"
+
 #include "ui/cursor.h"
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
@@ -227,7 +229,13 @@ void Player::processMove(
 	runAction(
 		MoveBy::create(1.0/frameRate, moveBy))
 		->setTag(actionMove);
+
+	body->runAnimation(
+		AnimationPool::getInstance()
+		->getBodyAnimation(R::Run)
+		, true);
 }
+
 void Player::processAttack(
 	int btn, float x,float y){
 
