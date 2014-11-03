@@ -22,6 +22,15 @@ private:
 
 protected:
 	virtual bool init();
+	virtual void update(
+		float dt);
+
 	virtual void onMouseMove(
 		int btn, float x,float y);
+
+	void processRotation(
+		float x,float y);
+
+private:
+	cocos2d::Vec2 mouse;
 };
