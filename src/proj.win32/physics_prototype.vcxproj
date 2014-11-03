@@ -134,6 +134,7 @@
     <ClCompile Include="..\Classes\common\JsonLoader.cpp" />
     <ClCompile Include="..\Classes\common\PhysicsFactory.cpp" />
     <ClCompile Include="..\Classes\common\resource.cpp" />
+    <ClCompile Include="..\Classes\objects\Afterimage.cpp" />
     <ClCompile Include="..\Classes\objects\Ally.cpp" />
     <ClCompile Include="..\Classes\objects\AnimationPool.cpp" />
     <ClCompile Include="..\Classes\objects\BodyAnimation.cpp" />
@@ -159,7 +160,9 @@
     <ClCompile Include="..\Classes\skill\PassiveSkill.cpp" />
     <ClCompile Include="..\Classes\skill\Skill.cpp" />
     <ClCompile Include="..\Classes\skill\SkillPool.cpp" />
+    <ClCompile Include="..\Classes\skill\type1\FrontDash.cpp" />
     <ClCompile Include="..\Classes\skill\type1\Slash.cpp" />
+    <ClCompile Include="..\Classes\ui\StatusConsole.cpp" />
     <ClCompile Include="..\Classes\util\Random.cpp" />
     <ClCompile Include="..\jsoncpp\src\lib_json\json_reader.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -182,6 +185,7 @@
     <ClInclude Include="..\Classes\common\PhysicsFactory.h" />
     <ClInclude Include="..\Classes\common\resource.h" />
     <ClInclude Include="..\Classes\Compat.h" />
+    <ClInclude Include="..\Classes\objects\Afterimage.h" />
     <ClInclude Include="..\Classes\objects\Ally.h" />
     <ClInclude Include="..\Classes\objects\AnimationPool.h" />
     <ClInclude Include="..\Classes\objects\AttackData.h" />
@@ -205,7 +209,9 @@
     <ClInclude Include="..\Classes\skill\PassiveSkill.h" />
     <ClInclude Include="..\Classes\skill\Skill.h" />
     <ClInclude Include="..\Classes\skill\SkillPool.h" />
+    <ClInclude Include="..\Classes\skill\type1\FrontDash.h" />
     <ClInclude Include="..\Classes\skill\type1\Slash.h" />
+    <ClInclude Include="..\Classes\ui\StatusConsole.h" />
     <ClInclude Include="..\Classes\util\Random.h" />
     <ClInclude Include="..\Classes\ui\Cursor.h" />
     <ClInclude Include="..\jsoncpp\include\json\assertions.h" />
