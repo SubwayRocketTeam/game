@@ -66,6 +66,11 @@ void PartedBody::updateCharacter(
 		body[i]->setPosition(
 			delta * ratio * (5-i));
 	}
+
+	auto pos = body[0]->getPosition();
+	auto boundbox = body[0]->getBoundingBox();
+	auto size = body[0]->getContentSize();
+	auto pos2 = boundbox.origin;
 }
 
 float PartedBody::getRotation() const{
@@ -77,4 +82,24 @@ void PartedBody::setRotation(
 	for(auto part : body){
 		part->setRotation(angle);
 	}
+}
+
+float PartedBody::getOriginY() {
+	auto vec1 = convertToWorldSpace(body[0]->boundingBox().origin);
+	auto vec2 = convertToWorldSpace(body[Parts-1]->getBoundingBox().origin);
+
+	return min(vec1.y, vec2.y);
+}
+
+float PartedBody::getBodyHeight() {
+	Rect rect1 = body[0]->getBoundingBox();
+	Rect rect2 = body[Parts - 1]->getBoundingBox();
+	auto vec1 = convertToWorldSpace(rect1.origin);
+	auto vec2 = convertToWorldSpace(rect2.origin);
+
+	return max(vec1.y + rect1.size.height, vec2.y + rect2.size.height) - getOriginY();
+}
+
+float PartedBody::getBodyWidth() {
+	return body[0]->getBoundingBox().size.width;
 }

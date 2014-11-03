@@ -5,6 +5,8 @@
 #include "Bullet.h"
 
 #include "ui/cursor.h"
+#include "ui/gauge.h"
+
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
 #include "common/JsonLoader.h"
@@ -62,6 +64,20 @@ bool Player::init(
 
 	scarf = Scarf::create();
 	addChild(scarf);
+
+	hp = Gauge::create("HP.png", static_cast<PartedBody*>(body)->getBodyWidth(), 100);
+	hp->setRegenPerSec(10);
+
+	addChild(hp);
+	hp->setPositionX(-static_cast<PartedBody*>(body)->getBodyWidth() / 2);
+	hp->setPositionY(static_cast<PartedBody*>(body)->getOriginY() + static_cast<PartedBody*>(body)->getBodyHeight() + hp->getContentSize().height);
+
+	mp = Gauge::create("MP.png", static_cast<PartedBody*>(body)->getBodyWidth(), 100);
+	addChild(mp);
+	mp->setPositionX(-static_cast<PartedBody*>(body)->getBodyWidth() / 2);
+	mp->setPositionY(static_cast<PartedBody*>(body)->getOriginY() + static_cast<PartedBody*>(body)->getBodyHeight());
+
+	hp->reduceGauge(50);
 
 	mouseCursor = Cursor::getInstance("bang.png");
 

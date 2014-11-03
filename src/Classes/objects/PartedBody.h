@@ -18,6 +18,10 @@ public:
 	virtual void setRotation(
 		float angle);
 
+	float getOriginY();
+	float getBodyHeight();
+	float getBodyWidth();
+
 protected:
 	PartedBody();
 	virtual ~PartedBody();
