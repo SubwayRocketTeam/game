@@ -4,6 +4,8 @@
 
 USING_NS_CC;
 
+const float BodyAnimation::AnimationDelay = 0.125f;
+
 BodyAnimation::BodyAnimation()
 {
 	ZeroMemory(partAnimation, sizeof(partAnimation));

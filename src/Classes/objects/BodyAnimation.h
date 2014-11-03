@@ -7,7 +7,7 @@
 class BodyAnimation : public cocos2d::Ref
 {
 public:
-	static const int AnimationDelay = 1.f;
+	static const float AnimationDelay;
 
 public:
 	static BodyAnimation* create(
