@@ -1,7 +1,9 @@
 #include "pch.h"
 #include "GameScene.h"
 
-#include "common\resource.h"
+#include <vector>
+
+#include "common/resource.h"
 
 #include "objects/Stage.h"
 #include "objects/Player.h"
@@ -14,6 +16,7 @@
 #include "ui/cursor.h"
 #include "ui/StatusConsole.h"
 
+using namespace std;
 using namespace cocos2d;
 
 Scene* GameScene::scene(){
@@ -46,7 +49,12 @@ bool GameScene::init(){
 
 	auto animPool = AnimationPool::create();
 	addChild(animPool);
-	animPool->add(BodyAnimation::create(R::Run, {1, 2, 3, 4, 5, 6}, 8), R::Run);
+
+	int frames[] = {1, 2, 3, 4, 5, 6};
+	vector<int> v(frames, frames+sizeof(frames) / sizeof(int));
+	
+	animPool->add(
+		BodyAnimation::create(R::Run, v, 8), R::Run);
 
 	player = Player::create("type1.json");
 
