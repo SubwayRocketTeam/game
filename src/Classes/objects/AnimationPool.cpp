@@ -1,6 +1,7 @@
 #include "pch.h"
 
 #include "AnimationPool.h"
+#include "BodyAnimation.h"
 
 USING_NS_CC;
 
@@ -37,7 +38,10 @@ bool AnimationPool::loadFromFile(const std::string& filename)
 
 void AnimationPool::add(BodyAnimation* const animation, const std::string& name)
 {
+	if (pool.find(name) != pool.end())
+		pool[name]->release();
 	pool[name] = animation;
+	animation->retain();
 }
 
 
