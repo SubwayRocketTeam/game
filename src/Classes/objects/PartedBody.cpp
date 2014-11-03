@@ -142,6 +142,7 @@ void PartedBody::runAnimation(BodyAnimation* const animation)
 		else stopAnimation(i);
 
 		body[i - 1]->runAction(Animate::create(partAnim));
+		runningAnimation[i - 1] = partAnim;
 	}
 }
 
