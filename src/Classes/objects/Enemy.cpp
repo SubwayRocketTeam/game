@@ -48,9 +48,12 @@ void Enemy::update(
 
 	auto player = Player::getInstance();
 	auto delta = getPosition() - player->getPosition();
-
+	
 	auto move = delta.getNormalized() * 50;
+	auto angle = 
+		CC_RADIANS_TO_DEGREES(delta.getAngle(getPosition()));
 
+	setRotation(angle+90);
 	getPhysicsBody()->setVelocity(-move);
 }
 
