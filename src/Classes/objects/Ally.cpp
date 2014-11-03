@@ -7,7 +7,6 @@ static Ally *instances[2] =
 	{nullptr, nullptr};
 
 bool Ally::create(){
-
 	for(int i=0;i<_countof(instances);i++){
 		instances[i] = new Ally();
 
