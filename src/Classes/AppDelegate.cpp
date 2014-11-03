@@ -23,6 +23,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
 
+	ShowCursor(false);
+
 	SkillPool::create();
 	PhysicsFactory::create();
 
