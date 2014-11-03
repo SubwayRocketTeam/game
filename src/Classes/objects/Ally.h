@@ -6,7 +6,16 @@ class Unit;
 
 class Ally : public cocos2d::Ref{
 public:
-	static Ally *create();
+	enum Type{
+		allyPlayer=0,
+		allyEnemy
+	};
+
+public:
+	static bool create();
+	static Ally *getInstance(
+		Type type);
+
 	virtual bool init();
 
 	void push(

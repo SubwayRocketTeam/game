@@ -3,15 +3,36 @@
 
 #include "Unit.h"
 
-Ally *Ally::create(){
-	Ally *a = new Ally();
+static Ally *instances[2] =
+	{nullptr, nullptr};
 
-	if(a && a->init()){
-		a->autorelease();
-		return a;
+bool Ally::create(){
+
+	for(int i=0;i<_countof(instances);i++){
+		instances[i] = new Ally();
+
+		if(instances[i] && instances[i]->init()){
+		}
+		else{
+			CC_SAFE_DELETE(instances[i]);
+			return false;
+		}
 	}
-	CC_SAFE_DELETE(a);
-	return nullptr;
+
+	return true;
+}
+Ally *Ally::getInstance(
+	Type type){
+
+	switch(type){
+	case allyPlayer:
+		return instances[allyPlayer];
+	case allyEnemy:
+		return instances[allyEnemy];
+	default:
+		cocos2d::log("invalid ally type");
+		return nullptr;
+	}
 }
 
 bool Ally::init(){
