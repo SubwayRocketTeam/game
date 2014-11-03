@@ -35,6 +35,12 @@ bool AnimationPool::loadFromFile(const std::string& filename)
 	return true;
 }
 
+void AnimationPool::add(BodyAnimation* const animation, const std::string& name)
+{
+	pool[name] = animation;
+}
+
+
 BodyAnimation* AnimationPool::getBodyAnimation(const std::string& name)
 {
 	if (pool.find(name) != pool.end())
