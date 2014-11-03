@@ -258,6 +258,7 @@ void Player::onKeyboardPressed(
 
 	processEyeline(cursor.x, cursor.y);
 	processMove(keycode);
+	processRotation(cursor.x,cursor.y);
 }
 
 void Player::onMouseMove(
@@ -265,6 +266,8 @@ void Player::onMouseMove(
 
 	processEyeline(x,y);
 	processRotation(x,y);
+
+	cursor.set(x,y);
 }
 void Player::onMouseDown(
 	int btn, float x,float y){
