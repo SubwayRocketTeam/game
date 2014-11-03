@@ -16,12 +16,13 @@ public:
 	static Ally *getInstance(
 		Type type);
 
-	virtual bool init();
-
 	void push(
 		Unit *u);
 	void remove(
 		Unit *u);
+
+protected:
+	virtual bool init();
 
 protected:
 	cocos2d::Vector<Unit*> members;
