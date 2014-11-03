@@ -96,6 +96,13 @@ bool Unit::initPhysics(){
 	return true;
 }
 
+void Unit::damage(
+	int dmg){
+
+	Vec2 power(0,1000000);
+	getPhysicsBody()->applyImpulse(power);
+}
+
 void Unit::enableDebug(){
 	dbgAngle = 
 		LabelTTF::create("", "arial", 30);

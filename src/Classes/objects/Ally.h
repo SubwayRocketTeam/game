@@ -2,6 +2,8 @@
 
 #include "cocos2d.h"
 
+#include "AttackData.h"
+
 class Unit;
 
 class Ally : public cocos2d::Ref{
@@ -20,6 +22,10 @@ public:
 		Unit *u);
 	void remove(
 		Unit *u);
+
+	void processAttack(
+		Unit *u,
+		AttackData data);
 
 protected:
 	virtual bool init();

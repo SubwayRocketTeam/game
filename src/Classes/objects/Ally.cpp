@@ -3,6 +3,8 @@
 
 #include "Unit.h"
 
+using namespace cocos2d;
+
 static Ally *instances[2] =
 	{nullptr, nullptr};
 
@@ -48,4 +50,18 @@ void Ally::remove(
 	Unit *u){
 
 	members.eraseObject(u);
+}
+
+void Ally::processAttack(
+	Unit *u,
+	AttackData data){
+
+	auto senderPosition = u->getPosition();
+	for(auto member : members){
+		auto memberPosition = member->getPosition();
+
+		if(senderPosition.getDistance(memberPosition) <= 100){
+			member->damage(1);
+		}
+	}
 }
