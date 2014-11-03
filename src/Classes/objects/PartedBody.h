@@ -24,7 +24,7 @@ public:
 	virtual float getRotation() const override;
 	virtual void setRotation(float angle) override;
 
-	void runAnimation(BodyAnimation* const animation);
+	void runAnimation(BodyAnimation* const animation, bool repeatForever = false);
 	void stopAnimation(const int id);
 	void stopAllAnimation();
 
