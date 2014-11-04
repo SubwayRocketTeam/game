@@ -258,6 +258,9 @@
     <ClInclude Include="..\Classes\skill\AttributeName.h">
       <Filter>source\skill\base</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\common\max.h">
+      <Filter>source\common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">
