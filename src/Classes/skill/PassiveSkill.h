@@ -10,7 +10,7 @@
 
 class PassiveSkill : public Skill{
 public:
-	static std::map<std::string,Attribute> bonus;
+	std::map<std::string,Attribute> bonusList;
 
 protected:
 	virtual bool initExternalData(

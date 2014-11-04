@@ -4,8 +4,6 @@
 using namespace std;
 using namespace cocos2d;
 
-map<string,Attribute> PassiveSkill::bonus;
-
 bool PassiveSkill::initExternalData(
 	const string &dataPath){
 
@@ -22,7 +20,7 @@ bool PassiveSkill::initExternalData(
 		float value = attr.get("value", 0.0f).asFloat();
 		float rate = attr.get("rate", 0.0f).asFloat();
 
-		bonus[target] = Attribute(value, rate);
+		bonusList[target] = Attribute(value, rate);
 	}
 
 	return true;
