@@ -70,6 +70,8 @@ bool Unit::init(
 
 	if (!initPhysics())
 		return false;
+	if(!initAttrs())
+		return false;
 
 	addChild(body);
 
@@ -86,6 +88,8 @@ bool Unit::init(
 		return false;
 
 	if(!initPhysics())
+		return false;
+	if(!initAttrs())
 		return false;
 
 	addChild(body);
