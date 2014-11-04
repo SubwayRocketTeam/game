@@ -17,4 +17,8 @@ namespace R{
 	_RESL(EnemySpawner);
 
 	_RESL(SkillList);
+
+	_RESL(SkillSlash);
+
+	_RESL(Cursor);
 };

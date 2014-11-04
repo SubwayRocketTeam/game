@@ -1,0 +1,8 @@
+class ConfigData
+  class Resolution
+    int width;
+    int height;
+  end resolution;
+  
+  int display_fps;
+end

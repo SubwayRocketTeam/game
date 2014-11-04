@@ -94,6 +94,21 @@
     <ClCompile Include="..\Classes\ui\Gauge.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\objects\BodyAnimation.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\AnimationPool.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ui\StatusConsole.cpp">
+      <Filter>source\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\type1\FrontDash.cpp">
+      <Filter>source\skill\type1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Afterimage.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -224,6 +239,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ui\Gauge.h">
       <Filter>source\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\BodyAnimation.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\AnimationPool.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\StatusConsole.h">
+      <Filter>source\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\type1\FrontDash.h">
+      <Filter>source\skill\type1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Afterimage.h">
+      <Filter>source\object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

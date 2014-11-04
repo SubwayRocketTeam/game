@@ -5,7 +5,7 @@
     {"hp" : 460},
     {"mp" : 400},
     {"attack" : 50},
-    {"defence" : 5},
+    {"defence" : 5}
   ],
   
   "incrs" : [

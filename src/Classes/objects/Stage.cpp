@@ -28,7 +28,7 @@ Stage *Stage::create(){
 
 bool Stage::init(){
 	if (!Node::init())
-        return false;
+		return false;
 
 	if(!initExternalData())
 		return false;
@@ -40,7 +40,7 @@ bool Stage::init(){
 	enableMouseInput(this);
 	scheduleUpdate();
 
-    return true;
+	return true;
 }
 bool Stage::initExternalData(){
 	Json::Value root;

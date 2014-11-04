@@ -8,6 +8,7 @@
 #include "objects/EnemyPool.h"
 
 #include "ui/cursor.h"
+#include "ui/StatusConsole.h"
 
 using namespace cocos2d;
 
@@ -19,14 +20,14 @@ Scene* GameScene::scene(){
 		PhysicsWorld::DEBUGDRAW_NONE);
 	world->setGravity(Vec2(0,0));
 
-    GameScene *layer = GameScene::create();
-    scene->addChild(layer);
-    return scene;
+	GameScene *layer = GameScene::create();
+	scene->addChild(layer);
+	return scene;
 }
 
 bool GameScene::init(){
-    if (!Layer::init())
-        return false;
+	if (!Layer::init())
+		return false;
 
 	auto director = Director::getInstance();
 	auto visibleSize = director->getVisibleSize();
@@ -43,17 +44,20 @@ bool GameScene::init(){
 
 	player->setPosition(
 		Vec2(100,100));
-	stage->addChild(player);
+	stage->addChild(player, 1);
 
-	cursor = Cursor::getInstance("bang.png");
-	this->addChild(cursor);
+	cursor = Cursor::getInstance();
+	addChild(cursor);
+
+	auto console = StatusConsole::create();
+	console->setPosition(Vec2(50,0));
+	addChild(console);
 
 	scheduleUpdate();
 
-    return true;
+	return true;
 }
 
 void GameScene::update(
 	float dt){
-	cursor->update(dt);
 }

@@ -2,7 +2,7 @@
 
 #include "cocos2d.h"
 
-#include <string>
+class PartedBody;
 
 class Unit : public cocos2d::Sprite{
 public:
@@ -23,25 +23,29 @@ public:
 	static Unit *create();
 	static Unit *create(
 		const std::string &image);
-
-    virtual bool init();
-	virtual bool init(
-		const std::string &image);
-	virtual bool initWithPartedBody(
-		const std::string &prefix);
+	static Unit *create(
+		const std::string &image, const int part);
 
 	void enableDebug();
+
+	PartedBody *getBody();
 
 protected:
 	Unit();
 	virtual ~Unit();
+
+	virtual bool init();
+	virtual bool init(
+		const std::string &image);
+	virtual bool init(
+		const std::string &prefix, const int part);
 
 	virtual bool initPhysics();
 	void updateDebug(
 		float dt);
 
 protected:
-	cocos2d::Sprite *body;
+	PartedBody *body;
 
 	cocos2d::LabelTTF *dbgAngle;
 };

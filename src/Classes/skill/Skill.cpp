@@ -17,17 +17,16 @@ bool Skill::init(
 bool Skill::initExternalData(
 	const string &dataPath){
 
-	Json::Value root;
-	if(!JsonLoader::load(dataPath, root))
+	if(!JsonLoader::load(dataPath, json))
 		return false;
 
-	id = root.get("id", -1).asInt();
+	id = json.get("id", -1).asInt();
 	if(id == -1) return false;
 
-	tooltip = root.get("tooltip", "").asString();
+	tooltip = json.get("tooltip", "").asString();
 	if(tooltip.empty()) return false;
 
-	name = root.get("name", "").asString();
+	name = json.get("name", "").asString();
 	if(name.empty()) return false;
 
 	return true;

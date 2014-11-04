@@ -6,6 +6,7 @@
 
 #include "skill/id.h"
 #include "skill/type1/Slash.h"
+#include "skill/type1/FrontDash.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -30,6 +31,7 @@ bool SkillPool::init(){
 		return false;
 
 	skills[skillSlash] = new Slash();
+	skills[skillFrontDash] = new FrontDash();
 
 	for(auto skill : root){
 		int id = skill.get("id",0).asInt();

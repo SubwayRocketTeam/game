@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Gauge.h"
 
 using namespace cocos2d;

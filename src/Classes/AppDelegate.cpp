@@ -7,6 +7,9 @@
 
 #include "skill/SkillPool.h"
 
+#include "ui/Cursor.h"
+#include "ui/StatusConsole.h"
+
 using namespace cocos2d;
 using namespace std;
 
@@ -25,8 +28,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	ShowCursor(false);
 
+	StatusConsole::create();
 	SkillPool::create();
 	PhysicsFactory::create();
+	Cursor::create();
 
 	glview->setDesignResolutionSize(
 		800,600, ResolutionPolicy::SHOW_ALL);
@@ -44,8 +49,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 }
 
 void AppDelegate::applicationDidEnterBackground() {
-    Director::getInstance()->stopAnimation();
+	Director::getInstance()->stopAnimation();
 }
 void AppDelegate::applicationWillEnterForeground() {
-    Director::getInstance()->startAnimation();
+	Director::getInstance()->startAnimation();
 }
