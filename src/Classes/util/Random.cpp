@@ -14,5 +14,5 @@ unsigned int Random::getIndex(){
 }
 
 int Random::rand(){
-	return rand();
+	return ::rand();
 }
