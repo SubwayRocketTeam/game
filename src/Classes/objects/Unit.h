@@ -4,6 +4,8 @@
 
 #include "skill/Attribute.h"
 
+#define _ATTR(name) (attrs[Attr::##name].get())
+
 struct Attributes;
 class PartedBody;
 
