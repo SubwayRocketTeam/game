@@ -10,11 +10,13 @@ public:
 	virtual ~Attribute();
 
 	float get();
+
+	float &getMaxValue();
 	float &getValue();
 	float &getBonusRate();
 	float &getBonusValue();
 
 private:
-	float value;
+	float value, maxValue;
 	float bonusValue, bonusRate;
 };
