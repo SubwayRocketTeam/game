@@ -6,6 +6,7 @@
 #include "common/PhysicsFactory.h"
 
 #include "Player.h"
+#include "Ally.h"
 
 using namespace cocos2d;
 
@@ -62,4 +63,16 @@ void Enemy::focus(){
 }
 void Enemy::unfocus(){
 	body->setColor(Color3B(255,255,255));
+}
+
+void Enemy::resetAggro(){
+	auto players = Ally::getInstance(
+		Ally::Type::allyPlayer);
+	auto pos = getPosition();
+
+	for(auto player : *players){
+		auto playerPos = player->getPosition();
+
+		aggros[player] = pos.getDistance(playerPos);
+	}
 }

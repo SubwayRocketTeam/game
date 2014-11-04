@@ -2,6 +2,10 @@
 
 #include "Unit.h"
 
+#include <map>
+
+#include "common/max.h"
+
 class Enemy : public Unit{
 public:
 	static Enemy *create();
@@ -11,6 +15,8 @@ public:
 	void focus();
 	void unfocus();
 
+	void resetAggro();
+
 protected:
 	Enemy();
 	virtual ~Enemy();
@@ -19,4 +25,7 @@ protected:
 
 	virtual void update(
 		float dt);
+
+protected:
+	std::map<Unit*,float> aggros;
 };
