@@ -7,7 +7,7 @@ Attribute::Attribute() :
 }
 Attribute::Attribute(
 	float _bonusValue, float _bonusRate) :
-	value(0),
+	value(0), maxValue(0),
 	bonusRate(_bonusRate), bonusValue(_bonusValue){
 }
 Attribute::~Attribute(){
@@ -16,6 +16,10 @@ Attribute::~Attribute(){
 float Attribute::get(){
 	return (value + bonusValue)
 		* (1.0f + bonusRate);
+}
+
+float &Attribute::getMaxValue(){
+	return maxValue;
 }
 float &Attribute::getValue(){
 	return value;

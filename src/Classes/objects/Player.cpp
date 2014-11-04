@@ -24,7 +24,8 @@ using namespace cocos2d;
 static Player *instance = nullptr;
 
 Player::Player() : 
-	speed(8){
+	speed(8), 
+	moveCounter(0), moveSwitchVertical(0), moveSwitchHorizontal(0){
 }
 Player::~Player(){
 }
@@ -156,6 +157,9 @@ void Player::update(
 	float dt){
 		
 	updateConditions(dt);
+
+	moveCounter = 0;
+	moveSwitchHorizontal = moveSwitchVertical = 0;
 }
 void Player::updateConditions(
 	float dt){
@@ -223,22 +227,21 @@ void Player::processMove(
 	EventKeyboard::KeyCode keycode){
 
 	if(stiff > 0.0f) return;
+	if(moveCounter >= 2) return;
 
-	Vec2 moveBy(0,0);
+	Vec2 moveBy(0, 0);
 
-	switch(keycode){
-	/* UP */
-	case EventKeyboard::KeyCode::KEY_W:
-		moveBy.set(0, speed); break;
-	/* RIGHT */
-	case EventKeyboard::KeyCode::KEY_D:
-		moveBy.set(speed, 0); break;
-	/* LEFT */
-	case EventKeyboard::KeyCode::KEY_A:
-		moveBy.set(-speed, 0); break;
-	/* DOWN */
-	case EventKeyboard::KeyCode::KEY_S:
-		moveBy.set(0, -speed); break;
+	if(moveSwitchVertical == 0){
+		if(keycode == EventKeyboard::KeyCode::KEY_W)
+			moveBy.set(0, speed), moveSwitchVertical = 1;
+		else if(keycode == EventKeyboard::KeyCode::KEY_S)
+			moveBy.set(0, -speed), moveSwitchVertical = 1;
+	}
+	if(moveSwitchHorizontal == 0){
+		if(keycode == EventKeyboard::KeyCode::KEY_A)
+			moveBy.set(-speed, 0), moveSwitchHorizontal = 1;
+		else if(keycode == EventKeyboard::KeyCode::KEY_D)
+			moveBy.set(speed, 0), moveSwitchHorizontal = 1;
 	}
 
 	float frameRate =
@@ -252,6 +255,8 @@ void Player::processMove(
 		AnimationPool::getInstance()
 		->getBodyAnimation(R::Run)
 		, true);
+
+	moveCounter++;
 }
 
 void Player::processAttack(

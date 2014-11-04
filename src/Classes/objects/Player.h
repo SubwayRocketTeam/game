@@ -5,8 +5,6 @@
 #include <map>
 #include <string>
 
-#include "skill/Attribute.h"
-
 #include "Unit.h"
 #include "PartedBody.h"
 #include "Scarf.h"
@@ -79,9 +77,12 @@ protected:
 	virtual ~Player();
 
 protected:
-	std::map<std::string,Attribute> attrs;
 	std::vector<ActiveSkill*> skills;
 	std::vector<PassiveSkill*> passives;
+
+	int moveCounter;
+	int moveSwitchVertical;
+	int moveSwitchHorizontal;
 
 	float speed;
 	float stiff;

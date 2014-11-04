@@ -260,6 +260,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\objects\Attributes.h">
       <Filter>source\object</Filter>
+	</ClInclude>
+    <ClInclude Include="..\Classes\skill\AttributeName.h">
+      <Filter>source\skill\base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
