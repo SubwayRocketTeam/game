@@ -8,6 +8,7 @@
 #include "skill/SkillPool.h"
 
 #include "objects/Ally.h"
+#include "objects/Stage.h"
 
 #include "ui/Cursor.h"
 #include "ui/StatusConsole.h"
@@ -28,6 +29,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 		director->setOpenGLView(glview);
 	}
 
+	Stage::create();
 	Ally::create();
 	StatusConsole::create();
 	SkillPool::create();
