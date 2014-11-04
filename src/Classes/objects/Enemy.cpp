@@ -47,8 +47,10 @@ bool Enemy::initPhysics(){
 void Enemy::update(
 	float dt){
 
-	auto player = Player::getInstance();
-	auto delta = getPosition() - player->getPosition();
+	auto target = getTarget();
+
+	printf("%x\n", target);
+	auto delta = getPosition() - target->getPosition();
 	
 	auto move = delta.getNormalized() * 50;
 	auto angle = 
