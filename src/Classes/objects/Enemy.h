@@ -9,8 +9,6 @@
 class Enemy : public Unit{
 public:
 	static Enemy *create();
-	
-    virtual bool init();
 
 	void focus();
 	void unfocus();
@@ -21,6 +19,7 @@ protected:
 	Enemy();
 	virtual ~Enemy();
 
+	virtual bool init();
 	virtual bool initPhysics();
 
 	virtual void update(
