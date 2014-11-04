@@ -33,8 +33,8 @@ public:
 		const std::string &dataPath);
 	static Player *getInstance();
 
-	bool useSkill(
-		SKillIndex index,
+	virtual bool useSkill(
+		SKillIndex id,
 		float x,float y);
 
 protected:
