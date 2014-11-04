@@ -27,6 +27,9 @@ public:
 		Unit *u,
 		AttackData data);
 
+	cocos2d::Vector<Unit*>::iterator begin();
+	cocos2d::Vector<Unit*>::iterator end();
+
 protected:
 	virtual bool init();
 
