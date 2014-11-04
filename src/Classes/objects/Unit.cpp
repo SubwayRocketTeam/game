@@ -2,6 +2,8 @@
 #include "Unit.h"
 
 #include "skill/AttributeName.h"
+#include "skill/SkillPool.h"
+#include "skill/ActiveSkill.h"
 
 #include "PartedBody.h"
 
@@ -112,6 +114,18 @@ void Unit::damage(
 
 	Vec2 power(0,1000000);
 	getPhysicsBody()->applyImpulse(power);
+}
+
+bool Unit::useSkill(
+	int id,
+	float x,float y){
+
+	auto pool = SkillPool::getInstance();
+	auto skill = (ActiveSkill*)pool->get(id);
+
+	skill->use(this, Vec2(x,y));
+
+	return true;
 }
 
 void Unit::enableDebug(){

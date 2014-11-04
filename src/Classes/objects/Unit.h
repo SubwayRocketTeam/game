@@ -35,6 +35,10 @@ public:
 	void damage(
 		int dmg);
 
+	virtual bool useSkill(
+		int id,
+		float x,float y);
+
 	void enableDebug();
 
 	PartedBody *getBody();
