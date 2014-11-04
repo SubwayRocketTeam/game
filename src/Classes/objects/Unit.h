@@ -1,10 +1,8 @@
 #pragma once
 
 #include "cocos2d.h"
-
 #include "skill/Attribute.h"
 
-struct Attributes;
 class PartedBody;
 
 class Unit : public cocos2d::Sprite{
@@ -55,6 +53,5 @@ protected:
 
 	cocos2d::LabelTTF *dbgAngle;
 
-	Attributes* attr;
 	std::map<std::string,Attribute> attrs;
 };
