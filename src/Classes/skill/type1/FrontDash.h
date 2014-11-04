@@ -11,4 +11,11 @@ public:
 	virtual void use(
 		Unit *u,
 		cocos2d::Vec2 pos);
+
+protected:
+	virtual bool initExternalData(
+		const std::string &dstPath);
+
+protected:
+	float distance;
 };
