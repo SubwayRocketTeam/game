@@ -37,6 +37,7 @@ bool Minimap::init(){
 		size.width/2, size.height/2);
 	addChild(drawnode);
 
+	enableMouseInput(this);
 	scheduleUpdate();
 
 	return true;
@@ -72,4 +73,15 @@ void Minimap::update(
 		drawnode->drawPoint(
 			pos, 5, Color4F::YELLOW);
 	}
+}
+
+void Minimap::onMouseMove(
+	int btn, float x,float y){
+
+	auto box = getBoundingBox();
+
+	if(box.containsPoint(Vec2(x,y)))
+		setOpacity(128);
+	else
+		setOpacity(255);
 }
