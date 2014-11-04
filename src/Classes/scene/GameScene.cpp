@@ -68,9 +68,6 @@ bool GameScene::init(){
 	stage->addChild(player, 1);
 	players->push(player);
 
-	cursor = Cursor::getInstance();
-	addChild(cursor);
-
 	auto console = StatusConsole::create();
 	console->setPosition(Vec2(50,300));
 	addChild(console);
@@ -81,6 +78,9 @@ bool GameScene::init(){
 	auto minimap = Minimap::getInstance();
 	minimap->setPosition(175,125);
 	addChild(minimap);
+
+	cursor = Cursor::getInstance();
+	addChild(cursor);
 
 	scheduleUpdate();
 
