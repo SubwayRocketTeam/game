@@ -12,6 +12,7 @@
 
 #include "ui/Cursor.h"
 #include "ui/StatusConsole.h"
+#include "ui/Minimap.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -31,6 +32,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	ShowCursor(false);
 
+	Minimap::create();
 	Stage::create();
 	Ally::create();
 	StatusConsole::create();

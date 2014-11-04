@@ -17,6 +17,7 @@
 #include "ui/cursor.h"
 #include "ui/StatusConsole.h"
 #include "ui/UserResources.h"
+#include "ui/Minimap.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -71,11 +72,15 @@ bool GameScene::init(){
 	addChild(cursor);
 
 	auto console = StatusConsole::create();
-	console->setPosition(Vec2(50,0));
+	console->setPosition(Vec2(50,300));
 	addChild(console);
 
 	auto resourcesUI = UserResources::getInstance();
 	this->addChild(resourcesUI);
+
+	auto minimap = Minimap::getInstance();
+	minimap->setPosition(175,125);
+	addChild(minimap);
 
 	scheduleUpdate();
 

@@ -112,6 +112,9 @@
     <ClCompile Include="..\Classes\ui\UserResources.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ui\Minimap.cpp">
+      <Filter>source\ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -263,9 +266,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ui\UserResources.h">
       <Filter>source\ui</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="..\Classes\common\max.h">
       <Filter>source\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\Minimap.h">
+      <Filter>source\ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
