@@ -16,15 +16,9 @@ ToDo List
 * 공격, 스킬의 처리
 * 몹 스폰의 처리
 * [ActiveJson](https://github.com/SubwayRocketTeam/ActiveJson)
-* 
 
 
-물리엔진 갈을려는 이유
-----
-* sensor 미지원
-* bullet 미지원
-* Dynamic 오브젝트 뚫고 지나갈 수 있음
-* 
+[팀 wiki](https://github.com/SubwayRocketTeam/documents/wiki)
 
 [코딩 스타일](https://github.com/SubwayRocketTeam/game/tree/master/doc/style)
 
