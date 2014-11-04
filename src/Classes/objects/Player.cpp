@@ -17,6 +17,7 @@
 #include "skill/ActiveSkill.h"
 #include "skill/SkillPool.h"
 #include "skill/id.h"
+#include "skill/AttributeName.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -24,7 +25,6 @@ using namespace cocos2d;
 static Player *instance = nullptr;
 
 Player::Player() : 
-	speed(8), 
 	moveCounter(0), moveSwitchVertical(0), moveSwitchHorizontal(0){
 }
 Player::~Player(){
@@ -230,6 +230,7 @@ void Player::processMove(
 	if(moveCounter >= 2) return;
 
 	Vec2 moveBy(0, 0);
+	float speed = _ATTR(speed);
 
 	if(moveSwitchVertical == 0){
 		if(keycode == EventKeyboard::KeyCode::KEY_W)

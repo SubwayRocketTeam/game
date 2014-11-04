@@ -137,7 +137,6 @@
     <ClCompile Include="..\Classes\objects\Afterimage.cpp" />
     <ClCompile Include="..\Classes\objects\Ally.cpp" />
     <ClCompile Include="..\Classes\objects\AnimationPool.cpp" />
-    <ClCompile Include="..\Classes\objects\Attributes.cpp" />
     <ClCompile Include="..\Classes\objects\BodyAnimation.cpp" />
     <ClCompile Include="..\Classes\objects\Bullet.cpp" />
     <ClCompile Include="..\Classes\objects\Stage.cpp" />
@@ -191,7 +190,6 @@
     <ClInclude Include="..\Classes\objects\Ally.h" />
     <ClInclude Include="..\Classes\objects\AnimationPool.h" />
     <ClInclude Include="..\Classes\objects\AttackData.h" />
-    <ClInclude Include="..\Classes\objects\Attributes.h" />
     <ClInclude Include="..\Classes\objects\BodyAnimation.h" />
     <ClInclude Include="..\Classes\objects\Bullet.h" />
     <ClInclude Include="..\Classes\objects\Stage.h" />
