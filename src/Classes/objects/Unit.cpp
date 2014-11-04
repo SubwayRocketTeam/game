@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Unit.h"
 
+#include "skill/AttributeName.h"
+
 #include "PartedBody.h"
 
 using namespace std;
@@ -68,6 +70,8 @@ bool Unit::init(
 
 	if (!initPhysics())
 		return false;
+	if(!initAttrs())
+		return false;
 
 	addChild(body);
 
@@ -85,8 +89,15 @@ bool Unit::init(
 
 	if(!initPhysics())
 		return false;
+	if(!initAttrs())
+		return false;
 
 	addChild(body);
+
+	return true;
+}
+bool Unit::initAttrs(){
+	_SET_ATTR(speed, 4);
 
 	return true;
 }

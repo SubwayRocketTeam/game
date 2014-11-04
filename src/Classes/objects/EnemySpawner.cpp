@@ -49,6 +49,7 @@ void EnemySpawner::spawn(){
 	Enemy *e = Enemy::create();
 	e->setPosition(
 		getPosition());
+	e->resetAggro();
 
 	ally->push(e);
 	stage->addChild(e);

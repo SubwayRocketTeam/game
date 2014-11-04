@@ -184,6 +184,7 @@
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\common\JsonLoader.h" />
+    <ClInclude Include="..\Classes\common\max.h" />
     <ClInclude Include="..\Classes\common\PhysicsFactory.h" />
     <ClInclude Include="..\Classes\common\resource.h" />
     <ClInclude Include="..\Classes\Compat.h" />

@@ -9,6 +9,10 @@ public:
 		float bonusValue, float bonusRate);
 	virtual ~Attribute();
 
+	/* value와 maxValue를 한번에 설정 */
+	void set(
+		float value);
+
 	float get();
 
 	float &getMaxValue();

@@ -6,6 +6,7 @@
 #include "common/PhysicsFactory.h"
 
 #include "Player.h"
+#include "Ally.h"
 
 using namespace cocos2d;
 
@@ -46,8 +47,9 @@ bool Enemy::initPhysics(){
 void Enemy::update(
 	float dt){
 
-	auto player = Player::getInstance();
-	auto delta = getPosition() - player->getPosition();
+	auto target = getTarget();
+
+	auto delta = getPosition() - target->getPosition();
 	
 	auto move = delta.getNormalized() * 50;
 	auto angle = 
@@ -62,4 +64,43 @@ void Enemy::focus(){
 }
 void Enemy::unfocus(){
 	body->setColor(Color3B(255,255,255));
+}
+
+void Enemy::resetAggro(){
+	auto players = Ally::getInstance(
+		Ally::Type::allyPlayer);
+	auto pos = getPosition();
+
+	for(auto player : *players){
+		auto playerPos = player->getPosition();
+
+		aggros[player] = pos.getDistance(playerPos);
+	}
+}
+void Enemy::increaseAggro(
+	Unit *u, float value){
+
+	CC_ASSERT(aggros.find(u) != aggros.end());
+	
+	aggros[u] += value;
+}
+void Enemy::decreaseAggro(
+	Unit *u, float value){
+
+	CC_ASSERT(aggros.find(u) != aggros.end());
+
+	aggros[u] -= value;
+}
+Unit *Enemy::getTarget(){
+	Unit *target = nullptr;
+	float max = 0;
+
+	for(auto pair : aggros){
+		if(pair.second > max){
+			target = pair.first;
+			max = pair.second;
+		}
+	}
+
+	return target;
 }

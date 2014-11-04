@@ -85,7 +85,6 @@ protected:
 	int moveSwitchVertical;
 	int moveSwitchHorizontal;
 
-	float speed;
 	float stiff;
 	std::vector<float> cooltimes;
 

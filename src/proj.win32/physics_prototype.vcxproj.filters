@@ -263,6 +263,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ui\UserResources.h">
       <Filter>source\ui</Filter>
+	</ClInclude>
+    <ClInclude Include="..\Classes\common\max.h">
+      <Filter>source\common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

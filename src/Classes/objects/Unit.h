@@ -3,6 +3,11 @@
 #include "cocos2d.h"
 #include "skill/Attribute.h"
 
+#define _ATTR(name) (attrs[Attr::##name].get())
+#define _SET_ATTR(name, value) do{ \
+	attrs[Attr::##name].set(value); \
+	}while(0)
+	
 class PartedBody;
 
 class Unit : public cocos2d::Sprite{
@@ -44,7 +49,9 @@ protected:
 	virtual bool init(
 		const std::string &prefix, const int part);
 
+	virtual bool initAttrs();
 	virtual bool initPhysics();
+
 	void updateDebug(
 		float dt);
 

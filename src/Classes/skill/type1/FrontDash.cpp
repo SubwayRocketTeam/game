@@ -11,6 +11,17 @@
 using namespace std;
 using namespace cocos2d;
 
+bool FrontDash::initExternalData(
+	const string &dstPath){
+
+	if(!ActiveSkill::initExternalData(dstPath))
+		return false;
+	
+	distance = json.get("distance", 0).asFloat();
+
+	return true;
+}
+
 void FrontDash::use(
 	Unit *u,
 	cocos2d::Vec2 pos){
@@ -24,7 +35,7 @@ void FrontDash::use(
 			CC_DEGREES_TO_RADIANS(-angle));
 	
 	u->runAction(
-		MoveBy::create(duration, foward * 250))
+		MoveBy::create(duration, foward * distance))
 	->setTag(Unit::actionMove);
 
 	auto afterimage =  Afterimage::createWithPartedBody(

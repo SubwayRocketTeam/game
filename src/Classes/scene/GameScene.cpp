@@ -5,6 +5,7 @@
 
 #include "common/resource.h"
 
+#include "objects/Ally.h"
 #include "objects/Stage.h"
 #include "objects/Player.h"
 #include "objects/Enemy.h"
@@ -57,11 +58,14 @@ bool GameScene::init(){
 	animPool->add(
 		BodyAnimation::create(R::Run, v, 8), R::Run);
 
+	auto players = Ally::getInstance(
+		Ally::Type::allyPlayer);
 	player = Player::create("type1.json");
 
 	player->setPosition(
 		Vec2(100,100));
 	stage->addChild(player, 1);
+	players->push(player);
 
 	cursor = Cursor::getInstance();
 	addChild(cursor);

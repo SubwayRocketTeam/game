@@ -48,7 +48,7 @@ void Ally::push(
 }
 void Ally::remove(
 	Unit *u){
-
+	
 	members.eraseObject(u);
 }
 
@@ -64,4 +64,11 @@ void Ally::processAttack(
 			member->damage(1);
 		}
 	}
+}
+
+Vector<Unit*>::iterator Ally::begin(){
+	return members.begin();
+}
+Vector<Unit*>::iterator Ally::end(){
+	return members.end();
 }
