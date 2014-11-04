@@ -13,6 +13,13 @@ Attribute::Attribute(
 Attribute::~Attribute(){
 }
 
+void Attribute::set(
+	float _value){
+
+	value = _value;
+	maxValue = _value;
+}
+
 float Attribute::get(){
 	return (value + bonusValue)
 		* (1.0f + bonusRate);
