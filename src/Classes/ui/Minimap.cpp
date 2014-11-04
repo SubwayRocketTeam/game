@@ -63,15 +63,15 @@ void Minimap::update(
 			pos.y * ratio.y);
 
 		drawnode->drawPoint(
-			pos, 5, Color4F::GREEN);
+			pos, 10, Color4F::GREEN);
 	}
 	for(auto enemy : *enemies){
 		auto pos = enemy->getPosition();
 		pos.set(pos.x * ratio.x,
 			pos.y * ratio.y);
 
-		drawnode->drawPoint(
-			pos, 5, Color4F::YELLOW);
+		drawnode->drawSolidCircle(
+			pos, 5, 360,32,  Color4F::RED);
 	}
 }
 
