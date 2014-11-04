@@ -15,6 +15,7 @@
 
 #include "ui/cursor.h"
 #include "ui/StatusConsole.h"
+#include "ui/UserResources.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -68,6 +69,9 @@ bool GameScene::init(){
 	auto console = StatusConsole::create();
 	console->setPosition(Vec2(50,0));
 	addChild(console);
+
+	auto resourcesUI = UserResources::getInstance();
+	this->addChild(resourcesUI);
 
 	scheduleUpdate();
 

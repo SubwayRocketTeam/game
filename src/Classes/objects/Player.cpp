@@ -8,6 +8,7 @@
 
 #include "ui/cursor.h"
 #include "ui/gauge.h"
+#include "ui/UserResources.h"
 
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
@@ -25,7 +26,10 @@ static Player *instance = nullptr;
 
 Player::Player() : 
 	speed(8), 
-	moveCounter(0), moveSwitchVertical(0), moveSwitchHorizontal(0){
+	moveCounter(0), moveSwitchVertical(0), moveSwitchHorizontal(0),
+	exp(0), expLimit(60 * 1), gold(0), level(0) {
+
+
 }
 Player::~Player(){
 }
@@ -160,6 +164,19 @@ void Player::update(
 
 	moveCounter = 0;
 	moveSwitchHorizontal = moveSwitchVertical = 0;
+
+	exp++;
+	gold++;
+
+	auto resources = UserResources::getInstance();
+	resources->setExpAndMaxExp(exp, expLimit);
+	resources->setGold(gold);
+	if (exp >= expLimit) {
+		exp = 0;
+		expLimit *= 2;
+		level++;
+		resources->setLevel(level);
+	}
 }
 void Player::updateConditions(
 	float dt){

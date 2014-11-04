@@ -109,6 +109,9 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ui\UserResources.cpp">
+      <Filter>source\ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -257,6 +260,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\skill\AttributeName.h">
       <Filter>source\skill\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\UserResources.h">
+      <Filter>source\ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

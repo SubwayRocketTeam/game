@@ -15,6 +15,7 @@ class PassiveSkill;
 class ActiveSkill;
 class Cursor;
 class Gauge;
+class UserResources;
 
 class Player : public Unit,
 	public MouseEventListener, public KeyboardEventListener{
@@ -97,4 +98,11 @@ protected:
 	Gauge* mp;
 
 	Cursor* mouseCursor;
+
+	// 현재 경험치
+	int exp;
+	// 레벨업 기준 경험치
+	int expLimit;
+	int gold;
+	int level;
 };
