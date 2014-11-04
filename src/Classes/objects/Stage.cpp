@@ -61,6 +61,8 @@ bool Stage::init(){
 	enableMouseInput(this);
 	scheduleUpdate();
 
+	setContentSize(floor->getContentSize());
+
 	return true;
 }
 bool Stage::initExternalData(){
