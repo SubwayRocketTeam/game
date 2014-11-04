@@ -21,9 +21,6 @@ ToDo List
 External Links
 ----
 * [팀 wiki](https://github.com/SubwayRocketTeam/documents/wiki)
-
 * [코딩 스타일](https://github.com/SubwayRocketTeam/game/tree/master/doc/style)
-
 * [게임 컨셉 기획](https://github.com/SubwayRocketTeam/documents/wiki/%EA%B2%8C%EC%9E%84-%EC%BB%A8%EC%85%89-%EA%B8%B0%ED%9A%8D)
-
 * [프로토타입 레포](https://github.com/SubwayRocketTeam/Prototype)
