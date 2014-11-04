@@ -206,6 +206,7 @@
     <ClInclude Include="..\Classes\scene\GameScene.h" />
     <ClInclude Include="..\Classes\skill\ActiveSkill.h" />
     <ClInclude Include="..\Classes\skill\Attribute.h" />
+    <ClInclude Include="..\Classes\skill\AttributeName.h" />
     <ClInclude Include="..\Classes\skill\id.h" />
     <ClInclude Include="..\Classes\skill\PassiveSkill.h" />
     <ClInclude Include="..\Classes\skill\Skill.h" />
