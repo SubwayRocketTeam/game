@@ -25,6 +25,12 @@ protected:
 	virtual void update(
 		float dt);
 
+	void increaseAggro(
+		Unit *u, float value);
+	void decreaseAggro(
+		Unit *u, float value);
+	Unit *getTarget();
+
 protected:
 	std::map<Unit*,float> aggros;
 };

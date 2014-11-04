@@ -76,3 +76,30 @@ void Enemy::resetAggro(){
 		aggros[player] = pos.getDistance(playerPos);
 	}
 }
+void Enemy::increaseAggro(
+	Unit *u, float value){
+
+	CC_ASSERT(aggros.find(u) != aggros.end());
+	
+	aggros[u] += value;
+}
+void Enemy::decreaseAggro(
+	Unit *u, float value){
+
+	CC_ASSERT(aggros.find(u) != aggros.end());
+
+	aggros[u] -= value;
+}
+Unit *Enemy::getTarget(){
+	Unit *target = nullptr;
+	float max = 0;
+
+	for(auto pair : aggros){
+		if(pair.second > max){
+			target = pair.first;
+			max = pair.second;
+		}
+	}
+
+	return target;
+}
