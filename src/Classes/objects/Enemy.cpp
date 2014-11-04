@@ -49,7 +49,6 @@ void Enemy::update(
 
 	auto target = getTarget();
 
-	printf("%x\n", target);
 	auto delta = getPosition() - target->getPosition();
 	
 	auto move = delta.getNormalized() * 50;
