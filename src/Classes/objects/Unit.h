@@ -26,6 +26,9 @@ public:
 	static Unit *create(
 		const std::string &image, const int part);
 
+	void damage(
+		int dmg);
+
 	void enableDebug();
 
 	PartedBody *getBody();

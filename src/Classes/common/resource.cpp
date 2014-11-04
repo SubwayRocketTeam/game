@@ -3,7 +3,7 @@
 
 namespace R{
 	_RESD(PlayerBody, "character1");
-	_RESD(EnemyBody, "bang");
+	_RESD(EnemyBody, "enemy");
 
 	_RESD(StageFloor, "Floor.png");
 	_RESD(StageJson, "stage.json");
@@ -15,4 +15,6 @@ namespace R{
 	_RESD(SkillSlash, "slash.png");
 
 	_RESD(Cursor, "cursor.png");
+
+	_RESD(Run, "character2");
 }

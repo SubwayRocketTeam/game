@@ -21,4 +21,6 @@ namespace R{
 	_RESL(SkillSlash);
 
 	_RESL(Cursor);
+
+	_RESL(Run);
 };

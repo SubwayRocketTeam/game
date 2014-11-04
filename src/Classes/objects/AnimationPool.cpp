@@ -1,6 +1,7 @@
 #include "pch.h"
 
 #include "AnimationPool.h"
+#include "BodyAnimation.h"
 
 USING_NS_CC;
 
@@ -12,6 +13,11 @@ AnimationPool* AnimationPool::create()
 	if (o && o->init())
 	{
 		o->autorelease();
+
+		CC_SAFE_RELEASE(instance);
+		CC_SAFE_DELETE(instance);
+		instance = o;
+		
 		return o;
 	}
 
@@ -34,6 +40,15 @@ bool AnimationPool::loadFromFile(const std::string& filename)
 	// TODO: JSON을 읽어서 애니메이션 파일을 로드
 	return true;
 }
+
+void AnimationPool::add(BodyAnimation* const animation, const std::string& name)
+{
+	if (pool.find(name) != pool.end())
+		pool[name]->release();
+	pool[name] = animation;
+	animation->retain();
+}
+
 
 BodyAnimation* AnimationPool::getBodyAnimation(const std::string& name)
 {

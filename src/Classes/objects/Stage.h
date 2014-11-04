@@ -8,7 +8,10 @@
 class Stage : public cocos2d::Node,
 	public MouseEventListener{
 public:
-	static Stage *create();
+	static bool create();
+	static Stage *getInstance(
+		int id);
+
     virtual bool init();
 
 protected:

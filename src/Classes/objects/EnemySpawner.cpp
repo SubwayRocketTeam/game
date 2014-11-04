@@ -5,6 +5,8 @@
 
 #include "EnemyPool.h"
 #include "Enemy.h"
+#include "Stage.h"
+#include "Ally.h"
 
 using namespace cocos2d;
 
@@ -27,15 +29,27 @@ bool EnemySpawner::init(){
 	if(!Unit::init(R::EnemySpawner))
 		return false;
 
+	scheduleUpdate();
+
 	return true;
+}
+void EnemySpawner::update(
+	float dt){
+
+	if(rand()%40 == 1){
+		spawn();
+	}
 }
 
 void EnemySpawner::spawn(){
-	auto pool = EnemyPool::getInstance();
+	auto stage = Stage::getInstance(0);
+	auto ally = Ally::getInstance(
+		Ally::Type::allyEnemy);
 
 	Enemy *e = Enemy::create();
 	e->setPosition(
 		getPosition());
 
-	pool->push(e);
+	ally->push(e);
+	stage->addChild(e);
 }

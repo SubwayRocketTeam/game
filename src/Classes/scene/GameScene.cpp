@@ -1,15 +1,22 @@
 #include "pch.h"
 #include "GameScene.h"
 
+#include <vector>
+
+#include "common/resource.h"
+
 #include "objects/Stage.h"
 #include "objects/Player.h"
 #include "objects/Enemy.h"
 #include "objects/EnemySpawner.h"
 #include "objects/EnemyPool.h"
+#include "objects/BodyAnimation.h"
+#include "objects/AnimationPool.h"
 
 #include "ui/cursor.h"
 #include "ui/StatusConsole.h"
 
+using namespace std;
 using namespace cocos2d;
 
 Scene* GameScene::scene(){
@@ -26,19 +33,28 @@ Scene* GameScene::scene(){
 }
 
 bool GameScene::init(){
-	if (!Layer::init())
+	if (!Scene::init())
 		return false;
 
 	auto director = Director::getInstance();
 	auto visibleSize = director->getVisibleSize();
 	auto origin = director->getVisibleOrigin();
 
-	stage = Stage::create();
+	stage = Stage::getInstance(0);
 	stage->setPosition(origin + visibleSize / 2);
 	addChild(stage);
 
 	auto pool = EnemyPool::create();
 	addChild(pool);
+
+	auto animPool = AnimationPool::create();
+	addChild(animPool);
+
+	int frames[] = {1, 2, 3, 4, 5, 6};
+	vector<int> v(frames, frames+sizeof(frames) / sizeof(int));
+	
+	animPool->add(
+		BodyAnimation::create(R::Run, v, 8), R::Run);
 
 	player = Player::create("type1.json");
 

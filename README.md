@@ -2,7 +2,13 @@
 
 Pull 할 때 주의사항
 ----
-cocos2d submodule을 처음 받았을 때 꼭 download-deps.py를 실행할 것.
+* gitshell 열기
+```
+git submodule init
+git submodule update
+```
+
+* cocos2d/download-deps.py를 실행
 
 
 ToDo List
@@ -10,6 +16,15 @@ ToDo List
 * 공격, 스킬의 처리
 * 몹 스폰의 처리
 * [ActiveJson](https://github.com/SubwayRocketTeam/ActiveJson)
+* 
+
+
+물리엔진 갈을려는 이유
+----
+* sensor 미지원
+* bullet 미지원
+* Dynamic 오브젝트 뚫고 지나갈 수 있음
+* 
 
 [코딩 스타일](https://github.com/SubwayRocketTeam/game/tree/master/doc/style)
 

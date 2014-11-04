@@ -16,4 +16,7 @@ protected:
 	virtual ~Enemy();
 
 	virtual bool initPhysics();
+
+	virtual void update(
+		float dt);
 };

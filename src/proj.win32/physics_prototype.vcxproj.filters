@@ -31,9 +31,6 @@
     <ClCompile Include="..\Classes\objects\Bullet.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>source</Filter>
     </ClCompile>
@@ -109,6 +106,9 @@
     <ClCompile Include="..\Classes\objects\Afterimage.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -140,9 +140,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\objects\Bullet.h">
       <Filter>source\object</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
       <Filter>source</Filter>
@@ -254,6 +251,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\objects\Afterimage.h">
       <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

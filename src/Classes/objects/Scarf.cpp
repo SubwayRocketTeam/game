@@ -23,7 +23,7 @@ Scarf *Scarf::create(){
 
 bool Scarf::init(){
 	if(!DrawNode::init())
-        return false;
+		return false;
 
 	for (int i=0;i<Segments;i++){
 		scarfNode[i].point = Vec2(i*Length, 0);

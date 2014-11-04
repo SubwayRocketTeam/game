@@ -10,20 +10,41 @@
 using namespace std;
 using namespace cocos2d;
 
+static Stage *instances[2] =
+	{nullptr, nullptr};
+
 Stage::Stage(){
 }
 Stage::~Stage(){
 }
 
-Stage *Stage::create(){
-	Stage *p = new Stage();
-	
-	if(p && p->init()){
-		p->autorelease();
-		return p;
+bool Stage::create(){
+	for(int i=0;i<_countof(instances);i++){
+		instances[i] = new Stage();
+
+		if(instances[i] && instances[i]->init()){
+			instances[i]->autorelease();
+		}
+		else{
+			CC_SAFE_DELETE(instances[i]);
+			return false;
+		}
 	}
-	CC_SAFE_DELETE(p);
-	return nullptr;
+
+	return true;
+}
+Stage *Stage::getInstance(
+	int id){
+
+	switch(id){
+	case 0:
+		return instances[0];
+	case 1:
+		return instances[1];
+	default:
+		cocos2d::log("unknown stage id");
+		return nullptr;
+	}
 }
 
 bool Stage::init(){

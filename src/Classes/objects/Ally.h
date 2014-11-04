@@ -2,17 +2,33 @@
 
 #include "cocos2d.h"
 
+#include "AttackData.h"
+
 class Unit;
 
 class Ally : public cocos2d::Ref{
 public:
-	static Ally *create();
-	virtual bool init();
+	enum Type{
+		allyPlayer=0,
+		allyEnemy
+	};
+
+public:
+	static bool create();
+	static Ally *getInstance(
+		Type type);
 
 	void push(
 		Unit *u);
 	void remove(
 		Unit *u);
+
+	void processAttack(
+		Unit *u,
+		AttackData data);
+
+protected:
+	virtual bool init();
 
 protected:
 	cocos2d::Vector<Unit*> members;

@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "PartedBody.h"
 #include "BodyAnimation.h"
 
@@ -136,28 +136,46 @@ Vec2 PartedBody::getHeadPosition(){
 }
 
 
-void PartedBody::runAnimation(BodyAnimation* const animation)
+void PartedBody::runAnimation(BodyAnimation* const animation, bool repeatForever)
 {
-	CCASSERT(animation, "nullptrÀÌ ¾Ö´Ï¸ŞÀÌ¼ÇÀ¸·Î µé¾î¿È.");
+	CCASSERT(animation, "nullptrì´ ì• ë‹ˆë©”ì´ì…˜ìœ¼ë¡œ ë“¤ì–´ì˜´.");
+
 	for (int i = 1; i <= partNum; ++i)
 	{
 		Animation* partAnim = animation->getPartAnimation(i);
 		if (!partAnim) continue;
-		else if (partAnim == runningAnimation[i]) continue;
+		else if (partAnim == runningAnimation[i - 1]) continue;
 		else stopAnimation(i);
 
-		body[i]->runAction(Animate::create(partAnim));
+		Action* action;
+
+		if (repeatForever)
+		{
+			action = RepeatForever::create(Animate::create(partAnim));
+		}
+		else
+		{
+			action = Sequence::create(
+				Animate::create(partAnim),
+				CallFunc::create(CC_CALLBACK_0(PartedBody::stopAnimation, this, i)),
+				NULL);
+		}
+
+		body[i - 1]->runAction(action);
+
+		runningAnimation[i - 1] = partAnim;
 	}
 }
 
 void PartedBody::stopAnimation(const int id)
 {
-	CCASSERT(id > 0 && id <= partNum, "Á¤ÁöÇÏ´Â ¾Ö´Ï¸ŞÀÌ¼Ç id°¡ ¹üÀ§ ¹Û");
-	if (runningAnimation[id])
+	CCASSERT(id > 0 && id <= partNum, "ì •ì§€í•˜ëŠ” ì• ë‹ˆë©”ì´ì…˜ idê°€ ë²”ìœ„ ë°–");
+
+	if (runningAnimation[id - 1])
 	{
-		body[id]->stopAllActions();
-		body[id]->setTexture(bodyTexture[id]);
-		runningAnimation[id] = nullptr;
+		body[id - 1]->stopAllActions();
+		body[id - 1]->setTexture(bodyTexture[id - 1]);
+		runningAnimation[id - 1] = nullptr;
 	}
 }
 

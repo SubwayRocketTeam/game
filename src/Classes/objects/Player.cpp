@@ -4,6 +4,8 @@
 #include "EnemyPool.h"
 #include "Bullet.h"
 
+#include "AnimationPool.h"
+
 #include "ui/cursor.h"
 #include "ui/gauge.h"
 
@@ -85,13 +87,14 @@ bool Player::init(
 }
 bool Player::initPhysics(){
 	auto factory = PhysicsFactory::getInstance();
-	//auto pbody = factory->make("player");
+	auto pbody = factory->make("player");
 
-	//if(pbody){
-		/* temporary disalbed */
-		//setPhysicsBody(pbody);
+	if(pbody){
+		pbody->setAngularDamping(100);
+		pbody->setLinearDamping(100);
+		setPhysicsBody(pbody);
 		return true;
-	//}
+	}
 	
 	return false;
 }
@@ -240,10 +243,17 @@ void Player::processMove(
 
 	float frameRate =
 		Director::getInstance()->getFrameRate();
+
 	runAction(
 		MoveBy::create(1.0/frameRate, moveBy))
 		->setTag(actionMove);
+
+	body->runAnimation(
+		AnimationPool::getInstance()
+		->getBodyAnimation(R::Run)
+		, true);
 }
+
 void Player::processAttack(
 	int btn, float x,float y){
 
@@ -266,6 +276,7 @@ void Player::onKeyboardPressed(
 
 	processEyeline(cursor.x, cursor.y);
 	processMove(keycode);
+	processRotation(cursor.x,cursor.y);
 }
 
 void Player::onMouseMove(
@@ -273,6 +284,8 @@ void Player::onMouseMove(
 
 	processEyeline(x,y);
 	processRotation(x,y);
+
+	cursor.set(x,y);
 }
 void Player::onMouseDown(
 	int btn, float x,float y){

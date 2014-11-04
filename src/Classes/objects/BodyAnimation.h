@@ -7,13 +7,15 @@
 class BodyAnimation : public cocos2d::Ref
 {
 public:
-	static const int AnimationDelay = 1.f;
+	static const float AnimationDelay;
 
 public:
 	static BodyAnimation* create(
 		const std::string& filename, const std::vector<int>& partsId, const int frame);
 	bool init(
 		const std::string& filename, const std::vector<int>& partsId, const int frame);
+
+	~BodyAnimation();
 
 	cocos2d::Animation* getPartAnimation(const int id);
 
