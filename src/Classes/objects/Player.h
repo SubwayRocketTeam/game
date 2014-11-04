@@ -83,6 +83,10 @@ protected:
 	std::vector<ActiveSkill*> skills;
 	std::vector<PassiveSkill*> passives;
 
+	int moveCounter;
+	int moveSwitchVertical;
+	int moveSwitchHorizontal;
+
 	float speed;
 	float stiff;
 	std::vector<float> cooltimes;
