@@ -2,6 +2,8 @@
 
 #include "cocos2d.h"
 
+struct Attributes;
+
 class PartedBody;
 
 class Unit : public cocos2d::Sprite{
@@ -51,4 +53,6 @@ protected:
 	PartedBody *body;
 
 	cocos2d::LabelTTF *dbgAngle;
+
+	Attributes* attr;
 };

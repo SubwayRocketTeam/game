@@ -33,7 +33,7 @@ Scene* GameScene::scene(){
 }
 
 bool GameScene::init(){
-	if (!Scene::init())
+	if (!Layer::init())
 		return false;
 
 	auto director = Director::getInstance();

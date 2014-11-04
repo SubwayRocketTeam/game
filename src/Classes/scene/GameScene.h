@@ -6,7 +6,7 @@ class Player;
 class Stage;
 class Cursor;
 
-class GameScene : public cocos2d::Scene {
+class GameScene : public cocos2d::Layer{
 public:
 	CREATE_FUNC(GameScene);
     virtual bool init();  

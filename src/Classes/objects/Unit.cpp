@@ -1,12 +1,14 @@
 #include "pch.h"
 #include "Unit.h"
 
+#include "Attributes.h"
 #include "PartedBody.h"
 
 using namespace std;
 using namespace cocos2d;
 
 Unit::Unit(){
+	attr = new Attributes();
 }
 Unit::~Unit(){
 }
