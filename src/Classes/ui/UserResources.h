@@ -4,6 +4,7 @@
 
 class UserResources : public cocos2d::Node  {
 public:
+	static UserResources* create();
 	static UserResources* getInstance();
 
 	void setLevel(int _level);
@@ -14,8 +15,6 @@ public:
 private:
 	UserResources();
 	virtual ~UserResources();
-
-	static UserResources* instance;
 
 	cocos2d::LabelTTF* levelLabel;
 	cocos2d::LabelTTF* expLabel;

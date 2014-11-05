@@ -13,6 +13,7 @@
 #include "ui/Cursor.h"
 #include "ui/StatusConsole.h"
 #include "ui/Minimap.h"
+#include "ui/UserResources.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -39,6 +40,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	SkillPool::create();
 	PhysicsFactory::create();
 	Cursor::create();
+	UserResources::create();
 
 	glview->setDesignResolutionSize(
 		800,600, ResolutionPolicy::SHOW_ALL);

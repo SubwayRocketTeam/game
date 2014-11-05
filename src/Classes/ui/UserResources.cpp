@@ -3,7 +3,7 @@
 
 using namespace cocos2d;
 
-UserResources* UserResources::instance = nullptr;
+static UserResources* instance = nullptr;
 
 UserResources::UserResources() {
 
@@ -13,12 +13,18 @@ UserResources::~UserResources() {
 
 }
 
-UserResources* UserResources::getInstance() {
-	if (!instance) {
-		instance = new UserResources();
-		instance->init();
-	}
+UserResources* UserResources::create() {
+	instance = new UserResources();
 
+	if (instance && instance->init()) {
+		instance->autorelease();
+		return instance;
+	}
+	CC_SAFE_DELETE(instance);
+	return nullptr;
+}
+
+UserResources* UserResources::getInstance() {
 	return instance;
 }
 
@@ -31,17 +37,17 @@ bool UserResources::init() {
 
 	levelLabel = LabelTTF::create("Create", "arial", 24);
 	levelLabel->setAnchorPoint(Vec2(0.0f, 0.0f));
-	levelLabel->setPosition(Vec2(size.width / 10 * 5, size.height / 10 * 9));
+	levelLabel->setPosition(Vec2(size.width / 10 * 4, size.height / 10 * 8.5));
 	this->addChild(levelLabel);
 
 	expLabel = LabelTTF::create("exp/maxexp", "arial", 24);
 	expLabel->setAnchorPoint(Vec2(0.0f, 0.0f));
-	expLabel->setPosition(Vec2(size.width / 10 * 6, size.height / 10 * 9));
+	expLabel->setPosition(Vec2(size.width / 10 * 5, size.height / 10 * 8.5));
 	this->addChild(expLabel);
 
 	goldLabel = LabelTTF::create("gold : ", "arial", 24);
 	goldLabel->setAnchorPoint(Vec2(0.0f, 0.0f));
-	goldLabel->setPosition(Vec2(size.width / 10 * 7.5, size.height / 10 * 9));
+	goldLabel->setPosition(Vec2(size.width / 10 * 6.5, size.height / 10 * 8.5));
 	this->addChild(goldLabel);
 
 	return true;

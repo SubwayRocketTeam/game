@@ -107,7 +107,7 @@ bool Player::initExternalData(
 
 	Json::Value root;
 	if(!JsonLoader::load(dataPath,root)){
-		printf("loadfilae\n");
+		printf("loadfailed\n");
 		return false;
 	}
 
