@@ -8,10 +8,10 @@ public:
 	Gauge();
 	~Gauge();
 
-	bool initWithFile(const char* filename);
+	bool initWithFile(const std::string &name);
 	void update(float dt) override;
 
-	static Gauge* create(const char* filename, float _targetWidth, int _max = 0);
+	static Gauge* create(const std::string &name, float _targetWidth, int _max = 0);
 	
 	/**
 	 * 현재체력과 최대체력의 비율을 반환함

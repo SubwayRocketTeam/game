@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Gauge.h"
 
+using namespace std;
 using namespace cocos2d;
 
 Gauge::Gauge() {
@@ -15,7 +16,7 @@ Gauge::~Gauge() {
 
 }
 
-bool Gauge::initWithFile(const char* filename) {
+bool Gauge::initWithFile(const string &filename) {
 	if (!Sprite::initWithFile(filename)) {
 		return false;
 	}
@@ -37,9 +38,9 @@ void Gauge::update(float dt) {
 	this->setScaleX(targetWidth / this->getContentSize().width * this->getNowToMaxRatio());
 }
 
-Gauge* Gauge::create(const char* filename, float _targetWidth, int _max) {
+Gauge* Gauge::create(const std::string &name, float _targetWidth, int _max) {
 	Gauge* ret = new Gauge();
-	if (ret && ret->initWithFile(filename)) {
+	if (ret && ret->initWithFile(name)) {
 		ret->autorelease();
 		ret->max = _max;
 		ret->now = _max;

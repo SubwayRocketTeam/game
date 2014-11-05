@@ -25,4 +25,7 @@ namespace R{
 	_RESL(Cursor);
 
 	_RESL(Run);
+
+	_RESL(HPGauge);
+	_RESL(MPGauge);
 };

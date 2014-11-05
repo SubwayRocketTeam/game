@@ -19,4 +19,7 @@ namespace R{
 	_RESD(Cursor, "cursor.png");
 
 	_RESD(Run, "character2");
+
+	_RESD(HPGauge, "hp.png");
+	_RESD(MPGauge, "mp.png");
 }
