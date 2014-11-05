@@ -13,8 +13,8 @@ git submodule update
 
 ToDo List
 ----
-* 공격, 스킬의 처리
-* 몹 스폰의 처리
+* 액티브 스킬의 추가
+* UI 작업들
 * [ActiveJson](https://github.com/SubwayRocketTeam/ActiveJson)
 
 
