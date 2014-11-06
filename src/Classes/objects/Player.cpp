@@ -176,6 +176,11 @@ void Player::update(
 		level++;
 		resources->setLevel(level);
 	}
+
+	lay->clear();
+	for (int i = 0; i < 10; i++) {
+		lay->drawDot((this->convertToNodeSpace(cursor) - Vec2(0, 0)).getNormalized() * i * 50, 5, Color4F::RED);
+	}
 }
 void Player::updateConditions(
 	float dt){
@@ -225,11 +230,9 @@ void Player::processEyeline(
 		},
 		getPosition(), Vec2(x,y),
 		nullptr);
-
-	lay->clear();
-	lay->drawSegment(
-		Vec2(0,0), contactPoint - getPosition(), 3, Color4F(1,0,0,1));
-
+		*/
+	
+		/*
 	auto pool = EnemyPool::getInstance();
 	if(contactObject){
 		pool->focus((Enemy*)contactObject);
