@@ -199,7 +199,6 @@ void Player::updateConditions(
 void Player::processRotation(
 	float x,float y){
 
-	//auto screenSize = Director::getInstance()->getWinSize();
 	auto worldPos =
 		getParent()->convertToWorldSpace(getPosition());
 	auto half = worldPos / 2;
