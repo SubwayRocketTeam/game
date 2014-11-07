@@ -1,4 +1,4 @@
-PassiveSkill
+PassiveSkill < [Skill](https://github.com/SubwayRocketTeam/game/blob/master/doc/arch/Skill.md)
 ====
 
 * 보유하고 있으면 특정한 효과를 주는 스킬
