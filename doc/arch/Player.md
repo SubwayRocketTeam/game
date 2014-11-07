@@ -1,4 +1,4 @@
-Player
+Player < [Unit](https://github.com/SubwayRocketTeam/game/blob/master/doc/arch/Unit.md)
 ====
 
 * 유저의 조종을 받아서 움직이는 Unit
