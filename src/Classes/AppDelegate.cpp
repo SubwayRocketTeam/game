@@ -2,8 +2,9 @@
 #include "AppDelegate.h"
 #include "Compat.h"
 
-#include "scene/GameScene.h"
 #include "common/PhysicsFactory.h"
+
+#include "scene/GameScene.h"
 
 #include "skill/SkillPool.h"
 

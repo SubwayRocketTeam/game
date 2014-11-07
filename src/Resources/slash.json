@@ -3,7 +3,7 @@
   "name" : "slash",
   "tooltip" : "gdgd",
 
-  "duration" : 0,
-  "cooltime" : 0.1,
+  "duration" : 0.1,
+  "cooltime" : 0.3,
   "cost" : 0
 }

@@ -18,6 +18,7 @@
 #include "ui/StatusConsole.h"
 #include "ui/UserResources.h"
 #include "ui/Minimap.h"
+#include "ui/Webbrowser.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -82,6 +83,7 @@ bool GameScene::init(){
 	cursor = Cursor::getInstance();
 	addChild(cursor);
 
+	enableKeyboardInput(this);
 	scheduleUpdate();
 
 	return true;
@@ -89,4 +91,16 @@ bool GameScene::init(){
 
 void GameScene::update(
 	float dt){
+}
+
+void GameScene::onKeyboardDown(
+	EventKeyboard::KeyCode keycode){
+
+	Webbrowser web;
+
+
+	if(keycode == EventKeyboard::KeyCode::KEY_ESCAPE){
+		printf("go\n");
+		web.show("http://pjc.luavis.kr/subway_rocket/", 350,360);
+	}
 }
