@@ -1,4 +1,4 @@
-ActiveSkill
+ActiveSkill < [Skill](https://github.com/SubwayRocketTeam/game/blob/master/doc/arch/Skill.md)
 ====
 
 * Unit이 사용할 수 있는 스킬
