@@ -4,7 +4,8 @@
 using namespace std;
 using namespace cocos2d;
 
-Effect::Effect(){
+Effect::Effect() :
+	action(nullptr){
 }
 Effect::~Effect(){
 }
