@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\common\Effect.cpp" />
+    <ClCompile Include="..\Classes\common\EffectFactory.cpp" />
     <ClCompile Include="..\Classes\common\JsonLoader.cpp" />
     <ClCompile Include="..\Classes\common\PhysicsFactory.cpp" />
     <ClCompile Include="..\Classes\common\resource.cpp" />
@@ -187,6 +188,7 @@
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\common\Effect.h" />
+    <ClInclude Include="..\Classes\common\EffectFactory.h" />
     <ClInclude Include="..\Classes\common\global.h" />
     <ClInclude Include="..\Classes\common\JsonLoader.h" />
     <ClInclude Include="..\Classes\common\max.h" />

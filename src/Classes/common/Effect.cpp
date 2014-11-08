@@ -1,11 +1,12 @@
 #include "pch.h"
 #include "Effect.h"
 
+#include "EffectFactory.h"
+
 using namespace std;
 using namespace cocos2d;
 
-Effect::Effect() :
-	action(nullptr){
+Effect::Effect(){
 }
 Effect::~Effect(){
 }
@@ -23,51 +24,66 @@ Effect *Effect::create(
 	CC_SAFE_DELETE(e);
 	return e;
 }
+Effect *Effect::createWithAnimation(
+	Animation *animation,
+	bool repeat){
+
+	Effect *e = new Effect();
+
+	if(e && e->initWithAnimation(animation, repeat)){
+		e->autorelease();
+		return e;
+	}
+	CC_SAFE_DELETE(e);
+	return e;
+}
 bool Effect::init(
 	const string &name,
 	bool repeat){
 
 	if(!Sprite::init())
 		return false;
-	if(!initAction(name, repeat))
-		return false;
 
-	if(!repeat){
-		runAction(
-			Sequence::create(
-				(FiniteTimeAction*)action,
-				RemoveSelf::create()));
-	}
-	else
-		runAction(action);
+	auto animation = initAnimation(name);
+	auto action = initAction(animation, repeat);
+
+	runAction(action);
 
 	return true;
 }
-bool Effect::initAction(
-	const string &name,
+bool Effect::initWithAnimation(
+	Animation *animation,
 	bool repeat){
 
-	auto cache = SpriteFrameCache::getInstance();
-	auto animation = Animation::create();
+	if(!Sprite::init())
+		return false;
+	
+	auto action = initAction(animation, repeat);
 
-	animation->setDelayPerUnit(1.0 / Global::fps);
-
-	for(int i=0;;i++){
-		char path[128];
-		sprintf(path, "%s_%d%d%d.png",
-			name.c_str(),
-			i/100, i/100%10, i%10);
-
-		auto frame = cache->getSpriteFrameByName(path);
-		if(frame == nullptr)
-			break;
-
-		animation->addSpriteFrame(frame);
-	}
-
-	action = Animate::create(animation);
-	if(repeat)
-		action = RepeatForever::create((ActionInterval*)action);
+	runAction(action);
 
 	return true;
+}
+Animation *Effect::initAnimation(
+	const string &name){
+
+	auto factory = EffectFactory::getInstance();
+
+	return factory->loadAnimation(name);
+}
+Action *Effect::initAction(
+	cocos2d::Animation *animation,
+	bool repeat){
+
+	Action *action = Animate::create(animation);
+	if(repeat)
+		action = RepeatForever::create((ActionInterval*)action);
+	else{
+		action = Sequence::create(
+			(FiniteTimeAction*)action,
+			RemoveSelf::create(),
+			nullptr);
+	}
+
+	return action;
 }

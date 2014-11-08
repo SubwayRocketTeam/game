@@ -9,6 +9,9 @@ public:
 	static Effect *create(
 		const std::string &name,
 		bool repeat = false);
+	static Effect *createWithAnimation(
+		cocos2d::Animation *animation,
+		bool repeat = false);
 
 protected:
 	Effect();
@@ -17,10 +20,13 @@ protected:
 	virtual bool init(
 		const std::string &name,
 		bool repeat);
-	virtual bool initAction(
-		const std::string &name,
+	virtual bool initWithAnimation(
+		cocos2d::Animation *animation,
 		bool repeat);
 
-private:
-	cocos2d::Action *action;
+	virtual cocos2d::Animation *initAnimation(
+		const std::string &name);
+	virtual cocos2d::Action *initAction(
+		cocos2d::Animation *animation,
+		bool repeat);
 };
