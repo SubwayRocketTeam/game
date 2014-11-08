@@ -49,7 +49,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	director->setOpenGLView(glview);
 	director->setDisplayStats(true);
-	director->setAnimationInterval(1.0 / 60);
+	director->setAnimationInterval(1.0 / Global::fps);
 	
 	auto scene = GameScene::scene();
 	director->runWithScene(scene);
