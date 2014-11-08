@@ -1,4 +1,4 @@
-[submodule "cocos2d"]
+[submodule "src/cocos2d"]
 	path = src/cocos2d
 	url = https://github.com/SubwayRocketTeam/cocos2d-x-custom.git
 [submodule "src/jsoncpp"]
