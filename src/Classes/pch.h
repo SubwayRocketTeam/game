@@ -6,3 +6,6 @@
 #pragma warning (disable : 4819)
 
 #include "cocos2d.h"
+
+#include "common/global.h"
+#include "common/max.h"
