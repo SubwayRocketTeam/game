@@ -4,6 +4,8 @@
 #include <vector>
 
 #include "common/resource.h"
+#include "common/Effect.h"
+#include "common/EffectFactory.h"
 
 #include "objects/Ally.h"
 #include "objects/Stage.h"
@@ -83,6 +85,12 @@ bool GameScene::init(){
 	addChild(cursor);
 
 	scheduleUpdate();
+
+	auto factory = EffectFactory::getInstance();
+	auto e = factory->make("afterimage_glow", false);
+
+	e->setPosition(300,300);
+	addChild(e, 100);
 
 	return true;
 }

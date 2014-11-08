@@ -2,6 +2,8 @@
 #include "resource.h"
 
 namespace R{
+	_RESD(AfterimageGlowPlist, "afterimage_glow.plist");
+
 	_RESD(Minimap, "minimap.png");
 
 	_RESD(PlayerBody, "character1");

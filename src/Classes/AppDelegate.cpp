@@ -4,6 +4,7 @@
 
 #include "scene/GameScene.h"
 #include "common/PhysicsFactory.h"
+#include "common/EffectFactory.h"
 
 #include "skill/SkillPool.h"
 
@@ -14,6 +15,8 @@
 #include "ui/StatusConsole.h"
 #include "ui/Minimap.h"
 #include "ui/UserResources.h"
+
+#include "common/resource.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -33,6 +36,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	ShowCursor(false);
 
+	auto cache = SpriteFrameCache::getInstance();
+
+	cache->addSpriteFramesWithFile(R::AfterimageGlowPlist);
+
+
+	EffectFactory::create();
 	Minimap::create();
 	Stage::create();
 	Ally::create();
@@ -49,7 +58,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	director->setOpenGLView(glview);
 	director->setDisplayStats(true);
-	director->setAnimationInterval(1.0 / 60);
+	director->setAnimationInterval(1.0 / Global::fps);
 	
 	auto scene = GameScene::scene();
 	director->runWithScene(scene);

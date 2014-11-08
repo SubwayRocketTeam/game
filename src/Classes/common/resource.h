@@ -8,6 +8,8 @@
 	extern const std::string key;
 
 namespace R{
+	_RESL(AfterimageGlowPlist);
+
 	_RESL(Minimap);
 
 	_RESL(PlayerBody);
