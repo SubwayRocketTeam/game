@@ -36,9 +36,11 @@ bool EnemySpawner::init(){
 void EnemySpawner::update(
 	float dt){
 
+	/*
 	if(rand()%40 == 1){
 		spawn();
 	}
+	*/
 }
 
 void EnemySpawner::spawn(){
