@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Unit.h"
 
 #include "skill/AttributeName.h"
@@ -58,34 +58,15 @@ bool Unit::init(){
 }
 
 /*
-	´ÜÀÏ ÀÌ¹ÌÁöµµ PartedBody·Î Ã³¸®
+	ë‹¨ì¼ ì´ë¯¸ì§€ë„ PartedBodyë¡œ ì²˜ë¦¬
 */
 bool Unit::init(
-	const string &image){
-
-	if (!Sprite::init())
-		return false;
-
-	body = PartedBody::create(image);
-	if (body == nullptr)
-		return false;
-
-	if (!initPhysics())
-		return false;
-	if(!initAttrs())
-		return false;
-
-	addChild(body);
-
-	return true;
-}
-bool Unit::init(
-	const string &prefix, const int part){
+	const string &imageName, const int part){
 
 	if(!Sprite::init())
 		return false;
 
-	body = PartedBody::create(prefix, part);
+	body = PartedBody::create(imageName, part);
 	if(body == nullptr)
 		return false;
 

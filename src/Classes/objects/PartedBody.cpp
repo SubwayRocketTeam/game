@@ -7,23 +7,10 @@ using namespace cocos2d;
 
 PartedBody::PartedBody() :
 	partNum(0),
-	body(MaxParts), bodyTexture(MaxParts),
+	body(MaxParts), bodyOriginal(MaxParts),
 	runningAnimation(MaxParts){
 }
 PartedBody::~PartedBody(){
-}
-
-PartedBody *PartedBody::create(
-	const string &filename){
-
-	PartedBody *u = new PartedBody();
-
-	if(u && u->init(filename)){
-		u->autorelease();
-		return u;
-	}
-	CC_SAFE_DELETE(u);
-	return nullptr;
 }
 
 PartedBody *PartedBody::create(
@@ -40,56 +27,45 @@ PartedBody *PartedBody::create(
 }
 
 bool PartedBody::init(
-	const string &filename){
+	const string &imageName, const int part){
 
-	if(!Sprite::init())
-		return false;
-
-	partNum = 1;
-
-	char path[256];
-	sprintf(path, "%s.png",
-		filename.c_str());
-
-	body[0] = Sprite::create(path);
-
-	if (body[0] == nullptr)
-		return false;
-	bodyTexture[0] = body[0]->getTexture();
-	addChild(body[0], 0);
-
-	schedule(
-		SEL_SCHEDULE(&PartedBody::updateCharacter),
-		1.0/60);
-
-	return true;
-}
-
-bool PartedBody::init(
-	const string &prefix, const int part){
+	CCASSERT(part >= 0, "part는 0보다 크거나 같아야 함.");
 
 	if (!Sprite::init())
 		return false;
 
 	partNum = part;
 
-	for (int i = 0; i<partNum; i++){
-		char path[256];
-		sprintf(path, "%s_%d.png",
-			prefix.c_str(), i + 1);
-
-		body[i] = Sprite::create(path);
-
-		if (body[i] == nullptr)
-			return false;
-		bodyTexture[i] = body[i]->getTexture();
-		addChild(body[i], -i);
+	char path[256];
+	if (partNum == 0) {
+		partNum = 1;
+		sprintf(path, "%s.png",
+			imageName.c_str());
+		if (!makeBodyPart(path, 0)) return false;
+	}
+	else {
+		for (int i = 0; i<partNum; i++) {
+			sprintf(path, "%s_%d.png",
+				imageName.c_str(), i + 1);
+			if (!makeBodyPart(path, i)) return false;
+		}
 	}
 
 	schedule(
 		SEL_SCHEDULE(&PartedBody::updateCharacter),
 		1.0 / 60);
 
+	return true;
+}
+
+bool PartedBody::makeBodyPart(const std::string partName, const int partId)
+{
+	body[partId] = Sprite::create(partName);
+
+	if (body[partId] == nullptr)
+		return false;
+	bodyOriginal[partId] = body[partId]->getSpriteFrame();
+	addChild(body[partId], -partId);
 	return true;
 }
 
@@ -174,7 +150,7 @@ void PartedBody::stopAnimation(const int id)
 	if (runningAnimation[id - 1])
 	{
 		body[id - 1]->stopAllActions();
-		body[id - 1]->setTexture(bodyTexture[id - 1]);
+		body[id - 1]->setSpriteFrame(bodyOriginal[id - 1]);
 		runningAnimation[id - 1] = nullptr;
 	}
 }

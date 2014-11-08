@@ -49,9 +49,7 @@ protected:
 
 	virtual bool init();
 	virtual bool init(
-		const std::string &image);
-	virtual bool init(
-		const std::string &prefix, const int part);
+		const std::string &imageName, const int part = 0);
 
 	virtual bool initAttrs();
 	virtual bool initPhysics();

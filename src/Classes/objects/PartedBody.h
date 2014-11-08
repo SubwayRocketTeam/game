@@ -12,14 +12,10 @@ public:
 
 public:
 	static PartedBody *create(
-		const std::string &filename);
-	static PartedBody *create(
-		const std::string &prefix, const int part);
+		const std::string &imageName, const int part);
 
 	virtual bool init(
-		const std::string &filename);
-	virtual bool init(
-		const std::string &prefix, const int part);
+		const std::string &imageName, const int part);
 
 	virtual float getRotation() const override;
 	virtual void setRotation(float angle) override;
@@ -42,11 +38,12 @@ protected:
 	virtual ~PartedBody();
 
 	void updateCharacter(float dt);
+	bool makeBodyPart(const std::string partName, const int partId);
 
 protected:
 	int partNum;
 
 	std::vector<cocos2d::Sprite*> body;
-	std::vector<cocos2d::Texture2D*> bodyTexture;
+	std::vector<cocos2d::SpriteFrame*> bodyOriginal;
 	std::vector<cocos2d::Animation*> runningAnimation;
 };
