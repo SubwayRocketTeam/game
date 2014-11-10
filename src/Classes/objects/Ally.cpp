@@ -54,15 +54,30 @@ void Ally::remove(
 
 void Ally::processAttack(
 	Unit *u,
-	AttackData data){
+	AttackData& data){
 
 	auto senderPosition = u->getPosition();
-	for(auto member : members){
-		auto memberPosition = member->getPosition();
+	Vec2 attackDirection = data.targetPostion - data.startPostion;
 
-		if(senderPosition.getDistance(memberPosition) <= 100){
-			member->damage(1);
+	printf("%f\n", CC_RADIANS_TO_DEGREES(attackDirection.getAngle()));
+
+	for (auto it = members.begin(); it != members.end();){
+		auto& member = *it;
+		auto memberPosition = member->getPosition();
+		float r = ((PhysicsShapeCircle*)member->getPhysicsBody()->getFirstShape())->getRadius()
+			+ data.radius;
+		Vec2 delta = memberPosition - data.startPostion;
+		float angle = CC_RADIANS_TO_DEGREES(attackDirection.getAngle(delta));
+
+		if(senderPosition.getDistance(memberPosition) <= r && abs(angle) <= data.halfAngle){
+			printf("OK:%f\n", angle);
+			if (member->damage(data))
+			{
+				it = members.erase(it);
+				continue;
+			}
 		}
+		++it;
 	}
 }
 
