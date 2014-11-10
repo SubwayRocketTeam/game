@@ -11,6 +11,7 @@
 using namespace cocos2d;
 
 Enemy::Enemy(){
+	allyID = Ally::Type::allyEnemy;
 }
 Enemy::~Enemy(){
 }

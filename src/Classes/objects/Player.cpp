@@ -28,7 +28,8 @@ static Player *instance = nullptr;
 
 Player::Player() : 
 	moveCounter(0), moveSwitchVertical(0), moveSwitchHorizontal(0),
-	exp(0), expLimit(60 * 1), gold(0), level(0) {
+	exp(0), expLimit(60 * 1), gold(0), level(0){
+	allyID = Ally::Type::allyPlayer;
 }
 Player::~Player(){
 }
@@ -52,6 +53,8 @@ Player *Player::getInstance(){
 
 	return instance;
 }
+
+DrawNode* drawNode;
 
 bool Player::init(
 	const string &dataPath){
@@ -84,6 +87,11 @@ bool Player::init(
 	mp->setPositionY(static_cast<PartedBody*>(body)->getOriginY() + static_cast<PartedBody*>(body)->getBodyHeight());
 
 	hp->reduceGauge(50);
+
+	drawNode = DrawNode::create();
+	drawNode->drawCircle(Vec2::ZERO, 100, 0, 32, false, Color4F::RED);
+	drawNode->drawLine(Vec2(-100, 0), Vec2(100, 0), Color4F::RED);
+	addChild(drawNode);
 
 	scheduleUpdate();
 
@@ -210,6 +218,8 @@ void Player::processRotation(
 
 	body->setRotation(-degree + 90);
 	scarf->pushRotation(degree + 90);
+	drawNode->setRotation(-degree + 90);
+
 }
 void Player::processEyeline(
 	float x,float y){
@@ -281,11 +291,14 @@ void Player::processMove(
 void Player::processAttack(
 	int btn, float x,float y){
 
+	Vec2 mouse(x, y);
+	mouse -= getParent()->getPosition();
+
 	if(btn == MOUSE_BUTTON_LEFT){
-		useSkill(skillMouseLeft, x,y);
+		useSkill(skillMouseLeft, mouse.x, mouse.y);
 	}
 	else if(btn == MOUSE_BUTTON_RIGHT){
-		useSkill(skillMouseRight, x,y);
+		useSkill(skillMouseRight, mouse.x, mouse.y);
 	}
 }
 
