@@ -3,6 +3,7 @@
 
 #include "objects/PartedBody.h"
 #include "objects/Unit.h"
+#include "objects/Ally.h"
 #include "common/resource.h"
 
 #include "ui/StatusConsole.h"
@@ -26,6 +27,16 @@ void Slash::use(
 	console->output("use slash");
 
 	auto slash = Sprite::create(R::SkillSlash);
+	auto ally = Ally::getInstance(Ally::Type::allyEnemy);
+
+	AttackData attackData;
+	attackData.damage = 1;
+	attackData.startPostion = u->getPosition();
+	attackData.targetPostion = pos;
+	attackData.radius = 100;
+	attackData.halfAngle = 90;
+
+	ally->processAttack(u, attackData);
 
 	slash->runAction(
 		Sequence::create(

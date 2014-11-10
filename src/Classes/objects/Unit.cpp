@@ -80,6 +80,7 @@ bool Unit::init(
 	return true;
 }
 bool Unit::initAttrs(){
+	_SET_ATTR(hp, 3);
 	_SET_ATTR(speed, 4);
 
 	return true;
@@ -90,11 +91,24 @@ bool Unit::initPhysics(){
 	return true;
 }
 
-void Unit::damage(
-	int dmg){
+bool Unit::damage(
+	const AttackData& attackData){
 
-	Vec2 power(0,1000000);
-	getPhysicsBody()->applyImpulse(power);
+	Vec2 power = getPosition() - attackData.startPostion;
+	power.normalize();
+	power *= 1000000;
+	// getPhysicsBody()->applyImpulse(power);
+	
+	float hp = _ATTR(hp);
+	hp = hp - (attackData.damage - _ATTR(defence));
+	_SET_ATTR(hp, hp);
+	// TODO: 사망하는 로직 위치 적당한 곳 찾아서 이동
+	if (hp <= 0) {
+		removeFromParentAndCleanup(true);
+		return true;
+	}
+	return false;
+
 }
 
 bool Unit::useSkill(

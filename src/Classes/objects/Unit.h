@@ -2,6 +2,8 @@
 
 #include "cocos2d.h"
 #include "skill/Attribute.h"
+#include "objects/AttackData.h"
+#include "objects/Ally.h"
 
 #define _ATTR(name) (attrs[Attr::##name].get())
 #define _SET_ATTR(name, value) do{ \
@@ -32,8 +34,9 @@ public:
 	static Unit *create(
 		const std::string &image, const int part);
 
-	void damage(
-		int dmg);
+	// return true if die
+	bool damage(
+		const AttackData& attackData);
 
 	virtual bool useSkill(
 		int id,
@@ -61,6 +64,8 @@ protected:
 	PartedBody *body;
 
 	cocos2d::LabelTTF *dbgAngle;
+
+	Ally::Type allyID;
 
 	std::map<std::string,Attribute> attrs;
 };
