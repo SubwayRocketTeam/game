@@ -34,8 +34,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
 
-	ShowCursor(false);
-
 	auto cache = SpriteFrameCache::getInstance();
 
 	cache->addSpriteFramesWithFile(R::AfterimageGlowPlist);
