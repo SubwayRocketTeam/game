@@ -4,6 +4,9 @@
 
 #include "AttackData.h"
 
+#define _OPPOSITE(id) \
+	((Ally::Type) (((int)id) ^ 1))
+
 class Unit;
 
 class Ally : public cocos2d::Ref{
