@@ -300,33 +300,6 @@ void Player::processAttack(
 	}
 }
 
-void Player::addPassive(
-	int id){
-
-	auto console = StatusConsole::getInstance();
-	auto pool = SkillPool::getInstance();
-	auto skill = (PassiveSkill*)pool->get(id);
-
-	for(auto pair : skill->bonusList){
-		string name = pair.first;
-		Attribute attr = pair.second;
-		Attribute &target = attrs[name];
-
-		target.getBonusValue() += attr.getBonusValue();
-		target.getBonusRate() += attr.getBonusRate();
-	}
-
-	char msg[256];
-	sprintf(msg, "passive enabled - %d", id);
-	console->output(msg);
-
-	for(auto pair : skill->bonusList){
-		sprintf(msg, "name : %s / value : %.0f / rate : %.0f",
-			pair.first.c_str(), pair.second.getBonusValue(), pair.second.getBonusRate());
-		console->output(msg);
-	}
-}
-
 void Player::onKeyboardDown(
 	EventKeyboard::KeyCode keycode){
 

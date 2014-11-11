@@ -77,9 +77,6 @@ protected:
 	Player();
 	virtual ~Player();
 
-	void addPassive(
-		int id);
-
 protected:
 	std::vector<ActiveSkill*> skills;
 	std::vector<PassiveSkill*> passives;

@@ -42,6 +42,9 @@ public:
 		int id,
 		float x,float y);
 
+	void addPassive(
+		int id);
+
 	void enableDebug();
 
 	PartedBody *getBody();
