@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Ally.h"
 
 #include "Unit.h"
@@ -59,6 +59,7 @@ void Ally::processAttack(
 	auto senderPosition = u->getPosition();
 	Vec2 attackDirection = data.targetPostion - data.startPostion;
 
+	/* TODO : 공격 타입에 따른 분기 */
 	for (auto it = members.begin(); it != members.end();){
 		auto& member = *it;
 		auto memberPosition = member->getPosition();
