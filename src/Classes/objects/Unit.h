@@ -69,6 +69,8 @@ protected:
 	virtual bool initAttrs();
 	virtual bool initPhysics();
 
+	virtual void death();
+
 	void updateDebug(
 		float dt);
 

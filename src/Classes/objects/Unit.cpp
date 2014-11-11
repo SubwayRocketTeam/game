@@ -94,6 +94,10 @@ bool Unit::initPhysics(){
 	return true;
 }
 
+void Unit::death(){
+	removeFromParentAndCleanup(true);
+}
+
 bool Unit::damage(
 	const AttackData& attackData){
 
@@ -105,13 +109,12 @@ bool Unit::damage(
 	float hp = _ATTR(hp);
 	hp = hp - (attackData.damage - _ATTR(defence));
 	_SET_ATTR(hp, hp);
-	// TODO: 사망하는 로직 위치 적당한 곳 찾아서 이동
+	
 	if (hp <= 0) {
-		removeFromParentAndCleanup(true);
+		death();
 		return true;
 	}
 	return false;
-
 }
 
 bool Unit::useSkill(
