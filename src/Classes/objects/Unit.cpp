@@ -100,8 +100,10 @@ bool Unit::initPhysics(){
 	return true;
 }
 
-void Unit::death(){
+bool Unit::death(){
 	removeFromParentAndCleanup(true);
+
+	return true;
 }
 
 bool Unit::damage(
@@ -123,8 +125,7 @@ bool Unit::damage(
 	_SET_ATTR(hp, hp);
 	
 	if (hp <= 0) {
-		death();
-		return true;
+		return death();
 	}
 	return false;
 }

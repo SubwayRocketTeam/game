@@ -69,7 +69,7 @@ protected:
 	virtual bool initAttrs();
 	virtual bool initPhysics();
 
-	virtual void death();
+	virtual bool death();
 
 	void updateDebug(
 		float dt);
