@@ -150,3 +150,6 @@ Attribute &Unit::getAttribute(
 
 	return attrs[name];
 }
+Ally::Type Unit::getAllyID(){
+	return allyID;
+}

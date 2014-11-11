@@ -47,6 +47,7 @@ public:
 	PartedBody *getBody();
 	Attribute &getAttribute(
 		const std::string &name);
+	Ally::Type getAllyID();
 
 protected:
 	Unit();
