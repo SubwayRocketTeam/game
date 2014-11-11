@@ -11,8 +11,10 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
+#ifdef _DEBUG
 	AllocConsole();
 	freopen("CONOUT$", "w", stdout);
+#endif
 
 	ShowCursor(false);
 
