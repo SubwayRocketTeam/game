@@ -59,8 +59,6 @@ void Ally::processAttack(
 	auto senderPosition = u->getPosition();
 	Vec2 attackDirection = data.targetPostion - data.startPostion;
 
-	printf("%f\n", CC_RADIANS_TO_DEGREES(attackDirection.getAngle()));
-
 	for (auto it = members.begin(); it != members.end();){
 		auto& member = *it;
 		auto memberPosition = member->getPosition();
@@ -70,9 +68,7 @@ void Ally::processAttack(
 		float angle = CC_RADIANS_TO_DEGREES(attackDirection.getAngle(delta));
 
 		if(senderPosition.getDistance(memberPosition) <= r && abs(angle) <= data.halfAngle){
-			printf("OK:%f\n", angle);
-			if (member->damage(data))
-			{
+			if (member->damage(data)){
 				it = members.erase(it);
 				continue;
 			}
