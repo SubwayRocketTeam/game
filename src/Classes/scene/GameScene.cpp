@@ -15,6 +15,7 @@
 #include "objects/EnemyPool.h"
 #include "objects/BodyAnimation.h"
 #include "objects/AnimationPool.h"
+#include "objects/EffectLayer.h"
 
 #include "ui/cursor.h"
 #include "ui/StatusConsole.h"
@@ -93,6 +94,9 @@ bool GameScene::initUI(){
 
 	cursor = Cursor::getInstance();
 	addChild(cursor);
+
+	/* LAYERS */
+	addChild(EffectLayer::getInstance());
 
 	return true;
 }
