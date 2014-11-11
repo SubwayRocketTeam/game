@@ -10,10 +10,11 @@ class UserResources;
 class GameScene : public cocos2d::Layer{
 public:
 	CREATE_FUNC(GameScene);
-    virtual bool init();  
 
     static cocos2d::Scene* scene();
 
+protected:
+	virtual bool init();
 	virtual void update(
 		float dt);
 
