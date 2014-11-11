@@ -108,9 +108,10 @@ bool Unit::damage(
 	const AttackData& attackData){
 
 	auto factory = EffectFactory::getInstance();
-	auto effect = factory->make("hit_1", false);
+	auto worldPos = getParent()->convertToWorldSpace(getPosition());
 
-	addChild(effect);
+	factory->add(
+		worldPos, R::Hit1, false);
 
 	Vec2 power = getPosition() - attackData.startPostion;
 	power.normalize();
