@@ -86,6 +86,10 @@ bool Unit::init(
 
 	addChild(body);
 
+	setCascadeColorEnabled(true);
+	setCascadeOpacityEnabled(true);
+	body->setCascadeOpacityEnabled(true);
+
 	return true;
 }
 bool Unit::initAttrs(){
@@ -102,15 +106,12 @@ bool Unit::initPhysics(){
 
 Vec2 aa;
 void Unit::death(){
-	//removeFromParentAndCleanup(true);
 	runAction(
 		Spawn::create(
 			MoveBy::create(0.5, aa * 500),
+			FadeOut::create(0.4),
 			nullptr
 		));
-
-	((body->getChildren()).begin())->runAction(
-		FadeOut::create(0.5));
 }
 
 bool Unit::damage(
