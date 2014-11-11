@@ -17,6 +17,10 @@ public:
 	Effect *make(
 		const std::string &name,
 		bool repeat);
+	Effect *add(
+		cocos2d::Vec2 pos,
+		const std::string &name,
+		bool repeat);
 
 protected:
 	EffectFactory();

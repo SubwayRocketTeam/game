@@ -3,6 +3,8 @@
 
 #include "Effect.h"
 
+#include "objects/EffectLayer.h"
+
 using namespace std;
 using namespace cocos2d;
 
@@ -40,6 +42,19 @@ Effect *EffectFactory::make(
 
 	auto effect = Effect::createWithAnimation(
 		pair->second, repeat);
+
+	return effect;
+}
+Effect *EffectFactory::add(
+	Vec2 pos,
+	const string &name,
+	bool repeat){
+
+	auto effect = make(name, repeat);
+	auto layer = EffectLayer::getInstance();
+
+	effect->setPosition(pos);
+	layer->addChild(effect);
 
 	return effect;
 }
