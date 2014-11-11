@@ -13,7 +13,8 @@ using namespace cocos2d;
 static Stage *instances[2] =
 	{nullptr, nullptr};
 
-Stage::Stage(){
+Stage::Stage() :
+	autoScroll(0){
 }
 Stage::~Stage(){
 }
@@ -121,6 +122,11 @@ bool Stage::initObject(
 void Stage::update(
 	float dt){
 
+	if(autoScroll > 0.0f){
+		autoScroll -= dt; 
+		return;
+	}
+
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto floorSize = floor->getContentSize();
 	auto player = Player::getInstance();
@@ -142,4 +148,15 @@ void Stage::onMouseMove(
 	int btn, float x,float y){
 
 	mousePos.set(x,y);
+}
+
+void Stage::disableAutoScroll(
+	float duration){
+
+	autoScroll = MAX(duration, autoScroll);
+}
+void Stage::setAutoScroll(
+	bool enable){
+
+	autoScroll = enable;
 }

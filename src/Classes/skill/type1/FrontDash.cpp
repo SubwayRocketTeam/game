@@ -4,6 +4,8 @@
 #include "objects/PartedBody.h"
 #include "objects/Unit.h"
 #include "objects/Afterimage.h"
+#include "objects/Stage.h"
+
 #include "common/resource.h"
 
 #include "ui/StatusConsole.h"
@@ -38,6 +40,16 @@ void FrontDash::use(
 		MoveBy::create(duration, foward * distance))
 	->setTag(Unit::actionMove);
 
+	auto stage = Stage::getInstance(0);
+	stage->disableAutoScroll(duration * 1.3);
+	stage->runAction(
+		Sequence::create(
+			MoveBy::create(duration, -foward * distance * 0.7),
+			MoveBy::create(duration * 0.3, -foward * distance *0.5),
+			nullptr
+		));
+
+		
 	auto afterimage =  Afterimage::createWithPartedBody(
 		u->getParent(),
 		u->getBody(), duration);

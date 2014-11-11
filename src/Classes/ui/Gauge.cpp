@@ -34,7 +34,7 @@ void Gauge::update(float dt) {
 		return;
 	}
 	now += dt * regenPerSec;
-
+	
 	this->setScaleX(targetWidth / this->getContentSize().width * this->getNowToMaxRatio());
 }
 

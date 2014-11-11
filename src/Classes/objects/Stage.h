@@ -12,6 +12,11 @@ public:
 	static Stage *getInstance(
 		int id);
 
+	void disableAutoScroll(
+		float duration);
+	void setAutoScroll(
+		bool enable);
+
     virtual bool init();
 
 protected:
@@ -31,6 +36,8 @@ protected:
 
 protected:
 	int id;
+
+	float autoScroll;
 
 	cocos2d::Sprite *floor;
 	cocos2d::Vec2 mousePos;
