@@ -30,7 +30,9 @@ static Player *instance = nullptr;
 
 Player::Player() : 
 	moveCounter(0), moveSwitchVertical(0), moveSwitchHorizontal(0),
+	speedFactor(1),
 	exp(0), expLimit(60 * 1), gold(0), level(0){
+
 	allyID = Ally::Type::allyPlayer;
 }
 Player::~Player(){
@@ -262,7 +264,7 @@ void Player::processMove(
 	if(moveCounter >= 2) return;
 
 	Vec2 moveBy(0, 0);
-	float speed = _ATTR(speed);
+	float speed = _ATTR(speed) * speedFactor;
 
 	if(moveSwitchVertical == 0){
 		if(keycode == EventKeyboard::KeyCode::KEY_W)

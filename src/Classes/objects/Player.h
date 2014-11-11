@@ -87,6 +87,7 @@ protected:
 	int moveSwitchHorizontal;
 
 	float stiff;
+	float speedFactor;
 	std::vector<float> cooltimes;
 
 	Scarf *scarf;
