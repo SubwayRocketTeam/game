@@ -24,7 +24,8 @@ void Slash::use(
 	cocos2d::Vec2 pos){
 
 	auto slash = Sprite::create(R::SkillSlash);
-	auto ally = Ally::getInstance(Ally::Type::allyEnemy);
+	auto ally = Ally::getInstance(
+		_OPPOSITE(u->getAllyID()));
 
 	AttackData attackData;
 	attackData.damage = 1;
