@@ -13,6 +13,8 @@ git submodule update
 
 ToDo List
 ----
+* 평타 연속기
+* 원거리 딜러 캐릭터 추가
 * 액티브 스킬의 추가
 * UI 작업들
 * [ActiveJson](https://github.com/SubwayRocketTeam/ActiveJson)
