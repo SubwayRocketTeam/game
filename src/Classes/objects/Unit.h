@@ -1,6 +1,9 @@
 #pragma once
 
 #include "cocos2d.h"
+
+#include <set>
+
 #include "skill/Attribute.h"
 #include "objects/AttackData.h"
 #include "objects/Ally.h"
@@ -11,6 +14,7 @@
 	}while(0)
 	
 class PartedBody;
+class PassiveSkill;
 
 class Unit : public cocos2d::Sprite{
 public:
@@ -44,6 +48,8 @@ public:
 
 	void addPassive(
 		int id);
+	void removePassive(
+		int id);
 
 	void enableDebug();
 
@@ -68,6 +74,8 @@ protected:
 
 protected:
 	PartedBody *body;
+
+	std::set<PassiveSkill*> passives;
 
 	cocos2d::LabelTTF *dbgAngle;
 

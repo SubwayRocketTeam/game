@@ -79,7 +79,6 @@ protected:
 
 protected:
 	std::vector<ActiveSkill*> skills;
-	std::vector<PassiveSkill*> passives;
 
 	int moveCounter;
 	int moveSwitchVertical;

@@ -132,6 +132,11 @@ void Unit::addPassive(
 	auto pool = SkillPool::getInstance();
 	auto skill = (PassiveSkill*)pool->get(id);
 
+	/* 이미 가지고 있는 패시브 */
+	if(passives.find(skill) != passives.end())
+		return;
+	passives.insert(skill);
+
 	for(auto pair : skill->bonusList){
 		string name = pair.first;
 		Attribute attr = pair.second;
@@ -149,6 +154,25 @@ void Unit::addPassive(
 		sprintf(msg, "name : %s / value : %.0f / rate : %.0f",
 			pair.first.c_str(), pair.second.getBonusValue(), pair.second.getBonusRate());
 		console->output(msg);
+	}
+}
+void Unit::removePassive(
+	int id){
+
+	auto pool = SkillPool::getInstance();
+	auto skill = (PassiveSkill*)pool->get(id);
+
+	CC_ASSERT(passives.find(skill) != passives.end());
+
+	passives.erase(skill);
+
+	for(auto pair : skill->bonusList){
+		string name = pair.first;
+		Attribute attr = pair.second;
+		Attribute &target = attrs[name];
+
+		target.getBonusValue() -= attr.getBonusValue();
+		target.getBonusRate() -= attr.getBonusRate();
 	}
 }
 
