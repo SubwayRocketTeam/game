@@ -13,7 +13,9 @@
 using namespace std;
 using namespace cocos2d;
 
-Unit::Unit(){
+Unit::Unit() : 
+	body(nullptr),
+	dbgAngle(nullptr){
 }
 Unit::~Unit(){
 }
