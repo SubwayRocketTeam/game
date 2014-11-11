@@ -1,6 +1,9 @@
 싱글톤 구현 스타일
 ====
 
+* lazy-eval 사용 X
+  * AppDelegate에서 초기화
+
 #### Header
 ```C++
 class Object{
