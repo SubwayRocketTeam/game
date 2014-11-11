@@ -29,7 +29,7 @@ Scene* GameScene::scene(){
 	auto world = scene->getPhysicsWorld();
 
 	world->setDebugDrawMask(
-		PhysicsWorld::DEBUGDRAW_ALL);
+		PhysicsWorld::DEBUGDRAW_NONE);
 	world->setGravity(Vec2(0,0));
 
 	GameScene *layer = GameScene::create();
