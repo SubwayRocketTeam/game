@@ -142,6 +142,7 @@
     <ClCompile Include="..\Classes\objects\AnimationPool.cpp" />
     <ClCompile Include="..\Classes\objects\BodyAnimation.cpp" />
     <ClCompile Include="..\Classes\objects\Bullet.cpp" />
+    <ClCompile Include="..\Classes\objects\EffectLayer.cpp" />
     <ClCompile Include="..\Classes\objects\Stage.cpp" />
     <ClCompile Include="..\Classes\objects\PartedBody.cpp" />
     <ClCompile Include="..\Classes\objects\Enemy.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="..\Classes\objects\AttackData.h" />
     <ClInclude Include="..\Classes\objects\BodyAnimation.h" />
     <ClInclude Include="..\Classes\objects\Bullet.h" />
+    <ClInclude Include="..\Classes\objects\EffectLayer.h" />
     <ClInclude Include="..\Classes\objects\Stage.h" />
     <ClInclude Include="..\Classes\objects\PartedBody.h" />
     <ClInclude Include="..\Classes\objects\Enemy.h" />

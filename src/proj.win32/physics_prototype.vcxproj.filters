@@ -121,6 +121,9 @@
     <ClCompile Include="..\Classes\common\EffectFactory.cpp">
       <Filter>source\common</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\objects\EffectLayer.cpp">
+      <Filter>source\common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -286,6 +289,9 @@
       <Filter>source\common</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\common\EffectFactory.h">
+      <Filter>source\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EffectLayer.h">
       <Filter>source\common</Filter>
     </ClInclude>
   </ItemGroup>
