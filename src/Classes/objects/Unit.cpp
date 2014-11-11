@@ -99,8 +99,8 @@ bool Unit::damage(
 
 	Vec2 power = getPosition() - attackData.startPostion;
 	power.normalize();
-	power *= 1000000;
-	// getPhysicsBody()->applyImpulse(power);
+	power *= 100000;
+	getPhysicsBody()->applyImpulse(power);
 	
 	float hp = _ATTR(hp);
 	hp = hp - (attackData.damage - _ATTR(defence));
