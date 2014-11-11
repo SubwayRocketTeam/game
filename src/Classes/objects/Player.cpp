@@ -101,6 +101,12 @@ bool Player::init(
 
 	return true;
 }
+bool Player::initAttrs(){
+	_SET_ATTR(hp, 100);
+	_SET_ATTR(speed, 7);
+
+	return true;
+}
 bool Player::initPhysics(){
 	auto factory = PhysicsFactory::getInstance();
 	auto pbody = factory->make("player");

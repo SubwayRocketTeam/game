@@ -41,6 +41,7 @@ public:
 protected:
 	virtual bool init(
 		const std::string &dataPath);
+	virtual bool initAttrs();
 	virtual bool initPhysics();
 	virtual bool initExternalData(
 		const std::string &dataPath);
