@@ -45,6 +45,8 @@ public:
 	void enableDebug();
 
 	PartedBody *getBody();
+	Attribute &getAttribute(
+		const std::string &name);
 
 protected:
 	Unit();

@@ -143,3 +143,10 @@ void Unit::updateDebug(float dt){
 PartedBody *Unit::getBody(){
 	return body;
 }
+Attribute &Unit::getAttribute(
+	const string &name){
+	
+	CC_ASSERT(attrs.find(name) != attrs.end());
+
+	return attrs[name];
+}
