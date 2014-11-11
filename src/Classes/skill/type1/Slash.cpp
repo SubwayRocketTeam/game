@@ -23,9 +23,6 @@ void Slash::use(
 	Unit *u,
 	cocos2d::Vec2 pos){
 
-	auto console = StatusConsole::getInstance();
-	console->output("use slash");
-
 	auto slash = Sprite::create(R::SkillSlash);
 	auto ally = Ally::getInstance(Ally::Type::allyEnemy);
 
