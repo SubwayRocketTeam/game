@@ -28,17 +28,18 @@ AppDelegate::~AppDelegate() {
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
-    auto director = Director::getInstance();
-    auto glview = director->getOpenGLView();
-    if(!glview) {
-        glview = GLViewImpl::create("Cpp Empty Test");
-        director->setOpenGLView(glview);
-    }
+	auto director = Director::getInstance();
+	auto glview = director->getOpenGLView();
+	if(!glview) {
+		glview = GLViewImpl::create("Cpp Empty Test");
+		director->setOpenGLView(glview);
+	}
 
 	auto cache = SpriteFrameCache::getInstance();
 
 	cache->addSpriteFramesWithFile(R::AfterimageGlowPlist);
 	cache->addSpriteFramesWithFile(R::Hit1Plist);
+	cache->addSpriteFramesWithFile("effect01.plist");
 
 	EffectLayer::create();
 	EffectFactory::create();

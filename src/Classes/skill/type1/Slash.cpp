@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Slash.h"
 
+#include "common/EffectFactory.h"
+#include "common/Effect.h"
 #include "objects/PartedBody.h"
 #include "objects/Unit.h"
 #include "objects/Ally.h"
@@ -23,7 +25,7 @@ void Slash::use(
 	Unit *u,
 	cocos2d::Vec2 pos){
 
-	auto slash = Sprite::create(R::SkillSlash);
+	auto slash = EffectFactory::getInstance()->make("effect01", false);
 	auto ally = Ally::getInstance(Ally::Type::allyEnemy);
 
 	AttackData attackData;
@@ -35,11 +37,12 @@ void Slash::use(
 
 	ally->processAttack(u, attackData);
 
+	/*
 	slash->runAction(
 		Sequence::create(
 			FadeOut::create(0.4),
 			RemoveSelf::create(),
-			nullptr));
+			nullptr));*/
 	slash->setRotation(
 		u->getBody()->getRotation());
 
