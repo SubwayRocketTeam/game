@@ -32,7 +32,9 @@ Effect *EffectFactory::make(
 	auto pair = cache.find(name);
 
 	if(pair == cache.end()){
-		cache[name] = loadAnimation(name);
+		auto animation = loadAnimation(name);
+		animation->retain();
+		cache[name] = animation;
 		pair = cache.find(name);
 	}
 
