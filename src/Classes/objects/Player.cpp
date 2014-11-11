@@ -114,10 +114,8 @@ bool Player::initExternalData(
 	const string &dataPath){
 
 	Json::Value root;
-	if(!JsonLoader::load(dataPath,root)){
-		printf("loadfailed\n");
+	if(!JsonLoader::load(dataPath,root))
 		return false;
-	}
 
 	/* attr */
 	auto attrList = root.get("attrs", Json::Value::null);
