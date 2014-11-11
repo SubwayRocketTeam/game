@@ -131,7 +131,6 @@ bool Unit::useSkill(
 void Unit::addPassive(
 	int id){
 
-	auto console = StatusConsole::getInstance();
 	auto pool = SkillPool::getInstance();
 	auto skill = (PassiveSkill*)pool->get(id);
 
@@ -149,7 +148,10 @@ void Unit::addPassive(
 		target.getBonusRate() += attr.getBonusRate();
 	}
 
+	/* 디버그용 콘솔 출력 */
+	auto console = StatusConsole::getInstance();
 	char msg[256];
+
 	sprintf(msg, "passive enabled - %d", id);
 	console->output(msg);
 
