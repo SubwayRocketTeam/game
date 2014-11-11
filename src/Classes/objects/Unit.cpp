@@ -109,7 +109,10 @@ void Unit::death(){
 	runAction(
 		Spawn::create(
 			MoveBy::create(0.5, aa * 500),
-			FadeOut::create(0.4),
+			Sequence::create(
+				FadeOut::create(0.4),
+				RemoveSelf::create(),
+				nullptr),
 			nullptr
 		));
 }
