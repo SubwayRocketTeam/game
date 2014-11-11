@@ -100,8 +100,17 @@ bool Unit::initPhysics(){
 	return true;
 }
 
+Vec2 aa;
 void Unit::death(){
-	removeFromParentAndCleanup(true);
+	//removeFromParentAndCleanup(true);
+	runAction(
+		Spawn::create(
+			MoveBy::create(0.5, aa * 500),
+			nullptr
+		));
+
+	((body->getChildren()).begin())->runAction(
+		FadeOut::create(0.5));
 }
 
 bool Unit::damage(
@@ -115,9 +124,10 @@ bool Unit::damage(
 
 	Vec2 power = getPosition() - attackData.startPostion;
 	power.normalize();
+	aa = power;
 	power *= 100000;
 	getPhysicsBody()->applyImpulse(power);
-	
+
 	float hp = _ATTR(hp);
 	hp = hp - (attackData.damage - _ATTR(defence));
 	_SET_ATTR(hp, hp);

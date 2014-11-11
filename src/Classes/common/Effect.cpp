@@ -49,6 +49,8 @@ bool Effect::init(
 
 	runAction(action);
 
+	scheduleUpdate();
+
 	return true;
 }
 bool Effect::initWithAnimation(
@@ -61,6 +63,8 @@ bool Effect::initWithAnimation(
 	auto action = initAction(animation, repeat);
 
 	runAction(action);
+
+	scheduleUpdate();
 
 	return true;
 }
@@ -86,4 +90,13 @@ Action *Effect::initAction(
 	}
 
 	return action;
+}
+
+void Effect::update(
+	float dt){
+	
+	ccBlendFunc add;
+	add.src = GL_SRC_ALPHA;
+	add.dst = GL_ONE;
+	setBlendFunc(add);
 }

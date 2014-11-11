@@ -17,6 +17,9 @@ protected:
 	Effect();
 	virtual ~Effect();
 
+	virtual void update(
+		float dt);
+
 	virtual bool init(
 		const std::string &name,
 		bool repeat);
