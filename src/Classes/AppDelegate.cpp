@@ -37,6 +37,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	auto cache = SpriteFrameCache::getInstance();
 
 	cache->addSpriteFramesWithFile(R::AfterimageGlowPlist);
+	cache->addSpriteFramesWithFile(R::Hit1Plist);
 
 
 	EffectFactory::create();

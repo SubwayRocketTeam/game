@@ -1,6 +1,10 @@
 ﻿#include "pch.h"
 #include "Unit.h"
 
+#include "common/EffectFactory.h"
+#include "common/Effect.h"
+#include "common/resource.h"
+
 #include "skill/AttributeName.h"
 #include "skill/SkillPool.h"
 #include "skill/ActiveSkill.h"
@@ -102,6 +106,11 @@ void Unit::death(){
 
 bool Unit::damage(
 	const AttackData& attackData){
+
+	auto factory = EffectFactory::getInstance();
+	auto effect = factory->make("hit_1", false);
+
+	addChild(effect);
 
 	Vec2 power = getPosition() - attackData.startPostion;
 	power.normalize();

@@ -14,6 +14,8 @@
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
 #include "common/JsonLoader.h"
+#include "common/EffectFactory.h"
+#include "common/Effect.h"
 
 #include "skill/PassiveSkill.h"
 #include "skill/ActiveSkill.h"

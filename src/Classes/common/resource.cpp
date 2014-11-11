@@ -3,6 +3,9 @@
 
 namespace R{
 	_RESD(AfterimageGlowPlist, "afterimage_glow.plist");
+	_RESD(Hit1Plist, "hit_1.plist");
+
+	_RESD(Hit1, "hit_1");
 
 	_RESD(Minimap, "minimap.png");
 
