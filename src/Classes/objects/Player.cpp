@@ -204,6 +204,10 @@ void Player::updateConditions(
 		stiff -= dt;
 }
 
+bool Player::death(){
+	return false;
+}
+
 void Player::processRotation(
 	float x,float y){
 
