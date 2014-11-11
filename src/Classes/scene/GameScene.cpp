@@ -38,17 +38,11 @@ Scene* GameScene::scene(){
 }
 
 bool GameScene::init(){
-	if (!Layer::init())
+	if(!Layer::init())
 		return false;
-
-	auto director = Director::getInstance();
-	auto visibleSize = director->getVisibleSize();
-	auto origin = director->getVisibleOrigin();
-
-	stage = Stage::getInstance(0);
-	stage->setPosition(origin + visibleSize / 2);
-	addChild(stage);
-
+	if(!initUI())
+		return false;
+	
 	auto pool = EnemyPool::create();
 	addChild(pool);
 
@@ -63,13 +57,29 @@ bool GameScene::init(){
 
 	auto players = Ally::getInstance(
 		Ally::Type::allyPlayer);
-	player = Player::create("type1.json");
+	players->push(player);
 
+	scheduleUpdate();
+
+	return true;
+}
+bool GameScene::initUI(){
+	auto director = Director::getInstance();
+	auto visibleSize = director->getVisibleSize();
+	auto origin = director->getVisibleOrigin();
+
+	/* STAGE */
+	stage = Stage::getInstance(0);
+	stage->setPosition(origin + visibleSize / 2);
+	addChild(stage);
+
+	/* PLAYER */
+	player = Player::create("type1.json");
 	player->setPosition(
 		Vec2(100,100));
 	stage->addChild(player, 1);
-	players->push(player);
 
+	/* UI OBJECTS */
 	auto console = StatusConsole::create();
 	console->setPosition(Vec2(50,300));
 	addChild(console);
@@ -83,14 +93,6 @@ bool GameScene::init(){
 
 	cursor = Cursor::getInstance();
 	addChild(cursor);
-
-	scheduleUpdate();
-
-	auto factory = EffectFactory::getInstance();
-	auto e = factory->make("afterimage_glow", false);
-
-	e->setPosition(300,300);
-	addChild(e, 100);
 
 	return true;
 }

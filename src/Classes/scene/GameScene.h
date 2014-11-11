@@ -15,6 +15,7 @@ public:
 
 protected:
 	virtual bool init();
+	virtual bool initUI();
 	virtual void update(
 		float dt);
 
