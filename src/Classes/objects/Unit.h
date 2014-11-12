@@ -79,6 +79,7 @@ protected:
 
 protected:
 	PartedBody *body;
+	cocos2d::Sprite* weapon;
 
 	std::set<PassiveSkill*> passives;
 
