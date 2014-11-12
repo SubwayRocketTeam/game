@@ -130,6 +130,12 @@
     <ClCompile Include="..\Classes\ui\SkillIcon.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\network\Network.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Network\LoginSender.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -306,6 +312,15 @@
     <ClInclude Include="..\Classes\ui\SkillIconPanel.h">
       <Filter>source\ui</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\network\Network.h">
+      <Filter>source\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\network\Packet.h">
+      <Filter>source\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\network\PacketMacro.h">
+      <Filter>source\network</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">
@@ -343,6 +358,9 @@
     </Filter>
     <Filter Include="source\ui">
       <UniqueIdentifier>{ef9086b4-25ab-4032-ae43-c38c44289a9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\network">
+      <UniqueIdentifier>{c0ced8f4-cafd-4445-ba77-e7fe53288c65}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

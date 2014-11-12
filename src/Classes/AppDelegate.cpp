@@ -20,6 +20,8 @@
 
 #include "common/resource.h"
 
+#include "network/Network.h"
+
 using namespace cocos2d;
 using namespace std;
 
@@ -47,6 +49,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	cache->addSpriteFramesWithFile(R::AfterimageGlowPlist);
 	cache->addSpriteFramesWithFile(R::Hit1Plist);
 
+	Network::create();
 	EffectLayer::create();
 	EffectFactory::create();
 	Minimap::create();
@@ -58,6 +61,20 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	Cursor::create();
 	UserResources::create();
 	SkillIconPanel::create();
+
+	auto network = Network::getInstance();
+	network->open("localhost", 9916,
+		[=](int result){
+			if(result){
+				network->sendLoginRequest(
+					"pjc0247", "asdf1234");
+			}
+	});
+
+	network->route<login_response>(id_login_response,
+		[](login_response *pkt){
+			printf("%d\n", pkt->result);
+	});
 
 	glview->setDesignResolutionSize(
 		1024,768, ResolutionPolicy::SHOW_ALL);
