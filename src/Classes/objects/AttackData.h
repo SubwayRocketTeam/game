@@ -22,4 +22,6 @@ struct AttackData{
 
 	float radius;
 	float halfAngle;
+
+	float aggro;
 };
