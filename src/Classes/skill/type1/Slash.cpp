@@ -33,6 +33,7 @@ void Slash::use(
 	attackData.targetPostion = pos;
 	attackData.radius = 100;
 	attackData.halfAngle = 90;
+	attackData.aggro = 10;
 
 	ally->processAttack(u, attackData);
 
