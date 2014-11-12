@@ -110,8 +110,10 @@ void Network::recvLoop(){
 		auto pair = handlers.find(header.id);
 		if(pair == handlers.end())
 			cocos2d::log("unhandled packet");
-		else
-			pair->second((packet_header*)packet);
+		else{
+			throwTaskToGameThread(
+				std::bind(pair->second, (packet_header*)packet));
+		}
 	}
 }
 
