@@ -4,5 +4,10 @@
     "height" : 600
   },
   
+  "network" : {
+    "server" : "localhost",
+    "port" : 9916
+  },
+  
   "display_fps" : 0
 }
