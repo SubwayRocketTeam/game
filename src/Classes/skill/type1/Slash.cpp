@@ -28,6 +28,7 @@ void Slash::use(
 		_OPPOSITE(u->getAllyID()));
 
 	AttackData attackData;
+	attackData.user = u;
 	attackData.damage = 1;
 	attackData.startPostion = u->getPosition();
 	attackData.targetPostion = pos;
