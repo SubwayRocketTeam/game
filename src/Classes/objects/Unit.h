@@ -70,8 +70,10 @@ protected:
 	virtual bool initAttrs();
 	virtual bool initPhysics();
 
+	/* post-damage */
 	virtual void onDamage(
 		const AttackData &attackData);
+	/* pre-death */
 	virtual bool onDeath();
 
 	virtual void updateGauge(float dt);
