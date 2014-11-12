@@ -60,9 +60,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	SkillIconPanel::create();
 
 	glview->setDesignResolutionSize(
-		800,600, ResolutionPolicy::SHOW_ALL);
+		1024,768, ResolutionPolicy::SHOW_ALL);
 	glview->setFrameSize(
-		800,600);
+		1024,768);
 
 	director->setOpenGLView(glview);
 	director->setDisplayStats(true);
