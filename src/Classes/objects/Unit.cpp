@@ -5,7 +5,6 @@
 #include "common/Effect.h"
 #include "common/resource.h"
 
-#include "skill/AttributeName.h"
 #include "skill/SkillPool.h"
 #include "skill/ActiveSkill.h"
 #include "skill/PassiveSkill.h"

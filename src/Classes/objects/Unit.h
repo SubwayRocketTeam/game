@@ -5,6 +5,7 @@
 #include <set>
 
 #include "skill/Attribute.h"
+#include "skill/AttributeName.h"
 #include "objects/AttackData.h"
 #include "objects/Ally.h"
 
