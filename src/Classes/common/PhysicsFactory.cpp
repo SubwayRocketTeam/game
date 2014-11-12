@@ -22,7 +22,7 @@ PhysicsBody *PhysicsFactory::make(
 
 	PhysicsBody *body;
 
-	body = PhysicsBody::createCircle(20);
+	body = PhysicsBody::createCircle(30);
 
 	return body;
 }
