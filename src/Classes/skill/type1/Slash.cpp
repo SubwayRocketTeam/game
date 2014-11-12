@@ -11,14 +11,6 @@
 using namespace std;
 using namespace cocos2d;
 
-bool Slash::init(
-	const string &dataPath){
-
-	if(!ActiveSkill::init(dataPath))
-		return false;
-
-	return true;
-}
 void Slash::use(
 	Unit *u,
 	cocos2d::Vec2 pos){
