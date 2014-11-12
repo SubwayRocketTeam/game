@@ -166,6 +166,7 @@
     <ClCompile Include="..\Classes\skill\SkillPool.cpp" />
     <ClCompile Include="..\Classes\skill\type1\FrontDash.cpp" />
     <ClCompile Include="..\Classes\skill\type1\Slash.cpp" />
+    <ClCompile Include="..\Classes\skill\type1\Snake.cpp" />
     <ClCompile Include="..\Classes\ui\Gauge.cpp" />
     <ClCompile Include="..\Classes\ui\Minimap.cpp" />
     <ClCompile Include="..\Classes\ui\StatusConsole.cpp" />
@@ -224,6 +225,7 @@
     <ClInclude Include="..\Classes\skill\SkillPool.h" />
     <ClInclude Include="..\Classes\skill\type1\FrontDash.h" />
     <ClInclude Include="..\Classes\skill\type1\Slash.h" />
+    <ClInclude Include="..\Classes\skill\type1\Snake.h" />
     <ClInclude Include="..\Classes\ui\Gauge.h" />
     <ClInclude Include="..\Classes\ui\Minimap.h" />
     <ClInclude Include="..\Classes\ui\StatusConsole.h" />

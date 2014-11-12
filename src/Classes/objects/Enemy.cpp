@@ -39,6 +39,9 @@ bool Enemy::initPhysics(){
 	auto pbody = factory->make("enemy");
 
 	if(pbody){
+		pbody->setCollisionBitmask(Unit::channelEnemy | Unit::channelPlayer);
+		pbody->setCategoryBitmask(Unit::channelEnemy);
+		pbody->setContactTestBitmask(Unit::channelPlayer);
 		setPhysicsBody(pbody);
 		return true;
 	}
@@ -57,10 +60,14 @@ void Enemy::update(
 		CC_RADIANS_TO_DEGREES(delta.getAngle(getPosition()));
 
 	setRotation(angle+90);
-	getPhysicsBody()->setVelocity(-move);
 
+	move = Vec2(rand()%100 * 0.01 - 0.5, rand()%100 * 0.01 - 0.5) * 50;
+	getPhysicsBody()->setVelocity(move);
+
+	/*
 	if(rand() % 40 == 1)
 		useSkill(10,getPosition().x, getPosition().y);
+		*/
 }
 
 void Enemy::focus(){

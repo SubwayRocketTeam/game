@@ -39,6 +39,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	cache->addSpriteFramesWithFile(R::AfterimageGlowPlist);
 	cache->addSpriteFramesWithFile(R::Hit1Plist);
+	cache->addSpriteFramesWithFile(R::DashPlist);
 
 	EffectLayer::create();
 	EffectFactory::create();

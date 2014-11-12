@@ -10,6 +10,7 @@
 namespace R{
 	_RESL(AfterimageGlowPlist);
 	_RESL(Hit1Plist);
+	_RESL(DashPlist);
 
 	_RESL(Hit1);
 

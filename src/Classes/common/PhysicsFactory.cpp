@@ -23,6 +23,7 @@ PhysicsBody *PhysicsFactory::make(
 	PhysicsBody *body;
 
 	body = PhysicsBody::createCircle(30);
+	body->setContactTestBitmask(0xFFFFFFFF);
 
 	return body;
 }

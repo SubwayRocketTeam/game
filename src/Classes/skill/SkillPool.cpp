@@ -7,6 +7,7 @@
 #include "skill/id.h"
 #include "skill/type1/Slash.h"
 #include "skill/type1/FrontDash.h"
+#include "skill/type1/Snake.h"
 #include "skill/PassiveSkill.h"
 
 using namespace std;
@@ -34,6 +35,7 @@ bool SkillPool::init(){
 	skills[skillSlash] = new Slash();
 	skills[skillFrontDash] = new FrontDash();
 	skills[skillTestPassive] = new PassiveSkill();
+	skills[skillSnake] = new Snake();
 
 	for(auto skill : root){
 		int id = skill.get("id",0).asInt();

@@ -1,0 +1,9 @@
+{
+  "id" : 12,
+  "name" : "snake",
+  "tooltip" : "gdgd",
+
+  "duration" : 0.7,
+  "cooltime" : 2,
+  "cost" : 0
+}

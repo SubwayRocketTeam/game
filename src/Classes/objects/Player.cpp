@@ -112,8 +112,12 @@ bool Player::initPhysics(){
 	auto pbody = factory->make("player");
 
 	if(pbody){
+		pbody->setCategoryBitmask(Unit::channelPlayer);
+		pbody->setCollisionBitmask(Unit::channelEnemy);
+		pbody->setContactTestBitmask(Unit::channelEnemy);
+
 		pbody->setAngularDamping(100);
-		pbody->setLinearDamping(100);
+		pbody->setLinearDamping(10);
 		setPhysicsBody(pbody);
 		return true;
 	}

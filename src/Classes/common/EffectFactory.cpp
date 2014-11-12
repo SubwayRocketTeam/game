@@ -65,7 +65,7 @@ Animation *EffectFactory::loadAnimation(
 	auto cache = SpriteFrameCache::getInstance();
 
 	auto animation = Animation::create();
-	animation->setDelayPerUnit(1.0 / Global::fps);
+	animation->setDelayPerUnit(1.0 / Global::fps * 2);
 	
 	for(int i=0;;i++){
 		char path[128];
