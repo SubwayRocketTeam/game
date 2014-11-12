@@ -1,4 +1,7 @@
 [
   {"id" : 10, "path" : "slash.json"}
 , {"id" : 11, "path" : "front_dash.json"}
-, {"id" : 100, "path" : "test_passive.json"} ]
+, {"id" : 100, "path" : "test_passive.json"}
+
+, {"id" : 20, "path" : "arrow.json"}
+]

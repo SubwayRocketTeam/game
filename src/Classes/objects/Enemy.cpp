@@ -30,6 +30,7 @@ bool Enemy::init(){
 	if (!Unit::init(R::EnemyBody))
 		return false;
 
+	enableDebug();
 	scheduleUpdate();
 
 	return true;

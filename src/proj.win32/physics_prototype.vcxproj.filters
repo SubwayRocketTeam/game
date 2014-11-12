@@ -124,6 +124,9 @@
     <ClCompile Include="..\Classes\objects\EffectLayer.cpp">
       <Filter>source\common</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\skill\type2\Arrow.cpp">
+      <Filter>source\skill\type2</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -294,6 +297,9 @@
     <ClInclude Include="..\Classes\objects\EffectLayer.h">
       <Filter>source\common</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\skill\type2\Arrow.h">
+      <Filter>source\skill\type2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">
@@ -331,6 +337,9 @@
     </Filter>
     <Filter Include="source\ui">
       <UniqueIdentifier>{ef9086b4-25ab-4032-ae43-c38c44289a9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\skill\type2">
+      <UniqueIdentifier>{60c66371-af25-425a-b41b-2e4b54530bbd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -206,8 +206,8 @@ void Unit::enableDebug(){
 }
 void Unit::updateDebug(float dt){
 	char str[64];
-	sprintf(str, "%.0f'",
-		body->getRotation());
+	sprintf(str, "%.0f %.0f",
+		getPosition().x, getPosition().y);
 	dbgAngle->setString(str);
 }
 
