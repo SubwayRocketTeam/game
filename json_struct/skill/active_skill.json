@@ -5,5 +5,11 @@
   
   "duration" : 2,
   "cooltime" : 5,
-  "cost" : 50
+  "cost" : 50,
+  
+  "attack_data" : {
+    "type" : "pan",
+    "radius" : 100,
+    "angle" : 180
+  }
 }
