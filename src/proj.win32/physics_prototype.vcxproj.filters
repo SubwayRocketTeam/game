@@ -124,10 +124,10 @@
     <ClCompile Include="..\Classes\objects\EffectLayer.cpp">
       <Filter>source\common</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ui\SkillIcon.cpp">
+    <ClCompile Include="..\Classes\ui\SkillIconPanel.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ui\SkillIconPanel.cpp">
+    <ClCompile Include="..\Classes\ui\SkillIcon.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
   </ItemGroup>
