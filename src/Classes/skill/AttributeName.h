@@ -8,6 +8,7 @@ namespace Attr{
 	const std::string mp = "mp";
 	const std::string attack = "attack";
 	const std::string defence = "defence";
+	const std::string hpRegen = "hp_regen";
 	const std::string mpRegen = "mp_regen";
 	const std::string attackSpeed = "attack_speed";
 	const std::string criticalRate = "critical_rate";

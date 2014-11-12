@@ -78,20 +78,6 @@ bool Player::init(
 	scarf = Scarf::create();
 	addChild(scarf);
 
-	hp = Gauge::create(R::HPGauge, static_cast<PartedBody*>(body)->getBodyWidth(), 100);
-	hp->setRegenPerSec(10);
-
-	addChild(hp);
-	hp->setPositionX(-static_cast<PartedBody*>(body)->getBodyWidth() / 2);
-	hp->setPositionY(static_cast<PartedBody*>(body)->getOriginY() + static_cast<PartedBody*>(body)->getBodyHeight() + hp->getContentSize().height);
-
-	mp = Gauge::create(R::MPGauge, static_cast<PartedBody*>(body)->getBodyWidth(), 100);
-	addChild(mp);
-	mp->setPositionX(-static_cast<PartedBody*>(body)->getBodyWidth() / 2);
-	mp->setPositionY(static_cast<PartedBody*>(body)->getOriginY() + static_cast<PartedBody*>(body)->getBodyHeight());
-
-	hp->reduceGauge(50);
-
 	drawNode = DrawNode::create();
 	drawNode->drawCircle(Vec2::ZERO, 100, 0, 32, false, Color4F::RED);
 	drawNode->drawLine(Vec2(-100, 0), Vec2(100, 0), Color4F::RED);
@@ -103,7 +89,10 @@ bool Player::init(
 }
 bool Player::initAttrs(){
 	_SET_ATTR(hp, 100);
+	_SET_ATTR(mp, 10);
 	_SET_ATTR(speed, 7);
+	_SET_ATTR(hpRegen, 1.0f);
+	_SET_ATTR(mpRegen, 1.0f);
 
 	return true;
 }
@@ -176,6 +165,7 @@ void Player::update(
 	float dt){
 		
 	updateConditions(dt);
+	Unit::updateGauge(dt);
 
 	moveCounter = 0;
 	moveSwitchHorizontal = moveSwitchVertical = 0;

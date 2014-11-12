@@ -2,46 +2,31 @@
 
 #include "cocos2d.h"
 
+class Unit;
+
+enum {
+	HP = 0x01,
+	MP = 0x02,
+};
+
 // Hp 또는 Mp
-class Gauge : public cocos2d::Sprite {
+class Gauge : public cocos2d::Node {
 public:
 	Gauge();
-	~Gauge();
+	virtual ~Gauge();
 
-	bool initWithFile(const std::string &name);
+public:
+	static Gauge* create(Unit* _target);
+public:
+	bool init() override;
 	void update(float dt) override;
-
-	static Gauge* create(const std::string &name, float _targetWidth, int _max = 0);
-	
-	/**
-	 * 현재체력과 최대체력의 비율을 반환함
-	 */
-	float getNowToMaxRatio() {
-		return now / max;
-	}
-
-	/**
-	 * 초당 회복되는 양을 정함
-	 */
-	void setRegenPerSec(float _regenPerSec) {
-		if (_regenPerSec >= 0) {
-			regenPerSec = _regenPerSec;
-		}
-	}
-
-	/**
-	 * 현재 체력을 _value만큼 감소시킴
-	 */
-	void reduceGauge(float _value) {
-		if (now - _value > 0) {
-			now -= _value;
-		}
-	}
-
+public:
+	void processHP(float dt);
+	void processMP(float dt);
+	void processGauge(float dt, const std::string &attrName);
 private:
-	float max;
-	float now;
+	Unit* target;
 
-	float regenPerSec;
-	float targetWidth;
+	cocos2d::Sprite* hp;
+	cocos2d::Sprite* mp;
 };

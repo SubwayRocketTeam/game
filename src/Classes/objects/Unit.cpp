@@ -13,6 +13,7 @@
 #include "ui/StatusConsole.h"
 
 #include "PartedBody.h"
+#include "ui/gauge.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -84,13 +85,19 @@ bool Unit::init(
 	if(!initAttrs())
 		return false;
 
+	gauge = Gauge::create(this);
+	addChild(gauge);
+
 	addChild(body);
 
 	return true;
 }
 bool Unit::initAttrs(){
 	_SET_ATTR(hp, 3);
+	_SET_ATTR(mp, 0);
 	_SET_ATTR(speed, 4);
+	_SET_ATTR(hpRegen, 0.0f);
+	_SET_ATTR(mpRegen, 0.0f);
 
 	return true;
 }
@@ -104,6 +111,11 @@ bool Unit::death(){
 	removeFromParentAndCleanup(true);
 
 	return true;
+}
+
+void Unit::updateGauge(float dt) {
+	attrs["hp"].getValue() += attrs["hp_regen"].get() * dt;
+	attrs["mp"].getValue() += attrs["mp_regen"].get() * dt;
 }
 
 bool Unit::damage(
@@ -120,11 +132,10 @@ bool Unit::damage(
 	power *= 100000;
 	getPhysicsBody()->applyImpulse(power);
 	
-	float hp = _ATTR(hp);
-	hp = hp - (attackData.damage - _ATTR(defence));
-	_SET_ATTR(hp, hp);
+	attrs["hp"].getValue() -= (attackData.damage - _ATTR(defence));
+
 	
-	if (hp <= 0) {
+	if (attrs["hp"].get() <= 0) {
 		return death();
 	}
 	return false;

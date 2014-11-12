@@ -1,51 +1,90 @@
 #include "pch.h"
 #include "Gauge.h"
 
+#include "objects/Unit.h"
+
+#include "common/resource.h"
+
 using namespace std;
 using namespace cocos2d;
 
 Gauge::Gauge() {
-	max = 0;
-	now = 0;
 
-	targetWidth = 0;
-	regenPerSec = 0;
 }
 
 Gauge::~Gauge() {
 
 }
 
-bool Gauge::initWithFile(const string &filename) {
-	if (!Sprite::initWithFile(filename)) {
+Gauge* Gauge::create(Unit* _target) {
+	Gauge* ret = new Gauge();
+	if (ret && ret->init()) {
+		ret->autorelease();
+		ret->target = _target;
+		return ret;
+	}
+	return nullptr;
+}
+
+bool Gauge::init() {
+	if (!Node::init()) {
 		return false;
 	}
 
-	this->setAnchorPoint(Vec2(0.0f, 0.0f));
+	hp = Sprite::create(R::HPGauge);
+	addChild(hp);
 
-	schedule(SEL_SCHEDULE(&Gauge::update), 1.0f / 60.f);
+	//mp = Sprite::create(R::MPGauge);
+	//addChild(mp);
+
+	hp->setPositionY(100);
+	//mp->setPositionY(90);
+
+	hp->setOpacity(150);
+	//mp->setOpacity(150);
+
+	scheduleUpdate();
 
 	return true;
 }
 
 void Gauge::update(float dt) {
+	processHP(dt);
+}
+
+void Gauge::processGauge(float dt, const std::string &attrName) {
+	float now = target->getAttribute(attrName).getValue();
+	float max = target->getAttribute(attrName).getMaxValue();
+	float regenPerSecHP = target->getAttribute(attrName + "_regen").get();
 	if (now > max) {
 		now = max;
 		return;
 	}
-	now += dt * regenPerSec;
 
-	this->setScaleX(targetWidth / this->getContentSize().width * this->getNowToMaxRatio());
+	now += dt * regenPerSecHP;
 }
 
-Gauge* Gauge::create(const std::string &name, float _targetWidth, int _max) {
-	Gauge* ret = new Gauge();
-	if (ret && ret->initWithFile(name)) {
-		ret->autorelease();
-		ret->max = _max;
-		ret->now = _max;
-		ret->targetWidth = _targetWidth;
-		return ret;
+void Gauge::processHP(float dt) {
+	float now = target->getAttribute("hp").getValue();
+	float max = target->getAttribute("hp").getMaxValue();
+
+	if (now > max) {
+		now = max;
 	}
-	return nullptr;
+
+	hp->setTextureRect(Rect(0, 0, now / max * 100, 10));
+}
+
+void Gauge::processMP(float dt) {
+	float now = target->getAttribute("mp").getValue();
+	float max = target->getAttribute("mp").getMaxValue();
+	float regenPerSecHP = target->getAttribute("mp_regen").get();
+	if (now > max) {
+		now = max;
+		return;
+	}
+
+	now += dt * regenPerSecHP;
+
+	mp->setTextureRect(Rect(0, 0, now / max * 100, 10));
 }

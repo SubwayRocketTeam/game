@@ -4,6 +4,8 @@
 #include "objects/Player.h"
 #include "common/resource.h"
 
+using namespace cocos2d;
+
 static Cursor *instance = nullptr;
 
 Cursor::Cursor() {
@@ -44,6 +46,11 @@ void Cursor::onMouseMove(
 	int btn, float x,float y){
 
 	mouse.set(x,y);
+
+	/*getPhysicsBody()->getWorld()->rayCast(
+		[&](PhysicsWorld &world, const PhysicsRayCastInfo& info, void* data) {
+	}, this->mouse, , nullptr);
+	);*/
 }
 void Cursor::processRotation(
 	float x,float y){

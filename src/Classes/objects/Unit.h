@@ -13,6 +13,7 @@
 	attrs[Attr::##name].set(value); \
 	}while(0)
 	
+class Gauge;
 class PartedBody;
 class PassiveSkill;
 
@@ -71,6 +72,8 @@ protected:
 
 	virtual bool death();
 
+	virtual void updateGauge(float dt);
+
 	void updateDebug(
 		float dt);
 
@@ -84,4 +87,6 @@ protected:
 	Ally::Type allyID;
 
 	std::map<std::string,Attribute> attrs;
+
+	Gauge* gauge;
 };

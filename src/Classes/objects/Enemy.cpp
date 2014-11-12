@@ -34,11 +34,13 @@ bool Enemy::init(){
 
 	return true;
 }
+
 bool Enemy::initPhysics(){
 	auto factory = PhysicsFactory::getInstance();
 	auto pbody = factory->make("enemy");
 
 	if(pbody){
+		pbody->setAngularDamping(100000000);
 		setPhysicsBody(pbody);
 		return true;
 	}
@@ -48,6 +50,8 @@ bool Enemy::initPhysics(){
 void Enemy::update(
 	float dt){
 
+	Unit::updateGauge(dt);
+
 	auto target = getTarget();
 
 	auto delta = getPosition() - target->getPosition();
@@ -56,7 +60,7 @@ void Enemy::update(
 	auto angle = 
 		CC_RADIANS_TO_DEGREES(delta.getAngle(getPosition()));
 
-	setRotation(angle+90);
+	body->setRotation(angle+90);
 	getPhysicsBody()->setVelocity(-move);
 
 	if(rand() % 40 == 1)
