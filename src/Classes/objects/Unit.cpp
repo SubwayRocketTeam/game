@@ -107,9 +107,10 @@ bool Unit::initPhysics(){
 	return true;
 }
 
-bool Unit::death(){
-	removeFromParentAndCleanup(true);
-
+void Unit::onDamage(
+	const AttackData &attackData){
+}
+bool Unit::onDeath(){
 	return true;
 }
 
@@ -133,10 +134,14 @@ bool Unit::damage(
 	getPhysicsBody()->applyImpulse(power);
 	
 	attrs["hp"].getValue() -= (attackData.damage - _ATTR(defence));
-
 	
+	onDamage(attackData);
+
 	if (attrs["hp"].get() <= 0) {
-		return death();
+		if(onDeath()){
+			removeFromParentAndCleanup(true);
+			return true;
+		}
 	}
 	return false;
 }
