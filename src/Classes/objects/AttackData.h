@@ -5,9 +5,9 @@
 class Unit;
 
 enum AttackType {
-	PAN,
-	LINE,
-	TARGET
+	Pan,
+	Line,
+	Target
 };
 
 struct AttackData{
