@@ -74,6 +74,13 @@ void Enemy::unfocus(){
 	body->setColor(Color3B(255,255,255));
 }
 
+void Enemy::onDamage(
+	const AttackData &attackData){
+
+	increaseAggro(
+		attackData.user, attackData.aggro);
+}
+
 void Enemy::resetAggro(){
 	auto players = Ally::getInstance(
 		Ally::Type::allyPlayer);

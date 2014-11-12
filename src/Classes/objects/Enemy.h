@@ -25,6 +25,9 @@ protected:
 	virtual void update(
 		float dt);
 
+	virtual void onDamage(
+		const AttackData &attackData);
+
 	void increaseAggro(
 		Unit *u, float value);
 	void decreaseAggro(
