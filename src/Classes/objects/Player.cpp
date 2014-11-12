@@ -207,7 +207,7 @@ void Player::updateConditions(
 		stiff -= dt;
 }
 
-bool Player::death(){
+bool Player::onDeath(){
 	return false;
 }
 

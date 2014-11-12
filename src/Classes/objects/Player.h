@@ -46,7 +46,7 @@ protected:
 	virtual bool initExternalData(
 		const std::string &dataPath);
 
-	virtual bool death();
+	virtual bool onDeath();
 
 	virtual void update(
 		float dt);
