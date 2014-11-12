@@ -21,6 +21,7 @@
 #include "ui/StatusConsole.h"
 #include "ui/UserResources.h"
 #include "ui/Minimap.h"
+#include "ui/SkillIconPanel.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -94,6 +95,12 @@ bool GameScene::initUI(){
 
 	cursor = Cursor::getInstance();
 	addChild(cursor);
+
+	int skills[] = {10,11,12,12};
+	auto skillPanel = SkillIconPanel::getInstance();
+	skillPanel->setSkillList(skills);
+	skillPanel->setPosition(500,100);
+	addChild(skillPanel);
 
 	/* LAYERS */
 	addChild(EffectLayer::getInstance());

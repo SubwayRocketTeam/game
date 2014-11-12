@@ -6,4 +6,7 @@ namespace Max{
 
 	/* ÆÀ ¼ö */
 	const int Teams = 2;
+
+	/* ½ºÅ³ °¹¼ö */
+	const int Skills = 4;
 };

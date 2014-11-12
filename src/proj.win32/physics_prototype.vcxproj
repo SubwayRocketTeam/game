@@ -168,6 +168,8 @@
     <ClCompile Include="..\Classes\skill\type1\Slash.cpp" />
     <ClCompile Include="..\Classes\ui\Gauge.cpp" />
     <ClCompile Include="..\Classes\ui\Minimap.cpp" />
+    <ClCompile Include="..\Classes\ui\SkillIcon.cpp" />
+    <ClCompile Include="..\Classes\ui\SkillIconPanel.cpp" />
     <ClCompile Include="..\Classes\ui\StatusConsole.cpp" />
     <ClCompile Include="..\Classes\ui\UserResources.cpp" />
     <ClCompile Include="..\Classes\util\Random.cpp" />
@@ -226,6 +228,8 @@
     <ClInclude Include="..\Classes\skill\type1\Slash.h" />
     <ClInclude Include="..\Classes\ui\Gauge.h" />
     <ClInclude Include="..\Classes\ui\Minimap.h" />
+    <ClInclude Include="..\Classes\ui\SkillIcon.h" />
+    <ClInclude Include="..\Classes\ui\SkillIconPanel.h" />
     <ClInclude Include="..\Classes\ui\StatusConsole.h" />
     <ClInclude Include="..\Classes\ui\UserResources.h" />
     <ClInclude Include="..\Classes\util\Random.h" />

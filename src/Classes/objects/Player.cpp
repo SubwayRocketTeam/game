@@ -10,6 +10,7 @@
 #include "ui/gauge.h"
 #include "ui/UserResources.h"
 #include "ui/StatusConsole.h"
+#include "ui/SkillIconPanel.h"
 
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
@@ -157,6 +158,10 @@ bool Player::useSkill(
 	cooltimes[index] = skill->cooltime;
 	attrs["mp"].getValue() -= skill->cost;
 	stiff = skill->duration;
+
+	/* ui 쿨타임 업데이트 */
+	auto panel = SkillIconPanel::getInstance();
+	panel->use(skill->id);
 
 	return true;
 }

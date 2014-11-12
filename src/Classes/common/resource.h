@@ -11,6 +11,8 @@ namespace R{
 	_RESL(AfterimageGlowPlist);
 	_RESL(Hit1Plist);
 
+	_RESL(SkillPanel);
+
 	_RESL(Hit1);
 
 	_RESL(Minimap);

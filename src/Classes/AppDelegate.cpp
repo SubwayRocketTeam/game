@@ -16,6 +16,7 @@
 #include "ui/StatusConsole.h"
 #include "ui/Minimap.h"
 #include "ui/UserResources.h"
+#include "ui/SkillIconPanel.h"
 
 #include "common/resource.h"
 
@@ -56,6 +57,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	PhysicsFactory::create();
 	Cursor::create();
 	UserResources::create();
+	SkillIconPanel::create();
 
 	glview->setDesignResolutionSize(
 		800,600, ResolutionPolicy::SHOW_ALL);
