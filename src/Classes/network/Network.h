@@ -25,6 +25,9 @@ public:
 
 	void sendLoginRequest(
 		STRING(user_id), STRING(user_pw));
+	void sendMoveStart(
+		INT(x), INT(y));
+	void sendMoveEnd();
 
 	template <typename T>
 	void route(
@@ -40,6 +43,15 @@ public:
 protected:
 	Network();
 	virtual ~Network();
+
+	void handleLoginResponse(
+		login_response *pkt);
+	void handleSyncPosition(
+		sync_position *pkt);
+	void handleUnitSpawn(
+		unit_spawn *pkt);
+	void handleUnitRemove(
+		unit_remove *pkt);
 
 	int recv(
 		void *dst, int len);

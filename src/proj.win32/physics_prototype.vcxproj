@@ -138,6 +138,8 @@
     <ClCompile Include="..\Classes\common\PhysicsFactory.cpp" />
     <ClCompile Include="..\Classes\common\resource.cpp" />
     <ClCompile Include="..\Classes\Network\LoginSender.cpp" />
+    <ClCompile Include="..\Classes\network\MoveHandler.cpp" />
+    <ClCompile Include="..\Classes\network\MoveSender.cpp" />
     <ClCompile Include="..\Classes\network\Network.cpp" />
     <ClCompile Include="..\Classes\objects\Afterimage.cpp" />
     <ClCompile Include="..\Classes\objects\Ally.cpp" />

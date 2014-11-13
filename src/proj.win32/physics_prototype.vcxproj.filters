@@ -136,6 +136,12 @@
     <ClCompile Include="..\Classes\Network\LoginSender.cpp">
       <Filter>source\network</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\network\MoveHandler.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\network\MoveSender.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
