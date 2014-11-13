@@ -55,6 +55,9 @@ public:
 
 	void enableDebug();
 
+	void setID(
+		int id);
+	int getID();
 	PartedBody *getBody();
 	Attribute &getAttribute(
 		const std::string &name);
@@ -83,6 +86,8 @@ protected:
 		float dt);
 
 protected:
+	int id;
+
 	PartedBody *body;
 	cocos2d::Sprite* weapon;
 

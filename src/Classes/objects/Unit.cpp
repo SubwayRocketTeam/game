@@ -226,6 +226,13 @@ void Unit::updateDebug(float dt){
 	dbgAngle->setString(str);
 }
 
+void Unit::setID(
+	int _id){
+	id = _id;
+}
+int Unit::getID(){
+	return id;
+}
 PartedBody *Unit::getBody(){
 	return body;
 }
