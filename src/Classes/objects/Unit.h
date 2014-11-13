@@ -40,6 +40,9 @@ public:
 	static Unit *create(
 		const std::string &image, const int part);
 
+	static Unit *getInstanceByID(
+		int id);
+
 	// return true if die
 	bool damage(
 		const AttackData& attackData);

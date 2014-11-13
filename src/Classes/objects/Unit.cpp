@@ -14,8 +14,12 @@
 #include "PartedBody.h"
 #include "ui/gauge.h"
 
+#include <map>
+
 using namespace std;
 using namespace cocos2d;
+
+static map<int, Unit*> instances;
 
 Unit::Unit() : 
 	body(nullptr),
@@ -57,6 +61,13 @@ Unit *Unit::create(
 	}
 	CC_SAFE_DELETE(u);
 	return nullptr;
+}
+Unit *Unit::getInstanceByID(
+	int id){
+
+	CC_ASSERT(instances.find(id) != instances.end());
+
+	return instances[id];
 }
 
 bool Unit::init(){
