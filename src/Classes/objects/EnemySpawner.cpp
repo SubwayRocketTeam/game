@@ -35,10 +35,6 @@ bool EnemySpawner::init(){
 }
 void EnemySpawner::update(
 	float dt){
-
-	if(rand()%10 == 1){
-		spawn();
-	}
 }
 
 void EnemySpawner::spawn(){
