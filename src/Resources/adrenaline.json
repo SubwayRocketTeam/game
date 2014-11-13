@@ -6,8 +6,8 @@
   "bonus" : [
     {
       "target" : "attack_speed",
-      "value" : 0,
-      "rate" : -80
+      "value" : -80,
+      "rate" : 0
     },
     {
       "target" : "attack",
