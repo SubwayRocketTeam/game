@@ -94,7 +94,7 @@ bool Player::initAttrs(){
 	_SET_ATTR(speed, 7);
 	_SET_ATTR(hpRegen, 1.0f);
 	_SET_ATTR(mpRegen, 1.0f);
-	_SET_ATTR(attackSpeed, 100.0f);
+	_SET_ATTR(attackSpeed, 1.0f);
 
 	return true;
 }
@@ -155,7 +155,7 @@ bool Player::useSkill(
 	if(skill->cost > attrs["mp"].get())
 		return false;
 	if(index == skillMouseLeft)
-		cooltime *= _ATTR(attackSpeed) / 100;
+		cooltime *= _ATTR(attackSpeed);
 
 	skill->use(this, Vec2(x,y));
 
