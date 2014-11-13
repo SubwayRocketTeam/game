@@ -12,9 +12,8 @@ public:
 	static Stage *getInstance(
 		int id);
 
-    virtual bool init();
-
 protected:
+	virtual bool init();
 	bool initExternalData();
 	bool initObject(
 		const std::string &name,
