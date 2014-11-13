@@ -1,13 +1,13 @@
 {
   "id" : 100,
-  "name" : "test_passive",
-  "tooltip" : "gdgd",
+  "name" : "adrenaline",
+  "tooltip" : "adrenaline",
 	
   "bonus" : [
     {
-      "target" : "hp",
-      "value" : 1000,
-      "rate" : 50
+      "target" : "attack_speed",
+      "value" : 0,
+      "rate" : -80
     },
     {
       "target" : "attack",
