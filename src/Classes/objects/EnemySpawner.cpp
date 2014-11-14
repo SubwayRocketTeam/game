@@ -3,7 +3,6 @@
 
 #include "common/resource.h"
 
-#include "EnemyPool.h"
 #include "Enemy.h"
 #include "Stage.h"
 #include "Ally.h"
