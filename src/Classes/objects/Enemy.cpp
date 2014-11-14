@@ -50,8 +50,6 @@ bool Enemy::initPhysics(){
 void Enemy::update(
 	float dt){
 
-	Unit::updateGauge(dt);
-
 	auto target = getTarget();
 
 	auto delta = getPosition() - target->getPosition();

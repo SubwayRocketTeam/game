@@ -100,6 +100,8 @@ bool Unit::init(
 
 	addChild(body);
 
+	schedule(SEL_SCHEDULE(Unit::updateGauge), 1.f / Global::fps);
+
 	return true;
 }
 bool Unit::initAttrs(){
@@ -125,8 +127,8 @@ bool Unit::onDeath(){
 }
 
 void Unit::updateGauge(float dt) {
-	attrs["hp"].getValue() += attrs["hp_regen"].get() * dt;
-	attrs["mp"].getValue() += attrs["mp_regen"].get() * dt;
+	attrs[Attr::hp].getValue() += attrs[Attr::hpRegen].get() * dt;
+	attrs[Attr::mp].getValue() += attrs[Attr::mpRegen].get() * dt;
 }
 
 bool Unit::damage(

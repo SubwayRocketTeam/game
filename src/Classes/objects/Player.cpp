@@ -174,7 +174,6 @@ void Player::update(
 	float dt){
 		
 	updateConditions(dt);
-	Unit::updateGauge(dt);
 
 	moveCounter = 0;
 	moveSwitchHorizontal = moveSwitchVertical = 0;
