@@ -100,16 +100,16 @@ bool Unit::init(
 
 	addChild(body);
 
-	schedule(SEL_SCHEDULE(Unit::updateGauge), 1.f / Global::fps);
+	schedule(SEL_SCHEDULE(&Unit::updateGauge), 1.f / Global::fps);
 
 	return true;
 }
 bool Unit::initAttrs(){
-	_SET_ATTR(hp, 3);
-	_SET_ATTR(mp, 0);
-	_SET_ATTR(speed, 4);
-	_SET_ATTR(hpRegen, 0.0f);
-	_SET_ATTR(mpRegen, 0.0f);
+	_INIT_ATTR(hp, 3);
+	_INIT_ATTR(mp, 0);
+	_INIT_ATTR(speed, 4);
+	_INIT_ATTR(hpRegen, 0.0f);
+	_INIT_ATTR(mpRegen, 0.0f);
 
 	return true;
 }
@@ -127,8 +127,8 @@ bool Unit::onDeath(){
 }
 
 void Unit::updateGauge(float dt) {
-	attrs[Attr::hp].getValue() += attrs[Attr::hpRegen].get() * dt;
-	attrs[Attr::mp].getValue() += attrs[Attr::mpRegen].get() * dt;
+	_ATTR_VALUE(hp) += _ATTR(hpRegen) * dt;
+	_ATTR_VALUE(mp) += _ATTR(mpRegen) * dt;
 }
 
 bool Unit::damage(
@@ -145,11 +145,11 @@ bool Unit::damage(
 	power *= 100000;
 	getPhysicsBody()->applyImpulse(power);
 	
-	attrs["hp"].getValue() -= (attackData.damage - _ATTR(defence));
-	
+	_ATTR_VALUE(hp) -= (attackData.damage - _ATTR(defence));
+
 	onDamage(attackData);
 
-	if (attrs["hp"].get() <= 0) {
+	if (_ATTR(hp) <= 0) {
 		if(onDeath()){
 			removeFromParentAndCleanup(true);
 			return true;

@@ -10,10 +10,10 @@
 #include "objects/Ally.h"
 
 #define _ATTR(name) (attrs[Attr::##name].get())
-#define _SET_ATTR(name, value) do{ \
-	attrs[Attr::##name].set(value); \
-	}while(0)
-	
+#define _ATTR_VALUE(name) (attrs[Attr::##name].getValue())
+#define _ATTR_MAX(name) (attrs[Attr::##name].getMax())
+#define _INIT_ATTR(name, value) (attrs[Attr::##name].set(value))
+
 class Gauge;
 class PartedBody;
 class PassiveSkill;

@@ -89,12 +89,12 @@ bool Player::init(
 	return true;
 }
 bool Player::initAttrs(){
-	_SET_ATTR(hp, 100);
-	_SET_ATTR(mp, 10);
-	_SET_ATTR(speed, 7);
-	_SET_ATTR(hpRegen, 1.0f);
-	_SET_ATTR(mpRegen, 1.0f);
-	_SET_ATTR(attackSpeed, 1.0f);
+	_INIT_ATTR(hp, 100);
+	_INIT_ATTR(mp, 10);
+	_INIT_ATTR(speed, 7);
+	_INIT_ATTR(hpRegen, 1.0f);
+	_INIT_ATTR(mpRegen, 1.0f);
+	_INIT_ATTR(attackSpeed, 1.0f);
 
 	return true;
 }
@@ -152,7 +152,7 @@ bool Player::useSkill(
 
 	if(cooltimes[index] > 0.0f)
 		return false;
-	if(skill->cost > attrs["mp"].get())
+	if (skill->cost > _ATTR(mp))
 		return false;
 	if(index == skillMouseLeft)
 		cooltime *= _ATTR(attackSpeed);
@@ -160,7 +160,7 @@ bool Player::useSkill(
 	skill->use(this, Vec2(x,y));
 
 	cooltimes[index] = cooltime;
-	attrs["mp"].getValue() -= skill->cost;
+	_ATTR_VALUE(mp) -= skill->cost;
 	stiff = skill->duration;
 
 	/* ui 쿨타임 업데이트 */
