@@ -90,17 +90,14 @@ protected:
 
 protected:
 	int id;
+	Ally::Type allyID;
 
 	PartedBody *body;
 	cocos2d::Sprite* weapon;
+	Gauge* gauge;
 
 	std::set<PassiveSkill*> passives;
-
-	cocos2d::LabelTTF *dbgAngle;
-
-	Ally::Type allyID;
-
 	std::map<std::string,Attribute> attrs;
 
-	Gauge* gauge;
+	cocos2d::LabelTTF *dbgAngle;
 };
