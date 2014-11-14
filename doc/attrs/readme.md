@@ -27,5 +27,4 @@ Attribute
 * defence : 방어력
 * attackSpeed : 공격 속도 비율(%)
 * criticalRate
-* accuracyRate
 * evasionRate 
