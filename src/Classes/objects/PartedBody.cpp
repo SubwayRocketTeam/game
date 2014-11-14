@@ -89,11 +89,6 @@ void PartedBody::updateCharacter(
 		body[i]->setPosition(
 			delta * ratio * (partNum - i));
 	}
-
-	auto pos = body[0]->getPosition();
-	auto boundbox = body[0]->getBoundingBox();
-	auto size = body[0]->getContentSize();
-	auto pos2 = boundbox.origin;
 }
 
 float PartedBody::getRotation() const{
