@@ -45,15 +45,12 @@ void MouseEventListener::disableMouseInput(){
 void MouseEventListener::onMouseMove(
 	int btn, float x,float y){
 
-	cocos2d::log("onMouseMove : override me");
 }
 void MouseEventListener::onMouseDown(
 	int btn, float x,float y){
 
-	cocos2d::log("onMouseDown : override me");
 }
 void MouseEventListener::onMouseUp(
 	int btn, float x,float y){
 
-	cocos2d::log("onMouseUp : override me");
 }

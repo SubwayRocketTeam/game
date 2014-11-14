@@ -48,15 +48,12 @@ void KeyboardEventListener::processKeyTurbo(float dt){
 void KeyboardEventListener::onKeyboardDown(
 	EventKeyboard::KeyCode keycode){
 
-	cocos2d::log("onKeyboardDown : override me");
 }
 void KeyboardEventListener::onKeyboardUp(
 	EventKeyboard::KeyCode keycode){
 
-	cocos2d::log("onKeyboardUp : override me");
 }
 void KeyboardEventListener::onKeyboardPressed(
 	EventKeyboard::KeyCode keycode){
 
-	cocos2d::log("onKeyboardPressed : override me");
 }

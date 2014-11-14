@@ -114,7 +114,6 @@ bool Unit::initAttrs(){
 	return true;
 }
 bool Unit::initPhysics(){
-	cocos2d::log("initPhysics : override me");
 
 	return true;
 }
