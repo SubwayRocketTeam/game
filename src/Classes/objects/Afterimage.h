@@ -12,10 +12,10 @@ public:
 	static Afterimage *createWithPartedBody(
 		cocos2d::Node *world,
 		PartedBody *target, float duration);
-    virtual bool init(
+	virtual bool init(
 		cocos2d::Node *world,
 		cocos2d::Sprite *target, float duration);
-    virtual bool initWithPartedBody(
+	virtual bool initWithPartedBody(
 		cocos2d::Node *world,
 		PartedBody *target, float duration);
 

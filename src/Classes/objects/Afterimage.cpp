@@ -43,7 +43,7 @@ bool Afterimage::init(
 	Sprite *_target, float _duration){
 
 	if (!Sprite::init())
-        return false;
+		return false;
 
 	world = _world;
 	target = _target;
@@ -51,7 +51,7 @@ bool Afterimage::init(
 
 	scheduleUpdate();
 
-    return true;
+	return true;
 }
 
 bool Afterimage::initWithPartedBody(
@@ -59,11 +59,11 @@ bool Afterimage::initWithPartedBody(
 	PartedBody *_target, float _duration){
 
 	if (!Afterimage::init(_world, _target, _duration))
-        return false;
+		return false;
 
 	partedBody = true;
 
-    return true;
+	return true;
 }
 
 void Afterimage::addAfterimage(
@@ -100,7 +100,7 @@ void Afterimage::update(
 		for(auto part : *partedBody){
 			addAfterimage(
 				part,
-				unit->getPosition(),
+				unit->getPosition() + part->getPosition(),
 				part->getRotation(),
 				unit->getScale(),
 				128);
