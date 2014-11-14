@@ -148,7 +148,6 @@
     <ClCompile Include="..\Classes\objects\Stage.cpp" />
     <ClCompile Include="..\Classes\objects\PartedBody.cpp" />
     <ClCompile Include="..\Classes\objects\Enemy.cpp" />
-    <ClCompile Include="..\Classes\objects\EnemyPool.cpp" />
     <ClCompile Include="..\Classes\objects\EnemySpawner.cpp" />
     <ClCompile Include="..\Classes\objects\KeyboardEventListener.cpp" />
     <ClCompile Include="..\Classes\objects\MouseEventListener.cpp" />
@@ -213,7 +212,6 @@
     <ClInclude Include="..\Classes\objects\Stage.h" />
     <ClInclude Include="..\Classes\objects\PartedBody.h" />
     <ClInclude Include="..\Classes\objects\Enemy.h" />
-    <ClInclude Include="..\Classes\objects\EnemyPool.h" />
     <ClInclude Include="..\Classes\objects\EnemySpawner.h" />
     <ClInclude Include="..\Classes\objects\KeyboardEventListener.h" />
     <ClInclude Include="..\Classes\objects\MouseEventListener.h" />

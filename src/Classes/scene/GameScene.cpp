@@ -12,7 +12,6 @@
 #include "objects/Player.h"
 #include "objects/Enemy.h"
 #include "objects/EnemySpawner.h"
-#include "objects/EnemyPool.h"
 #include "objects/BodyAnimation.h"
 #include "objects/AnimationPool.h"
 #include "objects/EffectLayer.h"
@@ -45,9 +44,6 @@ bool GameScene::init(){
 	if(!initUI())
 		return false;
 	
-	auto pool = EnemyPool::create();
-	addChild(pool);
-
 	auto animPool = AnimationPool::create();
 	addChild(animPool);
 

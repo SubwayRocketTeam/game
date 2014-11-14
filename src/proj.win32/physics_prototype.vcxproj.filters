@@ -22,9 +22,6 @@
     <ClCompile Include="..\Classes\objects\Enemy.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\objects\EnemyPool.cpp">
-      <Filter>source\object</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\objects\EnemySpawner.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
@@ -157,9 +154,6 @@
       <Filter>source\object\common</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\Enemy.h">
-      <Filter>source\object</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\objects\EnemyPool.h">
       <Filter>source\object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\EnemySpawner.h">
