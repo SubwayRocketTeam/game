@@ -223,7 +223,6 @@ void Player::processRotation(
 	double degree = (rad*180)/M_PI;
 
 	body->setRotation(-degree + 90);
-	scarf->pushRotation(degree + 90);
 	drawNode->setRotation(-degree + 90);
 
 }
