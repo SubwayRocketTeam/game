@@ -16,6 +16,7 @@
 #include "objects/AnimationPool.h"
 #include "objects/EffectLayer.h"
 #include "objects/Trash.h"
+#include "objects/TrashPool.h"
 
 #include "ui/cursor.h"
 #include "ui/StatusConsole.h"
@@ -78,13 +79,8 @@ bool GameScene::initUI(){
 		Vec2(100,100));
 	stage->addChild(player, 1);
 
-	/* 임시로 쓰레기 젠 */
-	for(int i=0;i<100;i++){
-		auto trash = Trash::create();
-		trash->setPosition(
-			rand()%1600-800, rand()%1200-600);
-		stage->addChild(trash);
-	}
+	auto trashPool = TrashPool::getInstance();
+	trashPool->spawn(100);
 
 	/* UI OBJECTS */
 	auto console = StatusConsole::create();

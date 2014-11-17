@@ -1,5 +1,10 @@
 #include "pch.h"
 #include "Trash.h"
+#include "TrashPool.h"
+
+#include "PartedBody.h"
+
+using namespace cocos2d;
 
 Trash::Trash(){
 }
@@ -16,7 +21,6 @@ Trash *Trash::create(){
 	CC_SAFE_DELETE(t);
 	return nullptr;
 }
-
 bool Trash::init(){
 	int type = rand() % 6+1;
 	char path[128];
@@ -26,4 +30,16 @@ bool Trash::init(){
 		return false;
 	
 	return true;
+}
+
+void Trash::sweep(){
+	auto trashPool = TrashPool::getInstance();
+	trashPool->remove(this);
+
+	runAction(
+		Sequence::create(
+			FadeOut::create(0.5),
+			RemoveSelf::create(),
+			nullptr
+		));
 }

@@ -154,6 +154,7 @@
     <ClCompile Include="..\Classes\objects\Player.cpp" />
     <ClCompile Include="..\Classes\objects\Scarf.cpp" />
     <ClCompile Include="..\Classes\objects\Trash.cpp" />
+    <ClCompile Include="..\Classes\objects\TrashPool.cpp" />
     <ClCompile Include="..\Classes\objects\Unit.cpp" />
     <ClCompile Include="..\Classes\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -219,6 +220,7 @@
     <ClInclude Include="..\Classes\objects\Player.h" />
     <ClInclude Include="..\Classes\objects\Scarf.h" />
     <ClInclude Include="..\Classes\objects\Trash.h" />
+    <ClInclude Include="..\Classes\objects\TrashPool.h" />
     <ClInclude Include="..\Classes\objects\Unit.h" />
     <ClInclude Include="..\Classes\pch.h" />
     <ClInclude Include="..\Classes\scene\GameScene.h" />

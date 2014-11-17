@@ -2,11 +2,11 @@
 
 #include "Unit.h"
 
-#include <map>
-
 class Trash : public Unit{
 public:
 	static Trash *create();
+
+	void sweep();
 
 protected:
 	Trash();

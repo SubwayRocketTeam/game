@@ -2,7 +2,8 @@
 #include "Player.h"
 
 #include "Bullet.h"
-
+#include "Trash.h"
+#include "TrashPool.h"
 #include "AnimationPool.h"
 
 #include "ui/cursor.h"
@@ -171,6 +172,15 @@ void Player::update(
 	float dt){
 		
 	updateConditions(dt);
+
+	auto pos = getPosition();
+	auto trashPool = TrashPool::getInstance();
+	auto trashes = trashPool->query(
+		Rect(pos.x-30,pos.y-30,60,60));
+
+	for(auto trash : trashes){
+		trash->sweep();
+	}
 
 	moveCounter = 0;
 	moveSwitchHorizontal = moveSwitchVertical = 0;

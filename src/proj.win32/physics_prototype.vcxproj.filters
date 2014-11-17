@@ -136,6 +136,9 @@
     <ClCompile Include="..\Classes\objects\Trash.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\objects\TrashPool.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -319,6 +322,9 @@
       <Filter>source\network</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\Trash.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\TrashPool.h">
       <Filter>source\object</Filter>
     </ClInclude>
   </ItemGroup>

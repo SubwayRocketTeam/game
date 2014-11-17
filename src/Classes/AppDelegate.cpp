@@ -11,6 +11,7 @@
 #include "objects/Ally.h"
 #include "objects/Stage.h"
 #include "objects/EffectLayer.h"
+#include "objects/TrashPool.h"
 
 #include "ui/Cursor.h"
 #include "ui/StatusConsole.h"
@@ -49,6 +50,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	cache->addSpriteFramesWithFile(R::AfterimageGlowPlist);
 	cache->addSpriteFramesWithFile(R::Hit1Plist);
 
+	TrashPool::create();
 	Network::create();
 	EffectLayer::create();
 	EffectFactory::create();
