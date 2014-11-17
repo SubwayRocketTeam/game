@@ -3,6 +3,8 @@
 
 #include "Unit.h"
 
+#include "common/World.h"
+
 using namespace cocos2d;
 
 static Ally *instances[2] =
@@ -63,13 +65,26 @@ void Ally::processAttack(
 	for (auto it = members.begin(); it != members.end();){
 		auto& member = *it;
 		auto memberPosition = member->getPosition();
-		float r = ((PhysicsShapeCircle*)member->getPhysicsBody()->getFirstShape())->getRadius()
-			+ data.radius;
+
+		// fixture list를 돌면서 마지막 shape를 가져옴. 이거그냥 맨처음 fixture로 써도 될듯
+		float r;
+		b2Fixture* fixture = member->getPhysicsBody()->GetFixtureList();
+		while (fixture != nullptr) {
+			switch (fixture->GetType()) {
+			case b2Shape::e_circle:
+				b2CircleShape* circle = (b2CircleShape*)fixture->GetShape();
+				r = circle->m_radius * PTM_RATIO + data.radius;
+				break;
+			}
+			fixture = fixture->GetNext();
+		}
+
 		Vec2 delta = memberPosition - data.startPostion;
 		float angle = CC_RADIANS_TO_DEGREES(attackDirection.getAngle(delta));
 
 		if(senderPosition.getDistance(memberPosition) <= r && abs(angle) <= data.halfAngle){
 			if (member->damage(data)){
+				World::getInstance()->destroy(member);
 				it = members.erase(it);
 				continue;
 			}

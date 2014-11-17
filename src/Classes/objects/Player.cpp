@@ -16,6 +16,7 @@
 #include "common/JsonLoader.h"
 #include "common/EffectFactory.h"
 #include "common/Effect.h"
+#include "common/World.h"
 
 #include "skill/PassiveSkill.h"
 #include "skill/ActiveSkill.h"
@@ -63,6 +64,7 @@ DrawNode* drawNode;
 bool Player::init(
 	const string &dataPath){
 
+	this->setPosition(100, 100);
 	if (!Unit::init(R::PlayerBody, BodyParts))
 		return false;
 	if(!initExternalData(dataPath))
@@ -98,17 +100,15 @@ bool Player::initAttrs(){
 	return true;
 }
 bool Player::initPhysics(){
-	auto factory = PhysicsFactory::getInstance();
-	auto pbody = factory->make("player");
+	auto factory = World::getInstance();
+	auto pbody = factory->make(this);
 
 	if(pbody){
-		pbody->setAngularDamping(100);
-		pbody->setLinearDamping(100);
-		setPhysicsBody(pbody);
+		_pBody = pbody;
 		return true;
 	}
 	
-	return false;
+	return true;
 }
 bool Player::initExternalData(
 	const string &dataPath){
@@ -171,6 +171,9 @@ bool Player::useSkill(
 
 void Player::update(
 	float dt){
+	setPosition(
+		Vec2(_pBody->GetPosition().x * PTM_RATIO,
+		_pBody->GetPosition().y * PTM_RATIO));
 		
 	updateConditions(dt);
 
@@ -266,28 +269,25 @@ void Player::processMove(
 	if(stiff > 0.0f) return;
 	if(moveCounter >= 2) return;
 
-	Vec2 moveBy(0, 0);
+	b2Vec2 moveBy(0, 0);
 	float speed = _ATTR(speed) * speedFactor;
 
 	if(moveSwitchVertical == 0){
 		if(keycode == EventKeyboard::KeyCode::KEY_W)
-			moveBy.set(0, speed), moveSwitchVertical = 1;
+			moveBy.Set(0, speed), moveSwitchVertical = 1;
 		else if(keycode == EventKeyboard::KeyCode::KEY_S)
-			moveBy.set(0, -speed), moveSwitchVertical = 1;
+			moveBy.Set(0, -speed), moveSwitchVertical = 1;
 	}
 	if(moveSwitchHorizontal == 0){
 		if(keycode == EventKeyboard::KeyCode::KEY_A)
-			moveBy.set(-speed, 0), moveSwitchHorizontal = 1;
+			moveBy.Set(-speed, 0), moveSwitchHorizontal = 1;
 		else if(keycode == EventKeyboard::KeyCode::KEY_D)
-			moveBy.set(speed, 0), moveSwitchHorizontal = 1;
+			moveBy.Set(speed, 0), moveSwitchHorizontal = 1;
 	}
 
-	float frameRate =
-		Director::getInstance()->getFrameRate();
+	moveBy.Set(moveBy.x / PTM_RATIO, moveBy.y / PTM_RATIO);
 
-	runAction(
-		MoveBy::create(1.0/frameRate, moveBy))
-		->setTag(actionMove);
+	_pBody->SetTransform(_pBody->GetPosition() + moveBy, _pBody->GetAngle());
 
 	body->runAnimation(
 		AnimationPool::getInstance()

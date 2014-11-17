@@ -4,6 +4,7 @@
 #include "common/EffectFactory.h"
 #include "common/Effect.h"
 #include "common/resource.h"
+#include "common/World.h"
 
 #include "skill/SkillPool.h"
 #include "skill/ActiveSkill.h"
@@ -15,6 +16,7 @@
 #include "ui/gauge.h"
 
 #include <map>
+#include <Box2D/Box2D.h>
 
 using namespace std;
 using namespace cocos2d;
@@ -139,10 +141,9 @@ bool Unit::damage(
 	factory->add(
 		worldPos, R::Hit1, false);
 
-	Vec2 power = getPosition() - attackData.startPostion;
-	power.normalize();
-	power *= 100000;
-	getPhysicsBody()->applyImpulse(power);
+	Vec2 power = (getPosition() - attackData.startPostion) / PTM_RATIO;
+
+	_pBody->SetLinearVelocity(b2Vec2(power.x, power.y));
 	
 	_ATTR_VALUE(hp) -= (attackData.damage - _ATTR(defence));
 
@@ -257,4 +258,8 @@ Attribute &Unit::getAttribute(
 }
 Ally::Type Unit::getAllyID(){
 	return allyID;
+}
+
+b2Body *Unit::getPhysicsBody() {
+	return _pBody;
 }

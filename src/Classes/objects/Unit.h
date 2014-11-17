@@ -17,6 +17,7 @@
 class Gauge;
 class PartedBody;
 class PassiveSkill;
+class b2Body;
 
 class Unit : public cocos2d::Sprite{
 public:
@@ -66,6 +67,8 @@ public:
 		const std::string &name);
 	Ally::Type getAllyID();
 
+	b2Body *getPhysicsBody();
+
 protected:
 	Unit();
 	virtual ~Unit();
@@ -100,4 +103,6 @@ protected:
 	std::map<std::string,Attribute> attrs;
 
 	cocos2d::LabelTTF *dbgAngle;
+
+	b2Body *_pBody;
 };

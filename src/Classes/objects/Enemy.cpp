@@ -4,6 +4,7 @@
 
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
+#include "common/World.h"
 
 #include "Player.h"
 #include "Ally.h"
@@ -36,14 +37,14 @@ bool Enemy::init(){
 }
 
 bool Enemy::initPhysics(){
-	auto factory = PhysicsFactory::getInstance();
-	auto pbody = factory->make("enemy");
+	auto factory = World::getInstance();
+	auto pbody = factory->make(this);
 
-	if(pbody){
-		pbody->setAngularDamping(100000000);
-		setPhysicsBody(pbody);
+	if(pbody) {
+		_pBody = pbody;
 		return true;
 	}
+
 	return true;
 }
 
@@ -54,12 +55,18 @@ void Enemy::update(
 
 	auto delta = getPosition() - target->getPosition();
 	
-	auto move = delta.getNormalized() * 50;
+	auto move = delta / PTM_RATIO;
+	move = move.getNormalized();
 	auto angle = 
 		CC_RADIANS_TO_DEGREES(delta.getAngle(getPosition()));
 
 	body->setRotation(angle+90);
-	getPhysicsBody()->setVelocity(-move);
+	b2Vec2 velocity = b2Vec2(move.x, move.y);
+	_pBody->SetLinearVelocity(-velocity);
+
+	this->setPosition(
+		Vec2(_pBody->GetPosition().x * PTM_RATIO,
+		_pBody->GetPosition().y * PTM_RATIO));
 
 	if(rand() % 40 == 1)
 		useSkill(10,getPosition().x, getPosition().y);

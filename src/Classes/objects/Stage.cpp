@@ -6,6 +6,7 @@
 #include "common/resource.h"
 
 #include "common/JsonLoader.h"
+#include "common/World.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -53,7 +54,6 @@ bool Stage::init(){
 
 	if(!initExternalData())
 		return false;
-
 
 	floor = Sprite::create(R::StageFloor);
 	addChild(floor, -1);

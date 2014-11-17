@@ -6,6 +6,7 @@
 #include "common/resource.h"
 #include "common/Effect.h"
 #include "common/EffectFactory.h"
+#include "common/World.h"
 
 #include "objects/Ally.h"
 #include "objects/Stage.h"
@@ -26,12 +27,13 @@ using namespace std;
 using namespace cocos2d;
 
 Scene* GameScene::scene(){
-	auto scene = Scene::createWithPhysics();
-	auto world = scene->getPhysicsWorld();
+	auto scene = Scene::create();
+	//auto scene = Scene::createWithPhysics();
+	//auto world = scene->getPhysicsWorld();
 
-	world->setDebugDrawMask(
-		PhysicsWorld::DEBUGDRAW_NONE);
-	world->setGravity(Vec2(0,0));
+	//world->setDebugDrawMask(
+	//	PhysicsWorld::DEBUGDRAW_NONE);
+	//world->setGravity(Vec2(0,0));
 
 	GameScene *layer = GameScene::create();
 	scene->addChild(layer);
@@ -56,6 +58,9 @@ bool GameScene::init(){
 	auto players = Ally::getInstance(
 		Ally::Type::allyPlayer);
 	players->push(player);
+
+	auto world = World::getInstance();
+	addChild(world);
 
 	scheduleUpdate();
 
