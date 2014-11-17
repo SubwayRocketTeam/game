@@ -233,7 +233,7 @@ void Player::processRotation(
 	double rad = atan2(dy, dx);
 	double degree = (rad*180)/M_PI;
 
-	body->setRotation(-degree + 90);
+	setRotation(-degree + 90);
 	drawNode->setRotation(-degree + 90);
 
 }

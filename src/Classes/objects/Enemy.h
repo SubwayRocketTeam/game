@@ -10,9 +10,6 @@ class Enemy : public Unit{
 public:
 	static Enemy *create();
 
-	void focus();
-	void unfocus();
-
 	void resetAggro();
 
 protected:

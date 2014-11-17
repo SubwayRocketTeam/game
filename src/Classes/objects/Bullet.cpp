@@ -26,7 +26,7 @@ bool Bullet::init(){
 	if (!Unit::init(R::EnemyBody))
 		return false;
 
-	body->setScale(0.1);
+	setScale(0.1);
 
 	return true;
 }

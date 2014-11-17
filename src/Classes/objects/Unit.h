@@ -56,12 +56,9 @@ public:
 	void removePassive(
 		int id);
 
-	void enableDebug();
-
 	void setID(
 		int id);
 	int getID();
-	PartedBody *getBody();
 	Attribute &getAttribute(
 		const std::string &name);
 	Ally::Type getAllyID();
@@ -85,19 +82,12 @@ protected:
 
 	virtual void updateGauge(float dt);
 
-	void updateDebug(
-		float dt);
-
 protected:
 	int id;
 	Ally::Type allyID;
 
-	PartedBody *body;
-	cocos2d::Sprite* weapon;
 	Gauge* gauge;
 
 	std::set<PassiveSkill*> passives;
 	std::map<std::string,Attribute> attrs;
-
-	cocos2d::LabelTTF *dbgAngle;
 };

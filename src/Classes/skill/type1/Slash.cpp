@@ -36,7 +36,7 @@ void Slash::use(
 			RemoveSelf::create(),
 			nullptr));
 	slash->setRotation(
-		u->getBody()->getRotation());
+		u->getRotation());
 
 	u->addChild(slash);
 }

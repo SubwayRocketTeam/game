@@ -21,9 +21,7 @@ using namespace cocos2d;
 
 static map<int, Unit*> instances;
 
-Unit::Unit() : 
-	body(nullptr),
-	dbgAngle(nullptr){
+Unit::Unit(){
 }
 Unit::~Unit(){
 }
@@ -77,17 +75,13 @@ bool Unit::init(){
 	return true;
 }
 
-/*
-	단일 이미지도 PartedBody로 처리
-*/
 bool Unit::init(
 	const string &imageName, const int part){
 
-	if(!Sprite::init())
-		return false;
+	char path[128];
+	sprintf(path, "%s.png", imageName.c_str());
 
-	body = PartedBody::create(imageName, part);
-	if(body == nullptr)
+	if(!Sprite::initWithFile(path))
 		return false;
 
 	if(!initPhysics())
@@ -97,8 +91,6 @@ bool Unit::init(
 
 	//gauge = Gauge::create(this);
 	//addChild(gauge);
-
-	addChild(body);
 
 	schedule(SEL_SCHEDULE(&Unit::updateGauge), 1.f / Global::fps);
 
@@ -221,32 +213,12 @@ void Unit::removePassive(
 	}
 }
 
-void Unit::enableDebug(){
-	dbgAngle = 
-		LabelTTF::create("", "arial", 30);
-	dbgAngle->setColor(Color3B::WHITE);
-	
-	schedule(
-		SEL_SCHEDULE(&Unit::updateDebug), 0.1f);
-
-	addChild(dbgAngle);
-}
-void Unit::updateDebug(float dt){
-	char str[64];
-	sprintf(str, "%.0f'",
-		body->getRotation());
-	dbgAngle->setString(str);
-}
-
 void Unit::setID(
 	int _id){
 	id = _id;
 }
 int Unit::getID(){
 	return id;
-}
-PartedBody *Unit::getBody(){
-	return body;
 }
 Attribute &Unit::getAttribute(
 	const string &name){

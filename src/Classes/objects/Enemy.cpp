@@ -58,15 +58,8 @@ void Enemy::update(
 	auto angle = 
 		CC_RADIANS_TO_DEGREES(delta.getAngle(getPosition()));
 
-	body->setRotation(angle+90);
+	setRotation(angle+90);
 	getPhysicsBody()->setVelocity(-move);
-}
-
-void Enemy::focus(){
-	body->setColor(Color3B(255,0,0));
-}
-void Enemy::unfocus(){
-	body->setColor(Color3B(255,255,255));
 }
 
 void Enemy::onDamage(

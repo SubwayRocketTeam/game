@@ -29,7 +29,7 @@ void FrontDash::use(
 	auto console = StatusConsole::getInstance();
 	console->output("use front dash");
 
-	float angle = u->getBody()->getRotation();
+	float angle = u->getRotation();
 	Vec2 foward = 
 		-Vec2(0,1).rotateByAngle(Vec2::ZERO, 
 			CC_DEGREES_TO_RADIANS(-angle));
@@ -38,8 +38,8 @@ void FrontDash::use(
 		MoveBy::create(duration, foward * distance))
 	->setTag(Unit::actionMove);
 
-	auto afterimage =  Afterimage::createWithPartedBody(
+	auto afterimage =  Afterimage::create(
 		u->getParent(),
-		u->getBody(), duration);
+		u, duration);
 	u->addChild(afterimage);
 }
