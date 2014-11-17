@@ -60,9 +60,6 @@ void Enemy::update(
 
 	body->setRotation(angle+90);
 	getPhysicsBody()->setVelocity(-move);
-
-	if(rand() % 40 == 1)
-		useSkill(10,getPosition().x, getPosition().y);
 }
 
 void Enemy::focus(){
