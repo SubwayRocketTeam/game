@@ -197,11 +197,6 @@ void Player::update(
 		level++;
 		resources->setLevel(level);
 	}
-
-	lay->clear();
-	for (int i = 1; i < 30; i++) {
-		lay->drawDot((this->convertToNodeSpace(cursor) - Vec2(0, 0)).getNormalized() * i * 50, 5, Color4F::RED);
-	}
 }
 void Player::updateConditions(
 	float dt){
