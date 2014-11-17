@@ -5,6 +5,7 @@
 #include "scene/GameScene.h"
 #include "common/PhysicsFactory.h"
 #include "common/EffectFactory.h"
+#include "common/World.h"
 
 #include "skill/SkillPool.h"
 
@@ -49,6 +50,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	cache->addSpriteFramesWithFile(R::AfterimageGlowPlist);
 	cache->addSpriteFramesWithFile(R::Hit1Plist);
 
+	World::create();
 	Network::create();
 	EffectLayer::create();
 	EffectFactory::create();
