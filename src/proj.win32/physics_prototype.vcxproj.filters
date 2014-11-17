@@ -133,6 +133,9 @@
     <ClCompile Include="..\Classes\Network\LoginSender.cpp">
       <Filter>source\network</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\objects\Trash.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -314,6 +317,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\network\PacketMacro.h">
       <Filter>source\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Trash.h">
+      <Filter>source\object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
