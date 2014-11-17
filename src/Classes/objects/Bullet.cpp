@@ -23,7 +23,7 @@ Bullet *Bullet::create(){
 	return nullptr;
 }
 bool Bullet::init(){
-	if (!Unit::init(R::EnemyBody))
+	if (!Unit::init(R::Bullet))
 		return false;
 
 	setScale(0.1);
@@ -35,7 +35,6 @@ bool Bullet::initPhysics(){
 	auto pbody = factory->make("bullet");
 
 	if(pbody){
-		setPhysicsBody(pbody);
 		return true;
 	}
 
@@ -44,8 +43,14 @@ bool Bullet::initPhysics(){
 
 void Bullet::fire(
 	float x,float y, float speed){
+	
+	auto pos = getPosition();
+	auto deltaNorm =
+		(Vec2(x,y) - pos).getNormalized();
 
-	auto body = getPhysicsBody();
-
-	body->applyImpulse(Vec2(x,y) * speed);
+	runAction(
+		Sequence::create(
+			MoveBy::create(1, deltaNorm * 800),
+			RemoveSelf::create(),
+			nullptr));
 }

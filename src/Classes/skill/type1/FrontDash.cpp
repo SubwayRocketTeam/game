@@ -4,6 +4,7 @@
 #include "objects/PartedBody.h"
 #include "objects/Unit.h"
 #include "objects/Afterimage.h"
+
 #include "common/resource.h"
 
 #include "ui/StatusConsole.h"

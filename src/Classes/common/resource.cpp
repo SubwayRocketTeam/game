@@ -8,6 +8,8 @@ namespace R{
 	_RESD(SkillPanel, "skill_panel.png");
 	_RESD(SkillIconOverlay, "skillicon_overlay.png");
 
+	_RESD(Bullet, "bullet");
+
 	_RESD(Hit1, "hit_1");
 
 	_RESD(Minimap, "minimap.png");

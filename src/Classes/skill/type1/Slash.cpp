@@ -4,6 +4,9 @@
 #include "objects/PartedBody.h"
 #include "objects/Unit.h"
 #include "objects/Ally.h"
+#include "objects/Bullet.h"
+#include "objects/Stage.h"
+
 #include "common/resource.h"
 
 #include "ui/StatusConsole.h"
@@ -15,6 +18,16 @@ void Slash::use(
 	Unit *u,
 	cocos2d::Vec2 pos){
 
+	auto stage = Stage::getInstance(0);
+
+	auto bullet = Bullet::create();
+	bullet->setPosition(u->getPosition());
+	bullet->setRotation(u->getRotation());
+	bullet->fire(pos.x, pos.y, 1);
+	bullet->setScale(5);
+	stage->addChild(bullet, 1);
+
+	/*
 	auto slash = Sprite::create(R::SkillSlash);
 	auto ally = Ally::getInstance(
 		_OPPOSITE(u->getAllyID()));
@@ -39,4 +52,5 @@ void Slash::use(
 		u->getRotation());
 
 	u->addChild(slash);
+	*/
 }

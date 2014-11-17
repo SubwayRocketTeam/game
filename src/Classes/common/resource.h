@@ -14,6 +14,8 @@ namespace R{
 	_RESL(SkillPanel);
 	_RESL(SkillIconOverlay);
 
+	_RESL(Bullet);
+
 	_RESL(Hit1);
 
 	_RESL(Minimap);
