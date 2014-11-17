@@ -20,6 +20,6 @@
 
 
 ####＿人人 人人＿
-####＞ 기획 변경 ＜
+####＞ [기획 변경](https://docs.google.com/document/d/16gD7MowB0o4ZP13gcutiGXxGiiw915KenK5swTuI444) ＜
 #### ￣Y^Y^Y^Y￣
-* [기획 밥상 뒤집기](https://docs.google.com/document/d/16gD7MowB0o4ZP13gcutiGXxGiiw915KenK5swTuI444)
+
