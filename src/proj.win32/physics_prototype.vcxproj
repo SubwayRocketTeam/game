@@ -138,7 +138,6 @@
     <ClCompile Include="..\Classes\common\PhysicsFactory.cpp" />
     <ClCompile Include="..\Classes\common\resource.cpp" />
     <ClCompile Include="..\Classes\common\World.cpp" />
-    <ClCompile Include="..\Classes\GLES-Render.cpp" />
     <ClCompile Include="..\Classes\Network\LoginSender.cpp" />
     <ClCompile Include="..\Classes\network\Network.cpp" />
     <ClCompile Include="..\Classes\objects\Afterimage.cpp" />
@@ -202,7 +201,6 @@
     <ClInclude Include="..\Classes\common\resource.h" />
     <ClInclude Include="..\Classes\common\World.h" />
     <ClInclude Include="..\Classes\Compat.h" />
-    <ClInclude Include="..\Classes\GLES-Render.h" />
     <ClInclude Include="..\Classes\network\Network.h" />
     <ClInclude Include="..\Classes\network\Packet.h" />
     <ClInclude Include="..\Classes\network\PacketMacro.h" />

@@ -9,6 +9,8 @@
 #include "objects/AttackData.h"
 #include "objects/Ally.h"
 
+#include <Box2D/Box2D.h>
+
 #define _ATTR(name) (attrs[Attr::##name].get())
 #define _ATTR_VALUE(name) (attrs[Attr::##name].getValue())
 #define _ATTR_MAX(name) (attrs[Attr::##name].getMax())

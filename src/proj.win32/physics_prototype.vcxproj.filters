@@ -136,7 +136,6 @@
     <ClCompile Include="..\Classes\common\World.cpp">
       <Filter>source\common</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GLES-Render.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -322,7 +321,6 @@
     <ClInclude Include="..\Classes\common\World.h">
       <Filter>source\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GLES-Render.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">

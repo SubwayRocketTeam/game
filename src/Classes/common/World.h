@@ -1,7 +1,6 @@
 #pragma once
 
 #include "cocos2d.h"
-#include "GLES-Render.h"
 
 class b2World;
 class b2Body;
