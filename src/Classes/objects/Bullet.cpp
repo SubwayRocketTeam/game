@@ -5,6 +5,8 @@
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
 
+#include <Box2D/Box2D.h>
+
 using namespace cocos2d;
 
 Bullet::Bullet(){
@@ -47,5 +49,5 @@ void Bullet::fire(
 
 	auto body = getPhysicsBody();
 
-	body->applyImpulse(Vec2(x,y) * speed);
+	//body->applyImpulse(Vec2(x,y) * speed);
 }
