@@ -63,7 +63,7 @@ DrawNode* drawNode;
 bool Player::init(
 	const string &dataPath){
 
-	if (!Unit::init(R::PlayerBody, BodyParts))
+	if (!Unit::init(R::PlayerBody))
 		return false;
 	if(!initExternalData(dataPath))
 		return false;
@@ -285,11 +285,6 @@ void Player::processMove(
 		MoveBy::create(1.0/frameRate, moveBy))
 		->setTag(actionMove);
 
-	body->runAnimation(
-		AnimationPool::getInstance()
-		->getBodyAnimation(R::Run)
-		, true);
-
 	moveCounter++;
 }
 
@@ -303,7 +298,7 @@ void Player::processAttack(
 		useSkill(skillMouseLeft, mouse.x, mouse.y);
 	}
 	else if(btn == MOUSE_BUTTON_RIGHT){
-		useSkill(skillMouseRight, mouse.x, mouse.y);
+		//useSkill(skillMouseRight, mouse.x, mouse.y);
 	}
 }
 

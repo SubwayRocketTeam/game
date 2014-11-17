@@ -11,7 +11,7 @@ namespace R{
 
 	_RESD(Minimap, "minimap.png");
 
-	_RESD(PlayerBody, "character1");
+	_RESD(PlayerBody, "robot1");
 	_RESD(EnemyBody, "enemy");
 
 	_RESD(StageFloor, "Floor.png");
