@@ -16,6 +16,10 @@ public:
 protected:
 	virtual bool init();
 	virtual bool initUI();
+
+	virtual void onEnter();
+	virtual void onExit();
+
 	virtual void update(
 		float dt);
 

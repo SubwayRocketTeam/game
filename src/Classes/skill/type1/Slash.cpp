@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Slash.h"
 
+#include "audio/include/SimpleAudioEngine.h"
+
 #include "objects/PartedBody.h"
 #include "objects/Unit.h"
 #include "objects/Ally.h"
@@ -13,6 +15,7 @@
 
 using namespace std;
 using namespace cocos2d;
+using namespace CocosDenshion;
 
 void Slash::use(
 	Unit *u,
@@ -26,6 +29,9 @@ void Slash::use(
 	bullet->fire(pos.x, pos.y, 1);
 	bullet->setScale(5);
 	stage->addChild(bullet, 1);
+
+	auto audio = SimpleAudioEngine::getInstance();
+	audio->playEffect(R::Fire.c_str());
 
 	/*
 	auto slash = Sprite::create(R::SkillSlash);

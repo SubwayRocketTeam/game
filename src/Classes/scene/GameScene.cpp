@@ -3,6 +3,8 @@
 
 #include <vector>
 
+#include "audio/include/SimpleAudioEngine.h"
+
 #include "common/resource.h"
 #include "common/Effect.h"
 #include "common/EffectFactory.h"
@@ -26,6 +28,7 @@
 
 using namespace std;
 using namespace cocos2d;
+using namespace CocosDenshion;
 
 Scene* GameScene::scene(){
 	auto scene = Scene::createWithPhysics();
@@ -45,7 +48,7 @@ bool GameScene::init(){
 		return false;
 	if(!initUI())
 		return false;
-	
+
 	auto animPool = AnimationPool::create();
 	addChild(animPool);
 
@@ -107,6 +110,19 @@ bool GameScene::initUI(){
 	addChild(EffectLayer::getInstance());
 
 	return true;
+}
+
+void GameScene::onEnter(){
+	Layer::onEnter();
+
+	auto audio = SimpleAudioEngine::getInstance();
+	audio->playBackgroundMusic(R::BGM.c_str(), true);
+}
+void GameScene::onExit(){
+	Layer::onExit();
+
+	auto audio = SimpleAudioEngine::getInstance();
+	audio->stopBackgroundMusic();
 }
 
 void GameScene::update(

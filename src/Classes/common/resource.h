@@ -38,4 +38,7 @@ namespace R{
 
 	_RESL(HPGauge);
 	_RESL(MPGauge);
+
+	_RESL(BGM);
+	_RESL(Fire);
 };
