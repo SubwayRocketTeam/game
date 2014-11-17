@@ -58,7 +58,6 @@ void Enemy::update(
 	auto angle = 
 		CC_RADIANS_TO_DEGREES(delta.getAngle(getPosition()));
 
-	setRotation(angle+90);
 	getPhysicsBody()->setVelocity(-move);
 }
 
