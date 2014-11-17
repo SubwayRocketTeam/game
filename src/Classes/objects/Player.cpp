@@ -75,9 +75,6 @@ bool Player::init(
 	lay = DrawNode::create();
 	addChild(lay);
 
-	scarf = Scarf::create();
-	addChild(scarf);
-
 	drawNode = DrawNode::create();
 	drawNode->drawCircle(Vec2::ZERO, 100, 0, 32, false, Color4F::RED);
 	drawNode->drawLine(Vec2(-100, 0), Vec2(100, 0), Color4F::RED);
