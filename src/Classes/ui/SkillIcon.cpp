@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "SkillIcon.h"
 
+#include "common/resource.h"
+
 #include "skill/SkillPool.h"
 #include "skill/ActiveSkill.h"
 
@@ -28,14 +30,14 @@ bool SkillIcon::init(
 	if(!Sprite::initWithFile(tmp))
 		return false;
 
-	overlay = ProgressTimer::create(this);
+	auto black = Sprite::create(R::SkillIconOverlay);
+
+	overlay = ProgressTimer::create(black);
 	overlay->setType(ProgressTimer::Type::RADIAL);
 	overlay->setPosition(getContentSize()/2);
-	overlay->setOpacity(255);
-	overlay->setPercentage(100);
+	overlay->setOpacity(128);
+	overlay->setPercentage(0);
 	addChild(overlay);
-
-	setOpacity(128);
 
 	return true;
 }
@@ -46,5 +48,5 @@ void SkillIcon::use(){
 	auto cooltime = skill->cooltime;
 
 	overlay->runAction(
-		ProgressFromTo::create(cooltime, 0, 100));
+		ProgressFromTo::create(cooltime, 100, 0));
 }

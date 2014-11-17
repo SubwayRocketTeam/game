@@ -12,6 +12,7 @@ namespace R{
 	_RESL(Hit1Plist);
 
 	_RESL(SkillPanel);
+	_RESL(SkillIconOverlay);
 
 	_RESL(Hit1);
 

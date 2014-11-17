@@ -6,6 +6,7 @@ namespace R{
 	_RESD(Hit1Plist, "hit_1.plist");
 
 	_RESD(SkillPanel, "skill_panel.png");
+	_RESD(SkillIconOverlay, "skillicon_overlay.png");
 
 	_RESD(Hit1, "hit_1");
 
