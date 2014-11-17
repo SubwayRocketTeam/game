@@ -41,7 +41,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::create("Robotopia");
+		glview = GLViewImpl::createWithFullScreen("Robotopia");
         director->setOpenGLView(glview);
     }
 
@@ -84,7 +84,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 		1024,768);
 
 	director->setOpenGLView(glview);
-	director->setDisplayStats(true);
+	director->setDisplayStats(false);
 	director->setAnimationInterval(1.0 / Global::fps);
 	
 	auto scene = GameScene::scene();
