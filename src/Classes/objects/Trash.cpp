@@ -38,7 +38,10 @@ void Trash::sweep(){
 
 	runAction(
 		Sequence::create(
-			FadeOut::create(0.5),
+			Spawn::create(
+				FadeOut::create(0.5),
+				ScaleTo::create(0.5, 1.5),
+				nullptr),
 			RemoveSelf::create(),
 			nullptr
 		));
