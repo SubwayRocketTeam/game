@@ -95,8 +95,8 @@ bool Unit::init(
 	if(!initAttrs())
 		return false;
 
-	gauge = Gauge::create(this);
-	addChild(gauge);
+	//gauge = Gauge::create(this);
+	//addChild(gauge);
 
 	addChild(body);
 
