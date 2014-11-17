@@ -70,7 +70,6 @@ bool Player::init(
 
 	enableMouseInput(this);
 	enableKeyboardInput(this);
-	enableDebug();
 
 	lay = DrawNode::create();
 	addChild(lay);
@@ -79,6 +78,8 @@ bool Player::init(
 	drawNode->drawCircle(Vec2::ZERO, 100, 0, 32, false, Color4F::RED);
 	drawNode->drawLine(Vec2(-100, 0), Vec2(100, 0), Color4F::RED);
 	addChild(drawNode);
+
+	drawNode->setVisible(false);
 
 	scheduleUpdate();
 
