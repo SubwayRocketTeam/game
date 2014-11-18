@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Network.h"
 
 using namespace std;
@@ -98,6 +98,7 @@ void Network::recvLoop(){
 			return;
 		}
 		
+		/* TODO : 이거 delete */
 		void *packet = malloc(header.size);
 		memcpy(packet, &header, headerSize);
 		len = recv((char*)packet+headerSize,
