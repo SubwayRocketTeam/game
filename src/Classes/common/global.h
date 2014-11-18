@@ -1,6 +1,6 @@
-#pragma once
+﻿#pragma once
 
 namespace Global{
-	/* Ÿ�� fps */
+	/* 타켓 fps */
 	const float fps = 60;
 };
