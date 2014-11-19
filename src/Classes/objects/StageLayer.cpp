@@ -5,7 +5,7 @@
 
 using namespace cocos2d;
 
-static const int tagSwitchAction = 1;
+static const int actionSwitchStage = 1;
 
 StageLayer::StageLayer() :
 	activeStageID(0){
@@ -55,14 +55,14 @@ void StageLayer::switchStage(){
 	/* 이전 스테이지 FadeOut */
 	stage = Stage::getInstance(activeStageID);
 	stage->stopAllActionsByTag(
-		tagSwitchAction);
+		actionSwitchStage);
 	stage->runAction(
 		Sequence::create(
 			FadeTo::create(0.2, 0),
 			Hide::create(),
 			nullptr
 		))
-		->setTag(tagSwitchAction);;
+		->setTag(actionSwitchStage);;
 
 	/* 기본적으로 2팀임을 가정 */
 	activeStageID ^= 1;
@@ -70,14 +70,14 @@ void StageLayer::switchStage(){
 	/* 새 스테이지 FadeIn */
 	stage = Stage::getInstance(activeStageID);
 	stage->stopAllActionsByTag(
-		tagSwitchAction);
+		actionSwitchStage);
 	stage->runAction(
 		Sequence::create(
 			Show::create(),
 			FadeTo::create(0.1, 255),
 			nullptr
 		))
-		->setTag(tagSwitchAction);
+		->setTag(actionSwitchStage);
 }
 
 void StageLayer::onKeyboardDown(
