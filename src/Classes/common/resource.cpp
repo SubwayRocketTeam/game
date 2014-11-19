@@ -19,6 +19,7 @@ namespace R{
 
 	_RESD(StageFloor, "Floor.png");
 	_RESD(StageJson, "stage.json");
+	_RESD(RepairArea, "repair_area");
 
 	_RESD(EnemySpawner, "bang");
 

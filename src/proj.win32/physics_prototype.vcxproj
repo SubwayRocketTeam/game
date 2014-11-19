@@ -145,6 +145,7 @@
     <ClCompile Include="..\Classes\objects\BodyAnimation.cpp" />
     <ClCompile Include="..\Classes\objects\Bullet.cpp" />
     <ClCompile Include="..\Classes\objects\EffectLayer.cpp" />
+    <ClCompile Include="..\Classes\objects\RepairArea.cpp" />
     <ClCompile Include="..\Classes\objects\Stage.cpp" />
     <ClCompile Include="..\Classes\objects\PartedBody.cpp" />
     <ClCompile Include="..\Classes\objects\Enemy.cpp" />
@@ -211,6 +212,7 @@
     <ClInclude Include="..\Classes\objects\BodyAnimation.h" />
     <ClInclude Include="..\Classes\objects\Bullet.h" />
     <ClInclude Include="..\Classes\objects\EffectLayer.h" />
+    <ClInclude Include="..\Classes\objects\RepairArea.h" />
     <ClInclude Include="..\Classes\objects\Stage.h" />
     <ClInclude Include="..\Classes\objects\PartedBody.h" />
     <ClInclude Include="..\Classes\objects\Enemy.h" />
@@ -219,6 +221,7 @@
     <ClInclude Include="..\Classes\objects\MouseEventListener.h" />
     <ClInclude Include="..\Classes\objects\Player.h" />
     <ClInclude Include="..\Classes\objects\Scarf.h" />
+    <ClInclude Include="..\Classes\objects\tags.h" />
     <ClInclude Include="..\Classes\objects\Trash.h" />
     <ClInclude Include="..\Classes\objects\TrashPool.h" />
     <ClInclude Include="..\Classes\objects\Unit.h" />

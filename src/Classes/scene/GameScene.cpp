@@ -19,6 +19,7 @@
 #include "objects/EffectLayer.h"
 #include "objects/Trash.h"
 #include "objects/TrashPool.h"
+#include "objects/RepairArea.h"
 
 #include "ui/cursor.h"
 #include "ui/StatusConsole.h"
@@ -75,6 +76,11 @@ bool GameScene::initUI(){
 	stage = Stage::getInstance(0);
 	stage->setPosition(origin + visibleSize / 2);
 	addChild(stage);
+
+	/* REPAIR AREA */
+	auto repairArea = RepairArea::create();
+	repairArea->setPosition(200,200);
+	stage->addChild(repairArea);
 
 	/* PLAYER */
 	player = Player::create("type1.json");

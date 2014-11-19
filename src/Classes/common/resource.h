@@ -25,6 +25,7 @@ namespace R{
 
 	_RESL(StageFloor);
 	_RESL(StageJson);
+	_RESL(RepairArea);
 
 	_RESL(EnemySpawner);
 
