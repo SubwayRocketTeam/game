@@ -177,7 +177,7 @@ void Player::update(
 	auto pos = getPosition();
 	auto trashPool = TrashPool::getInstance();
 	auto trashes = trashPool->query(
-		Rect(pos.x-30,pos.y-30,60,60));
+		Rect(pos.x-10,pos.y-10,20,20));
 
 	for(auto trash : trashes){
 		trash->sweep();
