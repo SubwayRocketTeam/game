@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Player.h"
 
 #include "Bullet.h"
@@ -162,7 +162,7 @@ bool Player::useSkill(
 	_ATTR_VALUE(mp) -= skill->cost;
 	stiff = skill->duration;
 
-	/* ui ��Ÿ�� ������Ʈ */
+	/* ui 쿨타임 업데이트 */
 	auto panel = SkillIconPanel::getInstance();
 	panel->use(skill->id);
 
@@ -174,6 +174,10 @@ void Player::update(
 		
 	updateConditions(dt);
 
+	/* TODO : 충돌 범위 상수나 이미지 크기 기반으로 하도록 */
+	/* TODO : 빨려들어오는건 쓰레기가 직접 오는데,
+	 *        청소하는건 플레이어가 청소
+	 *        어떻게 할건지 정하기 */
 	auto pos = getPosition();
 	auto trashPool = TrashPool::getInstance();
 	auto trashes = trashPool->query(
