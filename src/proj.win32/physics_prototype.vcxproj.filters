@@ -142,6 +142,9 @@
     <ClCompile Include="..\Classes\objects\RepairArea.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\objects\StageLayer.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -334,6 +337,9 @@
       <Filter>source\object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\tags.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\StageLayer.h">
       <Filter>source\object</Filter>
     </ClInclude>
   </ItemGroup>

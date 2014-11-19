@@ -11,6 +11,7 @@
 
 #include "objects/Ally.h"
 #include "objects/Stage.h"
+#include "objects/StageLayer.h"
 #include "objects/Player.h"
 #include "objects/Enemy.h"
 #include "objects/EnemySpawner.h"
@@ -30,6 +31,13 @@
 using namespace std;
 using namespace cocos2d;
 using namespace CocosDenshion;
+
+GameScene::GameScene() :
+	player(nullptr), cursor(nullptr),
+	activeStageID(0){
+}
+GameScene::~GameScene(){
+}
 
 Scene* GameScene::scene(){
 	auto scene = Scene::createWithPhysics();
@@ -54,6 +62,7 @@ bool GameScene::init(){
 		Ally::Type::allyPlayer);
 	players->push(player);
 
+	enableKeyboardInput(this);
 	scheduleUpdate();
 
 	return true;
@@ -64,9 +73,10 @@ bool GameScene::initUI(){
 	auto origin = director->getVisibleOrigin();
 
 	/* STAGE */
-	stage = Stage::getInstance(0);
-	stage->setPosition(origin + visibleSize / 2);
-	addChild(stage);
+	auto stageLayer = StageLayer::create();
+	auto stage = Stage::getInstance(0);
+
+	addChild(stageLayer);
 
 	/* REPAIR AREA */
 	auto repairArea = RepairArea::create();
