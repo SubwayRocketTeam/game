@@ -37,6 +37,7 @@ bool SkillIcon::init(
 	overlay->setPosition(getContentSize()/2);
 	overlay->setOpacity(128);
 	overlay->setPercentage(0);
+	overlay->setScaleX(-1);
 	addChild(overlay);
 
 	return true;
