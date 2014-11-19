@@ -78,8 +78,8 @@ protected:
 	virtual bool initAttrs();
 	virtual bool initPhysics();
 
-	/* post-damage */
-	virtual void onDamage(
+	/* pre-damage */
+	virtual bool onDamage(
 		const AttackData &attackData);
 	/* pre-death */
 	virtual bool onDeath();

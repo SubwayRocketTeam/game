@@ -110,13 +110,6 @@ bool Unit::initPhysics(){
 	return true;
 }
 
-void Unit::onDamage(
-	const AttackData &attackData){
-}
-bool Unit::onDeath(){
-	return true;
-}
-
 void Unit::updateGauge(float dt) {
 	_ATTR_VALUE(hp) += _ATTR(hpRegen) * dt;
 	_ATTR_VALUE(mp) += _ATTR(mpRegen) * dt;
@@ -134,6 +127,12 @@ void Unit::blink(){
 		->setTag(actionBlink);
 }
 
+bool Unit::onDamage(
+	const AttackData &attackData){
+}
+bool Unit::onDeath(){
+	return true;
+}
 bool Unit::damage(
 	const AttackData& attackData){
 
@@ -148,10 +147,9 @@ bool Unit::damage(
 	power *= 100000;
 	getPhysicsBody()->applyImpulse(power);
 	
-	_ATTR_VALUE(hp) -= (attackData.damage - _ATTR(defence));
-
-	onDamage(attackData);
-
+	if(onDamage(attackData))
+		_ATTR_VALUE(hp) -= (attackData.damage - _ATTR(defence));
+	
 	if (_ATTR(hp) <= 0) {
 		if(onDeath()){
 			removeFromParentAndCleanup(true);

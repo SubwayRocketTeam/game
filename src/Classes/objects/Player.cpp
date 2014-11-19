@@ -212,6 +212,11 @@ void Player::updateConditions(
 		stiff -= dt;
 }
 
+bool Player::onDamage(){
+	blink();
+
+	return true;
+}
 bool Player::onDeath(){
 	return false;
 }
