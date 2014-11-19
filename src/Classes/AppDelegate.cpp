@@ -18,6 +18,7 @@
 #include "ui/Minimap.h"
 #include "ui/UserResources.h"
 #include "ui/SkillIconPanel.h"
+#include "ui/UpgradeBar.h"
 
 #include "common/resource.h"
 
@@ -63,6 +64,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	Cursor::create();
 	UserResources::create();
 	SkillIconPanel::create();
+	UpgradeBar::create();
 
 	auto network = Network::getInstance();
 	network->open("localhost", 9916,

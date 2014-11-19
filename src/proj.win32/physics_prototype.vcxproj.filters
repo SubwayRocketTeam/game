@@ -145,6 +145,9 @@
     <ClCompile Include="..\Classes\objects\StageLayer.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ui\UpgradeBar.cpp">
+      <Filter>source\ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -341,6 +344,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\objects\StageLayer.h">
       <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\UpgradeBar.h">
+      <Filter>source\ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

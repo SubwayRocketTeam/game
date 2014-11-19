@@ -20,6 +20,8 @@ namespace R{
 
 	_RESL(Minimap);
 
+	_RESL(UpgradeBar);
+
 	_RESL(PlayerBody);
 	_RESL(EnemyBody);
 

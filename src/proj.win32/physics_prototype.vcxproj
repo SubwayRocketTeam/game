@@ -176,6 +176,7 @@
     <ClCompile Include="..\Classes\ui\SkillIcon.cpp" />
     <ClCompile Include="..\Classes\ui\SkillIconPanel.cpp" />
     <ClCompile Include="..\Classes\ui\StatusConsole.cpp" />
+    <ClCompile Include="..\Classes\ui\UpgradeBar.cpp" />
     <ClCompile Include="..\Classes\ui\UserResources.cpp" />
     <ClCompile Include="..\Classes\util\Random.cpp" />
     <ClCompile Include="..\jsoncpp\src\lib_json\json_reader.cpp">
@@ -243,6 +244,7 @@
     <ClInclude Include="..\Classes\ui\SkillIcon.h" />
     <ClInclude Include="..\Classes\ui\SkillIconPanel.h" />
     <ClInclude Include="..\Classes\ui\StatusConsole.h" />
+    <ClInclude Include="..\Classes\ui\UpgradeBar.h" />
     <ClInclude Include="..\Classes\ui\UserResources.h" />
     <ClInclude Include="..\Classes\util\Random.h" />
     <ClInclude Include="..\Classes\ui\Cursor.h" />

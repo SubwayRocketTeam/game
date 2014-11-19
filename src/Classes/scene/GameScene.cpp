@@ -27,6 +27,7 @@
 #include "ui/UserResources.h"
 #include "ui/Minimap.h"
 #include "ui/SkillIconPanel.h"
+#include "ui/UpgradeBar.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -112,6 +113,11 @@ bool GameScene::initUI(){
 	skillPanel->setSkillList(skills);
 	skillPanel->setPosition(500,100);
 	addChild(skillPanel);
+
+	auto upgradeBar = UpgradeBar::getInstance();
+	upgradeBar->setAnchorPoint(Vec2(0.5,0));
+	upgradeBar->setPosition(visibleSize.width/2, visibleSize.height);
+	addChild(upgradeBar);
 
 	/* LAYERS */
 	addChild(EffectLayer::getInstance());
