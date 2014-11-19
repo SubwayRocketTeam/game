@@ -41,7 +41,9 @@ bool Gauge::initWithTarget(Unit* _target) {
 		target->getContentSize().width / 2,
 		target->getContentSize().height));
 
-	setOpacity(0);
+	if (target->getAllyID() != Ally::Type::allyPlayer) {
+		setOpacity(0);
+	}
 
 	scheduleUpdate();
 
@@ -51,8 +53,8 @@ bool Gauge::initWithTarget(Unit* _target) {
 void Gauge::update(float dt) {
 	processHP(dt);
 
-	hp->setOpacity(this->getOpacity());
-	hp->setColor(this->getColor());
+	hp->setOpacity(getOpacity());
+	hp->setColor(getColor());
 }
 
 void Gauge::processGauge(float dt, const std::string &attrName) {
@@ -75,7 +77,7 @@ void Gauge::processHP(float dt) {
 		now = max;
 	}
 
-	hp->setTextureRect(Rect(0, 0, now / max * 100, 10));
+	hp->setTextureRect(Rect(0, 0, now / max * hp->getContentSize().width, hp->getContentSize().height));
 }
 
 void Gauge::processMP(float dt) {

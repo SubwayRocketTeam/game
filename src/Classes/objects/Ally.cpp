@@ -69,7 +69,9 @@ void Ally::processAttack(
 		float angle = CC_RADIANS_TO_DEGREES(attackDirection.getAngle(delta));
 
 		if(senderPosition.getDistance(memberPosition) <= r && abs(angle) <= data.halfAngle){
-			member->hit();
+			if (member->getAllyID() != Ally::Type::allyPlayer) {
+				member->hit();
+			}
 			if (member->damage(data)){
 				it = members.erase(it);
 				continue;
