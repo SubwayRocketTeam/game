@@ -1,0 +1,14 @@
+{
+  "objects" : [
+    {
+      "name" : "minimap",
+      "x" : 10
+      "y" : 10
+    },
+    {
+      "name" : "menu_button",
+      "x" : 100,
+      "y" : 100
+    }
+  ]
+}
