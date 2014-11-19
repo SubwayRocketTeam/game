@@ -50,15 +50,6 @@ bool GameScene::init(){
 	if(!initUI())
 		return false;
 
-	auto animPool = AnimationPool::create();
-	addChild(animPool);
-
-	int frames[] = {1, 2, 3, 4, 5, 6};
-	vector<int> v(frames, frames+sizeof(frames) / sizeof(int));
-	
-	animPool->add(
-		BodyAnimation::create(R::Run, v, 8), R::Run);
-
 	auto players = Ally::getInstance(
 		Ally::Type::allyPlayer);
 	players->push(player);
