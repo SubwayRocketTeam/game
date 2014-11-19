@@ -20,11 +20,14 @@ namespace R{
 
 	_RESL(Minimap);
 
+	_RESL(UpgradeBar);
+
 	_RESL(PlayerBody);
 	_RESL(EnemyBody);
 
 	_RESL(StageFloor);
 	_RESL(StageJson);
+	_RESL(RepairArea);
 
 	_RESL(EnemySpawner);
 

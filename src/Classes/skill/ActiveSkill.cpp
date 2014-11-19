@@ -20,7 +20,6 @@ bool ActiveSkill::initExternalData(
 	if(!Skill::initExternalData(dataPath))
 		return false;
 
-	duration = json.get("duration",0).asFloat();
 	cooltime = json.get("cooltime",0).asFloat();
 	cost = json.get("cost",0).asFloat();
 

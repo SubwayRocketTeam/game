@@ -1,5 +1,7 @@
 # Robotopia Cleaner
 
+[worknote](https://github.com/SubwayRocketTeam/game/blob/master/doc/worknode_2014_11_19.md)
+
 Pull 할 때 주의사항
 ----
 * gitshell 열기

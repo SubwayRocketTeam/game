@@ -2,10 +2,15 @@
   "name" : "kim",
   
   "attrs" : [
-    {"hp" : 460},
-    {"mp" : 400},
-    {"attack" : 50},
-    {"defence" : 5}
+    {"name" : "hp", "value" : 460},
+    {"name" : "hp_gen", "value" : 0},
+    {"name" : "mp", "value" : 400},
+    {"name" : "mp_gen", "value" : 0},
+    {"name" : "speed", "value" : 7},
+    {"name" : "attack", "value" : 50},
+    {"name" : "attack_speed", "value" : 1.0},
+    {"name" : "range", "value" : 120},
+    {"name" : "defence", "value" : 5}
   ],
   
   "incrs" : [

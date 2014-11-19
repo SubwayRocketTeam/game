@@ -93,6 +93,7 @@ bool Unit::init(
 	addChild(gauge);
 
 	schedule(SEL_SCHEDULE(&Unit::updateGauge), 1.f / Global::fps);
+	schedule(SEL_SCHEDULE(&Unit::updatePassives), 1.f / Global::fps);
 
 	return true;
 }
@@ -110,18 +111,51 @@ bool Unit::initPhysics(){
 	return true;
 }
 
-void Unit::onDamage(
+void Unit::updateGauge(
+	float dt) {
+
+	_ATTR_VALUE(hp) += _ATTR(hpRegen) * dt;
+	_ATTR_VALUE(mp) += _ATTR(mpRegen) * dt;
+}
+void Unit::updatePassives(
+	float dt){
+
+	vector<int> removeList;
+
+	for(auto &pair : passives){
+		auto id = pair.first;
+		auto &remaining = pair.second;
+
+		remaining -= dt;
+
+		if(remaining <= 0)
+			removeList.push_back(id);
+	}
+
+	for(auto id : removeList)
+		removePassive(id);
+}
+
+void Unit::blink(){
+	stopActionByTag(actionBlink);
+	runAction(
+		Repeat::create(
+			Sequence::create(
+				FadeTo::create(0.125, 100),
+				FadeTo::create(0.125, 255),
+				nullptr),
+			2))
+		->setTag(actionBlink);
+}
+
+bool Unit::onDamage(
 	const AttackData &attackData){
+
+	return true;
 }
 bool Unit::onDeath(){
 	return true;
 }
-
-void Unit::updateGauge(float dt) {
-	_ATTR_VALUE(hp) += _ATTR(hpRegen) * dt;
-	_ATTR_VALUE(mp) += _ATTR(mpRegen) * dt;
-}
-
 bool Unit::damage(
 	const AttackData& attackData){
 
@@ -136,10 +170,9 @@ bool Unit::damage(
 	power *= 100000;
 	getPhysicsBody()->applyImpulse(power);
 	
-	_ATTR_VALUE(hp) -= (attackData.damage - _ATTR(defence));
-
-	onDamage(attackData);
-
+	if(onDamage(attackData))
+		_ATTR_VALUE(hp) -= (attackData.damage - _ATTR(defence));
+	
 	if (_ATTR(hp) <= 0) {
 		if(onDeath()){
 			removeFromParentAndCleanup(true);
@@ -167,9 +200,11 @@ void Unit::addPassive(
 	auto skill = (PassiveSkill*)pool->get(id);
 
 	/* 이미 가지고 있는 패시브 */
-	if(passives.find(skill) != passives.end())
+	if(passives.find(id) != passives.end())
 		return;
-	passives.insert(skill);
+	/* TODO : 패시브 중복 적용이면
+	          남은 시간 더하기 or 초기화할건지 */
+	passives[id] = skill->duration;
 
 	for(auto pair : skill->bonusList){
 		string name = pair.first;
@@ -199,9 +234,9 @@ void Unit::removePassive(
 	auto pool = SkillPool::getInstance();
 	auto skill = (PassiveSkill*)pool->get(id);
 
-	CC_ASSERT(passives.find(skill) != passives.end());
+	CC_ASSERT(passives.find(id) != passives.end());
 
-	passives.erase(skill);
+	passives.erase(id);
 
 	for(auto pair : skill->bonusList){
 		string name = pair.first;

@@ -2,6 +2,7 @@
   "id" : 100,
   "name" : "adrenaline",
   "tooltip" : "adrenaline",
+  "duration": 5,
 	
   "bonus" : [
     {

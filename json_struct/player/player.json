@@ -3,10 +3,8 @@
   
   /* 1레벨 능력치 */
   "attrs" : [
-    {"hp" : 460},
-    {"mp" : 400},
-    {"attack" : 50},
-    {"defence" : 5},
+    {"name" : "hp", "value" 100},
+    {"name" : "attack", "value" : 50}
   ],
   
   /* 레벨 업 당 능력치 증가량 */

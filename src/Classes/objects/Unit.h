@@ -2,17 +2,18 @@
 
 #include "cocos2d.h"
 
-#include <set>
+#include <map>
 
 #include "skill/Attribute.h"
 #include "skill/AttributeName.h"
 #include "objects/AttackData.h"
 #include "objects/Ally.h"
 
-#define _ATTR(name) (attrs[Attr::##name].get())
-#define _ATTR_VALUE(name) (attrs[Attr::##name].getValue())
-#define _ATTR_MAX(name) (attrs[Attr::##name].getMax())
-#define _INIT_ATTR(name, value) (attrs[Attr::##name].set(value))
+#define __ATTR(name) getAttribute(Attr::##name)
+#define _ATTR(name) __ATTR(name).get()
+#define _ATTR_VALUE(name) __ATTR(name).getValue()
+#define _ATTR_MAX(name) __ATTR(name).getMax()
+#define _INIT_ATTR(name, value) attrs[Attr::##name].set(value)
 
 class Gauge;
 class PartedBody;
@@ -26,6 +27,7 @@ public:
 		actionMove,
 		actionAttack,
 		actionFocus,
+		actionBlink
 	};
 	enum CollisionChannel{
 		channelPlayer = 0x0000000F,
@@ -42,6 +44,8 @@ public:
 
 	static Unit *getInstanceByID(
 		int id);
+
+	void blink();
 
 	// return true if die
 	bool damage(
@@ -77,13 +81,16 @@ protected:
 	virtual bool initAttrs();
 	virtual bool initPhysics();
 
-	/* post-damage */
-	virtual void onDamage(
+	/* pre-damage */
+	virtual bool onDamage(
 		const AttackData &attackData);
 	/* pre-death */
 	virtual bool onDeath();
 
-	virtual void updateGauge(float dt);
+	virtual void updateGauge(
+		float dt);
+	virtual void updatePassives(
+		float dt);
 
 protected:
 	int id;
@@ -91,6 +98,6 @@ protected:
 
 	Gauge* gauge;
 
-	std::set<PassiveSkill*> passives;
+	std::map<int, float> passives;
 	std::map<std::string,Attribute> attrs;
 };

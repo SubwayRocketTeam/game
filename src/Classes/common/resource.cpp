@@ -14,11 +14,14 @@ namespace R{
 
 	_RESD(Minimap, "minimap.png");
 
+	_RESD(UpgradeBar, "upgrade_bar.png");
+
 	_RESD(PlayerBody, "robot1");
 	_RESD(EnemyBody, "enemy");
 
 	_RESD(StageFloor, "Floor.png");
 	_RESD(StageJson, "stage.json");
+	_RESD(RepairArea, "repair_area");
 
 	_RESD(EnemySpawner, "bang");
 

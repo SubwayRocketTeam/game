@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Player.h"
 
 #include "Bullet.h"
@@ -92,12 +92,7 @@ bool Player::init(
 	return true;
 }
 bool Player::initAttrs(){
-	_INIT_ATTR(hp, 100);
-	_INIT_ATTR(mp, 10);
-	_INIT_ATTR(speed, 7);
-	_INIT_ATTR(hpRegen, 1.0f);
-	_INIT_ATTR(mpRegen, 1.0f);
-	_INIT_ATTR(attackSpeed, 1.0f);
+	Unit::initAttrs();
 
 	return true;
 }
@@ -125,6 +120,13 @@ bool Player::initExternalData(
 	auto attrList = root.get("attrs", Json::Value::null);
 	if(attrList.isNull())
 		return false;
+
+	for(auto attr : attrList){
+		auto name = attr.get("name", "").asString();
+		float value = attr.get("value", 0).asFloat();
+
+		attrs[name].set(value);
+	}
 
 	/* incr */
 	auto incrList = root.get("incrs", Json::Value::null);
@@ -166,7 +168,7 @@ bool Player::useSkill(
 	_ATTR_VALUE(mp) -= skill->cost;
 	stiff = skill->duration;
 
-	/* ui ��Ÿ�� ������Ʈ */
+	/* ui 쿨타임 업데이트 */
 	auto panel = SkillIconPanel::getInstance();
 	panel->use(skill->id);
 
@@ -178,10 +180,14 @@ void Player::update(
 		
 	updateConditions(dt);
 
+	/* TODO : 충돌 범위 상수나 이미지 크기 기반으로 하도록 */
+	/* TODO : 빨려들어오는건 쓰레기가 직접 오는데,
+	 *        청소하는건 플레이어가 청소
+	 *        어떻게 할건지 정하기 */
 	auto pos = getPosition();
 	auto trashPool = TrashPool::getInstance();
 	auto trashes = trashPool->query(
-		Rect(pos.x-30,pos.y-30,60,60));
+		Rect(pos.x-10,pos.y-10,20,20));
 
 	for(auto trash : trashes){
 		trash->sweep();
@@ -217,6 +223,11 @@ void Player::updateConditions(
 		stiff -= dt;
 }
 
+bool Player::onDamage(){
+	blink();
+
+	return true;
+}
 bool Player::onDeath(){
 	return false;
 }

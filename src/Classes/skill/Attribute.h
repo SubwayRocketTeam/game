@@ -13,6 +13,9 @@ public:
 	void set(
 		float value);
 
+	float increase(
+		float plus);
+
 	float get();
 
 	float &getMaxValue();

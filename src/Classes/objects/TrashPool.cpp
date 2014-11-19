@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "TrashPool.h"
 #include "Trash.h"
 
@@ -26,7 +26,11 @@ TrashPool *TrashPool::getInstance(){
 	return instance;
 }
 bool TrashPool::init(){
-	
+	if(!Node::init())
+		return false;
+
+	scheduleUpdate();
+
 	return true;
 }
 
@@ -68,4 +72,40 @@ Vector<Trash*> TrashPool::query(
 	}
 
 	return objects;
+}
+
+/* 플레이어가 쓰레기를 빨아들이는게 아니라
+ * 쓰레기가 플레이어에게 빨려들어가는 구조.
+ * -> 현실적인 인과관계상으론 반대지만, 
+      이렇게짜면 구조상으로 쓰레기는 스스로 움직이는 꼴
+	  (플레이어가 다른 오브젝트에 간섭 X)
+
+ * Trash 오브젝트의 speed attr은 빨려들어가는 속도가 된다.
+ * 쓰레기 스스로 빨려들어가는 속도 조절 가능
+ * (무게 따라 속도 다르다던가...)
+ */
+void TrashPool::update(
+	float dt){
+
+	auto players = Ally::getInstance(
+		Ally::Type::allyPlayer);
+
+	for(auto trash : trashes){
+		auto pos = trash->getPosition();
+
+		for(auto player : *players){
+			auto playerPos = player->getPosition();
+
+			if(pos.getDistance(playerPos) <=
+				player->_ATTR(range)){
+
+				auto move =
+					(playerPos - pos).getNormalized() *
+					trash->_ATTR(speed);
+
+				trash->runAction(
+					MoveBy::create(dt, move));
+			}
+		}
+	}
 }

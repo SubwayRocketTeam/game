@@ -11,6 +11,7 @@
 
 #include "objects/Ally.h"
 #include "objects/Stage.h"
+#include "objects/StageLayer.h"
 #include "objects/Player.h"
 #include "objects/Enemy.h"
 #include "objects/EnemySpawner.h"
@@ -19,16 +20,24 @@
 #include "objects/EffectLayer.h"
 #include "objects/Trash.h"
 #include "objects/TrashPool.h"
+#include "objects/RepairArea.h"
 
 #include "ui/cursor.h"
 #include "ui/StatusConsole.h"
 #include "ui/UserResources.h"
 #include "ui/Minimap.h"
 #include "ui/SkillIconPanel.h"
+#include "ui/UpgradeBar.h"
 
 using namespace std;
 using namespace cocos2d;
 using namespace CocosDenshion;
+
+GameScene::GameScene() :
+	player(nullptr){
+}
+GameScene::~GameScene(){
+}
 
 Scene* GameScene::scene(){
 	auto scene = Scene::createWithPhysics();
@@ -49,19 +58,11 @@ bool GameScene::init(){
 	if(!initUI())
 		return false;
 
-	auto animPool = AnimationPool::create();
-	addChild(animPool);
-
-	int frames[] = {1, 2, 3, 4, 5, 6};
-	vector<int> v(frames, frames+sizeof(frames) / sizeof(int));
-	
-	animPool->add(
-		BodyAnimation::create(R::Run, v, 8), R::Run);
-
 	auto players = Ally::getInstance(
 		Ally::Type::allyPlayer);
 	players->push(player);
 
+	enableKeyboardInput(this);
 	scheduleUpdate();
 
 	return true;
@@ -72,9 +73,15 @@ bool GameScene::initUI(){
 	auto origin = director->getVisibleOrigin();
 
 	/* STAGE */
-	stage = Stage::getInstance(0);
-	stage->setPosition(origin + visibleSize / 2);
-	addChild(stage);
+	auto stageLayer = StageLayer::create();
+	auto stage = Stage::getInstance(0);
+
+	addChild(stageLayer);
+
+	/* REPAIR AREA */
+	auto repairArea = RepairArea::create();
+	repairArea->setPosition(200,200);
+	stage->addChild(repairArea);
 
 	/* PLAYER */
 	player = Player::create("type1.json");
@@ -84,6 +91,7 @@ bool GameScene::initUI(){
 
 	auto trashPool = TrashPool::getInstance();
 	trashPool->spawn(100);
+	addChild(trashPool);
 
 	/* UI OBJECTS */
 	auto console = StatusConsole::create();
@@ -97,7 +105,7 @@ bool GameScene::initUI(){
 	minimap->setPosition(175,125);
 	addChild(minimap);
 
-	cursor = Cursor::getInstance();
+	auto cursor = Cursor::getInstance();
 	addChild(cursor);
 
 	int skills[] = {10,11,12,12};
@@ -105,6 +113,11 @@ bool GameScene::initUI(){
 	skillPanel->setSkillList(skills);
 	skillPanel->setPosition(500,100);
 	addChild(skillPanel);
+
+	auto upgradeBar = UpgradeBar::getInstance();
+	upgradeBar->setAnchorPoint(Vec2(0.5,0));
+	upgradeBar->setPosition(visibleSize.width/2, visibleSize.height);
+	addChild(upgradeBar);
 
 	/* LAYERS */
 	addChild(EffectLayer::getInstance());

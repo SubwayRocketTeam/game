@@ -22,7 +22,7 @@ protected:
 	virtual void update(
 		float dt);
 
-	virtual void onDamage(
+	virtual bool onDamage(
 		const AttackData &attackData);
 
 	void increaseAggro(
