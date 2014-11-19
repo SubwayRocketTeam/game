@@ -77,7 +77,25 @@ Vector<Trash*> TrashPool::query(
 void TrashPool::update(
 	float dt){
 
-	for(auto trash : trashes){
+	auto players = Ally::getInstance(
+		Ally::Type::allyPlayer);
 
+	for(auto trash : trashes){
+		auto pos = trash->getPosition();
+
+		for(auto player : *players){
+			auto playerPos = player->getPosition();
+
+			if(pos.getDistance(playerPos) <=
+				player->_ATTR(range)){
+
+				auto move =
+					(playerPos - pos).getNormalized() *
+					trash->_ATTR(speed);
+
+				trash->runAction(
+					MoveBy::create(dt, move));
+			}
+		}
 	}
 }

@@ -93,7 +93,7 @@ bool Player::initAttrs(){
 	_INIT_ATTR(hpRegen, 1.0f);
 	_INIT_ATTR(mpRegen, 1.0f);
 	_INIT_ATTR(attackSpeed, 1.0f);
-	_INIT_ATTR(range, 100);
+	_INIT_ATTR(range, 120);
 
 	return true;
 }
