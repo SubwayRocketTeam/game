@@ -27,6 +27,7 @@ public:
 		actionMove,
 		actionAttack,
 		actionFocus,
+		actionBlink
 	};
 	enum CollisionChannel{
 		channelPlayer = 0x0000000F,
@@ -43,6 +44,8 @@ public:
 
 	static Unit *getInstanceByID(
 		int id);
+
+	void blink();
 
 	// return true if die
 	bool damage(

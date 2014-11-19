@@ -122,6 +122,18 @@ void Unit::updateGauge(float dt) {
 	_ATTR_VALUE(mp) += _ATTR(mpRegen) * dt;
 }
 
+void Unit::blink(){
+	stopActionByTag(actionBlink);
+	runAction(
+		Repeat::create(
+			Sequence::create(
+				FadeTo::create(0.125, 100),
+				FadeTo::create(0.125, 255),
+				nullptr),
+			2))
+		->setTag(actionBlink);
+}
+
 bool Unit::damage(
 	const AttackData& attackData){
 
