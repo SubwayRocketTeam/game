@@ -14,6 +14,7 @@ public:
 	int id;
 	std::string tooltip;
 	std::string name;
+	float duration;
 
 protected:
 	virtual bool init(

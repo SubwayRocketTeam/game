@@ -8,7 +8,6 @@ class Unit;
 
 class ActiveSkill : public Skill{
 public:
-	float duration;
 	float cooltime;
 	float cost;
 

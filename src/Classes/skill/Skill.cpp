@@ -29,5 +29,7 @@ bool Skill::initExternalData(
 	name = json.get("name", "").asString();
 	if(name.empty()) return false;
 
+	duration = json.get("duration",0).asFloat();
+
 	return true;
 }
