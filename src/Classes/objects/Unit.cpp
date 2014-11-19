@@ -89,8 +89,8 @@ bool Unit::init(
 	if(!initAttrs())
 		return false;
 
-	//gauge = Gauge::create(this);
-	//addChild(gauge);
+	gauge = Gauge::create(this);
+	addChild(gauge);
 
 	schedule(SEL_SCHEDULE(&Unit::updateGauge), 1.f / Global::fps);
 
@@ -229,4 +229,9 @@ Attribute &Unit::getAttribute(
 }
 Ally::Type Unit::getAllyID(){
 	return allyID;
+}
+
+void Unit::hit() {
+	gauge->setOpacity(255);
+	gauge->runAction(FadeOut::create(0.3f));
 }

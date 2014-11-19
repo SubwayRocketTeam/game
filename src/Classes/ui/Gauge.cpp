@@ -18,30 +18,30 @@ Gauge::~Gauge() {
 
 Gauge* Gauge::create(Unit* _target) {
 	Gauge* ret = new Gauge();
-	if (ret && ret->init()) {
+	if (ret && ret->initWithTarget(_target)) {
 		ret->autorelease();
-		ret->target = _target;
 		return ret;
 	}
 	return nullptr;
 }
 
-bool Gauge::init() {
+bool Gauge::initWithTarget(Unit* _target) {
 	if (!Node::init()) {
 		return false;
 	}
 
+	target = _target;
+
 	hp = Sprite::create(R::HPGauge);
 	addChild(hp);
 
-	//mp = Sprite::create(R::MPGauge);
-	//addChild(mp);
+	hp->setOpacity(0);
 
-	hp->setPositionY(100);
-	//mp->setPositionY(90);
+	setPosition(Vec2(
+		target->getContentSize().width / 2,
+		target->getContentSize().height));
 
-	hp->setOpacity(150);
-	//mp->setOpacity(150);
+	setOpacity(0);
 
 	scheduleUpdate();
 
@@ -50,6 +50,9 @@ bool Gauge::init() {
 
 void Gauge::update(float dt) {
 	processHP(dt);
+
+	hp->setOpacity(this->getOpacity());
+	hp->setColor(this->getColor());
 }
 
 void Gauge::processGauge(float dt, const std::string &attrName) {

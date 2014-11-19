@@ -63,6 +63,9 @@ public:
 		const std::string &name);
 	Ally::Type getAllyID();
 
+	// 얻어맞을 때
+	virtual void hit();
+
 protected:
 	Unit();
 	virtual ~Unit();

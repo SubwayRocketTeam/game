@@ -18,7 +18,7 @@ public:
 public:
 	static Gauge* create(Unit* _target);
 public:
-	bool init() override;
+	bool initWithTarget(Unit* _target);
 	void update(float dt) override;
 public:
 	void processHP(float dt);

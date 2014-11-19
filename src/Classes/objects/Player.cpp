@@ -72,12 +72,17 @@ bool Player::init(
 	enableMouseInput(this);
 	enableKeyboardInput(this);
 
+	this->setAnchorPoint(Vec2(0.5f, 0.5f));
+
 	lay = DrawNode::create();
 	addChild(lay);
 
 	drawNode = DrawNode::create();
-	drawNode->drawCircle(Vec2::ZERO, 100, 0, 32, false, Color4F::RED);
-	drawNode->drawLine(Vec2(-100, 0), Vec2(100, 0), Color4F::RED);
+
+	//Vec2 anchorRatio = Vec2(getContentSize().width * getAnchorPoint().x, getContentSize().height * getAnchorPoint().y);
+
+	drawNode->drawRect(getPosition(), Vec2(getContentSize().width, getContentSize().height), Color4F::RED);
+	drawNode->drawDot(getPosition(), 30.f, Color4F::RED);
 	addChild(drawNode);
 
 	drawNode->setVisible(false);
@@ -336,7 +341,8 @@ void Player::onMouseMove(
 void Player::onMouseDown(
 	int btn, float x,float y){
 
-	processAttack(btn, x,y);
+	processAttack(btn, x, y);
+	this->hit();
 }
 void Player::onMouseUp(
 	int btn, float x,float y){
