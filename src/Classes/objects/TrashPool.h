@@ -4,7 +4,7 @@
 
 class Trash;
 
-class TrashPool : public cocos2d::Ref{
+class TrashPool : public cocos2d::Node{
 	friend Trash;
 
 public:
@@ -27,6 +27,9 @@ protected:
 		Trash *trash);
 
 	virtual bool init();
+
+	virtual void update(
+		float dt);
 
 private:
 	cocos2d::Vector<Trash*> trashes;

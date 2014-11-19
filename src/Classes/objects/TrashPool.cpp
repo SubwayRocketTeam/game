@@ -26,7 +26,11 @@ TrashPool *TrashPool::getInstance(){
 	return instance;
 }
 bool TrashPool::init(){
-	
+	if(!Node::init())
+		return false;
+
+	scheduleUpdate();
+
 	return true;
 }
 
@@ -68,4 +72,12 @@ Vector<Trash*> TrashPool::query(
 	}
 
 	return objects;
+}
+
+void TrashPool::update(
+	float dt){
+
+	for(auto trash : trashes){
+
+	}
 }

@@ -77,6 +77,10 @@ bool GameScene::initUI(){
 
 	addChild(stageLayer);
 
+	/* TRASH POOL */
+	auto trashPool = TrashPool::getInstance();
+	addChild(trashPool);
+
 	/* REPAIR AREA */
 	auto repairArea = RepairArea::create();
 	repairArea->setPosition(200,200);
