@@ -2,7 +2,7 @@ class PlayerData
   string name;
   
   vector<class Attr
-    string target;
+    string name;
     float value;
   end> attrs;
   vector<Attr> incrs;
