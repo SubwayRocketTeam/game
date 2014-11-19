@@ -2,7 +2,7 @@
 
 #include "cocos2d.h"
 
-#include <set>
+#include <map>
 
 #include "skill/Attribute.h"
 #include "skill/AttributeName.h"
@@ -84,7 +84,10 @@ protected:
 	/* pre-death */
 	virtual bool onDeath();
 
-	virtual void updateGauge(float dt);
+	virtual void updateGauge(
+		float dt);
+	virtual void updatePassives(
+		float dt);
 
 protected:
 	int id;
@@ -92,6 +95,6 @@ protected:
 
 	Gauge* gauge;
 
-	std::set<PassiveSkill*> passives;
+	std::map<int, float> passives;
 	std::map<std::string,Attribute> attrs;
 };
