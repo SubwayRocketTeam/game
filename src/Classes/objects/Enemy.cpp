@@ -61,11 +61,13 @@ void Enemy::update(
 	getPhysicsBody()->setVelocity(-move);
 }
 
-void Enemy::onDamage(
+bool Enemy::onDamage(
 	const AttackData &attackData){
 
 	increaseAggro(
 		attackData.user, attackData.aggro);
+
+	return true;
 }
 
 void Enemy::resetAggro(){
