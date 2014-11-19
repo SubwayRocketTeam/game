@@ -31,7 +31,4 @@ protected:
 
 private:
 	Player *player;
-	Cursor *cursor;
-
-	int activeStageID;
 };

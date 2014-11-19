@@ -33,8 +33,7 @@ using namespace cocos2d;
 using namespace CocosDenshion;
 
 GameScene::GameScene() :
-	player(nullptr), cursor(nullptr),
-	activeStageID(0){
+	player(nullptr){
 }
 GameScene::~GameScene(){
 }
@@ -104,7 +103,7 @@ bool GameScene::initUI(){
 	minimap->setPosition(175,125);
 	addChild(minimap);
 
-	cursor = Cursor::getInstance();
+	auto cursor = Cursor::getInstance();
 	addChild(cursor);
 
 	int skills[] = {10,11,12,12};
