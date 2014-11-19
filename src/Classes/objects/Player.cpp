@@ -87,13 +87,7 @@ bool Player::init(
 	return true;
 }
 bool Player::initAttrs(){
-	_INIT_ATTR(hp, 100);
-	_INIT_ATTR(mp, 10);
-	_INIT_ATTR(speed, 7);
-	_INIT_ATTR(hpRegen, 1.0f);
-	_INIT_ATTR(mpRegen, 1.0f);
-	_INIT_ATTR(attackSpeed, 1.0f);
-	_INIT_ATTR(range, 120);
+	Unit::initAttrs();
 
 	return true;
 }
@@ -121,6 +115,13 @@ bool Player::initExternalData(
 	auto attrList = root.get("attrs", Json::Value::null);
 	if(attrList.isNull())
 		return false;
+
+	for(auto attr : attrList){
+		auto name = attr.get("name", "").asString();
+		float value = attr.get("value", 0).asFloat();
+
+		attrs[name].set(value);
+	}
 
 	/* incr */
 	auto incrList = root.get("incrs", Json::Value::null);
