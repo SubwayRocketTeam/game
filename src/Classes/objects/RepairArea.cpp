@@ -10,7 +10,7 @@ using namespace cocos2d;
 
 /* TODO : json에서 리젠률 설정 */
 RepairArea::RepairArea() :
-	regen(10){
+	regen(0.05){
 }
 RepairArea::~RepairArea(){
 }
