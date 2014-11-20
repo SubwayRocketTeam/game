@@ -2,8 +2,6 @@
 
 #include "cocos2d.h"
 
-class BodyAnimation;
-
 class AnimationPool :public cocos2d::Node
 {
 public:
@@ -12,13 +10,13 @@ public:
 
 	bool loadFromFile(const std::string& filename);
 
-	void add(BodyAnimation* const animation, const std::string& name);
+	void add(cocos2d::Animation* const animation, const std::string& name);
 
-	BodyAnimation* getBodyAnimation(const std::string& name);
+	cocos2d::Animation* getAnimation(const std::string& name);
 
 private:
 	bool init();
 
 private:
-	std::map<std::string, BodyAnimation*> pool;
+	std::map<std::string, cocos2d::Animation*> pool;
 };

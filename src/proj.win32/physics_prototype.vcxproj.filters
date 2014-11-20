@@ -34,12 +34,6 @@
     <ClCompile Include="..\Classes\common\PhysicsFactory.cpp">
       <Filter>source\common</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\objects\PartedBody.cpp">
-      <Filter>source\object</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\objects\Scarf.cpp">
-      <Filter>source\object</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\objects\Ally.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
@@ -87,9 +81,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ui\Gauge.cpp">
       <Filter>source\ui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\objects\BodyAnimation.cpp">
-      <Filter>source\object</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\objects\AnimationPool.cpp">
       <Filter>source\object</Filter>
@@ -183,12 +174,6 @@
     <ClInclude Include="..\Classes\common\PhysicsFactory.h">
       <Filter>source\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\objects\PartedBody.h">
-      <Filter>source\object</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\objects\Scarf.h">
-      <Filter>source\object</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\objects\Ally.h">
       <Filter>source\object</Filter>
     </ClInclude>
@@ -272,9 +257,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ui\Gauge.h">
       <Filter>source\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\objects\BodyAnimation.h">
-      <Filter>source\object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\AnimationPool.h">
       <Filter>source\object</Filter>
