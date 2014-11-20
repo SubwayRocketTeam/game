@@ -2,8 +2,6 @@
 #include "Trash.h"
 #include "TrashPool.h"
 
-#include "PartedBody.h"
-
 using namespace cocos2d;
 
 Trash::Trash(){

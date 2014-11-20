@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "Enemy.h"
-#include "PartedBody.h"
 
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"

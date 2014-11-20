@@ -11,7 +11,6 @@
 
 #include "ui/StatusConsole.h"
 
-#include "PartedBody.h"
 #include "ui/gauge.h"
 
 #include <map>

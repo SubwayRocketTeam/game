@@ -3,7 +3,6 @@
 
 #include "audio/include/SimpleAudioEngine.h"
 
-#include "objects/PartedBody.h"
 #include "objects/Unit.h"
 #include "objects/Ally.h"
 #include "objects/Bullet.h"

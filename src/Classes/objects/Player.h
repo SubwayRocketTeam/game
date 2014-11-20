@@ -6,8 +6,6 @@
 #include <string>
 
 #include "Unit.h"
-#include "PartedBody.h"
-#include "Scarf.h"
 #include "MouseEventListener.h"
 #include "KeyboardEventListener.h"
 
@@ -91,8 +89,6 @@ protected:
 	float stiff;
 	float speedFactor;
 	std::vector<float> cooltimes;
-
-	Scarf *scarf;
 
 	cocos2d::DrawNode *lay;
 	cocos2d::Vec2 cursor;

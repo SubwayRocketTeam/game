@@ -15,7 +15,6 @@
 #include "objects/Player.h"
 #include "objects/Enemy.h"
 #include "objects/EnemySpawner.h"
-#include "objects/BodyAnimation.h"
 #include "objects/AnimationPool.h"
 #include "objects/EffectLayer.h"
 #include "objects/Trash.h"
