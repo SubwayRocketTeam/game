@@ -9,15 +9,9 @@ public:
 	static Afterimage *create(
 		cocos2d::Node *world,
 		cocos2d::Sprite *target, float duration);
-	static Afterimage *createWithPartedBody(
-		cocos2d::Node *world,
-		PartedBody *target, float duration);
 	virtual bool init(
 		cocos2d::Node *world,
 		cocos2d::Sprite *target, float duration);
-	virtual bool initWithPartedBody(
-		cocos2d::Node *world,
-		PartedBody *target, float duration);
 
 protected:
 	Afterimage();
@@ -35,5 +29,4 @@ private:
 	cocos2d::Node *world;
 	cocos2d::Sprite *target;
 	float duration;
-	bool partedBody;
 };
