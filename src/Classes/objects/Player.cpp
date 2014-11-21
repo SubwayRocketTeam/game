@@ -219,6 +219,9 @@ void Player::updateConditions(
 bool Player::onDamage(
 	const AttackData& attackData){
 
+	if(immortal > 0.0f)
+		return false;
+
 	/* TODO : 무적 기간 상수에 집어넣기 */
 	blink();
 	immortal = 0.5;
