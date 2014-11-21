@@ -59,8 +59,6 @@ Player *Player::getInstance(){
 	return instance;
 }
 
-DrawNode* drawNode;
-
 bool Player::init(
 	const string &dataPath){
 
@@ -73,19 +71,6 @@ bool Player::init(
 	enableKeyboardInput(this);
 
 	this->setAnchorPoint(Vec2(0.5f, 0.5f));
-
-	lay = DrawNode::create();
-	addChild(lay);
-
-	drawNode = DrawNode::create();
-
-	//Vec2 anchorRatio = Vec2(getContentSize().width * getAnchorPoint().x, getContentSize().height * getAnchorPoint().y);
-
-	drawNode->drawRect(getPosition(), Vec2(getContentSize().width, getContentSize().height), Color4F::RED);
-	drawNode->drawDot(getPosition(), 30.f, Color4F::RED);
-	addChild(drawNode);
-
-	drawNode->setVisible(false);
 
 	scheduleUpdate();
 
@@ -245,8 +230,6 @@ void Player::processRotation(
 	double degree = (rad*180)/M_PI;
 
 	setRotation(-degree + 90);
-	drawNode->setRotation(-degree + 90);
-
 }
 void Player::processEyeline(
 	float x,float y){
