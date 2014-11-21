@@ -11,6 +11,12 @@ enum AttackType {
 };
 
 struct AttackData{
+	AttackData(){}
+	AttackData(
+		float damage)
+		:damage(damage){
+	}
+
 	Unit* user;
 	Unit* object;
 	Unit* target;

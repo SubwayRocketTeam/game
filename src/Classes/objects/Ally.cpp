@@ -61,6 +61,7 @@ void Ally::processAttack(
 
 	/* TODO : 공격 타입에 따른 분기 */
 	for (auto it = members.begin(); it != members.end();){
+		bool flag = true;
 		auto& member = *it;
 		auto memberPosition = member->getPosition();
 		float r = ((PhysicsShapeCircle*)member->getPhysicsBody()->getFirstShape())->getRadius()
@@ -73,10 +74,12 @@ void Ally::processAttack(
 			}
 			if (member->damage(data)){
 				it = members.erase(it);
-				continue;
+				flag = false;
 			}
+			if (data.user != object)
+				object->damage(AttackData(1));
 		}
-		++it;
+		if (flag) ++it;
 	}
 }
 

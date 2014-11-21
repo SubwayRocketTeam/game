@@ -159,17 +159,6 @@ bool Unit::onDeath(){
 bool Unit::damage(
 	const AttackData& attackData){
 
-	auto factory = EffectFactory::getInstance();
-	auto worldPos = getParent()->convertToWorldSpace(getPosition());
-
-	factory->add(
-		worldPos, R::Hit1, false);
-
-	Vec2 power = getPosition() - attackData.postion;
-	power.normalize();
-	power *= 100000;
-	getPhysicsBody()->applyImpulse(power);
-	
 	if(onDamage(attackData))
 		_ATTR_VALUE(hp) -= (attackData.damage - _ATTR(defence));
 	

@@ -39,6 +39,14 @@ bool Bullet::init(){
 
 	return true;
 }
+bool Bullet::initAttrs(){
+	if (!Unit::initAttrs())
+		return false;
+
+	_INIT_ATTR(hp, 1);
+	return true;
+}
+
 bool Bullet::initPhysics(){
 	auto factory = PhysicsFactory::getInstance();
 	auto pbody = factory->make("bullet");
@@ -49,6 +57,14 @@ bool Bullet::initPhysics(){
 
 	return false;
 }
+
+bool Bullet::onDamage(
+	const AttackData& attack){
+
+	return true;
+}
+
+
 
 void Bullet::fire(
 	float x,float y, float speed){

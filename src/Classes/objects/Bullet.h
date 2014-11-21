@@ -5,13 +5,12 @@
 class Bullet : public Unit{
 public:
 	static Bullet *create();
-	
-	virtual bool init();
 
 	void fire(
 		float x,float y, float speed);
 	void update(
 		float dt);
+
 
 	void setUser(
 		Unit* user);
@@ -33,7 +32,11 @@ protected:
 	Bullet();
 	virtual ~Bullet();
 
+	virtual bool init();
+	virtual bool initAttrs();
 	virtual bool initPhysics();
+	virtual bool onDamage(
+		const AttackData& attack);
 
 protected:
 	AttackData attackData;
