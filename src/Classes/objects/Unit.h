@@ -107,6 +107,4 @@ protected:
 
 	std::map<int, float> passives;
 	std::map<std::string,Attribute> attrs;
-
-
 };
