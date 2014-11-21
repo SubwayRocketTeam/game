@@ -86,7 +86,7 @@ bool GameScene::initUI(){
 	player = Player::create("type1.json");
 	player->setPosition(
 		Vec2(100,100));
-	stage->addChild(player, 1);
+	stage->addChild(player, Z::unit);
 
 	auto trashPool = TrashPool::getInstance();
 	trashPool->spawn(100);

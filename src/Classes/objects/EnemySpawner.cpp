@@ -52,5 +52,5 @@ void EnemySpawner::spawn(
 	e->resetAggro();
 
 	ally->push(e);
-	stage->addChild(e);
+	stage->addChild(e, Z::unit);
 }

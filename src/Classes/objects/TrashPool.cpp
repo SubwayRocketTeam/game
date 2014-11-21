@@ -53,7 +53,7 @@ void TrashPool::spawn(
 		auto trash = Trash::create();
 		trash->setPosition(
 			rand()%1600-800, rand()%1200-600);
-		stage->addChild(trash);
+		stage->addChild(trash, Z::trash);
 
 		push(trash);
 	}

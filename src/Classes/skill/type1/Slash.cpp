@@ -32,7 +32,7 @@ void Slash::use(
 	bullet->setDamage(1);
 	bullet->setAllyID(u->getAllyID());
 
-	stage->addChild(bullet, 1);
+	stage->addChild(bullet, Z::bullet);
 	
 	auto audio = SimpleAudioEngine::getInstance();
 	audio->playEffect(R::Fire.c_str());

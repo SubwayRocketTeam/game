@@ -341,6 +341,9 @@
       <Filter>source\object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\EnemyType.h" />
+    <ClInclude Include="..\Classes\common\zorder.h">
+      <Filter>source\common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">
