@@ -32,7 +32,8 @@ static Player *instance = nullptr;
 Player::Player() : 
 	moveCounter(0), moveSwitchVertical(0), moveSwitchHorizontal(0),
 	speedFactor(1),
-	exp(0), expLimit(60 * 1), gold(0), level(0){
+	exp(0), expLimit(60 * 1), gold(0), level(0),
+	immortal(0), stiff(0){
 
 	allyID = Ally::Type::allyPlayer;
 }
@@ -221,10 +222,18 @@ void Player::updateConditions(
 	/* stiff */
 	if(stiff > 0.0f)
 		stiff -= dt;
+
+	/* IMMORTAL */
+	if(immortal > 0.0f)
+		immortal -= dt;
 }
 
-bool Player::onDamage(const AttackData& attackData){
+bool Player::onDamage(
+	const AttackData& attackData){
+
+	/* TODO : 무적 기간 상수에 집어넣기 */
 	blink();
+	immortal = 0.5;
 
 	return true;
 }
