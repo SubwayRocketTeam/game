@@ -1,8 +1,9 @@
 ﻿#include "pch.h"
 #include "TrashPool.h"
 #include "Trash.h"
-
 #include "Stage.h"
+
+#include "common/Profiler.h"
 
 #include <algorithm>
 
@@ -105,13 +106,18 @@ Vector<Trash*> TrashPool::query(
 void TrashPool::update(
 	float dt){
 
+	_BEGIN("TrashPool::update");
+
 	auto players = Ally::getInstance(
 		Ally::Type::allyPlayer);
 
 	for(auto trash : trashes){
+		_BEGIN("TrashPool::in loop");
 		auto pos = trash->getPosition();
 
 		for(auto player : *players){
+			_BEGIN("TrashPool::in loop2");
+
 			auto playerPos = player->getPosition();
 
 			if(pos.getDistance(playerPos) <=
@@ -124,6 +130,11 @@ void TrashPool::update(
 				trash->runAction(
 					MoveBy::create(dt, move));
 			}
+
+			_END("TrashPool::in loop2");
 		}
+		_END("TrashPool::in loop");
 	}
+
+	_END("TrashPool::update");
 }

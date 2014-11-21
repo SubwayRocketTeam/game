@@ -136,6 +136,7 @@
     <ClCompile Include="..\Classes\common\EffectFactory.cpp" />
     <ClCompile Include="..\Classes\common\JsonLoader.cpp" />
     <ClCompile Include="..\Classes\common\PhysicsFactory.cpp" />
+    <ClCompile Include="..\Classes\common\Profiler.cpp" />
     <ClCompile Include="..\Classes\common\resource.cpp" />
     <ClCompile Include="..\Classes\Network\LoginSender.cpp" />
     <ClCompile Include="..\Classes\network\Network.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="..\Classes\common\JsonLoader.h" />
     <ClInclude Include="..\Classes\common\max.h" />
     <ClInclude Include="..\Classes\common\PhysicsFactory.h" />
+    <ClInclude Include="..\Classes\common\Profiler.h" />
     <ClInclude Include="..\Classes\common\resource.h" />
     <ClInclude Include="..\Classes\Compat.h" />
     <ClInclude Include="..\Classes\network\Network.h" />

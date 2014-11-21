@@ -2,6 +2,8 @@
 
 #include "cocos2d.h"
 
+#include "EnemyType.h"
+
 class Enemy;
 
 class EnemyFactory {

@@ -8,6 +8,7 @@
 #include "common/resource.h"
 #include "common/Effect.h"
 #include "common/EffectFactory.h"
+#include "common/Profiler.h"
 
 #include "objects/Ally.h"
 #include "objects/Stage.h"
@@ -63,6 +64,8 @@ bool GameScene::init(){
 
 	enableKeyboardInput(this);
 	scheduleUpdate();
+
+	MyProfiler::init();
 
 	return true;
 }

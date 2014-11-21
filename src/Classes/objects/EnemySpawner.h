@@ -3,6 +3,8 @@
 #include "cocos2d.h"
 #include "Unit.h"
 
+#include "EnemyType.h"
+
 class Enemy;
 
 class EnemySpawner : public Unit{
