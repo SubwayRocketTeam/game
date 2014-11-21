@@ -139,7 +139,6 @@
     <ClCompile Include="..\Classes\network\Network.cpp" />
     <ClCompile Include="..\Classes\objects\Afterimage.cpp" />
     <ClCompile Include="..\Classes\objects\Ally.cpp" />
-    <ClCompile Include="..\Classes\objects\AnimationPool.cpp" />
     <ClCompile Include="..\Classes\objects\Bullet.cpp" />
     <ClCompile Include="..\Classes\objects\Effect.cpp" />
     <ClCompile Include="..\Classes\objects\EffectFactory.cpp" />
@@ -208,7 +207,6 @@
     <ClInclude Include="..\Classes\network\PacketMacro.h" />
     <ClInclude Include="..\Classes\objects\Afterimage.h" />
     <ClInclude Include="..\Classes\objects\Ally.h" />
-    <ClInclude Include="..\Classes\objects\AnimationPool.h" />
     <ClInclude Include="..\Classes\objects\AttackData.h" />
     <ClInclude Include="..\Classes\objects\Bullet.h" />
     <ClInclude Include="..\Classes\objects\Effect.h" />

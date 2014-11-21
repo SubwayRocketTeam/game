@@ -13,12 +13,6 @@
     <ClCompile Include="..\Classes\common\resource.cpp">
       <Filter>source\common</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\objects\KeyboardEventListener.cpp">
-      <Filter>source\object\common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\objects\MouseEventListener.cpp">
-      <Filter>source\object\common</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\objects\Enemy.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
@@ -82,17 +76,11 @@
     <ClCompile Include="..\Classes\ui\Gauge.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\objects\AnimationPool.cpp">
-      <Filter>source\object</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\ui\StatusConsole.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\skill\type1\FrontDash.cpp">
       <Filter>source\skill\type1</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\objects\Afterimage.cpp">
-      <Filter>source\object</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>source</Filter>
@@ -139,14 +127,23 @@
     <ClCompile Include="..\Classes\objects\PlayerGauge.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\objects\KeyboardEventListener.cpp">
+      <Filter>source\object\common\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\MouseEventListener.cpp">
+      <Filter>source\object\common\input</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\objects\Effect.cpp">
-      <Filter>source\object</Filter>
+      <Filter>source\object\common\effect</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\objects\EffectFactory.cpp">
-      <Filter>source\object</Filter>
+      <Filter>source\object\common\effect</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\objects\EffectLayer.cpp">
-      <Filter>source\object</Filter>
+      <Filter>source\object\common\effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Afterimage.cpp">
+      <Filter>source\object\common\afterimage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,12 +158,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\common\resource.h">
       <Filter>source\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\objects\MouseEventListener.h">
-      <Filter>source\object\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\objects\KeyboardEventListener.h">
-      <Filter>source\object\common</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\Enemy.h">
       <Filter>source\object</Filter>
@@ -267,17 +258,11 @@
     <ClInclude Include="..\Classes\ui\Gauge.h">
       <Filter>source\ui</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\objects\AnimationPool.h">
-      <Filter>source\object</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\ui\StatusConsole.h">
       <Filter>source\ui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\skill\type1\FrontDash.h">
       <Filter>source\skill\type1</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\objects\Afterimage.h">
-      <Filter>source\object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>source</Filter>
@@ -321,9 +306,6 @@
     <ClInclude Include="..\Classes\objects\RepairArea.h">
       <Filter>source\object</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\objects\tags.h">
-      <Filter>source\object</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\objects\StageLayer.h">
       <Filter>source\object</Filter>
     </ClInclude>
@@ -341,14 +323,26 @@
     <ClInclude Include="..\Classes\objects\PlayerGauge.h">
       <Filter>source\object</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\objects\KeyboardEventListener.h">
+      <Filter>source\object\common\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\MouseEventListener.h">
+      <Filter>source\object\common\input</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\objects\Effect.h">
-      <Filter>source\object</Filter>
+      <Filter>source\object\common\effect</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\EffectFactory.h">
-      <Filter>source\object</Filter>
+      <Filter>source\object\common\effect</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\EffectLayer.h">
-      <Filter>source\object</Filter>
+      <Filter>source\object\common\effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Afterimage.h">
+      <Filter>source\object\common\afterimage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\tags.h">
+      <Filter>source\object\common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -393,6 +387,15 @@
     </Filter>
     <Filter Include="source\skill\general">
       <UniqueIdentifier>{ce268dd4-0b25-4c4b-b5eb-376e422494f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\object\common\input">
+      <UniqueIdentifier>{f7dafdbc-2fd1-499b-8eaf-d561fd2b9be4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\object\common\effect">
+      <UniqueIdentifier>{d645d8e6-e6a2-46fa-b6d9-8a523f249d0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\object\common\afterimage">
+      <UniqueIdentifier>{bc339caa-de77-4cff-a8f4-d22d4ef2a3d0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

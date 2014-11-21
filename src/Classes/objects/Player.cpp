@@ -4,7 +4,6 @@
 #include "Bullet.h"
 #include "Trash.h"
 #include "TrashPool.h"
-#include "AnimationPool.h"
 #include "PlayerGauge.h"
 #include "EffectFactory.h"
 #include "Effect.h"
