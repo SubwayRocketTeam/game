@@ -183,12 +183,13 @@ bool Unit::damage(
 
 bool Unit::useSkill(
 	int id,
-	float x,float y){
+	Vec2 pos){
 
 	auto pool = SkillPool::getInstance();
 	auto skill = (ActiveSkill*)pool->get(id);
 
-	skill->use(this, Vec2(x,y));
+	if (skill)
+		skill->use(this, pos);
 
 	return true;
 }

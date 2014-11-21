@@ -4,6 +4,7 @@
 #include "common/resource.h"
 
 #include "Enemy.h"
+#include "EnemyType.h"
 #include "Stage.h"
 #include "Ally.h"
 
@@ -36,11 +37,12 @@ void EnemySpawner::update(
 	float dt){
 
 	if(rand()%100 == 1){
-		spawn();
+		spawn(enemyBasic);
 	}
 }
 
-void EnemySpawner::spawn(){
+void EnemySpawner::spawn(
+	EnemyType type){
 	auto stage = Stage::getInstance(0);
 	auto ally = Ally::getInstance(
 		Ally::Type::allyEnemy);

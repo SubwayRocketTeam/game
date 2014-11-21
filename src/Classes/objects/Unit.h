@@ -53,7 +53,7 @@ public:
 
 	virtual bool useSkill(
 		int id,
-		float x,float y);
+		cocos2d::Vec2 pos);
 
 	void addPassive(
 		int id);

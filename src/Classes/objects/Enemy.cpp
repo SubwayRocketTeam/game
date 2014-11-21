@@ -8,10 +8,14 @@
 #include "Ally.h"
 #include "TrashPool.h"
 
+#include "skill/ActiveSkill.h"
+
 using namespace cocos2d;
 
 Enemy::Enemy(){
 	allyID = Ally::Type::allyEnemy;
+	skill = nullptr;
+	cooltime = 0;
 }
 Enemy::~Enemy(){
 }
@@ -81,8 +85,16 @@ void Enemy::update(
 	attackData.postion = getPosition();
 	Ally::getInstance(_OPPOSITE(allyID))->processAttack(attackData);
 
-//	if (rand()%10 == 0)
-//		useSkill(10, target->getPosition().x, target->getPosition().y);
+	if (skill)
+	{
+		if (cooltime <= 0.f)
+		{
+			skill->use(this, target->getPosition());
+			cooltime = skill->cooltime;
+		}
+		else
+			cooltime -= dt;
+	}
 }
 
 bool Enemy::onDamage(
@@ -137,4 +149,12 @@ Unit *Enemy::getTarget(){
 	}
 
 	return target;
+}
+
+void Enemy::setSkill(
+	ActiveSkill* skill){
+	this->skill = skill;
+}
+ActiveSkill* Enemy::getSkill(){
+	return skill;
 }

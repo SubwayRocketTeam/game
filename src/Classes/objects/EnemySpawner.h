@@ -9,7 +9,8 @@ class EnemySpawner : public Unit{
 public:
 	static EnemySpawner *create();
 
-	void spawn();
+	void spawn(
+		EnemyType type);
 
 protected:
 	EnemySpawner();

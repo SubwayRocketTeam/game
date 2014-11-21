@@ -6,11 +6,17 @@
 
 #include "common/max.h"
 
+class ActiveSkill;
+
 class Enemy : public Unit{
 public:
 	static Enemy *create();
 
 	void resetAggro();
+
+	void setSkill(
+		ActiveSkill* skill);
+	ActiveSkill* getSkill();
 
 protected:
 	Enemy();
@@ -36,4 +42,7 @@ protected:
 protected:
 	std::map<Unit*,float> aggros;
 	AttackData attackData;
+
+	ActiveSkill* skill;
+	float cooltime;
 };
