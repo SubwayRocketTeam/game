@@ -24,7 +24,7 @@ void Slash::use(
 
 	auto bullet = Bullet::create();
 	bullet->setPosition(u->getPosition());
-	bullet->setRotation(CC_RADIANS_TO_DEGREES((pos-u->getPosition()).getAngle())+90);
+	bullet->setRotation(-(CC_RADIANS_TO_DEGREES((pos-u->getPosition()).getAngle())+90));
 	bullet->fire(pos.x, pos.y, 1);
 	bullet->setScale(5);
 

@@ -80,7 +80,8 @@ void Enemy::update(
 	attackData.postion = getPosition();
 	Ally::getInstance(_OPPOSITE(allyID))->processAttack(attackData);
 
-	// useSkill(10, target->getPosition().x, target->getPosition().y);
+	if (rand()%10 == 0)
+		useSkill(10, target->getPosition().x, target->getPosition().y);
 }
 
 bool Enemy::onDamage(
