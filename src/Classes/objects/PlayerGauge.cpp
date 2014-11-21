@@ -58,4 +58,6 @@ void PlayerGauge::update(
 			ProgressTo::create(
 				FadeDuration, hp/hpMax*100.0f));
 	}
+
+	this->setRotation(-player->getRotation());
 }
