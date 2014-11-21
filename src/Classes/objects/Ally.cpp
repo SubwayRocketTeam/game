@@ -53,7 +53,7 @@ void Ally::remove(
 }
 
 void Ally::processAttack(
-	AttackData& data){
+	const AttackData& data){
 
 	Unit* user = data.user;
 

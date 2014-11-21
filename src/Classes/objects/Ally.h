@@ -27,7 +27,7 @@ public:
 		Unit *u);
 
 	void processAttack(
-		AttackData& data);
+		const AttackData& data);
 
 	cocos2d::Vector<Unit*>::iterator begin();
 	cocos2d::Vector<Unit*>::iterator end();

@@ -27,6 +27,17 @@ bool Bullet::init(){
 
 	setScale(0.1);
 
+	attackData.user = nullptr;
+	attackData.target = nullptr;
+	attackData.radius = 0;
+	attackData.type = AttackType::Pan;
+	attackData.aggro = 0;
+
+	attackData.postion = getPosition();
+	attackData.damage = attackData.user->getAttribute(Attr::attack).get();
+
+	scheduleUpdate();
+
 	return true;
 }
 bool Bullet::initPhysics(){
@@ -52,4 +63,28 @@ void Bullet::fire(
 			MoveBy::create(1, deltaNorm * 800),
 			RemoveSelf::create(),
 			nullptr));
+}
+
+void Bullet::update(float dt){
+	attackData.postion = getPosition();
+	attackData.damage = attackData.user->getAttribute(Attr::attack).get();
+	Ally::getInstance(_OPPOSITE(attackData.user->getAllyID()))->processAttack(attackData);
+}
+
+void Bullet::setUser(
+	Unit* user){
+
+	attackData.user = user;
+}
+Unit* Bullet::getUser(){
+	return attackData.user;
+}
+
+void Bullet::setRadius(
+	float radius){
+
+	attackData.radius = radius;
+}
+float Bullet::getRadius(){
+	return attackData.radius;
 }

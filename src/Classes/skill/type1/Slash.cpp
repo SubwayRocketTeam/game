@@ -27,6 +27,8 @@ void Slash::use(
 	bullet->setRotation(u->getRotation());
 	bullet->fire(pos.x, pos.y, 1);
 	bullet->setScale(5);
+	bullet->setUser(u);
+	bullet->setRadius(10);
 	stage->addChild(bullet, 1);
 
 	auto audio = SimpleAudioEngine::getInstance();
