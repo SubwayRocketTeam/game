@@ -71,8 +71,6 @@ bool Player::init(
 	enableMouseInput(this);
 	enableKeyboardInput(this);
 
-	this->setAnchorPoint(Vec2(0.5f, 0.5f));
-
 	auto gauge = PlayerGauge::create();
 	gauge->setPosition(getContentSize()/2);
 	addChild(gauge, -1);
