@@ -17,11 +17,9 @@ struct AttackData{
 	AttackType type;
 	float damage;
 
-	cocos2d::Vec2 startPostion;
-	cocos2d::Vec2 targetPostion;
+	cocos2d::Vec2 postion;
 
 	float radius;
-	float halfAngle;
 
 	float aggro;
 };
