@@ -223,6 +223,16 @@ bool Player::onDamage(
 	blink();
 	immortal = 0.5;
 
+	auto deltaNorm =
+		(getPosition() -
+		attackData.object->getPosition())
+		.getNormalized();
+
+	runAction(
+		EaseExponentialOut::create(
+			MoveBy::create(0.2, deltaNorm * 70)
+		));
+
 	return true;
 }
 bool Player::onDeath(){
