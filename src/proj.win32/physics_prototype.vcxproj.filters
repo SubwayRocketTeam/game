@@ -344,6 +344,9 @@
     <ClInclude Include="..\Classes\objects\tags.h">
       <Filter>source\object\common</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemyInfo.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">

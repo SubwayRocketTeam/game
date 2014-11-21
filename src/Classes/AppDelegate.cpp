@@ -12,6 +12,7 @@
 #include "objects/EffectLayer.h"
 #include "objects/EffectFactory.h"
 #include "objects/TrashPool.h"
+#include "objects/EnemyFactory.h"
 
 #include "ui/Cursor.h"
 #include "ui/StatusConsole.h"
@@ -60,6 +61,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	Ally::create();
 	StatusConsole::create();
 	SkillPool::create();
+	EnemyFactory::create();
 	PhysicsFactory::create();
 	Cursor::create();
 	UserResources::create();

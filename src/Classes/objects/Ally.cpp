@@ -57,8 +57,6 @@ void Ally::processAttack(
 
 	Unit* object = data.object;
 
-	auto senderPosition = object->getPosition();
-
 	/* TODO : 공격 타입에 따른 분기 */
 	for (auto it = members.begin(); it != members.end();){
 		bool flag = true;
@@ -68,7 +66,7 @@ void Ally::processAttack(
 			+ data.radius;
 		Vec2 delta = memberPosition - data.postion;
 
-		if(senderPosition.getDistance(memberPosition) <= r){
+		if(data.postion.getDistance(memberPosition) <= r){
 			if (member->getAllyID() != Ally::Type::allyPlayer) {
 				member->hit();
 			}

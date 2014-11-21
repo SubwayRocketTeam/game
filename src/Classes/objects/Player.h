@@ -106,6 +106,5 @@ protected:
 	int exp;
 	// 레벨업 기준 경험치
 	int expLimit;
-	int gold;
 	int level;
 };

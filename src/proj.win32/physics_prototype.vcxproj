@@ -213,6 +213,7 @@
     <ClInclude Include="..\Classes\objects\EffectFactory.h" />
     <ClInclude Include="..\Classes\objects\EffectLayer.h" />
     <ClInclude Include="..\Classes\objects\EnemyFactory.h" />
+    <ClInclude Include="..\Classes\objects\EnemyInfo.h" />
     <ClInclude Include="..\Classes\objects\EnemyType.h" />
     <ClInclude Include="..\Classes\objects\PlayerGauge.h" />
     <ClInclude Include="..\Classes\objects\RepairArea.h" />

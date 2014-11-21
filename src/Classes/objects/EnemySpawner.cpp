@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "EnemySpawner.h"
+#include "EnemyFactory.h"
 
 #include "common/resource.h"
 
@@ -45,8 +46,9 @@ void EnemySpawner::spawn(
 	auto stage = Stage::getInstance(0);
 	auto ally = Ally::getInstance(
 		Ally::Type::allyEnemy);
+	auto factory = EnemyFactory::getInstance();
 
-	Enemy *e = Enemy::create();
+	Enemy *e = factory->createEnemy(type);
 	e->setPosition(
 		getPosition());
 	e->resetAggro();

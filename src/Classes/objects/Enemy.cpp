@@ -10,6 +10,8 @@
 
 #include "skill/ActiveSkill.h"
 
+#include "objects/EnemyInfo.h"
+
 using namespace cocos2d;
 
 Enemy::Enemy(){
@@ -91,6 +93,7 @@ void Enemy::update(
 		{
 			skill->use(this, target->getPosition());
 			cooltime = skill->cooltime;
+			cooltime *= _ATTR(attackSpeed);
 		}
 		else
 			cooltime -= dt;
@@ -157,4 +160,13 @@ void Enemy::setSkill(
 }
 ActiveSkill* Enemy::getSkill(){
 	return skill;
+}
+
+void Enemy::setInfo(EnemyInfo* info) {
+	std::map<std::string, Attribute>::iterator it = info->attrs.begin();
+	for (; it != info->attrs.end(); it++) {
+		attrs[it->first] = it->second;
+	}
+
+	skill = info->skills[0];
 }

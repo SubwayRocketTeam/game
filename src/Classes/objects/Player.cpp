@@ -32,7 +32,7 @@ static Player *instance = nullptr;
 Player::Player() : 
 	moveCounter(0), moveSwitchVertical(0), moveSwitchHorizontal(0),
 	speedFactor(1),
-	exp(0), expLimit(60 * 1), gold(0), level(0),
+	exp(0), expLimit(60 * 1), level(0),
 	immortal(0), stiff(0){
 
 	allyID = Ally::Type::allyPlayer;
@@ -185,8 +185,6 @@ void Player::update(
 
 	moveCounter = 0;
 	moveSwitchHorizontal = moveSwitchVertical = 0;
-
-	exp++;
 
 	auto resources = UserResources::getInstance();
 	resources->setExpAndMaxExp(exp, expLimit);

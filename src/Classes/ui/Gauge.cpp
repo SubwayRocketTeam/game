@@ -55,6 +55,8 @@ void Gauge::update(float dt) {
 
 	hp->setOpacity(getOpacity());
 	hp->setColor(getColor());
+
+	setRotation(-getParent()->getRotation());
 }
 
 void Gauge::processGauge(float dt, const std::string &attrName) {

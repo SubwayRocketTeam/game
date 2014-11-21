@@ -7,6 +7,7 @@
 #include "common/max.h"
 
 class ActiveSkill;
+struct EnemyInfo;
 
 class Enemy : public Unit{
 public:
@@ -17,6 +18,8 @@ public:
 	void setSkill(
 		ActiveSkill* skill);
 	ActiveSkill* getSkill();
+
+	void setInfo(EnemyInfo* info);
 
 protected:
 	Enemy();
