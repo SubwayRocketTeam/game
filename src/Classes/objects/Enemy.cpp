@@ -29,6 +29,8 @@ bool Enemy::init(){
 	if (!Unit::init(R::EnemyBody))
 		return false;
 
+	_INIT_ATTR(speed, 50);
+
 	scheduleUpdate();
 
 	return true;
@@ -53,7 +55,7 @@ void Enemy::update(
 
 	auto delta = getPosition() - target->getPosition();
 	
-	auto move = delta.getNormalized() * 50;
+	auto move = delta.getNormalized() * _ATTR(speed);
 	auto angle = 
 		CC_RADIANS_TO_DEGREES(delta.getAngle(getPosition()));
 
