@@ -76,7 +76,7 @@ bool Player::init(
 
 	auto gauge = PlayerGauge::create();
 	gauge->setPosition(getContentSize()/2);
-	addChild(gauge, -100);
+	addChild(gauge, -1);
 
 	scheduleUpdate();
 
