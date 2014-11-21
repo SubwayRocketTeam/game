@@ -70,6 +70,11 @@ public:
 	// 얻어맞을 때
 	virtual void hit();
 
+public:
+	cocos2d::Vec2 velocity;
+	cocos2d::Vec2 acceleration;
+	float friction;
+
 protected:
 	Unit();
 	virtual ~Unit();
@@ -91,6 +96,8 @@ protected:
 		float dt);
 	virtual void updatePassives(
 		float dt);
+	void updatePhysics(
+		float dt);
 
 protected:
 	int id;
@@ -100,4 +107,6 @@ protected:
 
 	std::map<int, float> passives;
 	std::map<std::string,Attribute> attrs;
+
+
 };

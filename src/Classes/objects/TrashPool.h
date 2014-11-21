@@ -13,6 +13,9 @@ public:
 
 	void spawn(
 		int count =0);
+	void drop(
+		cocos2d::Vec2 pos,
+		int count = 0);
 
 	cocos2d::Vector<Trash*> query(
 		cocos2d::Rect rect);

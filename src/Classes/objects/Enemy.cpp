@@ -6,6 +6,7 @@
 
 #include "Player.h"
 #include "Ally.h"
+#include "TrashPool.h"
 
 using namespace cocos2d;
 
@@ -80,8 +81,8 @@ void Enemy::update(
 	attackData.postion = getPosition();
 	Ally::getInstance(_OPPOSITE(allyID))->processAttack(attackData);
 
-	if (rand()%10 == 0)
-		useSkill(10, target->getPosition().x, target->getPosition().y);
+//	if (rand()%10 == 0)
+//		useSkill(10, target->getPosition().x, target->getPosition().y);
 }
 
 bool Enemy::onDamage(
@@ -90,6 +91,12 @@ bool Enemy::onDamage(
 	increaseAggro(
 		attackData.user, attackData.aggro);
 
+	return true;
+}
+
+bool Enemy::onDeath(){
+	// TODO: ¾²·¹±â µå¶ø °¹¼ö ¸÷ µ¥ÀÌÅÍ·Î »¬ °Í
+	TrashPool::getInstance()->drop(getPosition(), 10);
 	return true;
 }
 

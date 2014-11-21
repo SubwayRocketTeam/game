@@ -20,7 +20,8 @@ using namespace cocos2d;
 
 static map<int, Unit*> instances;
 
-Unit::Unit(){
+Unit::Unit()
+:friction(0){
 }
 Unit::~Unit(){
 }
@@ -93,6 +94,7 @@ bool Unit::init(
 
 	schedule(SEL_SCHEDULE(&Unit::updateGauge), 1.f / Global::fps);
 	schedule(SEL_SCHEDULE(&Unit::updatePassives), 1.f / Global::fps);
+	schedule(SEL_SCHEDULE(&Unit::updatePhysics), 1.f / Global::fps);
 
 	return true;
 }
@@ -135,6 +137,14 @@ void Unit::updatePassives(
 	for(auto id : removeList)
 		removePassive(id);
 }
+
+void Unit::updatePhysics(
+	float dt){
+	velocity += acceleration * dt;
+	velocity = velocity.getNormalized() * MAX(0, velocity.getLength() - friction * dt);
+	setPosition(getPosition() + velocity);
+}
+
 
 void Unit::blink(){
 	stopActionByTag(actionBlink);

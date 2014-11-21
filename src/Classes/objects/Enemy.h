@@ -25,6 +25,7 @@ protected:
 
 	virtual bool onDamage(
 		const AttackData &attackData);
+	virtual bool onDeath();
 
 	void increaseAggro(
 		Unit *u, float value);

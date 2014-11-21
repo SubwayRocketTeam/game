@@ -49,10 +49,28 @@ void TrashPool::spawn(
 	int count){
 
 	auto stage = Stage::getInstance(0);
-	for(int i=0;i<count;i++){
+	for (int i = 0; i < count; ++i){
 		auto trash = Trash::create();
 		trash->setPosition(
 			rand()%1600-800, rand()%1200-600);
+		stage->addChild(trash);
+
+		push(trash);
+	}
+}
+void TrashPool::drop(
+	Vec2 pos,
+	int count){
+
+	auto stage = Stage::getInstance(0);
+	for (int i = 0; i < count; ++i){
+		auto trash = Trash::create();
+		trash->setPosition(pos);
+		trash->velocity = Vec2::UNIT_X.rotateByAngle(
+			Vec2::ZERO,
+			CC_DEGREES_TO_RADIANS(rand() % 360))
+			* (20 + rand() % 20);
+		trash->friction = 128;
 		stage->addChild(trash);
 
 		push(trash);
