@@ -6,10 +6,20 @@
 
 using namespace cocos2d;
 
-PlayerGauge *PlayerGauge::create(){
+float const PlayerGauge::FadeDuration = 0.2;
+
+PlayerGauge::PlayerGauge() :
+	hp(0), hpMax(0){
+}
+PlayerGauge::~PlayerGauge(){
+}
+
+PlayerGauge *PlayerGauge::create(
+	float hp, float hpMax){
+
 	PlayerGauge *p = new PlayerGauge;
 	
-	if(p && p->init()){
+	if(p && p->init(hp, hpMax)){
 		p->autorelease();
 		return p;
 	}
@@ -17,9 +27,14 @@ PlayerGauge *PlayerGauge::create(){
 	return nullptr;
 }
 
-bool PlayerGauge::init(){
+bool PlayerGauge::init(
+	float _hp, float _hpMax){
+
 	if(!ProgressTimer::initWithSprite(Sprite::create(R::PlayerGauge)))
 		return false;
+
+	hp = _hp;
+	hpMax = _hpMax;
 
 	setType(ProgressTimer::Type::RADIAL);
 	setPercentage(100.0f);
@@ -33,8 +48,14 @@ void PlayerGauge::update(
 
 	Player *player = (Player*)getParent();
 
-	float hp = player->_ATTR(hp);
-	float max = player->_ATTR_MAX(hp);
+	if( hp != player->_ATTR(hp) ||
+		hpMax != player->_ATTR_MAX(hp)){
 
-	setPercentage(hp/max*100.0f);
+		hp = player->_ATTR(hp);
+		hpMax = player->_ATTR_MAX(hp);
+
+		runAction(
+			ProgressTo::create(
+				FadeDuration, hp/hpMax*100.0f));
+	}
 }

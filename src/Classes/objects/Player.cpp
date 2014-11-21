@@ -71,7 +71,8 @@ bool Player::init(
 	enableMouseInput(this);
 	enableKeyboardInput(this);
 
-	auto gauge = PlayerGauge::create();
+	auto gauge = PlayerGauge::create(
+		_ATTR(hp), _ATTR_MAX(hp));
 	gauge->setPosition(getContentSize()/2);
 	addChild(gauge, -1);
 
