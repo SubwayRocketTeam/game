@@ -4,7 +4,6 @@
 #include "common/resource.h"
 
 #include "Enemy.h"
-#include "EnemyType.h"
 #include "Stage.h"
 #include "Ally.h"
 

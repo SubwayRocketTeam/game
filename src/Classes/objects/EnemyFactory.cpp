@@ -2,7 +2,6 @@
 #include "EnemyFactory.h"
 
 #include "Enemy.h"
-#include "EnemyType.h"
 
 #include "skill/SkillPool.h"
 #include "skill/id.h"
