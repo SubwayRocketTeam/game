@@ -227,6 +227,7 @@ bool Player::onDamage(
 	/* TODO : 무적 기간 상수에 집어넣기 */
 	blink();
 	immortal = 0.5;
+	stiff = MAX(stiff, 0.2);
 
 	auto deltaNorm =
 		(getPosition() -
