@@ -352,9 +352,13 @@ void Player::onMouseMove(
 void Player::onMouseDown(
 	int btn, float x,float y){
 
-	processAttack(btn, x, y);
 	this->hit();
 }
 void Player::onMouseUp(
 	int btn, float x,float y){
+}
+void Player::onMousePressed(
+	int btn, float x,float y){
+
+	processAttack(btn, x, y);
 }

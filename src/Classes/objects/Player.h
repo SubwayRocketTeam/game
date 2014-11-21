@@ -75,6 +75,9 @@ protected:
 	virtual void onMouseUp(
 		int btn, float x,float y);
 
+	virtual void onMousePressed(
+		int btn, float x,float y);
+
 protected:
 	Player();
 	virtual ~Player();
