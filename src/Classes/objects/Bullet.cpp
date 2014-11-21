@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Bullet.h"
 
+#include "EffectFactory.h"
+
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
 
@@ -58,6 +60,13 @@ bool Bullet::initPhysics(){
 
 bool Bullet::onDamage(
 	const AttackData& attack){
+
+	auto factory = EffectFactory::getInstance();
+	auto worldPos = 
+		getParent()->convertToWorldSpace(getPosition());
+
+	factory->add(
+		worldPos, R::Hit1, false);
 
 	return true;
 }
