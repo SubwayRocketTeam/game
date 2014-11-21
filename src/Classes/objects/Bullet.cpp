@@ -25,8 +25,6 @@ bool Bullet::init(){
 	if (!Unit::init(R::Bullet))
 		return false;
 
-	setScale(0.1);
-
 	attackData.user = nullptr;
 	attackData.target = nullptr;
 	attackData.radius = 0;
