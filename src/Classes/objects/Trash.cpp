@@ -26,6 +26,8 @@ bool Trash::init(){
 
 	if(!Unit::init(path))
 		return false;
+
+	setRotation(rand() % 360);
 	
 	return true;
 }
