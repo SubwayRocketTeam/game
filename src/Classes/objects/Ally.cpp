@@ -53,11 +53,11 @@ void Ally::remove(
 }
 
 void Ally::processAttack(
-	Unit *u,
 	AttackData& data){
 
-	auto senderPosition = u->getPosition();
-	Vec2 attackDirection = data.targetPostion - data.startPostion;
+	Unit* user = data.user;
+
+	auto senderPosition = user->getPosition();
 
 	/* TODO : 공격 타입에 따른 분기 */
 	for (auto it = members.begin(); it != members.end();){
@@ -65,10 +65,9 @@ void Ally::processAttack(
 		auto memberPosition = member->getPosition();
 		float r = ((PhysicsShapeCircle*)member->getPhysicsBody()->getFirstShape())->getRadius()
 			+ data.radius;
-		Vec2 delta = memberPosition - data.startPostion;
-		float angle = CC_RADIANS_TO_DEGREES(attackDirection.getAngle(delta));
+		Vec2 delta = memberPosition - data.postion;
 
-		if(senderPosition.getDistance(memberPosition) <= r && abs(angle) <= data.halfAngle){
+		if(senderPosition.getDistance(memberPosition) <= r){
 			if (member->getAllyID() != Ally::Type::allyPlayer) {
 				member->hit();
 			}
