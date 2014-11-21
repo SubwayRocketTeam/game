@@ -6,8 +6,6 @@
 #include "audio/include/SimpleAudioEngine.h"
 
 #include "common/resource.h"
-#include "common/Effect.h"
-#include "common/EffectFactory.h"
 
 #include "objects/Ally.h"
 #include "objects/Stage.h"
@@ -17,6 +15,8 @@
 #include "objects/EnemySpawner.h"
 #include "objects/AnimationPool.h"
 #include "objects/EffectLayer.h"
+#include "objects/Effect.h"
+#include "objects/EffectFactory.h"
 #include "objects/Trash.h"
 #include "objects/TrashPool.h"
 #include "objects/RepairArea.h"

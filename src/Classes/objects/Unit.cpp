@@ -1,8 +1,9 @@
 ﻿#include "pch.h"
 #include "Unit.h"
 
-#include "common/EffectFactory.h"
-#include "common/Effect.h"
+#include "EffectFactory.h"
+#include "Effect.h"
+
 #include "common/resource.h"
 
 #include "skill/SkillPool.h"
@@ -10,7 +11,6 @@
 #include "skill/PassiveSkill.h"
 
 #include "ui/StatusConsole.h"
-
 #include "ui/gauge.h"
 
 #include <map>

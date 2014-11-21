@@ -4,13 +4,13 @@
 
 #include "scene/GameScene.h"
 #include "common/PhysicsFactory.h"
-#include "common/EffectFactory.h"
 
 #include "skill/SkillPool.h"
 
 #include "objects/Ally.h"
 #include "objects/Stage.h"
 #include "objects/EffectLayer.h"
+#include "objects/EffectFactory.h"
 #include "objects/TrashPool.h"
 
 #include "ui/Cursor.h"

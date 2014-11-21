@@ -103,12 +103,6 @@
     <ClCompile Include="..\Classes\ui\Minimap.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\common\Effect.cpp">
-      <Filter>source\common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\common\EffectFactory.cpp">
-      <Filter>source\common</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\objects\EffectLayer.cpp">
       <Filter>source\common</Filter>
     </ClCompile>
@@ -146,6 +140,12 @@
       <Filter>source\object</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\objects\PlayerGauge.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Effect.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\EffectFactory.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
   </ItemGroup>
@@ -294,13 +294,7 @@
     <ClInclude Include="..\Classes\ui\Minimap.h">
       <Filter>source\ui</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\common\Effect.h">
-      <Filter>source\common</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\common\global.h">
-      <Filter>source\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\EffectFactory.h">
       <Filter>source\common</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\EffectLayer.h">
@@ -348,6 +342,12 @@
       <Filter>source\common</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\PlayerGauge.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Effect.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EffectFactory.h">
       <Filter>source\object</Filter>
     </ClInclude>
   </ItemGroup>

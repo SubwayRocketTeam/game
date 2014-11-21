@@ -6,6 +6,8 @@
 #include "TrashPool.h"
 #include "AnimationPool.h"
 #include "PlayerGauge.h"
+#include "EffectFactory.h"
+#include "Effect.h"
 
 #include "ui/cursor.h"
 #include "ui/gauge.h"
@@ -16,8 +18,6 @@
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
 #include "common/JsonLoader.h"
-#include "common/EffectFactory.h"
-#include "common/Effect.h"
 
 #include "skill/PassiveSkill.h"
 #include "skill/ActiveSkill.h"
