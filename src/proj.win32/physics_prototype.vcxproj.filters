@@ -139,6 +139,12 @@
     <ClCompile Include="..\Classes\ui\UpgradeBar.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\skill\general\Suction.cpp">
+      <Filter>source\skill\general</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\EnemyFactory.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -330,6 +336,11 @@
     <ClInclude Include="..\Classes\ui\UpgradeBar.h">
       <Filter>source\ui</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\skill\general\Suction.h" />
+    <ClInclude Include="..\Classes\objects\EnemyFactory.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemyType.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">
@@ -370,6 +381,9 @@
     </Filter>
     <Filter Include="source\network">
       <UniqueIdentifier>{c0ced8f4-cafd-4445-ba77-e7fe53288c65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\skill\general">
+      <UniqueIdentifier>{ce268dd4-0b25-4c4b-b5eb-376e422494f7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

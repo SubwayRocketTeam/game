@@ -144,6 +144,7 @@
     <ClCompile Include="..\Classes\objects\AnimationPool.cpp" />
     <ClCompile Include="..\Classes\objects\Bullet.cpp" />
     <ClCompile Include="..\Classes\objects\EffectLayer.cpp" />
+    <ClCompile Include="..\Classes\objects\EnemyFactory.cpp" />
     <ClCompile Include="..\Classes\objects\RepairArea.cpp" />
     <ClCompile Include="..\Classes\objects\Stage.cpp" />
     <ClCompile Include="..\Classes\objects\Enemy.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="..\Classes\scene\GameScene.cpp" />
     <ClCompile Include="..\Classes\skill\ActiveSkill.cpp" />
     <ClCompile Include="..\Classes\skill\Attribute.cpp" />
+    <ClCompile Include="..\Classes\skill\general\Suction.cpp" />
     <ClCompile Include="..\Classes\skill\PassiveSkill.cpp" />
     <ClCompile Include="..\Classes\skill\Skill.cpp" />
     <ClCompile Include="..\Classes\skill\SkillPool.cpp" />
@@ -210,6 +212,8 @@
     <ClInclude Include="..\Classes\objects\AttackData.h" />
     <ClInclude Include="..\Classes\objects\Bullet.h" />
     <ClInclude Include="..\Classes\objects\EffectLayer.h" />
+    <ClInclude Include="..\Classes\objects\EnemyFactory.h" />
+    <ClInclude Include="..\Classes\objects\EnemyType.h" />
     <ClInclude Include="..\Classes\objects\RepairArea.h" />
     <ClInclude Include="..\Classes\objects\Stage.h" />
     <ClInclude Include="..\Classes\objects\Enemy.h" />
@@ -227,6 +231,7 @@
     <ClInclude Include="..\Classes\skill\ActiveSkill.h" />
     <ClInclude Include="..\Classes\skill\Attribute.h" />
     <ClInclude Include="..\Classes\skill\AttributeName.h" />
+    <ClInclude Include="..\Classes\skill\general\Suction.h" />
     <ClInclude Include="..\Classes\skill\id.h" />
     <ClInclude Include="..\Classes\skill\PassiveSkill.h" />
     <ClInclude Include="..\Classes\skill\Skill.h" />
