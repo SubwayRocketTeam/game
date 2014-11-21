@@ -103,9 +103,6 @@
     <ClCompile Include="..\Classes\ui\Minimap.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\objects\EffectLayer.cpp">
-      <Filter>source\common</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\ui\SkillIconPanel.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
@@ -146,6 +143,9 @@
       <Filter>source\object</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\objects\EffectFactory.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\EffectLayer.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
   </ItemGroup>
@@ -297,9 +297,6 @@
     <ClInclude Include="..\Classes\common\global.h">
       <Filter>source\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\objects\EffectLayer.h">
-      <Filter>source\common</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\ui\SkillIcon.h">
       <Filter>source\ui</Filter>
     </ClInclude>
@@ -348,6 +345,9 @@
       <Filter>source\object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\EffectFactory.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EffectLayer.h">
       <Filter>source\object</Filter>
     </ClInclude>
   </ItemGroup>
