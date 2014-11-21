@@ -5,6 +5,7 @@
 #include "Trash.h"
 #include "TrashPool.h"
 #include "AnimationPool.h"
+#include "PlayerGauge.h"
 
 #include "ui/cursor.h"
 #include "ui/gauge.h"
@@ -72,6 +73,10 @@ bool Player::init(
 	enableKeyboardInput(this);
 
 	this->setAnchorPoint(Vec2(0.5f, 0.5f));
+
+	auto gauge = PlayerGauge::create();
+	gauge->setPosition(getContentSize()/2);
+	addChild(gauge, -100);
 
 	scheduleUpdate();
 

@@ -145,6 +145,7 @@
     <ClCompile Include="..\Classes\objects\Bullet.cpp" />
     <ClCompile Include="..\Classes\objects\EffectLayer.cpp" />
     <ClCompile Include="..\Classes\objects\EnemyFactory.cpp" />
+    <ClCompile Include="..\Classes\objects\PlayerGauge.cpp" />
     <ClCompile Include="..\Classes\objects\RepairArea.cpp" />
     <ClCompile Include="..\Classes\objects\Stage.cpp" />
     <ClCompile Include="..\Classes\objects\Enemy.cpp" />
@@ -215,6 +216,7 @@
     <ClInclude Include="..\Classes\objects\EffectLayer.h" />
     <ClInclude Include="..\Classes\objects\EnemyFactory.h" />
     <ClInclude Include="..\Classes\objects\EnemyType.h" />
+    <ClInclude Include="..\Classes\objects\PlayerGauge.h" />
     <ClInclude Include="..\Classes\objects\RepairArea.h" />
     <ClInclude Include="..\Classes\objects\Stage.h" />
     <ClInclude Include="..\Classes\objects\Enemy.h" />

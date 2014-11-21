@@ -41,6 +41,7 @@ namespace R{
 
 	_RESL(HPGauge);
 	_RESL(MPGauge);
+	_RESL(PlayerGauge);
 
 	_RESL(BGM);
 	_RESL(Fire);

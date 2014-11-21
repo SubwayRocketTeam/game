@@ -35,6 +35,7 @@ namespace R{
 
 	_RESD(HPGauge, "hp.png");
 	_RESD(MPGauge, "mp.png");
+	_RESD(PlayerGauge, "hpgauge.png");
 
 	_RESD(BGM, "bgm.mid");
 	_RESD(Fire, "fire.wav");

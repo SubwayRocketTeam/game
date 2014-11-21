@@ -145,6 +145,9 @@
     <ClCompile Include="..\Classes\objects\EnemyFactory.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\objects\PlayerGauge.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -343,6 +346,9 @@
     <ClInclude Include="..\Classes\objects\EnemyType.h" />
     <ClInclude Include="..\Classes\common\zorder.h">
       <Filter>source\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\PlayerGauge.h">
+      <Filter>source\object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
