@@ -24,15 +24,17 @@ void Slash::use(
 
 	auto bullet = Bullet::create();
 	bullet->setPosition(u->getPosition());
-	bullet->setRotation(u->getRotation());
+	bullet->setRotation(CC_RADIANS_TO_DEGREES((pos-u->getPosition()).getAngle())+90);
 	bullet->fire(pos.x, pos.y, 1);
 	bullet->setScale(5);
+
 	bullet->setUser(u);
 	bullet->setRadius(10);
 	bullet->setDamage(1);
 	bullet->setAllyID(u->getAllyID());
-	stage->addChild(bullet, 1);
 
+	stage->addChild(bullet, 1);
+	
 	auto audio = SimpleAudioEngine::getInstance();
 	audio->playEffect(R::Fire.c_str());
 

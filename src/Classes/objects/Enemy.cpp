@@ -32,7 +32,7 @@ bool Enemy::init(){
 	attackData.user = this;
 	attackData.object = this;
 	attackData.target = nullptr;
-	attackData.radius = 20;
+	attackData.radius = 30;
 	attackData.type = AttackType::Pan;
 	attackData.aggro = 0;
 	attackData.damage = 1;
@@ -79,6 +79,8 @@ void Enemy::update(
 
 	attackData.postion = getPosition();
 	Ally::getInstance(_OPPOSITE(allyID))->processAttack(attackData);
+
+	// useSkill(10, target->getPosition().x, target->getPosition().y);
 }
 
 bool Enemy::onDamage(
