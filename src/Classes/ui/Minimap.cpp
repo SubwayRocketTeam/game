@@ -70,8 +70,7 @@ void Minimap::update(
 		pos.set(pos.x * ratio.x,
 			pos.y * ratio.y);
 
-		drawnode->drawSolidCircle(
-			pos, 5, 360,32,  Color4F::RED);
+		drawnode->drawDot(pos, 5, Color4F::RED);
 	}
 }
 
