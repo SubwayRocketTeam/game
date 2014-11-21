@@ -12,7 +12,7 @@
 #define __ATTR(name) getAttribute(Attr::##name)
 #define _ATTR(name) __ATTR(name).get()
 #define _ATTR_VALUE(name) __ATTR(name).getValue()
-#define _ATTR_MAX(name) __ATTR(name).getMax()
+#define _ATTR_MAX(name) __ATTR(name).getMaxValue()
 #define _INIT_ATTR(name, value) attrs[Attr::##name].set(value)
 
 class Gauge;
