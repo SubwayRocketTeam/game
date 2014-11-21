@@ -29,6 +29,8 @@ void Slash::use(
 	bullet->setScale(5);
 	bullet->setUser(u);
 	bullet->setRadius(10);
+	bullet->setDamage(1);
+	bullet->setAllyID(u->getAllyID());
 	stage->addChild(bullet, 1);
 
 	auto audio = SimpleAudioEngine::getInstance();

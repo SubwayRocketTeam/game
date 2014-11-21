@@ -21,6 +21,14 @@ public:
 		float radius);
 	float getRadius();
 
+	void setDamage(
+		float damage);
+	float getDamage();
+
+	void setAllyID(
+		Ally::Type id);
+
+
 protected:
 	Bullet();
 	virtual ~Bullet();

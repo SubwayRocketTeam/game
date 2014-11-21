@@ -32,9 +32,8 @@ bool Bullet::init(){
 	attackData.radius = 0;
 	attackData.type = AttackType::Pan;
 	attackData.aggro = 0;
-
-	attackData.postion = getPosition();
-	attackData.damage = attackData.user->getAttribute(Attr::attack).get();
+	attackData.damage = 0;
+	attackData.object = this;
 
 	scheduleUpdate();
 
@@ -67,8 +66,7 @@ void Bullet::fire(
 
 void Bullet::update(float dt){
 	attackData.postion = getPosition();
-	attackData.damage = attackData.user->getAttribute(Attr::attack).get();
-	Ally::getInstance(_OPPOSITE(attackData.user->getAllyID()))->processAttack(attackData);
+	Ally::getInstance(_OPPOSITE(allyID))->processAttack(attackData);
 }
 
 void Bullet::setUser(
@@ -79,7 +77,6 @@ void Bullet::setUser(
 Unit* Bullet::getUser(){
 	return attackData.user;
 }
-
 void Bullet::setRadius(
 	float radius){
 
@@ -87,4 +84,17 @@ void Bullet::setRadius(
 }
 float Bullet::getRadius(){
 	return attackData.radius;
+}
+void Bullet::setDamage(
+	float damage){
+
+	attackData.damage = damage;
+}
+float Bullet::getDamage(){
+	return attackData.damage;
+}
+void Bullet::setAllyID(
+	Ally::Type id)
+{
+	allyID = id;
 }

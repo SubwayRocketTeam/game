@@ -102,6 +102,7 @@ bool Unit::initAttrs(){
 	_INIT_ATTR(speed, 4);
 	_INIT_ATTR(hpRegen, 0.0f);
 	_INIT_ATTR(mpRegen, 0.0f);
+	_INIT_ATTR(defence, 0.0f);
 
 	return true;
 }
@@ -164,7 +165,7 @@ bool Unit::damage(
 	factory->add(
 		worldPos, R::Hit1, false);
 
-	Vec2 power = getPosition() - attackData.startPostion;
+	Vec2 power = getPosition() - attackData.postion;
 	power.normalize();
 	power *= 100000;
 	getPhysicsBody()->applyImpulse(power);

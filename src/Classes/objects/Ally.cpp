@@ -55,9 +55,9 @@ void Ally::remove(
 void Ally::processAttack(
 	const AttackData& data){
 
-	Unit* user = data.user;
+	Unit* object = data.object;
 
-	auto senderPosition = user->getPosition();
+	auto senderPosition = object->getPosition();
 
 	/* TODO : 공격 타입에 따른 분기 */
 	for (auto it = members.begin(); it != members.end();){

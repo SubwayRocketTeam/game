@@ -12,6 +12,7 @@ enum AttackType {
 
 struct AttackData{
 	Unit* user;
+	Unit* object;
 	Unit* target;
 
 	AttackType type;
