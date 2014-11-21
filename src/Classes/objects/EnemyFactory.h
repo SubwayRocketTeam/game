@@ -11,11 +11,12 @@ struct EnemyInfo;
 
 class EnemyFactory {
 public:
-	Enemy* createEnemy(EnemyType type);
+	static Enemy* createEnemy(EnemyType type);
+
+	static void spawn(EnemyType type);
 
 	static EnemyFactory* create();
 	static EnemyFactory* getInstance();
-
 protected:
 	EnemyFactory();
 	~EnemyFactory();

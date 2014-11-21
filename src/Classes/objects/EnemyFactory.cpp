@@ -2,6 +2,9 @@
 #include "EnemyFactory.h"
 
 #include "Enemy.h"
+#include "Enemy.h"
+#include "Stage.h"
+#include "Ally.h"
 
 #include "skill/SkillPool.h"
 #include "skill/id.h"
@@ -38,9 +41,23 @@ EnemyFactory* EnemyFactory::getInstance() {
 Enemy* EnemyFactory::createEnemy(EnemyType type)
 {
 	Enemy* enemy = Enemy::create();
-	enemy->setInfo(dic[type]);
-
+	enemy->setInfo(instance->dic[type]);
 	return enemy;
+}
+
+void EnemyFactory::spawn(EnemyType type) {
+	auto stage = Stage::getInstance(0);
+	auto ally = Ally::getInstance(
+		Ally::Type::allyEnemy);
+	auto factory = EnemyFactory::getInstance();
+
+	Enemy *e = factory->createEnemy(type);
+	e->setPosition(
+		rand()%800, rand()%400);
+	e->resetAggro();
+
+	ally->push(e);
+	stage->addChild(e, Z::unit);
 }
 
 bool EnemyFactory::init() {
@@ -91,6 +108,8 @@ bool EnemyFactory::initExternalData(const std::string &dataPath) {
 			skeleton->skills.push_back((ActiveSkill*)pool->get(skillId.asInt()));
 		}
 
+		auto pay = info.get("pay", 0).asInt();
+		skeleton->pay = pay;
 		dic.push_back(skeleton);
 	}
 

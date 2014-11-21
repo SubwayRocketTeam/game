@@ -7,6 +7,7 @@
 #include "PlayerGauge.h"
 #include "EffectFactory.h"
 #include "Effect.h"
+#include "EnemyFactory.h"
 
 #include "ui/cursor.h"
 #include "ui/gauge.h"
@@ -336,6 +337,10 @@ void Player::onKeyboardDown(
 
 	if(keycode == EventKeyboard::KeyCode::KEY_1)
 		addPassive(100);
+
+	if (keycode == EventKeyboard::KeyCode::KEY_Z) {
+		EnemyFactory::getInstance()->spawn(EnemyType::enemyBasic);
+	}
 }
 void Player::onKeyboardUp(
 	EventKeyboard::KeyCode keycode){
