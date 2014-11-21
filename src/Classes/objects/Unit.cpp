@@ -160,7 +160,7 @@ bool Unit::damage(
 	const AttackData& attackData){
 
 	if(onDamage(attackData))
-		_ATTR_VALUE(hp) -= (attackData.damage - _ATTR(defence));
+		_ATTR_VALUE(hp) -= MAX(0, attackData.damage - _ATTR(defence));
 	
 	if (_ATTR(hp) <= 0) {
 		if(onDeath()){

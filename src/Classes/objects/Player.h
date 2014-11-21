@@ -44,7 +44,7 @@ protected:
 	virtual bool initExternalData(
 		const std::string &dataPath);
 
-	virtual bool onDamage();
+	virtual bool onDamage(const AttackData& attackData);
 	virtual bool onDeath();
 
 	virtual void update(

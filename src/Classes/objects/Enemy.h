@@ -17,6 +17,7 @@ protected:
 	virtual ~Enemy();
 
 	virtual bool init();
+	virtual bool initAttrs();
 	virtual bool initPhysics();
 
 	virtual void update(
@@ -33,4 +34,5 @@ protected:
 
 protected:
 	std::map<Unit*,float> aggros;
+	AttackData attackData;
 };

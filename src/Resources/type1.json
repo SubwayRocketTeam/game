@@ -10,7 +10,7 @@
     {"name" : "attack", "value" : 50},
     {"name" : "attack_speed", "value" : 1.0},
     {"name" : "range", "value" : 120},
-    {"name" : "defence", "value" : 5}
+    {"name" : "defence", "value" : 0}
   ],
   
   "incrs" : [

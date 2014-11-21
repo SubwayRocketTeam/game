@@ -223,7 +223,7 @@ void Player::updateConditions(
 		stiff -= dt;
 }
 
-bool Player::onDamage(){
+bool Player::onDamage(const AttackData& attackData){
 	blink();
 
 	return true;

@@ -29,12 +29,28 @@ bool Enemy::init(){
 	if (!Unit::init(R::EnemyBody))
 		return false;
 
-	_INIT_ATTR(speed, 50);
+	attackData.user = this;
+	attackData.object = this;
+	attackData.target = nullptr;
+	attackData.radius = 20;
+	attackData.type = AttackType::Pan;
+	attackData.aggro = 0;
+	attackData.damage = 1;
 
 	scheduleUpdate();
 
 	return true;
 }
+
+bool Enemy::initAttrs(){
+	if (!Unit::initAttrs())
+		return false;
+
+	_INIT_ATTR(speed, 50);
+
+	return true;
+}
+
 
 bool Enemy::initPhysics(){
 	auto factory = PhysicsFactory::getInstance();
@@ -60,6 +76,9 @@ void Enemy::update(
 		CC_RADIANS_TO_DEGREES(delta.getAngle(getPosition()));
 
 	getPhysicsBody()->setVelocity(-move);
+
+	attackData.postion = getPosition();
+	Ally::getInstance(_OPPOSITE(allyID))->processAttack(attackData);
 }
 
 bool Enemy::onDamage(
