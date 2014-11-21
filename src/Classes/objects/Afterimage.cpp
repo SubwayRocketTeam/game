@@ -65,8 +65,11 @@ void Afterimage::update(
 	float dt){
 
 	duration -= dt;
-	if(duration <= 0.0f)
+	if (duration <= 0.0f)
+	{
 		target->removeChild(this, true);
+		return;
+	}
 
 	addAfterimage(
 		target,
