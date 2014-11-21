@@ -105,6 +105,9 @@ bool Unit::initAttrs(){
 	_INIT_ATTR(hpRegen, 0.0f);
 	_INIT_ATTR(mpRegen, 0.0f);
 	_INIT_ATTR(defence, 0.0f);
+	_INIT_ATTR(gold, 0);
+
+	_ATTR_MAX(gold) = 100;
 
 	return true;
 }

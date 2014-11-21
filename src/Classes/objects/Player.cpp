@@ -180,17 +180,17 @@ void Player::update(
 
 	for(auto trash : trashes){
 		trash->sweep();
+		__ATTR(gold).increase(1);
 	}
 
 	moveCounter = 0;
 	moveSwitchHorizontal = moveSwitchVertical = 0;
 
 	exp++;
-	gold++;
 
 	auto resources = UserResources::getInstance();
 	resources->setExpAndMaxExp(exp, expLimit);
-	resources->setGold(gold);
+	resources->setGold(_ATTR(gold));
 	if (exp >= expLimit) {
 		exp = 0;
 		expLimit *= 2;
