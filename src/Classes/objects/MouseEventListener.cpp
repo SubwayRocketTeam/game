@@ -38,6 +38,8 @@ void MouseEventListener::enableMouseInput(
 		MouseData &data = pressed[e->getMouseButton()];
 
 		data.pressed = false;
+		data.x = e->getCursorX();
+		data.y = e->getCursorY();
 		onMouseDown(
 			e->getMouseButton(),
 			e->getCursorX(), e->getCursorY());
@@ -47,6 +49,8 @@ void MouseEventListener::enableMouseInput(
 		MouseData &data = pressed[e->getMouseButton()];
 
 		data.pressed = true;
+		data.x = e->getCursorX();
+		data.y = e->getCursorY();
 		onMouseUp(
 			e->getMouseButton(),
 			e->getCursorX(), e->getCursorY());
@@ -68,7 +72,7 @@ void MouseEventListener::disableMouseInput(){
 }
 
 void MouseEventListener::processMouseTurbo(float dt){
-	for(auto p : pressed){
+	for(auto &p : pressed){
 		MouseData &data = p.second;
 
 		if(data.pressed == true)
