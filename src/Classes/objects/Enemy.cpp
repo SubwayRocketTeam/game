@@ -54,6 +54,7 @@ bool Enemy::initAttrs(){
 		return false;
 
 	_INIT_ATTR(speed, 50);
+	_INIT_ATTR(drops, 10);
 
 	return true;
 }
@@ -110,8 +111,9 @@ bool Enemy::onDamage(
 }
 
 bool Enemy::onDeath(){
-	// TODO: ¾²·¹±â µå¶ø °¹¼ö ¸÷ µ¥ÀÌÅÍ·Î »¬ °Í
-	TrashPool::getInstance()->drop(getPosition(), 10);
+	TrashPool::getInstance()->drop(
+		getPosition(), _ATTR(drops));
+
 	return true;
 }
 
