@@ -1,7 +1,5 @@
 # Robotopia Cleaner
 
-[worknote](https://github.com/SubwayRocketTeam/game/blob/master/doc/worknode_2014_11_19.md)
-
 Pull 할 때 주의사항
 ----
 * gitshell 열기
@@ -15,9 +13,6 @@ git submodule update
 
 ToDo List
 ----
-* 평타 연속기
-* 원거리 딜러 캐릭터 추가
-* 액티브 스킬의 추가
 * UI 작업들
 * [ActiveJson](https://github.com/SubwayRocketTeam/ActiveJson)
 
