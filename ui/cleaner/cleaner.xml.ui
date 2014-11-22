@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<UIProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectDir>E:\repos\game\ui\cleaner</ProjectDir>
+  <Version>1.6.0.0</Version>
+  <Resources>E:\repos\game\ui\cleaner\Resources</Resources>
+  <Name>cleaner</Name>
+  <JsonFileName>cleaner.json</JsonFileName>
+  <JsonFolder>E:\repos\game\ui\cleaner\Json</JsonFolder>
+  <JsonList>
+    <string>login_scene.json</string>
+  </JsonList>
+  <CanvasSize>
+    <Width>0</Width>
+    <Height>0</Height>
+  </CanvasSize>
+  <filePath>E:\repos\game\ui\cleaner\cleaner.xml.ui</filePath>
+  <ProjectType>UIProject</ProjectType>
+  <ResRelativePath />
+  <imageFileList />
+  <imagePngList />
+  <JsonSuffix>.json</JsonSuffix>
+  <CurrentUIJson>login_scene.json</CurrentUIJson>
+</UIProject>
