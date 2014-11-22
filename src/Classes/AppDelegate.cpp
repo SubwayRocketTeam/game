@@ -3,6 +3,8 @@
 #include "Compat.h"
 
 #include "scene/GameScene.h"
+#include "scene/LoginScene.h"
+
 #include "common/PhysicsFactory.h"
 #include "common/JsonLoader.h"
 
@@ -53,9 +55,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	cache->addSpriteFramesWithFile(R::AfterimageGlowPlist);
 	cache->addSpriteFramesWithFile(R::Hit1Plist);
 
+	Network::create();
 	JsonLoader::create();
 	TrashPool::create();
-	Network::create();
 	EffectLayer::create();
 	EffectFactory::create();
 	Minimap::create();
