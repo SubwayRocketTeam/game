@@ -3,6 +3,7 @@
   "name" : "adrenaline",
   "tooltip" : "adrenaline",
   "duration": 5,
+  "interval" : 0.5,
 	
   "bonus" : [
     {

@@ -20,6 +20,12 @@ using namespace cocos2d;
 
 static map<int, Unit*> instances;
 
+struct Unit::PassiveData{
+	float remaining;
+	float update;
+	float interval;
+};
+
 Unit::Unit()
 :friction(0){
 }
@@ -129,12 +135,24 @@ void Unit::updatePassives(
 
 	for(auto &pair : passives){
 		auto id = pair.first;
-		auto &remaining = pair.second;
+		auto &data = pair.second;
 
-		remaining -= dt;
+		data.remaining -= dt;
+		data.update -= dt;
 
-		if(remaining <= 0)
+		/* 지속 시간이 끝났으면 지우기 */
+		if(data.remaining <= 0)
 			removeList.push_back(id);
+		/* interval마다 update 호출해주기 */
+		else if(data.interval != 0){
+			if(data.update <= 0){
+				auto pool = SkillPool::getInstance();
+				auto skill = (PassiveSkill*)pool->get(id);
+
+				skill->update(this);
+				data.update = data.interval;
+			}
+		}
 	}
 
 	for(auto id : removeList)
@@ -207,7 +225,10 @@ void Unit::addPassive(
 		return;
 	/* TODO : 패시브 중복 적용이면
 	          남은 시간 더하기 or 초기화할건지 */
-	passives[id] = skill->duration;
+	PassiveData data;
+	data.update = data.interval = skill->interval;
+	data.remaining = skill->duration;
+	passives[id] = data;
 
 	for(auto pair : skill->bonusList){
 		string name = pair.first;

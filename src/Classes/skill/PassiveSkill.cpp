@@ -10,6 +10,9 @@ bool PassiveSkill::initExternalData(
 	if(!Skill::initExternalData(dataPath))
 		return false;
 
+	interval =
+		json.get("interval", 0).asFloat();
+
 	auto bonusAttrs =
 		json.get("bonus", Json::Value::null);
 	if(bonusAttrs == Json::Value::null)
@@ -24,4 +27,9 @@ bool PassiveSkill::initExternalData(
 	}
 
 	return true;
+}
+
+void PassiveSkill::update(
+	Unit *user){
+
 }

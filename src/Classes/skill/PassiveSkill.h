@@ -8,11 +8,18 @@
 #include <map>
 #include <string>
 
+class Unit;
+
 class PassiveSkill : public Skill{
+	friend Unit;
 public:
 	std::map<std::string,Attribute> bonusList;
+	float interval;
 
 protected:
 	virtual bool initExternalData(
 		const std::string &dataPath);
+
+	virtual void update(
+		Unit *user);
 };

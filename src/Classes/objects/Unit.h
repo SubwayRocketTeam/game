@@ -23,6 +23,8 @@ class Unit : public cocos2d::Sprite{
 public:
 	static const int BodyParts = 6;
 
+	struct PassiveData;
+
 	enum ActionType{
 		actionMove,
 		actionAttack,
@@ -105,6 +107,6 @@ protected:
 
 	Gauge* gauge;
 
-	std::map<int, float> passives;
+	std::map<int, PassiveData> passives;
 	std::map<std::string,Attribute> attrs;
 };
