@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "AppDelegate.h"
 #include "Compat.h"
 
@@ -55,8 +55,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	cache->addSpriteFramesWithFile(R::AfterimageGlowPlist);
 	cache->addSpriteFramesWithFile(R::Hit1Plist);
 
+	/* 전역적으로 계속 쓰이는 오브젝트 */
 	Network::create();
 	JsonLoader::create();
+	Cursor::create();
+
+	/* GameScene에서만 쓰이는 객체 */
 	TrashPool::create();
 	EffectLayer::create();
 	EffectFactory::create();
@@ -67,7 +71,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	SkillPool::create();
 	EnemyFactory::create();
 	PhysicsFactory::create();
-	Cursor::create();
 	UserResources::create();
 	SkillIconPanel::create();
 	UpgradeBar::create();
