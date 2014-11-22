@@ -30,6 +30,6 @@ bool PassiveSkill::initExternalData(
 }
 
 void PassiveSkill::update(
-	Unit *user){
+	Unit *user, float remaining){
 
 }

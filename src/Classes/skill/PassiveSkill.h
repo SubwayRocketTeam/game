@@ -21,5 +21,5 @@ protected:
 		const std::string &dataPath);
 
 	virtual void update(
-		Unit *user);
+		Unit *user, float remaining);
 };

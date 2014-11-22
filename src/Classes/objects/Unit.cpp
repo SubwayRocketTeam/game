@@ -149,7 +149,7 @@ void Unit::updatePassives(
 				auto pool = SkillPool::getInstance();
 				auto skill = (PassiveSkill*)pool->get(id);
 
-				skill->update(this);
+				skill->update(this, data.remaining);
 				data.update = data.interval;
 			}
 		}
