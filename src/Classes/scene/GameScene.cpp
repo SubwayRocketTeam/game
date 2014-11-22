@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "GameScene.h"
 
 #include <vector>
@@ -126,15 +126,24 @@ bool GameScene::initUI(){
 
 void GameScene::onEnter(){
 	Layer::onEnter();
+	onInitGlobalObjects();
 
 	auto audio = SimpleAudioEngine::getInstance();
 	audio->playBackgroundMusic(R::BGM.c_str(), true);
 }
 void GameScene::onExit(){
 	Layer::onExit();
+	onReleaseGlobalObjects();
 
 	auto audio = SimpleAudioEngine::getInstance();
 	audio->stopBackgroundMusic();
+}
+
+void GameScene::onInitGlobalObjects(){
+	/* TODO : 여기에 글로벌 오브젝트들 초기화 처리 */
+}
+void GameScene::onReleaseGlobalObjects(){
+	/* TODO : 여기에 글로벌 오브젝트들 해제 처리 */
 }
 
 void GameScene::update(

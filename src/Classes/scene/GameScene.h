@@ -26,6 +26,9 @@ protected:
 	virtual void onEnter();
 	virtual void onExit();
 
+	virtual void onInitGlobalObjects();
+	virtual void onReleaseGlobalObjects();
+
 	virtual void update(
 		float dt);
 
