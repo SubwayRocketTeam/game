@@ -4,6 +4,7 @@
 
 #include "scene/GameScene.h"
 #include "common/PhysicsFactory.h"
+#include "common/JsonLoader.h"
 
 #include "skill/SkillPool.h"
 
@@ -52,6 +53,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	cache->addSpriteFramesWithFile(R::AfterimageGlowPlist);
 	cache->addSpriteFramesWithFile(R::Hit1Plist);
 
+	JsonLoader::create();
 	TrashPool::create();
 	Network::create();
 	EffectLayer::create();
