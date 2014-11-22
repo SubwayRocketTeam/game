@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 
@@ -97,14 +97,9 @@ protected:
 	cocos2d::DrawNode *lay;
 	cocos2d::Vec2 cursor;
 
-	Gauge* hp;
-	Gauge* mp;
-
-	Cursor* mouseCursor;
-
-	// ÇöÀç °æÇèÄ¡
+	// í˜„ìž¬ ê²½í—˜ì¹˜
 	int exp;
-	// ·¹º§¾÷ ±âÁØ °æÇèÄ¡
+	// ë ˆë²¨ì—… ê¸°ì¤€ ê²½í—˜ì¹˜
 	int expLimit;
 	int level;
 };
