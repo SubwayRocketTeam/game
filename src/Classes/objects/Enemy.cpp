@@ -111,7 +111,7 @@ bool Enemy::onDamage(
 }
 
 bool Enemy::onDeath(){
-	TrashPool::getInstance()->drop(
+	TrashPool::getInstance()->spawn(
 		getPosition(), _ATTR(drops));
 
 	return true;

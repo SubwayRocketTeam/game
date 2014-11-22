@@ -58,7 +58,7 @@ void TrashPool::spawn(
 		push(trash);
 	}
 }
-void TrashPool::drop(
+void TrashPool::spawn(
 	Vec2 pos,
 	int count){
 

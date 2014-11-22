@@ -13,7 +13,7 @@ public:
 
 	void spawn(
 		int count =0);
-	void drop(
+	void spawn(
 		cocos2d::Vec2 pos,
 		int count = 0);
 
