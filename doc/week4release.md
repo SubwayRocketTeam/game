@@ -13,3 +13,8 @@
   * 로봇 청소기가 주변의 쓰레기를 빨아들임
   * 올라가 있을 경우 지속적으로 체력이 회복되는 RepairZone의 추가
   * 플레이어가 맞으면 블링크, 넉백의 처리
+
+
+보이지 않는 변경 사항
+----
+* [빌드 속도 향상](https://github.com/SubwayRocketTeam/cocos2d-x-custom/commit/08ba83082b85bae6650d536fa9574516151a4cb1)
