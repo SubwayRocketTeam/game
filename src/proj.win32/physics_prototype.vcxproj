@@ -168,6 +168,7 @@
     <ClCompile Include="..\Classes\skill\PassiveSkill.cpp" />
     <ClCompile Include="..\Classes\skill\Skill.cpp" />
     <ClCompile Include="..\Classes\skill\SkillPool.cpp" />
+    <ClCompile Include="..\Classes\skill\type1\Adrenaline.cpp" />
     <ClCompile Include="..\Classes\skill\type1\FrontDash.cpp" />
     <ClCompile Include="..\Classes\skill\type1\Slash.cpp" />
     <ClCompile Include="..\Classes\ui\Gauge.cpp" />
@@ -238,6 +239,7 @@
     <ClInclude Include="..\Classes\skill\PassiveSkill.h" />
     <ClInclude Include="..\Classes\skill\Skill.h" />
     <ClInclude Include="..\Classes\skill\SkillPool.h" />
+    <ClInclude Include="..\Classes\skill\type1\Adrenaline.h" />
     <ClInclude Include="..\Classes\skill\type1\FrontDash.h" />
     <ClInclude Include="..\Classes\skill\type1\Slash.h" />
     <ClInclude Include="..\Classes\ui\Gauge.h" />
