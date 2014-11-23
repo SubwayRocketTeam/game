@@ -8,6 +8,7 @@
 #include "EffectFactory.h"
 #include "Effect.h"
 #include "EnemyFactory.h"
+#include "GlobalResource.h"
 
 #include "ui/cursor.h"
 #include "ui/gauge.h"
@@ -174,6 +175,7 @@ void Player::update(
 	/* TODO : 빨려들어오는건 쓰레기가 직접 오는데,
 	 *        청소하는건 플레이어가 청소
 	 *        어떻게 할건지 정하기 */
+	auto resource = GlobalResource::getInstance();
 	auto pos = getPosition();
 	auto trashPool = TrashPool::getInstance();
 	auto trashes = trashPool->query(
@@ -181,6 +183,7 @@ void Player::update(
 
 	for(auto trash : trashes){
 		trash->sweep();
+		resource->trash += 1;
 		__ATTR(gold).increase(1);
 	}
 
