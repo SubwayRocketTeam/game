@@ -144,6 +144,7 @@
     <ClCompile Include="..\Classes\objects\EffectFactory.cpp" />
     <ClCompile Include="..\Classes\objects\EffectLayer.cpp" />
     <ClCompile Include="..\Classes\objects\EnemyFactory.cpp" />
+    <ClCompile Include="..\Classes\objects\GlobalResource.cpp" />
     <ClCompile Include="..\Classes\objects\PlayerGauge.cpp" />
     <ClCompile Include="..\Classes\objects\RepairArea.cpp" />
     <ClCompile Include="..\Classes\objects\Stage.cpp" />
@@ -177,6 +178,7 @@
     <ClCompile Include="..\Classes\ui\SkillIcon.cpp" />
     <ClCompile Include="..\Classes\ui\SkillIconPanel.cpp" />
     <ClCompile Include="..\Classes\ui\StatusConsole.cpp" />
+    <ClCompile Include="..\Classes\ui\TrashTank.cpp" />
     <ClCompile Include="..\Classes\ui\UpgradeBar.cpp" />
     <ClCompile Include="..\Classes\ui\UserResources.cpp" />
     <ClCompile Include="..\Classes\util\Random.cpp" />
@@ -217,6 +219,7 @@
     <ClInclude Include="..\Classes\objects\EnemyFactory.h" />
     <ClInclude Include="..\Classes\objects\EnemyInfo.h" />
     <ClInclude Include="..\Classes\objects\EnemyType.h" />
+    <ClInclude Include="..\Classes\objects\GlobalResource.h" />
     <ClInclude Include="..\Classes\objects\PlayerGauge.h" />
     <ClInclude Include="..\Classes\objects\RepairArea.h" />
     <ClInclude Include="..\Classes\objects\Stage.h" />
@@ -249,6 +252,7 @@
     <ClInclude Include="..\Classes\ui\SkillIcon.h" />
     <ClInclude Include="..\Classes\ui\SkillIconPanel.h" />
     <ClInclude Include="..\Classes\ui\StatusConsole.h" />
+    <ClInclude Include="..\Classes\ui\TrashTank.h" />
     <ClInclude Include="..\Classes\ui\UpgradeBar.h" />
     <ClInclude Include="..\Classes\ui\UserResources.h" />
     <ClInclude Include="..\Classes\util\Random.h" />

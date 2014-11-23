@@ -26,6 +26,7 @@
 #include "ui/Minimap.h"
 #include "ui/SkillIconPanel.h"
 #include "ui/UpgradeBar.h"
+#include "ui/TrashTank.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -117,6 +118,11 @@ bool GameScene::initUI(){
 	upgradeBar->setAnchorPoint(Vec2(0.5,0));
 	upgradeBar->setPosition(visibleSize.width/2, visibleSize.height);
 	addChild(upgradeBar);
+
+	auto trashTank = TrashTank::getInstance();
+	trashTank->setAnchorPoint(Vec2(0.5,0));
+	trashTank->setPosition(visibleSize.width/2, 0);
+	addChild(trashTank);
 
 	/* LAYERS */
 	addChild(EffectLayer::getInstance());

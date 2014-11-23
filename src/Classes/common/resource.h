@@ -43,6 +43,10 @@ namespace R{
 	_RESL(MPGauge);
 	_RESL(PlayerGauge);
 
+	_RESL(TankFrame);
+	_RESL(TankGauge);
+	_RESL(TankIndicator);
+
 	_RESL(BGM);
 	_RESL(Fire);
 };

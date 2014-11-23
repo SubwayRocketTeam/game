@@ -37,6 +37,10 @@ namespace R{
 	_RESD(MPGauge, "mp.png");
 	_RESD(PlayerGauge, "hpgauge.png");
 
+	_RESD(TankFrame, "tank_frame.png");
+	_RESD(TankGauge, "tank_gauge.png");
+	_RESD(TankIndicator, "tank_indicator.png");
+
 	_RESD(BGM, "bgm.mid");
 	_RESD(Fire, "fire.wav");
 }

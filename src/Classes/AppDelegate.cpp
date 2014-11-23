@@ -16,6 +16,7 @@
 #include "objects/EffectFactory.h"
 #include "objects/TrashPool.h"
 #include "objects/EnemyFactory.h"
+#include "objects/GlobalResource.h"
 
 #include "ui/Cursor.h"
 #include "ui/StatusConsole.h"
@@ -23,6 +24,7 @@
 #include "ui/UserResources.h"
 #include "ui/SkillIconPanel.h"
 #include "ui/UpgradeBar.h"
+#include "ui/TrashTank.h"
 
 #include "common/resource.h"
 
@@ -61,6 +63,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	Cursor::create();
 
 	/* GameScene에서만 쓰이는 객체 */
+	GlobalResource::create();
+	TrashTank::create();
 	TrashPool::create();
 	EffectLayer::create();
 	EffectFactory::create();
