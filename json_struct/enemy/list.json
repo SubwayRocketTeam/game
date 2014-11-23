@@ -1,0 +1,14 @@
+{
+  "list" : {
+    {
+      "id" : 10,
+      "cost" : 50,
+      "cooltime" : 3
+    },
+    {
+      "id" : 11,
+      "cost" : 100,
+      "cooltime" : 10
+    }
+  }
+}
