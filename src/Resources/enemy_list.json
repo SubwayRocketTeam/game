@@ -40,7 +40,7 @@
 			"name" : "enemySpiral",
 			
 			"attrs" : [
-				{"name" : "hp", "value" : 3},
+				{"name" : "hp", "value" : 20},
 				{"name" : "hp_gen", "value" : 0},
 				{"name" : "speed", "value" : 7},
 				{"name" : "attack", "value" : 50},
