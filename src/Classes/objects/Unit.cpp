@@ -88,10 +88,8 @@ bool Unit::init(){
 bool Unit::init(
 	const string &imageName, const int part){
 
-	char path[128];
-	sprintf(path, "%s.png", imageName.c_str());
-
-	if(!Sprite::initWithFile(path))
+	if(!Sprite::initWithFile(
+		_MAKE_PATH("%s.png", imageName.c_str())))
 		return false;
 
 	if(!initPhysics())
