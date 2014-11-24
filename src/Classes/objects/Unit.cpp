@@ -109,7 +109,7 @@ bool Unit::init(
 bool Unit::initAttrs(){
 	_INIT_ATTR(hp, 3);
 	_INIT_ATTR(mp, 0);
-	_INIT_ATTR(speed, 4);
+	_INIT_ATTR(speed, 8);
 	_INIT_ATTR(hpRegen, 0.0f);
 	_INIT_ATTR(mpRegen, 0.0f);
 	_INIT_ATTR(defence, 0.0f);
