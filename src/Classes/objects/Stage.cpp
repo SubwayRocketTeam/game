@@ -3,6 +3,7 @@
 
 #include "objects/Player.h"
 #include "objects/EnemySpawner.h"
+#include "objects/CollisionDetector.h"
 #include "common/resource.h"
 
 #include "common/JsonLoader.h"
@@ -47,6 +48,11 @@ Stage *Stage::getInstance(
 	}
 }
 
+CollisionDetector* Stage::getCollisionDetector(){
+	return collisionDetector;
+}
+
+
 bool Stage::init(){
 	if (!Node::init())
 		return false;
@@ -62,6 +68,9 @@ bool Stage::init(){
 	scheduleUpdate();
 
 	setContentSize(floor->getContentSize());
+
+	collisionDetector = CollisionDetector::create();
+	addChild(collisionDetector);
 
 	return true;
 }
@@ -103,10 +112,6 @@ bool Stage::initObject(
 	if(name == "spawn"){
 		node = EnemySpawner::create();
 	}
-	else if(name == "light")
-		node = Node::create(); /* replace me */
-	else if(name == "shop")
-		node = Node::create(); /* replace me */
 	else{
 		cocos2d::log("unknown object");
 		return false;
