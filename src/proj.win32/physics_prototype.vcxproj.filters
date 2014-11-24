@@ -386,6 +386,7 @@
     </ClInclude>
     <ClInclude Include="..\Classes\skill\enemy\Spiral.h">
       <Filter>source\skill\enemy</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\common\makepath.h">
       <Filter>source\common</Filter>
     </ClInclude>
