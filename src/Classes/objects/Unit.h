@@ -110,6 +110,7 @@ protected:
 
 protected:
 	int id;
+	int stageID;
 	Ally::Type allyID;
 
 	Gauge* gauge;

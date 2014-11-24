@@ -29,8 +29,9 @@ struct Unit::PassiveData{
 	float interval;
 };
 
-Unit::Unit()
-:friction(0){
+Unit::Unit() :
+	id(-1), stageID(0),
+	friction(0){
 }
 Unit::~Unit(){
 }
@@ -183,7 +184,8 @@ void Unit::blink(){
 }
 
 void Unit::onExit(){
-	Stage::getInstance(0)->getCollisionDetector()->removeUnit(this);
+	Stage::getInstance(stageID)->getCollisionDetector()
+		->removeUnit(this);
 	Sprite::onExit();
 }
 
