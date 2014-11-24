@@ -57,6 +57,8 @@ Scene* GameScene::scene(){
 }
 
 bool GameScene::init(){
+	onInitGlobalObjects();
+
 	if(!Layer::init())
 		return false;
 	if(!initUI())
@@ -136,7 +138,6 @@ bool GameScene::initUI(){
 
 void GameScene::onEnter(){
 	Layer::onEnter();
-	onInitGlobalObjects();
 
 	auto audio = SimpleAudioEngine::getInstance();
 	audio->playBackgroundMusic(R::BGM.c_str(), true);
