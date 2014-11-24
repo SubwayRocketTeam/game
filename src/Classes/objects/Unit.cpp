@@ -88,10 +88,8 @@ bool Unit::init(){
 bool Unit::init(
 	const string &imageName, const int part){
 
-	char path[128];
-	sprintf(path, "%s.png", imageName.c_str());
-
-	if(!Sprite::initWithFile(path))
+	if(!Sprite::initWithFile(
+		_MAKE_PATH("%s.png", imageName.c_str())))
 		return false;
 
 	if(!initPhysics())
@@ -193,9 +191,14 @@ void Unit::onExit(){
 bool Unit::onDamage(
 	const AttackData &attackData){
 
+	/* true를 반환하면 데미지 처리 허용
+	 * false를 반환하면 데미지 처리 무시 (무적, 회피 등) */
 	return true;
 }
 bool Unit::onDeath(){
+
+	/* true를 반환하면 사망 처리
+	 * false를 반환하면 죽지 않음 */
 	return true;
 }
 bool Unit::damage(
