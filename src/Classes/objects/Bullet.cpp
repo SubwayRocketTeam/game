@@ -28,6 +28,7 @@ Bullet *Bullet::create(
 bool Bullet::init(
 	int id){
 
+	/* TODO : id에 따른 총알 데이터 변경 */
 	if (!Unit::init(
 		_MAKE_PATH("bullet%d", id)))
 		return false;
@@ -77,7 +78,7 @@ bool Bullet::onDamage(
 }
 
 
-
+/* TODO : 두개 하나로 합치기 */
 void Bullet::fire(
 	float x,float y, float speed){
 	

@@ -54,6 +54,7 @@ void PlayerGauge::update(
 		hp = player->_ATTR(hp);
 		hpMax = player->_ATTR_MAX(hp);
 
+		/* TODO : 체력 줄어들 때도 에니메이션? */
 		/*
 		runAction(
 			ProgressTo::create(
