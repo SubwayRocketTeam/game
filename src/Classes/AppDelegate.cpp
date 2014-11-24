@@ -60,24 +60,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	/* 전역적으로 계속 쓰이는 오브젝트 */
 	Network::create();
 	JsonLoader::create();
-	Cursor::create();
-
-	/* GameScene에서만 쓰이는 객체 */
-	GlobalResource::create();
-	TrashTank::create();
-	TrashPool::create();
-	EffectLayer::create();
-	EffectFactory::create();
-	Minimap::create();
-	Stage::create();
-	Ally::create();
-	StatusConsole::create();
-	SkillPool::create();
-	EnemyFactory::create();
-	PhysicsFactory::create();
-	UserResources::create();
-	SkillIconPanel::create();
-	UpgradeBar::create();
 
 	auto network = Network::getInstance();
 	network->open("localhost", 9916,

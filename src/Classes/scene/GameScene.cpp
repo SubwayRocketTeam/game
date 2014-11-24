@@ -6,13 +6,16 @@
 #include "audio/include/SimpleAudioEngine.h"
 
 #include "common/resource.h"
+#include "common/PhysicsFactory.h"
 
+#include "objects/GlobalResource.h"
 #include "objects/Ally.h"
 #include "objects/Stage.h"
 #include "objects/StageLayer.h"
 #include "objects/Player.h"
 #include "objects/Enemy.h"
 #include "objects/EnemySpawner.h"
+#include "objects/EnemyFactory.h"
 #include "objects/EffectLayer.h"
 #include "objects/Effect.h"
 #include "objects/EffectFactory.h"
@@ -27,6 +30,8 @@
 #include "ui/SkillIconPanel.h"
 #include "ui/UpgradeBar.h"
 #include "ui/TrashTank.h"
+
+#include "skill/SkillPool.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -146,6 +151,24 @@ void GameScene::onExit(){
 
 void GameScene::onInitGlobalObjects(){
 	/* TODO : 여기에 글로벌 오브젝트들 초기화 처리 */
+	GlobalResource::create();
+	TrashTank::create();
+	TrashPool::create();
+	EffectLayer::create();
+	EffectFactory::create();
+	Minimap::create();
+	Stage::create();
+	Ally::create();
+	StatusConsole::create();
+	SkillPool::create();
+	EnemyFactory::create();
+	PhysicsFactory::create();
+	UserResources::create();
+	SkillIconPanel::create();
+	UpgradeBar::create();
+
+	/* TODO : 커서 전역에서 쓸수 잇도록 */
+	Cursor::create();
 }
 void GameScene::onReleaseGlobalObjects(){
 	/* TODO : 여기에 글로벌 오브젝트들 해제 처리 */
