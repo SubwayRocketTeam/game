@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "TrashTank.h"
 
 #include "objects/GlobalResource.h"
@@ -8,6 +8,13 @@
 using namespace cocos2d;
 
 static TrashTank *instance = nullptr;
+
+TrashTank::TrashTank() :
+	gauge(nullptr), overlay(nullptr),
+	cost(0){
+}
+TrashTank::~TrashTank(){
+}
 
 TrashTank *TrashTank::create(){
 	instance = new TrashTank();
@@ -37,6 +44,16 @@ bool TrashTank::init(){
 	gauge->setMidpoint(Vec2(0,0));
 	addChild(gauge);
 
+	BlendFunc blend;
+	blend.src = GL_ONE;
+	blend.dst = GL_SRC_ALPHA;
+
+	overlay = Sprite::create(R::TankGauge);
+	overlay->setAnchorPoint(Vec2(0,0));
+	overlay->setBlendFunc(blend);
+	overlay->setVisible(false);
+	addChild(overlay);
+
 	scheduleUpdate();
 
 	return true;
@@ -45,7 +62,35 @@ void TrashTank::update(
 	float dt){
 
 	auto resource = GlobalResource::getInstance();
-
 	gauge->setPercentage(
 		(float)resource->trash / Max::Tank * 100.0f);
+
+	/* 블링크 영역 업데이트 */
+	auto size = gauge->getContentSize();
+	float x =
+		MAX(0, size.width * ((resource->trash-cost) / Max::Tank));
+	float width = 
+		size.width * MIN((float)resource->trash / Max::Tank, cost / Max::Tank);
+	overlay->setTextureRect(
+		Rect(x,0, width,size.height));
+	overlay->setPositionX(x);
+}
+
+void TrashTank::blink(
+	float _cost){
+		
+	cost = _cost;
+	overlay->setOpacity(255);
+	overlay->setVisible(true);
+	overlay->runAction(
+		RepeatForever::create(
+		Sequence::create(
+			FadeTo::create(0.3, 128),
+			FadeTo::create(0.3, 200),
+			nullptr
+		)));
+}
+void TrashTank::stopBlink(){
+	overlay->setVisible(false);
+	overlay->stopAllActions();
 }

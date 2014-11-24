@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "UpgradeBar.h"
+#include "TrashTank.h"
 
 #include "common/resource.h"
 
@@ -60,12 +61,21 @@ void UpgradeBar::slide(
 void UpgradeBar::onKeyboardDown(
 	EventKeyboard::KeyCode key){
 
-	if(key == EventKeyboard::KeyCode::KEY_SHIFT)
+	if(key == EventKeyboard::KeyCode::KEY_SHIFT){
+		/* TODO : 업그레이드 비용에 따른 블링크 범위 설정 */
+		auto tank = TrashTank::getInstance();
+		tank->blink(15);
+
 		slide(slideDown);
+	}
 }
 void UpgradeBar::onKeyboardUp(
 	EventKeyboard::KeyCode key){
 
-	if(key == EventKeyboard::KeyCode::KEY_SHIFT)
+	if(key == EventKeyboard::KeyCode::KEY_SHIFT){
+		auto tank = TrashTank::getInstance();
+		tank->stopBlink();
+
 		slide(slideUp);
+	}
 }

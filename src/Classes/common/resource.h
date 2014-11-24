@@ -46,6 +46,7 @@ namespace R{
 	_RESL(TankFrame);
 	_RESL(TankGauge);
 	_RESL(TankIndicator);
+	_RESL(TankOverlay);
 
 	_RESL(BGM);
 	_RESL(Fire);

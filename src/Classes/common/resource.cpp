@@ -40,6 +40,7 @@ namespace R{
 	_RESD(TankFrame, "tank_frame.png");
 	_RESD(TankGauge, "tank_gauge.png");
 	_RESD(TankIndicator, "tank_indicator.png");
+	_RESD(TankOverlay, "tankui_back.png");
 
 	_RESD(BGM, "bgm.mid");
 	_RESD(Fire, "fire.wav");
