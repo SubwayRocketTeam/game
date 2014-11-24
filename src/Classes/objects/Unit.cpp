@@ -4,6 +4,9 @@
 #include "EffectFactory.h"
 #include "Effect.h"
 
+#include "Stage.h"
+#include "CollisionDetector.h"
+
 #include "common/resource.h"
 
 #include "skill/SkillPool.h"
@@ -179,6 +182,12 @@ void Unit::blink(){
 		->setTag(actionBlink);
 }
 
+void Unit::onExit(){
+	Stage::getInstance(0)->getCollisionDetector()->removeUnit(this);
+	Sprite::onExit();
+}
+
+
 bool Unit::onDamage(
 	const AttackData &attackData){
 
@@ -297,5 +306,5 @@ void Unit::hit() {
 
 void Unit::collide(
 	cocos2d::Vec2 delta){
-	setPosition(getPosition() + delta);
+	setPosition(getPosition() + delta * 0.5f);
 }
