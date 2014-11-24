@@ -381,6 +381,9 @@
     <ClInclude Include="..\Classes\skill\general\Suction.h">
       <Filter>source\skill\general</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\common\makepath.h">
+      <Filter>source\common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">
