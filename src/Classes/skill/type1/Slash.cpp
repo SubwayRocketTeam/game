@@ -30,6 +30,9 @@ void Slash::use(
 	bullet->setRadius(10);
 	bullet->setDamage(1);
 	bullet->setAllyID(u->getAllyID());
+	bullet->setOpacity(0);
+	bullet->runAction(
+		FadeIn::create(0.25));
 
 	stage->addChild(bullet, Z::bullet);
 	
