@@ -32,6 +32,9 @@ protected:
 	virtual void update(
 		float dt);
 
+	virtual void onKeyboardDown(
+		cocos2d::EventKeyboard::KeyCode key);
+
 private:
 	Player *player;
 };

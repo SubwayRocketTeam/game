@@ -3,6 +3,7 @@
 
 #include <vector>
 
+#include "editor-support/cocostudio/CCSGUIReader.h"
 #include "audio/include/SimpleAudioEngine.h"
 
 #include "common/resource.h"
@@ -35,6 +36,7 @@
 
 using namespace std;
 using namespace cocos2d;
+using namespace cocostudio;
 using namespace CocosDenshion;
 
 GameScene::GameScene() :
@@ -181,4 +183,31 @@ void GameScene::onReleaseGlobalObjects(){
 
 void GameScene::update(
 	float dt){
+}
+
+void GameScene::onKeyboardDown(
+	EventKeyboard::KeyCode key){
+
+	/* TODO : 여기좀 정리 */
+	if(key == EventKeyboard::KeyCode::KEY_ESCAPE){
+		auto reader = GUIReader::getInstance();
+		auto layout = reader->widgetFromJsonFile("pause_menu.json");
+
+		auto resume =
+			(ui::Widget*)layout->getChildByName("resume");
+		resume->addClickEventListener(
+			[=](Ref *sender){
+				layout->removeFromParentAndCleanup(true);
+				Director::getInstance()->resume();
+		});
+
+		auto visibleSize = Director::getInstance()->getVisibleSize();
+		layout->setPosition(visibleSize/2);
+		
+		//Stage::getInstance(0)->setVisible(false);
+		Stage::getInstance(0)->
+			addChild(layout);
+
+		//Director::getInstance()->pause();
+	}
 }

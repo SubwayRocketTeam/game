@@ -4,4 +4,8 @@
     <Project>login_scene</Project>
     <GuidesList />
   </GuidesProject>
+  <GuidesProject>
+    <Project>pause_menu</Project>
+    <GuidesList />
+  </GuidesProject>
 </ArrayOfGuidesProject>

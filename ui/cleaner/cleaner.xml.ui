@@ -8,6 +8,7 @@
   <JsonFolder>E:\repos\game\ui\cleaner\Json</JsonFolder>
   <JsonList>
     <string>login_scene.json</string>
+    <string>pause_menu.json</string>
   </JsonList>
   <CanvasSize>
     <Width>0</Width>
@@ -17,10 +18,7 @@
   <ProjectType>UIProject</ProjectType>
   <ResRelativePath />
   <imageFileList />
-  <imagePngList>
-    <string>login_background.jpg</string>
-    <string>GUI/button.png</string>
-  </imagePngList>
+  <imagePngList />
   <JsonSuffix>.json</JsonSuffix>
-  <CurrentUIJson>login_scene.json</CurrentUIJson>
+  <CurrentUIJson>pause_menu.json</CurrentUIJson>
 </UIProject>
