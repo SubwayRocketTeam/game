@@ -71,11 +71,16 @@ public:
 
 	// 얻어맞을 때
 	virtual void hit();
+	// 충돌했을 때
+	// delta: 충돌되어 밀어내어지는 크기와 방향
+	virtual void collide(
+		cocos2d::Vec2 delta);
 
 public:
 	cocos2d::Vec2 velocity;
 	cocos2d::Vec2 acceleration;
 	float friction;
+	float radius;
 
 protected:
 	Unit();

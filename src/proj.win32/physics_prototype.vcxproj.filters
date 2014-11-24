@@ -157,6 +157,9 @@
     <ClCompile Include="..\Classes\objects\GlobalResource.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\objects\CollisionDetector.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -324,11 +327,9 @@
     <ClInclude Include="..\Classes\ui\UpgradeBar.h">
       <Filter>source\ui</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\skill\general\Suction.h" />
     <ClInclude Include="..\Classes\objects\EnemyFactory.h">
       <Filter>source\object</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\objects\EnemyType.h" />
     <ClInclude Include="..\Classes\common\zorder.h">
       <Filter>source\common</Filter>
     </ClInclude>
@@ -370,6 +371,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\objects\GlobalResource.h">
       <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\CollisionDetector.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemyType.h">
+      <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\general\Suction.h">
+      <Filter>source\skill\general</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
