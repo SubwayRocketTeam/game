@@ -56,7 +56,7 @@ bool Enemy::initAttrs(){
 	if (!Unit::initAttrs())
 		return false;
 
-	_INIT_ATTR(speed, 50);
+	_INIT_ATTR(speed, 5);
 	_INIT_ATTR(drops, 10);
 
 	return true;
@@ -84,14 +84,17 @@ void Enemy::update(
 	float dt){
 
 	auto target = getTarget();
+	auto speed = _ATTR(speed);
 
-	auto delta = getPosition() - target->getPosition();
-	
-	auto move = delta.getNormalized() * _ATTR(speed);
-	auto angle = 
-		CC_RADIANS_TO_DEGREES(delta.getAngle(getPosition()));
+	if(speed){
+		auto delta = getPosition() - target->getPosition();
+		auto move = delta.getNormalized() * speed;
+		auto angle = 
+			CC_RADIANS_TO_DEGREES(delta.getAngle(getPosition()));
 
-//	getPhysicsBody()->setVelocity(-move);
+		runAction(
+			MoveBy::create(dt, -move));
+	}
 
 	attackData.postion = getPosition();
 	Ally::getInstance(_OPPOSITE(allyID))->processAttack(attackData);
