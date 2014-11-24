@@ -62,8 +62,9 @@ void Ally::processAttack(
 		bool flag = true;
 		auto& member = *it;
 		auto memberPosition = member->getPosition();
-		float r = ((PhysicsShapeCircle*)member->getPhysicsBody()->getFirstShape())->getRadius()
-			+ data.radius;
+//		float r = ((PhysicsShapeCircle*)member->getPhysicsBody()->getFirstShape())->getRadius()
+//			+ data.radius;
+		float r = member->radius + data.radius;
 		Vec2 delta = memberPosition - data.postion;
 
 		if(data.postion.getDistance(memberPosition) <= r){

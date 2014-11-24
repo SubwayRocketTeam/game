@@ -91,7 +91,7 @@ void Enemy::update(
 	auto angle = 
 		CC_RADIANS_TO_DEGREES(delta.getAngle(getPosition()));
 
-	getPhysicsBody()->setVelocity(-move);
+//	getPhysicsBody()->setVelocity(-move);
 
 	attackData.postion = getPosition();
 	Ally::getInstance(_OPPOSITE(allyID))->processAttack(attackData);
