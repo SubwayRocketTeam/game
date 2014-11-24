@@ -8,6 +8,9 @@
 #include "Ally.h"
 #include "TrashPool.h"
 
+#include "Stage.h"
+#include "CollisionDetector.h"
+
 #include "skill/ActiveSkill.h"
 
 #include "objects/EnemyInfo.h"
@@ -61,6 +64,10 @@ bool Enemy::initAttrs(){
 
 
 bool Enemy::initPhysics(){
+	Stage::getInstance(0)->getCollisionDetector()->addUnit(this);
+	radius = 30;
+	return true;
+	/*
 	auto factory = PhysicsFactory::getInstance();
 	auto pbody = factory->make("enemy");
 
@@ -70,6 +77,7 @@ bool Enemy::initPhysics(){
 		return true;
 	}
 	return true;
+	*/
 }
 
 void Enemy::update(

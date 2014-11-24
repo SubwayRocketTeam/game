@@ -10,6 +10,9 @@
 #include "EnemyFactory.h"
 #include "GlobalResource.h"
 
+#include "Stage.h"
+#include "CollisionDetector.h"
+
 #include "ui/cursor.h"
 #include "ui/gauge.h"
 #include "ui/UserResources.h"
@@ -88,6 +91,10 @@ bool Player::initAttrs(){
 	return true;
 }
 bool Player::initPhysics(){
+	Stage::getInstance(0)->getCollisionDetector()->addUnit(this);
+	radius = 30;
+	return true;
+	/*
 	auto factory = PhysicsFactory::getInstance();
 	auto pbody = factory->make("player");
 
@@ -99,6 +106,7 @@ bool Player::initPhysics(){
 	}
 	
 	return false;
+	*/
 }
 bool Player::initExternalData(
 	const string &dataPath){

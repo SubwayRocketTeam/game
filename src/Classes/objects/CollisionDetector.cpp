@@ -6,7 +6,14 @@
 USING_NS_CC;
 
 CollisionDetector* CollisionDetector::create(){
-
+	auto o = new CollisionDetector();
+	if (o && o->init())
+	{
+		o->autorelease();
+		return o;
+	}
+	CC_SAFE_DELETE(o);
+	return nullptr;
 }
 
 
