@@ -47,13 +47,15 @@ Enemy* EnemyFactory::createEnemy(EnemyType type)
 
 void EnemyFactory::spawn(EnemyType type) {
 	auto stage = Stage::getInstance(0);
+	auto stageSize = stage->getContentSize();
 	auto ally = Ally::getInstance(
 		Ally::Type::allyEnemy);
 	auto factory = EnemyFactory::getInstance();
 
 	Enemy *e = factory->createEnemy(type);
 	e->setPosition(
-		rand()%800, rand()%400);
+		rand()%(int)stageSize.width - stageSize.width/2,
+		rand()%(int)stageSize.height - stageSize.height/2);
 	e->resetAggro();
 
 	ally->push(e);
