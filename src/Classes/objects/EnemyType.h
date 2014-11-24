@@ -3,5 +3,6 @@
 enum EnemyType{
 	enemyBasic,
 	enemyShooting,
+	enemySpiral,
 };
 

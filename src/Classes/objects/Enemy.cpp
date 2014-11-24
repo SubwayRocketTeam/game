@@ -100,9 +100,9 @@ void Enemy::update(
 	{
 		if (cooltime <= 0.f)
 		{
+			printf("asdfasdf");
 			skill->use(this, target->getPosition());
 			cooltime = skill->cooltime;
-			cooltime *= _ATTR(attackSpeed);
 		}
 		else
 			cooltime -= dt;
@@ -178,5 +178,6 @@ void Enemy::setInfo(EnemyInfo* info) {
 		attrs[it->first] = it->second;
 	}
 
-	skill = info->skills[0];
+	if (info->skills.size() > 0)
+		skill = info->skills[0];
 }

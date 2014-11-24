@@ -8,6 +8,9 @@ public:
 
 	void fire(
 		float x,float y, float speed);
+	void fire(
+		cocos2d::Vec2 direction, float speed);
+
 	void update(
 		float dt);
 

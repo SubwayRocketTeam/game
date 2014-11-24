@@ -160,6 +160,9 @@
     <ClCompile Include="..\Classes\objects\CollisionDetector.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\skill\enemy\Spiral.cpp">
+      <Filter>source\skill\enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -381,6 +384,9 @@
     <ClInclude Include="..\Classes\skill\general\Suction.h">
       <Filter>source\skill\general</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\skill\enemy\Spiral.h">
+      <Filter>source\skill\enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">
@@ -433,6 +439,9 @@
     </Filter>
     <Filter Include="source\object\common\afterimage">
       <UniqueIdentifier>{bc339caa-de77-4cff-a8f4-d22d4ef2a3d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\skill\enemy">
+      <UniqueIdentifier>{98f35ba4-8c55-44bc-a3d7-8fb5afd6c4e9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

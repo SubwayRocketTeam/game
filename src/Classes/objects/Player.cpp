@@ -244,7 +244,7 @@ bool Player::onDamage(
 
 	runAction(
 		EaseExponentialOut::create(
-			MoveBy::create(0.2, deltaNorm * 70)
+			MoveBy::create(0.2f, deltaNorm * 70)
 		));
 
 	return true;

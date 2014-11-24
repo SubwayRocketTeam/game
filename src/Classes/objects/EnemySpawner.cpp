@@ -36,8 +36,11 @@ bool EnemySpawner::init(){
 void EnemySpawner::update(
 	float dt){
 
-	if(rand()%100 == 1){
-		spawn(enemyBasic);
+	static bool ok = true;
+
+	if(ok){
+		spawn(enemySpiral);
+		ok = false;
 	}
 }
 
