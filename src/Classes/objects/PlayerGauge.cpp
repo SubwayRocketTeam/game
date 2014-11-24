@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "PlayerGauge.h"
 #include "Player.h"
 
@@ -38,6 +38,7 @@ bool PlayerGauge::init(
 
 	setType(ProgressTimer::Type::RADIAL);
 	setPercentage(100.0f);
+	setScaleX(-1); /* 시계 방향을 위해 */
 
 	scheduleUpdate();
 
@@ -54,7 +55,7 @@ void PlayerGauge::update(
 		hp = player->_ATTR(hp);
 		hpMax = player->_ATTR_MAX(hp);
 
-		/* TODO : ü�� �پ�� ���� ���ϸ��̼�? */
+		/* TODO : 체력 줄어들 때도 에니메이션? */
 		/*
 		runAction(
 			ProgressTo::create(
