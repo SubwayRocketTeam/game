@@ -54,9 +54,12 @@ void PlayerGauge::update(
 		hp = player->_ATTR(hp);
 		hpMax = player->_ATTR_MAX(hp);
 
+		/*
 		runAction(
 			ProgressTo::create(
-				FadeDuration, hp/hpMax*100.0f));
+				FadeDuration, hp/hpMax*100.0f))
+		*/
+		setPercentage(hp/hpMax*100.0f);
 	}
 
 	this->setRotation(-player->getRotation());
