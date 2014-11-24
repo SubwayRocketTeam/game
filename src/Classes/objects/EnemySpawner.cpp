@@ -36,14 +36,11 @@ bool EnemySpawner::init(){
 void EnemySpawner::update(
 	float dt){
 
-	static bool ok = true;
-
-	if(ok){
+	if(rand()%100 == 1){
 		spawn(enemySpiral);
-		ok = false;
 	}
 }
-
+ 
 void EnemySpawner::spawn(
 	EnemyType type){
 	auto stage = Stage::getInstance(0);
