@@ -6,7 +6,7 @@
 			"attrs" : [
 				{"name" : "hp", "value" : 3},
 				{"name" : "hp_gen", "value" : 0},
-				{"name" : "speed", "value" : 7},
+				{"name" : "speed", "value" : 2},
 				{"name" : "attack", "value" : 50},
 				{"name" : "attack_speed", "value" : 3.0},
 				{"name" : "range", "value" : 120},
@@ -23,7 +23,7 @@
 			"attrs" : [
 				{"name" : "hp", "value" : 3},
 				{"name" : "hp_gen", "value" : 0},
-				{"name" : "speed", "value" : 7},
+				{"name" : "speed", "value" : 0},
 				{"name" : "attack", "value" : 50},
 				{"name" : "attack_speed", "value" : 3.0},
 				{"name" : "range", "value" : 120},
@@ -42,7 +42,7 @@
 			"attrs" : [
 				{"name" : "hp", "value" : 20},
 				{"name" : "hp_gen", "value" : 0},
-				{"name" : "speed", "value" : 7},
+				{"name" : "speed", "value" : 0},
 				{"name" : "attack", "value" : 50},
 				{"name" : "attack_speed", "value" : 3.0},
 				{"name" : "range", "value" : 120},
