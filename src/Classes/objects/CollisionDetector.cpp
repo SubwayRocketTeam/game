@@ -39,7 +39,10 @@ void CollisionDetector::update(
 			float distance = other2me.getLength();
 			float radius = me->radius + other->radius;
 			if (distance < radius){
-				Vec2 delta = other2me.getNormalized() * (radius - distance);
+				float deltaSize = radius - distance;
+				if (distance == 0)
+					other2me = Vec2::UNIT_X;
+				Vec2 delta = other2me.getNormalized() * deltaSize;
 				me->collide(delta);
 				other->collide(-delta);
 			}
