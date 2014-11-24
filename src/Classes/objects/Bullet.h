@@ -4,7 +4,8 @@
 
 class Bullet : public Unit{
 public:
-	static Bullet *create();
+	static Bullet *create(
+		int id =1);
 
 	void fire(
 		float x,float y, float speed);
@@ -35,9 +36,11 @@ protected:
 	Bullet();
 	virtual ~Bullet();
 
-	virtual bool init();
+	virtual bool init(
+		int id);
 	virtual bool initAttrs();
 	virtual bool initPhysics();
+
 	virtual bool onDamage(
 		const AttackData& attack);
 

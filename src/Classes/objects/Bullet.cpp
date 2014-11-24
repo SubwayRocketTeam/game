@@ -13,18 +13,23 @@ Bullet::Bullet(){
 Bullet::~Bullet(){
 }
 
-Bullet *Bullet::create(){
+Bullet *Bullet::create(
+	int id){
+
 	Bullet *e = new Bullet();
 
-	if(e && e->init()){
+	if(e && e->init(id)){
 		e->autorelease();
 		return e;
 	}
 	CC_SAFE_DELETE(e);
 	return nullptr;
 }
-bool Bullet::init(){
-	if (!Unit::init(R::Bullet))
+bool Bullet::init(
+	int id){
+
+	if (!Unit::init(
+		_MAKE_PATH("bullet%d", id)))
 		return false;
 
 	attackData.user = nullptr;

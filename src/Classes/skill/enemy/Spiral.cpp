@@ -39,7 +39,7 @@ void Spiral::circleShot(
 	auto stage = Stage::getInstance(0);
 
 	for (int i = 0; i < 4; ++i){
-		auto bullet = Bullet::create();
+		auto bullet = Bullet::create(2);
 		Vec2 direction = Vec2::UNIT_X.rotateByAngle(
 			Vec2::ZERO, CC_DEGREES_TO_RADIANS(angle + 90 * i));
 		bullet->setPosition(u->getPosition());
