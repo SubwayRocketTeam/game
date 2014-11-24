@@ -1,5 +1,7 @@
 # Robotopia Cleaner
 
+#### download-deps 한번 더 햊쉠
+
 Pull 할 때 주의사항
 ----
 * gitshell 열기
