@@ -16,8 +16,6 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	freopen("CONOUT$", "w", stdout);
 #endif
 
-	ShowCursor(false);
-
 	AppDelegate app;
 	return Application::getInstance()->run();
 }

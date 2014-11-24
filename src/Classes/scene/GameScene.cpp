@@ -140,6 +140,8 @@ void GameScene::onEnter(){
 
 	auto audio = SimpleAudioEngine::getInstance();
 	audio->playBackgroundMusic(R::BGM.c_str(), true);
+
+	ShowCursor(false);
 }
 void GameScene::onExit(){
 	Layer::onExit();
@@ -147,6 +149,8 @@ void GameScene::onExit(){
 
 	auto audio = SimpleAudioEngine::getInstance();
 	audio->stopBackgroundMusic();
+
+	ShowCursor(true);
 }
 
 void GameScene::onInitGlobalObjects(){
