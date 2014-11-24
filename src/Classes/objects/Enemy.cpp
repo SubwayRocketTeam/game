@@ -103,7 +103,6 @@ void Enemy::update(
 	{
 		if (cooltime <= 0.f)
 		{
-			printf("asdfasdf");
 			skill->use(this, target->getPosition());
 			cooltime = skill->cooltime;
 		}
