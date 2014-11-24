@@ -101,9 +101,8 @@ bool GameScene::initUI(){
 	this->addChild(resourcesUI);
 
 	auto minimap = Minimap::getInstance();
-	minimap->setPosition(175,125);
+	minimap->setPosition(860,655);
 	addChild(minimap);
-	//minimap->setVisible(false);
 
 	auto cursor = Cursor::getInstance();
 	addChild(cursor);
