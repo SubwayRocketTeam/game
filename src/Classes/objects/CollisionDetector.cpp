@@ -33,7 +33,7 @@ void CollisionDetector::update(
 		Unit* me = *it;
 		Vec2 pos = me->getPosition();
 		// 다른 Unit과의 충돌
-		for (auto itt = ++it; itt != unitVector.end(); ++itt){
+		for (auto itt = it+1; itt != unitVector.end(); ++itt){
 			Unit* other = *itt;
 			Vec2 other2me = pos - other->getPosition();
 			float distance = other2me.getLength();
@@ -49,11 +49,11 @@ void CollisionDetector::update(
 		// TODO: 상하좌우 벽의 위치를 외부에서 가져오기.
 		if (pos.x < -800)
 			me->collide(Vec2(-(pos.x + 800), 0));
-		if (pos.x < 800)
+		if (pos.x > 800)
 			me->collide(Vec2(-(pos.x - 800), 0));
 		if (pos.y < -600)
 			me->collide(Vec2(0, -(pos.y + 600)));
-		if (pos.y < 600)
+		if (pos.y > 600)
 			me->collide(Vec2(0, -(pos.y - 600)));
 	}
 }
