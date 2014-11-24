@@ -10,7 +10,7 @@ using namespace cocos2d;
 
 /* TODO : json에서 리젠률 설정 */
 RepairArea::RepairArea() :
-	regen(0.05){
+	regen(4){
 }
 RepairArea::~RepairArea(){
 }
@@ -46,6 +46,6 @@ void RepairArea::update(
 		Vec2 pos = player->getPosition();
 
 		if(rect.containsPoint(pos))
-			player->__ATTR(hp).increase(regen);
+			player->__ATTR(hp).increase(regen * dt);
 	}
 }
