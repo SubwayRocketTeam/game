@@ -23,7 +23,7 @@ void Attribute::set(
 float Attribute::increase(
 	float plus){
 
-	value = MIN(value + plus, maxValue);
+	value = MAX(MIN(value + plus, maxValue), 0);
 	return value;
 }
 
