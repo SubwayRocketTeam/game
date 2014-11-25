@@ -15,6 +15,8 @@ public:
 
 	float increase(
 		float plus);
+	float upgrade(
+		float plus);
 
 	float get();
 

@@ -27,6 +27,14 @@ float Attribute::increase(
 	return value;
 }
 
+float Attribute::upgrade(
+	float plus){
+
+	maxValue = MAX(maxValue + plus, 0);
+	value = maxValue;
+	return maxValue;
+}
+
 float Attribute::get(){
 	return (value + bonusValue)
 		* (1.0f + bonusRate);
