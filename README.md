@@ -50,7 +50,3 @@
     * 아무것도 안쏘고, 부딪히면 데미지만 주는 최하급 로봇
 * __물리__
   * 기존 물리 엔진 떼고 자체 충돌 처리 코드 주가.
-
-보이지 않는 변경 사항
-----
-* [빌드 속도 향상](https://github.com/SubwayRocketTeam/cocos2d-x-custom/commit/08ba83082b85bae6650d536fa9574516151a4cb1)
