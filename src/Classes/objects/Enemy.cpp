@@ -47,6 +47,9 @@ bool Enemy::init(){
 	attackData.aggro = 0;
 	attackData.damage = 1;
 
+	label = LabelTTF::create("", "Arial", 20);
+	addChild(label);
+
 	scheduleUpdate();
 
 	return true;
@@ -109,6 +112,8 @@ void Enemy::update(
 		else
 			cooltime -= dt;
 	}
+
+	label->setString(_MAKE_PATH("%f", aggros.begin()->second));
 }
 
 bool Enemy::onDamage(

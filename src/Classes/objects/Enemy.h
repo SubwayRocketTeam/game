@@ -48,4 +48,6 @@ protected:
 
 	ActiveSkill* skill;
 	float cooltime;
+
+	cocos2d::LabelTTF* label;
 };
