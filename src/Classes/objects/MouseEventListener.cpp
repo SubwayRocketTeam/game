@@ -59,7 +59,7 @@ void MouseEventListener::enableMouseInput(
 	auto director = Director::getInstance();
 	director->getScheduler()->schedule(
 		SEL_SCHEDULE(&MouseEventListener::processMouseTurbo), (Ref*)this,
-		director->getFrameRate(), false);
+		1.0f / Global::fps, false);
 
 	target->getEventDispatcher()->
 		addEventListenerWithSceneGraphPriority(mouseListener, target);

@@ -27,8 +27,8 @@ void KeyboardEventListener::enableKeyboardInput(
 	auto director = Director::getInstance();
 	director->getScheduler()->schedule(
 		SEL_SCHEDULE(&KeyboardEventListener::processKeyTurbo), (Ref*)this,
-		director->getFrameRate(), false);
-
+		1.0f / Global::fps, false);
+	
 	target->getEventDispatcher()->
 		addEventListenerWithSceneGraphPriority(keyboardListener, target);
 }
