@@ -55,7 +55,7 @@ void LoginScene::onLogin(
 
 	auto scene = GameScene::scene();
 	Director::getInstance()
-		->replaceScene(scene);
+		->pushScene(scene);
 }
 void LoginScene::onDescription(
 	Ref *sender, ui::Widget::TouchEventType type){
