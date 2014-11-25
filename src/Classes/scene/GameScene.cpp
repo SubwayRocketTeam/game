@@ -92,7 +92,7 @@ bool GameScene::initUI(){
 	stage->addChild(repairArea);
 
 	/* PLAYER */
-	player = Player::create("type1.json");
+	player = Player::getInstance();
 	player->setPosition(
 		Vec2(100,100));
 	stage->addChild(player, Z::unit);
@@ -173,6 +173,7 @@ void GameScene::onInitGlobalObjects(){
 	UserResources::create();
 	SkillIconPanel::create();
 	UpgradeBar::create();
+	Player::create("type1.json");
 
 	/* TODO : 커서 전역에서 쓸수 잇도록 */
 	Cursor::create();
