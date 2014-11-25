@@ -13,7 +13,7 @@
 
 #include "objects/enemyInfo.h"
 
-USING_NS_CC;
+using namespace cocos2d;
 
 static EnemyFactory* instance = nullptr;
 

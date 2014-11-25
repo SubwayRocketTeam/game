@@ -3,7 +3,7 @@
 
 #include "Unit.h"
 
-USING_NS_CC;
+using namespace cocos2d;
 
 CollisionDetector* CollisionDetector::create(){
 	auto o = new CollisionDetector();

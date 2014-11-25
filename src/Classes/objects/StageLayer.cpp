@@ -62,7 +62,7 @@ void StageLayer::switchStage(){
 			Hide::create(),
 			nullptr
 		))
-		->setTag(actionSwitchStage);;
+		->setTag(actionSwitchStage);
 
 	/* 기본적으로 2팀임을 가정 */
 	activeStageID ^= 1;
