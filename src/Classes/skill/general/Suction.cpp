@@ -12,23 +12,25 @@
 using namespace std;
 using namespace cocos2d;
 
-void Suction::use(
-	Unit *u,
-	cocos2d::Vec2 pos){
+void Suction::update(
+	Unit *user,
+	float remaining){
 
 //	auto slash = Sprite::create(R::SkillSlash);
 	auto ally = Ally::getInstance(
-	_OPPOSITE(u->getAllyID()));
+	_OPPOSITE(user->getAllyID()));
 
 	AttackData attackData;
-	attackData.user = u;
-	attackData.object = u;
+	attackData.user = user;
+	attackData.object = user;
 	attackData.damage = 0;
-	attackData.postion = u->getPosition();
-	attackData.radius = 100;
+	attackData.postion = user->getPosition();
+	attackData.radius = user->getAttribute(Attr::range).get();
 	attackData.aggro = 1;
 
 	ally->processAttack(attackData);
+
+
 
 	/*
 	slash->runAction(

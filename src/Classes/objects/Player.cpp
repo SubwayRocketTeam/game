@@ -349,12 +349,18 @@ void Player::onKeyboardDown(
 	if(keycode == EventKeyboard::KeyCode::KEY_1)
 		addPassive(100);
 
+	if (keycode == EventKeyboard::KeyCode::KEY_SPACE)
+		addPassive(12);
+
 	if (keycode == EventKeyboard::KeyCode::KEY_Z) {
 		EnemyFactory::getInstance()->spawn(EnemyType::enemyBasic);
 	}
 }
 void Player::onKeyboardUp(
 	EventKeyboard::KeyCode keycode){
+
+	if (keycode == EventKeyboard::KeyCode::KEY_SPACE)
+		removePassive(12);
 }
 void Player::onKeyboardPressed(
 	EventKeyboard::KeyCode keycode){

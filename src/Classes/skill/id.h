@@ -3,6 +3,7 @@
 enum SkillID{
 	skillSlash = 10,
 	skillFrontDash,
+	skillSuction,
 
 	skillTestPassive = 100,
 

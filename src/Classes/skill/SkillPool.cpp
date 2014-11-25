@@ -7,6 +7,7 @@
 #include "skill/id.h"
 #include "skill/type1/Slash.h"
 #include "skill/type1/FrontDash.h"
+#include "skill/general/Suction.h"
 #include "skill/type1/Adrenaline.h"
 #include "skill/enemy/Spiral.h"
 #include "skill/PassiveSkill.h"
@@ -35,6 +36,7 @@ bool SkillPool::init(){
 
 	skills[skillSlash] = new Slash();
 	skills[skillFrontDash] = new FrontDash();
+	skills[skillSuction] = new Suction();
 	skills[skillTestPassive] = new Adrenaline();
 	skills[skillSpiral] = new Spiral();
 

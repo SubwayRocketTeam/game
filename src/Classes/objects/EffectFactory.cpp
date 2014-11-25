@@ -67,7 +67,7 @@ Animation *EffectFactory::loadAnimation(
 	auto animation = Animation::create();
 	animation->setDelayPerUnit(1.0 / Global::fps);
 	
-	for(int i=0;i++){
+	for (int i = 0; ; i++){
 		char path[128];
 		sprintf(path, "%s_%d%d%d.png",
 			name.c_str(),
