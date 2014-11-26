@@ -5,9 +5,10 @@
 #include "common/resource.h"
 
 #include "skill/id.h"
+#include "skill/general/Suction.h"
+#include "skill/general/Repair.h"
 #include "skill/type1/Slash.h"
 #include "skill/type1/FrontDash.h"
-#include "skill/general/Suction.h"
 #include "skill/type1/Adrenaline.h"
 #include "skill/enemy/Spiral.h"
 #include "skill/PassiveSkill.h"
@@ -39,6 +40,7 @@ bool SkillPool::init(){
 	skills[skillSuction] = new Suction();
 	skills[skillTestPassive] = new Adrenaline();
 	skills[skillSpiral] = new Spiral();
+	skills[skillRepair] = new Repair();
 
 	for(auto skill : root){
 		int id = skill.get("id",0).asInt();

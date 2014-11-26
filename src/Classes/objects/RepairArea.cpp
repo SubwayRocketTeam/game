@@ -3,6 +3,8 @@
 
 #include "common/resource.h"
 
+#include "skill/id.h"
+
 #include "Ally.h"
 #include "tags.h"
 
@@ -46,6 +48,6 @@ void RepairArea::update(
 		Vec2 pos = player->getPosition();
 
 		if(rect.containsPoint(pos))
-			player->__ATTR(hp).increase(regen * dt);
+			player->addPassive(skillRepair);
 	}
 }

@@ -8,4 +8,6 @@ enum SkillID{
 	skillTestPassive = 100,
 
 	skillSpiral = 200,
+
+	skillRepair = 10000
 };

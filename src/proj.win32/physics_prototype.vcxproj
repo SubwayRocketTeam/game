@@ -142,6 +142,7 @@ xcopy $(ProjectDir)..\Resources bin_path</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\common\IterLock.cpp" />
     <ClCompile Include="..\Classes\common\JsonLoader.cpp" />
     <ClCompile Include="..\Classes\common\PhysicsFactory.cpp" />
     <ClCompile Include="..\Classes\common\resource.cpp" />
@@ -178,6 +179,7 @@ xcopy $(ProjectDir)..\Resources bin_path</Command>
     <ClCompile Include="..\Classes\skill\ActiveSkill.cpp" />
     <ClCompile Include="..\Classes\skill\Attribute.cpp" />
     <ClCompile Include="..\Classes\skill\enemy\Spiral.cpp" />
+    <ClCompile Include="..\Classes\skill\general\Repair.cpp" />
     <ClCompile Include="..\Classes\skill\general\Suction.cpp" />
     <ClCompile Include="..\Classes\skill\PassiveSkill.cpp" />
     <ClCompile Include="..\Classes\skill\Skill.cpp" />
@@ -212,6 +214,7 @@ xcopy $(ProjectDir)..\Resources bin_path</Command>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\common\global.h" />
+    <ClInclude Include="..\Classes\common\IterLock.h" />
     <ClInclude Include="..\Classes\common\JsonLoader.h" />
     <ClInclude Include="..\Classes\common\makepath.h" />
     <ClInclude Include="..\Classes\common\max.h" />
@@ -254,6 +257,7 @@ xcopy $(ProjectDir)..\Resources bin_path</Command>
     <ClInclude Include="..\Classes\skill\Attribute.h" />
     <ClInclude Include="..\Classes\skill\AttributeName.h" />
     <ClInclude Include="..\Classes\skill\enemy\Spiral.h" />
+    <ClInclude Include="..\Classes\skill\general\Repair.h" />
     <ClInclude Include="..\Classes\skill\general\Suction.h" />
     <ClInclude Include="..\Classes\skill\id.h" />
     <ClInclude Include="..\Classes\skill\PassiveSkill.h" />
