@@ -6,6 +6,6 @@
 
 class Adrenaline : public PassiveSkill{
 protected:
-	void update(
+	bool update(
 		Unit *user, float remaining);
 };

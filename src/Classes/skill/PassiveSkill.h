@@ -20,6 +20,6 @@ protected:
 	virtual bool initExternalData(
 		const std::string &dataPath);
 
-	virtual void update(
+	virtual bool update(
 		Unit *user, float remaining);
 };

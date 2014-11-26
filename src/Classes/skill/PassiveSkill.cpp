@@ -29,7 +29,9 @@ bool PassiveSkill::initExternalData(
 	return true;
 }
 
-void PassiveSkill::update(
+bool PassiveSkill::update(
 	Unit *user, float remaining){
 
+	/* false 리턴시 현재 패시브 제거 */
+	return true;
 }

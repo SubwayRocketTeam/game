@@ -12,7 +12,7 @@
 using namespace std;
 using namespace cocos2d;
 
-void Suction::update(
+bool Suction::update(
 	Unit *user,
 	float remaining){
 
@@ -43,4 +43,6 @@ void Suction::update(
 
 	u->addChild(slash);
 	*/
+
+	return true;
 }

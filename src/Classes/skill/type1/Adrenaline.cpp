@@ -5,7 +5,7 @@
 
 using namespace cocos2d;
 
-void Adrenaline::update(
+bool Adrenaline::update(
 	Unit *user, float remaining){
 
 	user->runAction(
@@ -13,4 +13,6 @@ void Adrenaline::update(
 			TintTo::create(0.1, 255,64,64),
 			TintTo::create(0.2, 255,255,255),
 			nullptr));
+
+	return true;
 }

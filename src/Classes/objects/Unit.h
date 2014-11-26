@@ -4,6 +4,8 @@
 
 #include <map>
 
+#include "common/IterLock.h"
+
 #include "skill/Attribute.h"
 #include "skill/AttributeName.h"
 #include "objects/AttackData.h"
@@ -115,6 +117,7 @@ protected:
 
 	Gauge* gauge;
 
+	IterLock passivesLock;
 	std::map<int, PassiveData> passives;
 	std::map<std::string,Attribute> attrs;
 };

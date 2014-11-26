@@ -8,6 +8,6 @@ class Unit;
 
 class Suction : public PassiveSkill{
 protected:
-	virtual void update(
+	virtual bool update(
 		Unit *user, float remaining);
 };

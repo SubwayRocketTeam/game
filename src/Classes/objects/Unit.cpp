@@ -135,6 +135,7 @@ void Unit::updatePassives(
 
 	vector<int> removeList;
 
+	passivesLock.lock();
 	for(auto &pair : passives){
 		auto id = pair.first;
 		auto &data = pair.second;
@@ -154,11 +155,14 @@ void Unit::updatePassives(
 				auto pool = SkillPool::getInstance();
 				auto skill = (PassiveSkill*)pool->get(id);
 
-				skill->update(this, data.remaining);
+				if(!skill->update(this, data.remaining))
+					removeList.push_back(id);
+
 				data.update = data.interval;
 			}
 		}
 	}
+	passivesLock.unlock();
 
 	for(auto id : removeList)
 		removePassive(id);
