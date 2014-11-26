@@ -100,8 +100,8 @@ protected:
 		const AttackData &attackData);
 	/* pre-death */
 	virtual bool onDeath();
-
-	virtual void updateGauge(
+	
+	virtual void updateGen(
 		float dt);
 	virtual void updatePassives(
 		float dt);

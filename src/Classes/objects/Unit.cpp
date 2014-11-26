@@ -100,7 +100,7 @@ bool Unit::init(
 	//gauge = Gauge::create(this);
 	//addChild(gauge);
 
-	//schedule(SEL_SCHEDULE(&Unit::updateGauge), 1.f / Global::fps);
+	schedule(SEL_SCHEDULE(&Unit::updateGen), 1.f / Global::fps);
 	schedule(SEL_SCHEDULE(&Unit::updatePassives), 1.f / Global::fps);
 	schedule(SEL_SCHEDULE(&Unit::updatePhysics), 1.f / Global::fps);
 
@@ -124,11 +124,11 @@ bool Unit::initPhysics(){
 	return true;
 }
 
-void Unit::updateGauge(
-	float dt) {
+void Unit::updateGen(
+	float dt){
 
-	_ATTR_VALUE(hp) += _ATTR(hpRegen) * dt;
-	_ATTR_VALUE(mp) += _ATTR(mpRegen) * dt;
+	__ATTR(hp).increase(_ATTR(hpRegen) * dt);
+	__ATTR(mp).increase(_ATTR(mpRegen) * dt);
 }
 void Unit::updatePassives(
 	float dt){
