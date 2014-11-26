@@ -67,6 +67,7 @@
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
     <IncludePath>$(ProjectDir)..\Classes;$(ProjectDir)..\jsoncpp\include;C:\cocos2d-x\game\cocos2d\external\win32-specific\gles\include\OGLES\GL;C:\cocos2d-x\game\cocos2d\external\glfw3\include;$(ProjectDir)..\cocos2d\external\json;$(ProjectDir)..\cocos2d\external;$(IncludePath)</IncludePath>
     <SourcePath>$(SourcePath)</SourcePath>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
