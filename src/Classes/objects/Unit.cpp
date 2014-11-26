@@ -138,12 +138,15 @@ void Unit::updatePassives(
 	for(auto &pair : passives){
 		auto id = pair.first;
 		auto &data = pair.second;
+		auto skill =
+			SkillPool::getInstance()->get(id);
 
 		data.remaining -= dt;
 		data.update -= dt;
 
 		/* 지속 시간이 끝났으면 지우기 */
-		if(data.remaining <= 0)
+		if( skill->duration != Skill::Infinite &&
+		    data.remaining <= 0)
 			removeList.push_back(id);
 		/* interval마다 update 호출해주기 */
 		else if(data.interval != 0){
@@ -237,6 +240,7 @@ void Unit::addPassive(
 	/* 이미 가지고 있는 패시브 */
 	if(passives.find(id) != passives.end())
 		return;
+
 	/* TODO : 패시브 중복 적용이면
 	          남은 시간 더하기 or 초기화할건지 */
 	PassiveData data;
