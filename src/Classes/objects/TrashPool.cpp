@@ -3,6 +3,7 @@
 #include "Trash.h"
 
 #include "Stage.h"
+#include "GlobalResource.h"
 
 #include <algorithm>
 
@@ -107,12 +108,17 @@ void TrashPool::update(
 
 	auto players = Ally::getInstance(
 		Ally::Type::allyPlayer);
-
+	auto resource = GlobalResource::getInstance();
+	
 	for(auto trash : trashes){
 		auto pos = trash->getPosition();
 
 		for(auto player : *players){
 			auto playerPos = player->getPosition();
+
+			/* TODO : 내가 조종하는 플레이어일 경우에만 이거 처리 */
+			if(resource->trash >= Max::Tank)
+				continue;
 
 			if(pos.getDistance(playerPos) <=
 				player->_ATTR(range)){

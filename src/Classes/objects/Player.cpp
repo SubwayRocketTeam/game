@@ -189,10 +189,13 @@ void Player::update(
 	auto trashes = trashPool->query(
 		Rect(pos.x-10,pos.y-10,20,20));
 
-	for(auto trash : trashes){
-		trash->sweep();
-		resource->trash += 1;
-		__ATTR(gold).increase(1);
+	/* */
+	if(resource->trash < Max::Tank){
+		for(auto trash : trashes){
+			trash->sweep();
+			resource->trash += 1;
+			__ATTR(gold).increase(1);
+		}
 	}
 
 	moveCounter = 0;
