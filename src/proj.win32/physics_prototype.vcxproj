@@ -187,7 +187,9 @@ xcopy $(ProjectDir)..\Resources bin_path</Command>
     <ClCompile Include="..\Classes\skill\type1\Adrenaline.cpp" />
     <ClCompile Include="..\Classes\skill\type1\FrontDash.cpp" />
     <ClCompile Include="..\Classes\skill\type1\Slash.cpp" />
+    <ClCompile Include="..\Classes\ui\ChatBox.cpp" />
     <ClCompile Include="..\Classes\ui\Gauge.cpp" />
+    <ClCompile Include="..\Classes\ui\InputBox.cpp" />
     <ClCompile Include="..\Classes\ui\Minimap.cpp" />
     <ClCompile Include="..\Classes\ui\SkillIcon.cpp" />
     <ClCompile Include="..\Classes\ui\SkillIconPanel.cpp" />
@@ -266,7 +268,9 @@ xcopy $(ProjectDir)..\Resources bin_path</Command>
     <ClInclude Include="..\Classes\skill\type1\Adrenaline.h" />
     <ClInclude Include="..\Classes\skill\type1\FrontDash.h" />
     <ClInclude Include="..\Classes\skill\type1\Slash.h" />
+    <ClInclude Include="..\Classes\ui\ChatBox.h" />
     <ClInclude Include="..\Classes\ui\Gauge.h" />
+    <ClInclude Include="..\Classes\ui\InputBox.h" />
     <ClInclude Include="..\Classes\ui\Minimap.h" />
     <ClInclude Include="..\Classes\ui\SkillIcon.h" />
     <ClInclude Include="..\Classes\ui\SkillIconPanel.h" />

@@ -169,6 +169,12 @@
     <ClCompile Include="..\Classes\common\IterLock.cpp">
       <Filter>source\common</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ui\ChatBox.cpp">
+      <Filter>source\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ui\InputBox.cpp">
+      <Filter>source\ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -401,6 +407,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\common\IterLock.h">
       <Filter>source\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\ChatBox.h">
+      <Filter>source\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\InputBox.h">
+      <Filter>source\ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

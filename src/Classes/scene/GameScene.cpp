@@ -31,6 +31,7 @@
 #include "ui/SkillIconPanel.h"
 #include "ui/UpgradeBar.h"
 #include "ui/TrashTank.h"
+#include "ui/ChatBox.h"
 
 #include "skill/SkillPool.h"
 
@@ -132,6 +133,11 @@ bool GameScene::initUI(){
 	trashTank->setPosition(visibleSize.width/2, 0);
 	addChild(trashTank);
 
+	auto chatBox = ChatBox::getInstance();
+	chatBox->setAnchorPoint(Vec2(0,0));
+	chatBox->setPosition(0,600);
+	addChild(chatBox);
+
 	/* LAYERS */
 	addChild(EffectLayer::getInstance());
 
@@ -174,6 +180,7 @@ void GameScene::onInitGlobalObjects(){
 	SkillIconPanel::create();
 	UpgradeBar::create();
 	Player::create("type1.json");
+	ChatBox::create();
 
 	/* TODO : 커서 전역에서 쓸수 잇도록 */
 	Cursor::create();
