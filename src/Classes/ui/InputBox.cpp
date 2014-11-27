@@ -92,3 +92,8 @@ void InputBox::endInput(){
 		Director::getInstance()->getOpenGLView()->getWin32Window();
 	SetFocus(hWnd);
 }
+
+void InputBox::clear(){
+	setString("");
+	SetWindowText(editbox, L"");
+}

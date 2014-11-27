@@ -13,6 +13,8 @@ public:
 	void beginInput();
 	void endInput();
 
+	void clear();
+
 protected:
 	InputBox();
 	virtual ~InputBox();
