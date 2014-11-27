@@ -41,6 +41,8 @@ bool InputBox::init(
 
 	SendMessage(
 		editbox, EM_SETLIMITTEXT, (WPARAM)maxLength, NULL);
+	SendMessage(
+		editbox, EM_SETIMESTATUS, (WPARAM)EMSIS_COMPOSITIONSTRING, (LPARAM)EIMES_CANCELCOMPSTRINFOCUS);
 
 	SetWindowLongPtr(
 		editbox, GWLP_USERDATA, (long)this);
@@ -90,7 +92,12 @@ void InputBox::beginInput(){
 void InputBox::endInput(){
 	HWND hWnd =
 		Director::getInstance()->getOpenGLView()->getWin32Window();
+
 	SetFocus(hWnd);
+
+	HIMC ime = ImmGetContext(hWnd);
+	ImmSetConversionStatus(ime, IME_CMODE_NOCONVERSION, 0);
+	ImmReleaseContext(hWnd, ime);
 }
 
 void InputBox::clear(){
