@@ -175,6 +175,9 @@
     <ClCompile Include="..\Classes\ui\InputBox.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\objects\DamageLabel.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -413,6 +416,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ui\InputBox.h">
       <Filter>source\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\DamageLabel.h">
+      <Filter>source\object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

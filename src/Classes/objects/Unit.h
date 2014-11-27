@@ -20,6 +20,7 @@
 class Gauge;
 class PartedBody;
 class PassiveSkill;
+class DamageLabel;
 
 class Unit : public cocos2d::Sprite{
 public:
@@ -116,6 +117,7 @@ protected:
 	Ally::Type allyID;
 
 	Gauge* gauge;
+	DamageLabel *damageLabel;
 
 	IterLock passivesLock;
 	std::map<int, PassiveData> passives;

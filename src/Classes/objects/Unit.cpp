@@ -6,6 +6,7 @@
 
 #include "Stage.h"
 #include "CollisionDetector.h"
+#include "DamageLabel.h"
 
 #include "common/resource.h"
 
@@ -31,6 +32,7 @@ struct Unit::PassiveData{
 
 Unit::Unit() :
 	id(-1), stageID(0),
+	damageLabel(nullptr),
 	friction(0){
 }
 Unit::~Unit(){
@@ -99,6 +101,11 @@ bool Unit::init(
 
 	//gauge = Gauge::create(this);
 	//addChild(gauge);
+
+	damageLabel = DamageLabel::create();
+	damageLabel->setPositionX(getContentSize().width/2);
+	damageLabel->setAnchorPoint(Vec2(0.5,0));
+	addChild(damageLabel);
 
 	schedule(SEL_SCHEDULE(&Unit::updateGen), 1.f / Global::fps);
 	schedule(SEL_SCHEDULE(&Unit::updatePassives), 1.f / Global::fps);
@@ -211,8 +218,11 @@ bool Unit::onDeath(){
 bool Unit::damage(
 	const AttackData& attackData){
 
-	if (onDamage(attackData))
+	if (onDamage(attackData)){
 		__ATTR(hp).increase(-MAX(0, attackData.damage - _ATTR(defence)));
+
+		damageLabel->active();
+	}
 	
 	if (_ATTR(hp) <= 0) {
 		if(onDeath()){

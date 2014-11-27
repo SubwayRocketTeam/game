@@ -152,6 +152,7 @@ xcopy $(ProjectDir)..\Resources bin_path</Command>
     <ClCompile Include="..\Classes\objects\Ally.cpp" />
     <ClCompile Include="..\Classes\objects\Bullet.cpp" />
     <ClCompile Include="..\Classes\objects\CollisionDetector.cpp" />
+    <ClCompile Include="..\Classes\objects\DamageLabel.cpp" />
     <ClCompile Include="..\Classes\objects\Effect.cpp" />
     <ClCompile Include="..\Classes\objects\EffectFactory.cpp" />
     <ClCompile Include="..\Classes\objects\EffectLayer.cpp" />
@@ -232,6 +233,7 @@ xcopy $(ProjectDir)..\Resources bin_path</Command>
     <ClInclude Include="..\Classes\objects\AttackData.h" />
     <ClInclude Include="..\Classes\objects\Bullet.h" />
     <ClInclude Include="..\Classes\objects\CollisionDetector.h" />
+    <ClInclude Include="..\Classes\objects\DamageLabel.h" />
     <ClInclude Include="..\Classes\objects\Effect.h" />
     <ClInclude Include="..\Classes\objects\EffectFactory.h" />
     <ClInclude Include="..\Classes\objects\EffectLayer.h" />
