@@ -37,7 +37,6 @@ static Player *instance = nullptr;
 Player::Player() : 
 	moveCounter(0), moveSwitchVertical(0), moveSwitchHorizontal(0),
 	speedFactor(1),
-	exp(0), expLimit(60 * 1), level(0),
 	immortal(0), stiff(0){
 
 	allyID = Ally::Type::allyPlayer;
@@ -73,13 +72,13 @@ bool Player::init(
 	if(!initExternalData(dataPath))
 		return false;
 
-	enableMouseInput(this);
-	enableKeyboardInput(this);
-
 	auto gauge = PlayerGauge::create(
 		_ATTR(hp), _ATTR_MAX(hp));
 	gauge->setPosition(getContentSize()/2);
 	addChild(gauge, -1);
+
+	enableMouseInput(this);
+	enableKeyboardInput(this);
 
 	scheduleUpdate();
 
@@ -91,22 +90,11 @@ bool Player::initAttrs(){
 	return true;
 }
 bool Player::initPhysics(){
-	Stage::getInstance(0)->getCollisionDetector()->addUnit(this);
+	Stage::getInstance(0)->getCollisionDetector()
+		->addUnit(this);
 	radius = 30;
-	return true;
-	/*
-	auto factory = PhysicsFactory::getInstance();
-	auto pbody = factory->make("player");
 
-	if(pbody){
-		pbody->setAngularDamping(100);
-		pbody->setLinearDamping(100);
-		setPhysicsBody(pbody);
-		return true;
-	}
-	
-	return false;
-	*/
+	return true;
 }
 bool Player::initExternalData(
 	const string &dataPath){
@@ -200,16 +188,6 @@ void Player::update(
 
 	moveCounter = 0;
 	moveSwitchHorizontal = moveSwitchVertical = 0;
-
-	auto resources = UserResources::getInstance();
-	resources->setExpAndMaxExp(exp, expLimit);
-	resources->setGold(_ATTR(gold));
-	if (exp >= expLimit) {
-		exp = 0;
-		expLimit *= 2;
-		level++;
-		resources->setLevel(level);
-	}
 }
 void Player::updateConditions(
 	float dt){

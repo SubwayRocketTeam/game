@@ -54,14 +54,7 @@ bool Bullet::initAttrs(){
 }
 
 bool Bullet::initPhysics(){
-	auto factory = PhysicsFactory::getInstance();
-	auto pbody = factory->make("bullet");
-
-	if(pbody){
-		return true;
-	}
-
-	return false;
+	return true;
 }
 
 bool Bullet::onDamage(
@@ -98,7 +91,9 @@ void Bullet::fire(
 
 void Bullet::update(float dt){
 	attackData.postion = getPosition();
-	Ally::getInstance(_OPPOSITE(allyID))->processAttack(attackData);
+
+	Ally::getInstance(_OPPOSITE(allyID))
+		->processAttack(attackData);
 }
 
 void Bullet::setUser(

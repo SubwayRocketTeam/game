@@ -99,9 +99,6 @@ bool Unit::init(
 	if(!initAttrs())
 		return false;
 
-	//gauge = Gauge::create(this);
-	//addChild(gauge);
-
 	damageLabel = DamageLabel::create();
 	damageLabel->setPositionX(getContentSize().width/2);
 	damageLabel->setAnchorPoint(Vec2(0.5,0));

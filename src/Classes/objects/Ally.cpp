@@ -1,7 +1,7 @@
 ﻿#include "pch.h"
 #include "Ally.h"
-
 #include "Unit.h"
+#include "AttackData.h"
 
 using namespace cocos2d;
 

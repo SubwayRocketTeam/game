@@ -2,12 +2,11 @@
 
 #include "cocos2d.h"
 
-#include "AttackData.h"
-
 #define _OPPOSITE(id) \
 	((Ally::Type) (((int)id) ^ 1))
 
 class Unit;
+struct AttackData;
 
 class Ally : public cocos2d::Ref{
 public:

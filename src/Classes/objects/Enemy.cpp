@@ -67,20 +67,11 @@ bool Enemy::initAttrs(){
 
 
 bool Enemy::initPhysics(){
-	Stage::getInstance(0)->getCollisionDetector()->addUnit(this);
+	Stage::getInstance(0)->getCollisionDetector()
+		->addUnit(this);
 	radius = 30;
-	return true;
-	/*
-	auto factory = PhysicsFactory::getInstance();
-	auto pbody = factory->make("enemy");
 
-	if(pbody){
-		pbody->setAngularDamping(100000000);
-		setPhysicsBody(pbody);
-		return true;
-	}
 	return true;
-	*/
 }
 
 void Enemy::update(

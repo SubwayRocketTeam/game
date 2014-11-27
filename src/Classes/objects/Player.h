@@ -96,10 +96,4 @@ protected:
 
 	cocos2d::DrawNode *lay;
 	cocos2d::Vec2 cursor;
-
-	// 현재 경험치
-	int exp;
-	// 레벨업 기준 경험치
-	int expLimit;
-	int level;
 };
