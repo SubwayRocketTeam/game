@@ -25,6 +25,9 @@ protected:
 	
 	void refreshContent();
 
+	void saveConvMode();
+	void restoreConvMode();
+
 	static LRESULT HookProc(
 		HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
 
@@ -34,4 +37,5 @@ private:
 	bool inputEnabled;
 	HWND editbox;
 	WNDPROC oldProc;
+	DWORD lastConv;
 };

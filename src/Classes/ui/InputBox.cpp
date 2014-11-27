@@ -6,7 +6,7 @@ using namespace cocos2d;
 
 InputBox::InputBox() :
 	maxLength(255),
-	editbox(nullptr){
+	editbox(nullptr), lastConv(IME_CMODE_NATIVE){
 }
 InputBox::~InputBox(){
 }
@@ -86,15 +86,29 @@ void InputBox::refreshContent(){
 	delete cmsg;
 }
 
+void InputBox::saveConvMode(){
+	HIMC ime = ImmGetContext(editbox);
+	ImmGetConversionStatus(ime, &lastConv, nullptr);
+	ImmReleaseContext(editbox, ime);
+}
+void InputBox::restoreConvMode(){
+	HIMC ime = ImmGetContext(editbox);
+	ImmSetConversionStatus(ime, lastConv, 0);
+	ImmReleaseContext(editbox, ime);
+}
+
 void InputBox::beginInput(){
 	SetFocus(editbox);
+	restoreConvMode();
 }
 void InputBox::endInput(){
 	HWND hWnd =
 		Director::getInstance()->getOpenGLView()->getWin32Window();
 
+	saveConvMode();
 	SetFocus(hWnd);
 
+	/* */
 	HIMC ime = ImmGetContext(hWnd);
 	ImmSetConversionStatus(ime, IME_CMODE_NOCONVERSION, 0);
 	ImmReleaseContext(hWnd, ime);
