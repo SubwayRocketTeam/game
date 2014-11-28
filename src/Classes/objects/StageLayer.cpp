@@ -31,7 +31,6 @@ bool StageLayer::init(){
 	auto visibleSize = director->getVisibleSize();
 	auto origin = director->getVisibleOrigin();
 
-	Stage *stage;
 	for(int i=0;i<Max::Teams;i++){
 		auto stage = Stage::getInstance(i);
 		stage->setPosition(origin + visibleSize / 2);
