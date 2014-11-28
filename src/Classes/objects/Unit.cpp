@@ -104,9 +104,12 @@ bool Unit::init(
 	damageLabel->setAnchorPoint(Vec2(0.5,0));
 	addChild(damageLabel);
 
-	schedule(SEL_SCHEDULE(&Unit::updateGen), 1.f / Global::fps);
-	schedule(SEL_SCHEDULE(&Unit::updatePassives), 1.f / Global::fps);
-	schedule(SEL_SCHEDULE(&Unit::updatePhysics), 1.f / Global::fps);
+	schedule(
+		SEL_SCHEDULE(&Unit::updateGen), 1.f / Global::ups);
+	schedule(
+		SEL_SCHEDULE(&Unit::updatePassives), 1.f / Global::ups);
+	schedule(
+		SEL_SCHEDULE(&Unit::updatePhysics), 1.f / Global::ups);
 
 	return true;
 }
