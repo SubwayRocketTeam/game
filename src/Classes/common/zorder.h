@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 namespace Z{
 	const int trash = 0;

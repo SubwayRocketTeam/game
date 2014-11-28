@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Bullet.h"
 
 #include "EffectFactory.h"
@@ -28,7 +28,7 @@ Bullet *Bullet::create(
 bool Bullet::init(
 	int id){
 
-	/* TODO : id¿¡ µû¸¥ ÃÑ¾Ë µ¥ÀÌÅÍ º¯°æ */
+	/* TODO : idì— ë”°ë¥¸ ì´ì•Œ ë°ì´í„° ë³€ê²½ */
 	if (!Unit::init(
 		_MAKE_PATH("bullet%d", id)))
 		return false;
@@ -71,7 +71,7 @@ bool Bullet::onDamage(
 }
 
 
-/* TODO : µÎ°³ ÇÏ³ª·Î ÇÕÄ¡±â */
+/* TODO : ë‘ê°œ í•˜ë‚˜ë¡œ í•©ì¹˜ê¸° */
 void Bullet::fire(
 	float x,float y, float speed){
 	

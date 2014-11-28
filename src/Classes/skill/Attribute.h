@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 
@@ -9,7 +9,7 @@ public:
 		float bonusValue, float bonusRate);
 	virtual ~Attribute();
 
-	/* value¿Í maxValue¸¦ ÇÑ¹ø¿¡ ¼³Á¤ */
+	/* valueì™€ maxValueë¥¼ í•œë²ˆì— ì„¤ì • */
 	void set(
 		float value);
 

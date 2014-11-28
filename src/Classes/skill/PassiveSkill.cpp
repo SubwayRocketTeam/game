@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "PassiveSkill.h"
 
 using namespace std;
@@ -32,6 +32,6 @@ bool PassiveSkill::initExternalData(
 bool PassiveSkill::update(
 	Unit *user, float remaining){
 
-	/* false ¸®ÅÏ½Ã ÇöÀç ÆÐ½Ãºê Á¦°Å */
+	/* false ë¦¬í„´ì‹œ í˜„ìž¬ íŒ¨ì‹œë¸Œ ì œê±° */
 	return true;
 }

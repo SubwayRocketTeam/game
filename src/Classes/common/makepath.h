@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #define _MAX_RESULT 256
 #define _MAKE_PATH(fmt, ...) \

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 
@@ -19,7 +19,7 @@ protected:
 		cocos2d::EventKeyboard::KeyCode keycode);
 
 	/* onKeyboardPressed
-	 *   Å°°¡ ´­·ÁÁø µ¿¾È °è¼Ó È£ÃâµÇ´Â ÀÌº¥Æ® ÇÚµé·¯. */
+	 *   í‚¤ê°€ ëˆŒë ¤ì§„ ë™ì•ˆ ê³„ì† í˜¸ì¶œë˜ëŠ” ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬. */
 	virtual void onKeyboardPressed(
 		cocos2d::EventKeyboard::KeyCode keycode);
 

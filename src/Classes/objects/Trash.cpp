@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Trash.h"
 #include "TrashPool.h"
 

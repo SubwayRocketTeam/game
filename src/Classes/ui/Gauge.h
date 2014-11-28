@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "cocos2d.h"
 
@@ -9,7 +9,7 @@ enum {
 	MP = 0x02,
 };
 
-// Hp �Ǵ� Mp
+// Hp 또는 Mp
 class Gauge : public cocos2d::Node {
 public:
 	Gauge();

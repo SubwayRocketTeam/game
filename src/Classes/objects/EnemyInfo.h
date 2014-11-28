@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 
 #include "skill/Attribute.h"
 #include "skill/AttributeName.h"
 
-// Enemy Info .json ÀÛ¼ºÇÑ°Íµé Áý¾î³Ö´Â »À´ë
+// Enemy Info .json ìž‘ì„±í•œê²ƒë“¤ ì§‘ì–´ë„£ëŠ” ë¼ˆëŒ€
 struct EnemyInfo {
 	std::string name;
 	std::map<std::string, Attribute> attrs;

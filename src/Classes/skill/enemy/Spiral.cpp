@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Spiral.h"
 
 #include "audio/include/SimpleAudioEngine.h"

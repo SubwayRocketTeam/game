@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "cocos2d.h"
 #include "common/max.h"

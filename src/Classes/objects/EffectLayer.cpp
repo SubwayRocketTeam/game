@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "EffectLayer.h"
 
 static EffectLayer *instance = nullptr;

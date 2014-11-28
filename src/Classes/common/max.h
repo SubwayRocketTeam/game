@@ -1,15 +1,15 @@
-#pragma once
+ï»¿#pragma once
 
 namespace Max{
-	/* ÇÑ ÆÀ´ç ÃÖ´ë ÇÃ·¹ÀÌ¾î */
+	/* í•œ íŒ€ë‹¹ ìµœëŒ€ í”Œë ˆì´ì–´ */
 	const int Players = 4;
 
-	/* ÆÀ ¼ö */
+	/* íŒ€ ìˆ˜ */
 	const int Teams = 2;
 
-	/* ½ºÅ³ °¹¼ö */
+	/* ìŠ¤í‚¬ ê°¯ìˆ˜ */
 	const int Skills = 4;
 
-	/* ÅÊÅ© ÃÖ´ëÄ¡ */
+	/* íƒ±í¬ ìµœëŒ€ì¹˜ */
 	const int Tank = 100;
 };

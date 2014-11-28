@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Afterimage.h"
 
 using namespace cocos2d;

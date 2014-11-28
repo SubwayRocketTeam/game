@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "cocos2d.h"
 
@@ -72,10 +72,10 @@ public:
 		const std::string &name);
 	Ally::Type getAllyID();
 
-	// ¾ò¾î¸ÂÀ» ¶§
+	// ì–»ì–´ë§ì„ ë•Œ
 	virtual void hit();
-	// Ãæµ¹ÇßÀ» ¶§
-	// delta: Ãæµ¹µÇ¾î ¹Ğ¾î³»¾îÁö´Â Å©±â¿Í ¹æÇâ
+	// ì¶©ëŒí–ˆì„ ë•Œ
+	// delta: ì¶©ëŒë˜ì–´ ë°€ì–´ë‚´ì–´ì§€ëŠ” í¬ê¸°ì™€ ë°©í–¥
 	virtual void collide(
 		cocos2d::Vec2 delta);
 

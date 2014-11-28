@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 /* deprecated */
 #pragma warning (disable : 4996)

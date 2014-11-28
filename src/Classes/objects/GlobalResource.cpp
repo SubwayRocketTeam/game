@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "GlobalResource.h"
 
 static GlobalResource *instance = nullptr;

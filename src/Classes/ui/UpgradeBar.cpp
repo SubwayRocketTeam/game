@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "UpgradeBar.h"
 #include "TrashTank.h"
 
@@ -62,7 +62,7 @@ void UpgradeBar::onKeyboardDown(
 	EventKeyboard::KeyCode key){
 
 	if(key == EventKeyboard::KeyCode::KEY_SHIFT){
-		/* TODO : ¾÷±×·¹ÀÌµå ºñ¿ë¿¡ µû¸¥ ºí¸µÅ© ¹üÀ§ ¼³Á¤ */
+		/* TODO : ì—…ê·¸ë ˆì´ë“œ ë¹„ìš©ì— ë”°ë¥¸ ë¸”ë§í¬ ë²”ìœ„ ì„¤ì • */
 		auto tank = TrashTank::getInstance();
 		tank->blink(15);
 
