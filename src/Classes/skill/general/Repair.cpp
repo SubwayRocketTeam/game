@@ -14,7 +14,7 @@ bool Repair::update(
 
 	auto stage = Stage::getInstance(0);
 	auto repairArea =
-		stage->getChildByTag(tagRepairArea);
+		stage->getChildByTag(UnitType::RepairArea);
 
 	if(repairArea->getBoundingBox().containsPoint(
 		user->getPosition()))

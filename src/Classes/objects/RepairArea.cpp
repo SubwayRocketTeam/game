@@ -31,7 +31,7 @@ bool RepairArea::init(){
 	if (!Unit::init(R::RepairArea))
 		return false;
 
-	setTag(tagRepairArea);
+	setTag(UnitType::RepairArea);
 	scheduleUpdate();
 
 	return true;

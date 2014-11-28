@@ -1,7 +1,7 @@
 ﻿#pragma once
 
-enum Tags{
-	tagRepairArea = 100
+namespace UnitType{
+	const int RepairArea = 100;
 };
 
 namespace ActionType{
