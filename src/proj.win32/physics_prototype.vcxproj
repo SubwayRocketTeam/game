@@ -145,6 +145,7 @@ xcopy $(ProjectDir)..\Resources bin_path</Command>
     <ClCompile Include="..\Classes\common\IterLock.cpp" />
     <ClCompile Include="..\Classes\common\JsonLoader.cpp" />
     <ClCompile Include="..\Classes\common\PhysicsFactory.cpp" />
+    <ClCompile Include="..\Classes\common\Preloader.cpp" />
     <ClCompile Include="..\Classes\common\resource.cpp" />
     <ClCompile Include="..\Classes\Network\LoginSender.cpp" />
     <ClCompile Include="..\Classes\network\Network.cpp" />
@@ -222,6 +223,7 @@ xcopy $(ProjectDir)..\Resources bin_path</Command>
     <ClInclude Include="..\Classes\common\makepath.h" />
     <ClInclude Include="..\Classes\common\max.h" />
     <ClInclude Include="..\Classes\common\PhysicsFactory.h" />
+    <ClInclude Include="..\Classes\common\Preloader.h" />
     <ClInclude Include="..\Classes\common\resource.h" />
     <ClInclude Include="..\Classes\common\zorder.h" />
     <ClInclude Include="..\Classes\Compat.h" />
