@@ -4,6 +4,8 @@
 namespace R{
 	_RESD(AfterimageGlowPlist, "afterimage_glow.plist");
 	_RESD(Hit1Plist, "hit_1.plist");
+	_RESD(UnitsPlist, "units.plist");
+	_RESD(BulletsPlist, "bullets.plist");
 
 	_RESD(SkillPanel, "skill_panel.png");
 	_RESD(SkillIconOverlay, "skillicon_overlay.png");

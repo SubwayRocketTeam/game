@@ -56,6 +56,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	cache->addSpriteFramesWithFile(R::AfterimageGlowPlist);
 	cache->addSpriteFramesWithFile(R::Hit1Plist);
+	cache->addSpriteFramesWithFile(R::UnitsPlist);
+	cache->addSpriteFramesWithFile(R::BulletsPlist);
 
 	/* 전역적으로 계속 쓰이는 오브젝트 */
 	Network::create();

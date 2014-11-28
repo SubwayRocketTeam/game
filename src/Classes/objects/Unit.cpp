@@ -90,7 +90,7 @@ bool Unit::init(){
 bool Unit::init(
 	const string &imageName, const int part){
 
-	if(!Sprite::initWithFile(
+	if(!Sprite::initWithSpriteFrameName(
 		_MAKE_PATH("%s.png", imageName.c_str())))
 		return false;
 

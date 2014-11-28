@@ -10,6 +10,8 @@
 namespace R{
 	_RESL(AfterimageGlowPlist);
 	_RESL(Hit1Plist);
+	_RESL(UnitsPlist);
+	_RESL(BulletsPlist);
 
 	_RESL(SkillPanel);
 	_RESL(SkillIconOverlay);
