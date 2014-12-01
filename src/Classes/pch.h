@@ -5,6 +5,9 @@
 /* code-page */
 #pragma warning (disable : 4819)
 
+#define __CLASS__ \
+	typeid(*this).name()
+
 #include "cocos2d.h"
 
 #include "common/global.h"
