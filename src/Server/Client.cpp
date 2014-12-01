@@ -3,6 +3,16 @@
 #include "Client.h"
 #include "IOContext.h"
 #include "PacketType.h"
+#include "GameRoom.h"
+#include "GameRoomManager.h"
+
+
+std::map<PacketType, PacketHandler> Client::handlerMap;
+
+void Client::bindHandler(const PacketType type, PacketHandler handler) {
+	handlerMap[type] = handler;
+}
+
 
 Client::Client(const id_t id, const SOCKET sock)
 :id(id), socket(sock), gameRoomId(INVALID_ID) {
@@ -87,9 +97,19 @@ void Client::processPacket() {
 		if (bufferQueue.getLength() < header.size)
 			break;
 
+		/*
+		auto it = handlerMap.find((PacketType)header.type);
+		if (it == handlerMap.end())
+			continue;
+		*/
+
 		char* buf = new char[header.size];
 
 		bufferQueue.pop(buf, header.size);
+
+		/*
+		(it->second)((PacketHeader*)buf);
+		*/
 
 		switch (header.type) {
 		
@@ -108,6 +128,16 @@ void Client::processPacket() {
 			response->result = 1;
 			strcpy_s(response->nickname, "Anz");
 			send((char*)response, response->size);
+			break;
+		}
+
+		case PT_EnterRoom:
+		{
+			auto gameroom = GameRoomManager::getInstance()->getGameRoom(1);
+			gameroom->enter(id);
+			Packet_EnterNoti noti;
+			noti.clientId = id;
+			gameroom->broadcast((char*)&noti, sizeof(Packet_EnterNoti));
 			break;
 		}
 
