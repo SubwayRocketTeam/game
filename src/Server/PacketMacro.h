@@ -1,10 +1,5 @@
 ﻿#pragma once
 
-struct packet_header{
-	int size;
-	int id;
-};
-
 #define PACKET(name) \
 		struct Packet_##name : PacketHeader{\
 		Packet_##name(){ \

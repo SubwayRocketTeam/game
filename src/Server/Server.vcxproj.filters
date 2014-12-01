@@ -27,5 +27,6 @@
     <ClInclude Include="PacketType.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="config.h" />
+    <ClInclude Include="PacketMacro.h" />
   </ItemGroup>
 </Project>
