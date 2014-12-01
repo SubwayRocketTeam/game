@@ -1,13 +1,15 @@
 #pragma once
 
+#include "PacketMacro.h"
+
 typedef unsigned int packet_size_t;
 typedef unsigned int packet_type_t;
 
 enum PacketType {
-	PT_NONE,
-	PT_EXAMPLE,
-	PT_LOGIN_REQUEST,
-	PT_LOGIN_RESPONSE
+	PT_None,
+	PT_Example,
+	PT_LoginRequest,
+	PT_LoginResponse
 };
 
 #pragma pack(push, 1)
@@ -17,19 +19,19 @@ struct PacketHeader {
 	packet_type_t type;
 };
 
-struct Packet_Example : PacketHeader {
+PACKET(Example)
 	float x;
 	float y;
-};
+END
 
-struct Packet_LoginRequest : PacketHeader {
+PACKET(LoginRequest)
 	char id[32];
 	char pw[32];
-};
+END
 
-struct Packet_LoginResponse : PacketHeader {
+PACKET(LoginResponse)
 	int result;
 	char nickname[32];
-};
+END
 
 #pragma pack(pop)

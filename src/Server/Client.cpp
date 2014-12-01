@@ -93,20 +93,18 @@ void Client::processPacket() {
 
 		switch (header.type) {
 		
-		case PT_EXAMPLE:
+		case PT_Example:
 		{
 			Packet_Example* packet = (Packet_Example*)buf;
 			printf("%u: %f %f\n", id, packet->x, packet->y);
 			break;
 		}
 
-		case PT_LOGIN_REQUEST:
+		case PT_LoginRequest:
 		{
 			Packet_LoginRequest* packet = (Packet_LoginRequest*)buf;
 			printf("%u: %s %s\n", id, packet->id, packet->pw);
 			Packet_LoginResponse* response = new Packet_LoginResponse();
-			response->size = sizeof(Packet_LoginResponse);
-			response->type = PT_LOGIN_RESPONSE;
 			response->result = 1;
 			strcpy_s(response->nickname, "Anz");
 			send((char*)response, response->size);
