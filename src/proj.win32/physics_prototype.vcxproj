@@ -97,14 +97,8 @@
       <AdditionalDependencies>libcocos2d.lib;libchipmunk.lib;imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>set bin_path=$(SolutionDir)..\..\bin
-rd /s /q %bin_path%
-md %bin_path%
-copy $(OutDir)*.exe %bin_path%
-copy $(OutDir)*.dll %bin_path%
-xcopy /s $(ProjectDir)..\Resources %bin_path%
-echo cd bin &gt; $(SolutionDir)..\..\start_game.bat
-echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -133,11 +127,14 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>set bin_path=$(SolutionDir)..\bin
-mkdir bin_path
-copy $(OutDir)*.exe bin_path
-copy $(OutDir)*.dll bin_path
-xcopy $(ProjectDir)..\Resources bin_path</Command>
+      <Command>set bin_path=$(SolutionDir)..\..\bin
+rd /s /q %bin_path%
+md %bin_path%
+copy $(OutDir)*.exe %bin_path%
+copy $(OutDir)*.dll %bin_path%
+xcopy /s $(ProjectDir)..\Resources %bin_path%
+echo cd bin &gt; $(SolutionDir)..\..\start_game.bat
+echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

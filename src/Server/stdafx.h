@@ -1,0 +1,22 @@
+#pragma once
+
+#pragma comment(lib, "ws2_32.lib")
+
+#include <cstdio>
+#include <WinSock2.h>
+#include <Windows.h>
+
+#include <thread>
+// #include <memory>
+#include <vector>
+#include <set>
+#include <map>
+#include <exception>
+#include <atomic>
+
+#define SAFE_DELETE(p) do{if(p){delete(p);(p)=nullptr;}}while(false)
+#define SAFE_DELETE_ARR(p) do{if(p){delete[](p);(p)=nullptr;}}while(false)
+
+#define BUF_SIZE 1024
+
+void ErrorLog(const int errorCode);
