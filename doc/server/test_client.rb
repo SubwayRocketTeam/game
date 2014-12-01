@@ -13,6 +13,15 @@ class LoginResponse < Packet
   string "nickname", 31
 end
 
+class EnterRoom < Packet
+  id 4
+end
+
+class EnterNoti < Packet
+  id 5
+  int "client_id"
+end
+
 module TestClient
   def post_init
     puts "connected"
@@ -20,8 +29,11 @@ module TestClient
     a = LoginRequest.new
     a.id = "pjc0247"
     a.pw = "1234"
-	p a.serialize
     send_data a.serialize
+
+    a = EnterRoom.new
+    send_data a.serialize
+
   end
   def unbind
     puts "disconnected"
@@ -29,11 +41,14 @@ module TestClient
 
   def receive_data data
     size, id = data.unpack("II")
-
+	p data
     case id
       when 3
         r = LoginResponse.unserialize data
         puts "login result #{r.result} / #{r.nickname}"
+	  when 5
+        r = EnterNoti.unserialize data
+        puts "Enter #{r.client_id}"
     end
   end
 end
