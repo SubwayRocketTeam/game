@@ -1,0 +1,59 @@
+{	
+	"enemyList" : [
+		{
+			"name" : "enemyBasic",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 3},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 2},
+				{"name" : "attack", "value" : 50},
+				{"name" : "attack_speed", "value" : 3.0},
+				{"name" : "range", "value" : 120},
+				{"name" : "defence", "value" : 0}
+			],
+			
+			"skills" : [],
+			
+			"pay" : 10
+		},
+		{
+			"name" : "enemyShooting",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 3},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 0},
+				{"name" : "attack", "value" : 50},
+				{"name" : "attack_speed", "value" : 3.0},
+				{"name" : "range", "value" : 120},
+				{"name" : "defence", "value" : 0}
+			],
+			
+			"skills" : [
+				10
+			],
+			
+			"pay" : 10
+		},
+		{
+			"name" : "enemySpiral",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 20},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 0},
+				{"name" : "attack", "value" : 50},
+				{"name" : "attack_speed", "value" : 3.0},
+				{"name" : "range", "value" : 120},
+				{"name" : "defence", "value" : 0}
+			],
+			
+			"skills" : [
+				200
+			],
+			
+			"pay" : 10
+		}
+	]
+}
