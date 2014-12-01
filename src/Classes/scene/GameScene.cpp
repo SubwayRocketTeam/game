@@ -8,6 +8,7 @@
 
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
+#include "common/Preloader.h"
 
 #include "objects/GlobalResource.h"
 #include "objects/Ally.h"
@@ -60,6 +61,7 @@ Scene* GameScene::scene(){
 }
 
 bool GameScene::init(){
+	Preloader::getInstance()->push("game_scene");
 	onInitGlobalObjects();
 
 	if(!Layer::init())
@@ -154,6 +156,7 @@ void GameScene::onEnter(){
 }
 void GameScene::onExit(){
 	Layer::onExit();
+	Preloader::getInstance()->pop("game_scene");
 	onReleaseGlobalObjects();
 
 	auto audio = SimpleAudioEngine::getInstance();
