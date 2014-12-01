@@ -66,7 +66,9 @@ void main()
 			continue;
 		}
 
-		PostQueuedCompletionStatus(hCP, 0, CKT_ACCEPT, (LPOVERLAPPED)&context);
+		context->sock = clientSocket;
+
+		PostQueuedCompletionStatus(hCP, 0, CKT_ACCEPT, (LPOVERLAPPED)context);
 	}
 
 	worker.join();
@@ -97,6 +99,7 @@ void WorkerThread(HANDLE hCP) {
 		case CKT_ACCEPT:
 		{
 			AcceptContext* context = (AcceptContext*)iocontext;
+
 			if (CreateIoCompletionPort((HANDLE)context->sock, hCP, CKT_SOCKET, 0) != hCP) {
 				ErrorLog(GetLastError());
 				closesocket(context->sock);
@@ -120,16 +123,18 @@ void WorkerThread(HANDLE hCP) {
 		case CKT_SOCKET:
 		{
 			SocketContext* context = (SocketContext*)iocontext;
-			if (!context->recv) break;
-			Client* client = ClientManager::getInstance()->getClient(context->clientId);
-			if (transferred == 0) {
-				ClientManager::getInstance()->removeClient(context->clientId);
+			if (context->recv) {
+				Client* client = ClientManager::getInstance()->getClient(context->clientId);
+				if (transferred == 0) {
+					ClientManager::getInstance()->removeClient(context->clientId);
+				}
+				else {
+					client->push(context->buf, transferred);
+					client->processPacket();
+					client->recv();
+				}
 			}
-			else {
-				client->push(context->buf, transferred);
-				client->processPacket();
-				client->recv();
-			}
+			SAFE_DELETE_ARR(context->buf);
 			break;
 		}
 

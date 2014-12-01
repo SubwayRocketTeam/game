@@ -4,7 +4,7 @@ template <int _BUF_SIZE_>
 class BufferQueue {
 public:
 	BufferQueue()
-		:begin(0), length(0) {
+		:begin(0), end(0), length(0) {
 	}
 
 	bool push(

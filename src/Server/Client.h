@@ -8,7 +8,7 @@ class GameRoom;
 
 class Client {
 public:
-	Client(const id_t id = INVALID_ID);
+	Client(const id_t id = INVALID_ID, const SOCKET sock = INVALID_SOCKET);
 	~Client();
 
 	int send(char* buf, const size_t size);

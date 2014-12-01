@@ -4,14 +4,12 @@
 
 struct IOContext {
 	IOContext();
-	virtual ~IOContext();
 
 	WSAOVERLAPPED overlapped;
 };
 
 struct AcceptContext : IOContext {
 	AcceptContext();
-	virtual ~AcceptContext();
 
 	SOCKET sock;
 	sockaddr_in addr;
@@ -19,7 +17,6 @@ struct AcceptContext : IOContext {
 
 struct TimerContext : IOContext {
 	TimerContext();
-	virtual ~TimerContext();
 
 	id_t gameRoomId;
 	HANDLE hTimer;
@@ -27,7 +24,6 @@ struct TimerContext : IOContext {
 
 struct SocketContext : IOContext {
 	SocketContext();
-	virtual ~SocketContext();
 
 	id_t clientId;
 	bool recv;

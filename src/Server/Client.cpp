@@ -4,8 +4,8 @@
 #include "IOContext.h"
 #include "PacketType.h"
 
-Client::Client(const id_t id)
-:id(id), socket(INVALID_SOCKET), gameRoomId(INVALID_ID) {
+Client::Client(const id_t id, const SOCKET sock)
+:id(id), socket(sock), gameRoomId(INVALID_ID) {
 
 }
 
@@ -58,7 +58,7 @@ int Client::recv() {
 	wsabuf.len = BUF_SIZE;
 
 	DWORD byteRecvd;
-	DWORD flag;
+	DWORD flag = 0;
 
 	if (WSARecv(socket, &wsabuf, 1, &byteRecvd, &flag, &context->overlapped, nullptr) == SOCKET_ERROR) {
 		int error = WSAGetLastError();
@@ -97,6 +97,19 @@ void Client::processPacket() {
 		{
 			Packet_Example* packet = (Packet_Example*)buf;
 			printf("%u: %f %f\n", id, packet->x, packet->y);
+			break;
+		}
+
+		case PT_LOGIN_REQUEST:
+		{
+			Packet_LoginRequest* packet = (Packet_LoginRequest*)buf;
+			printf("%u: %s %s\n", id, packet->id, packet->pw);
+			Packet_LoginResponse* response = new Packet_LoginResponse();
+			response->size = sizeof(Packet_LoginResponse);
+			response->type = PT_LOGIN_RESPONSE;
+			response->result = 1;
+			strcpy_s(response->nickname, "Anz");
+			send((char*)response, response->size);
 			break;
 		}
 

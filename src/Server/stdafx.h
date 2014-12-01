@@ -19,4 +19,6 @@
 
 #define BUF_SIZE 1024
 
-void ErrorLog(const int errorCode);
+#define ErrorLog(error) _ErrorLog(__FILE__, __LINE__, error)
+
+void _ErrorLog(const char* const file, const int line, const int errorCode);

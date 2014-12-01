@@ -20,7 +20,7 @@ Client* ClientManager::getClient(const id_t id) {
 
 id_t ClientManager::createClient(const SOCKET sock) {
 	id_t id = dispenser.issue();
-	Client* client = new Client(id);
+	Client* client = new Client(id, sock);
 	clients[id] = client;
 	client->recv();
 	return id;
