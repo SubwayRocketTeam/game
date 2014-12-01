@@ -1,8 +1,7 @@
 # 5주차 릴리즈
 
 ## 서버 테스트하는 방법
-- 준철이가 설명할 겁니다.
-- 
+- [준철이가 설명할 겁니다.](https://github.com/SubwayRocketTeam/game/blob/Release05/HowToTest.md)
 
 ## 업데이트 노트
 - 탱크가 꽉 차면 더이상 빨아들이지 않음.
