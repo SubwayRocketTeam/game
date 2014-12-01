@@ -130,7 +130,7 @@
       <Command>set bin_path=$(SolutionDir)..\..\bin
 rd /s /q %bin_path%
 md %bin_path%
-copy $(OutDir)*.exe %bin_path%
+copy $(OutDir)$(ProjectName).exe %bin_path%
 copy $(OutDir)*.dll %bin_path%
 xcopy /s $(ProjectDir)..\Resources %bin_path%
 echo cd bin &gt; $(SolutionDir)..\..\start_game.bat
