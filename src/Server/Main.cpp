@@ -41,10 +41,12 @@ void main()
 		ErrorLog(WSAGetLastError());
 		return;
 	}
+	/*
 	if (setsockopt(listenSocket, IPPROTO_TCP, TCP_NODELAY, &option, sizeof(option)) == SOCKET_ERROR) {
 		ErrorLog(WSAGetLastError());
 		return;
 	}
+	*/
 
 	sockaddr_in serverAddr = { 0, };
 	serverAddr.sin_family = PF_INET;

@@ -3,6 +3,7 @@
 #include "Client.h"
 #include "IOContext.h"
 #include "PacketType.h"
+#include "ClientManager.h"
 #include "GameRoom.h"
 #include "GameRoomManager.h"
 
@@ -133,9 +134,14 @@ void Client::processPacket() {
 
 		case PT_EnterRoom:
 		{
-			auto gameroom = GameRoomManager::getInstance()->getGameRoom(1);
-			gameroom->enter(id);
 			Packet_EnterNoti noti;
+			auto gameroom = GameRoomManager::getInstance()->getGameRoom(1);
+			for (auto id : *gameroom) {
+				noti.clientId = id;
+				sendLocalData((char*)&noti, sizeof(Packet_EnterNoti));
+			}
+			gameroom->enter(id);
+			gameRoomId = 1;
 			noti.clientId = id;
 			gameroom->broadcast((char*)&noti, sizeof(Packet_EnterNoti));
 			break;
@@ -145,4 +151,16 @@ void Client::processPacket() {
 
 		SAFE_DELETE_ARR(buf);
 	}
+}
+
+void Client::onConnect() {
+	recv();
+}
+
+void Client::onDisconnect() {
+	Packet_LeaveNoti noti;
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(gameRoomId);
+	noti.clientId = id;
+	gameroom->leave(id);
+	gameroom->broadcast((char*)&noti, sizeof(Packet_LeaveNoti));
 }

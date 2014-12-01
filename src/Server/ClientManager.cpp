@@ -22,7 +22,7 @@ id_t ClientManager::createClient(const SOCKET sock) {
 	id_t id = dispenser.issue();
 	Client* client = new Client(id, sock);
 	clients[id] = client;
-	client->recv();
+	client->onConnect();
 	return id;
 }
 
@@ -30,6 +30,7 @@ bool ClientManager::removeClient(const id_t id) {
 	auto it = clients.find(id);
 	if (it == clients.end())
 		return false;
+	it->second->onDisconnect();
 	clients.erase(it);
 	return true;
 }

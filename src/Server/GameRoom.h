@@ -18,6 +18,9 @@ public:
 
 	void broadcast(const char* const buf, const size_t size);
 
+	const std::set<id_t>::iterator begin() const;
+	const std::set<id_t>::iterator end() const;
+
 public:
 	static HANDLE hCompletionPort;
 

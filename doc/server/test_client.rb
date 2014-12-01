@@ -22,7 +22,30 @@ class EnterNoti < Packet
   int "client_id"
 end
 
+class LeaveNoti < Packet
+  id 6
+  int "client_id"
+end
+
+module GeniusProtocol
+  def receive_data data
+    (@buf||= '') << data
+
+	while @buf.size >= 4
+	  if @buf.size >= (size=@buf.unpack('I').first)
+	    receive_packet @buf.slice! 0, size
+	  end
+	end
+  end
+
+  def receive_packet packet
+    # override me
+  end
+end
+
 module TestClient
+  include GeniusProtocol
+
   def post_init
     puts "connected"
 
@@ -39,9 +62,8 @@ module TestClient
     puts "disconnected"
   end
 
-  def receive_data data
+  def receive_packet data
     size, id = data.unpack("II")
-	p data
     case id
       when 3
         r = LoginResponse.unserialize data
@@ -49,6 +71,9 @@ module TestClient
 	  when 5
         r = EnterNoti.unserialize data
         puts "Enter #{r.client_id}"
+	  when 6
+        r = LeaveNoti.unserialize data
+        puts "Leave #{r.client_id}"
     end
   end
 end

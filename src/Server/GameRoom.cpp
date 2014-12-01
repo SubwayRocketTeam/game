@@ -76,3 +76,12 @@ void GameRoom::broadcast(const char* const buf, const size_t size) {
 			client->sendLocalData(buf, size);
 	}
 }
+
+
+const std::set<id_t>::iterator GameRoom::begin() const {
+	return clientIds.begin();
+}
+
+const std::set<id_t>::iterator GameRoom::end() const {
+	return clientIds.end();
+}

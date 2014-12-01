@@ -19,9 +19,13 @@ public:
 	int send(char* buf, const size_t size);
 	int sendLocalData(const char* buf, const size_t size);
 	int recv();
+
 	bool push(const char* buf, const size_t size);
 
 	void processPacket();
+
+	void onConnect();
+	void onDisconnect();
 
 public:
 	const id_t id;
