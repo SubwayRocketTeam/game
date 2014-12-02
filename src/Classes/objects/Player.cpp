@@ -169,8 +169,6 @@ void Player::update(
 		
 	updateConditions(dt);
 
-	printf("%f %f\n", velocity.x, velocity.y);
-
 	/* TODO : 충돌 범위 상수나 이미지 크기 기반으로 하도록 */
 	/* TODO : 빨려들어오는건 쓰레기가 직접 오는데,
 	 *        청소하는건 플레이어가 청소
@@ -381,7 +379,7 @@ void Player::onKeyboardUp(
 	if(moved){
 		moveCounter --;
 
-		if(speed.equals(Vec2::ZERO)){
+		if(moveCounter == 0){
 			Network::getInstance()
 				->sendMoveEnd(tick);
 		}

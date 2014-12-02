@@ -32,9 +32,10 @@ void Network::handleMoveEnd(
 	printf("adj %f %f TO %f %f\n",
 		unit->getPositionX(), unit->getPositionY(),
 		pkt->end_x, pkt->end_y);
+
 	unit->runAction(
 		MoveTo::create(
-			Global::fps, Vec2(pkt->end_x, pkt->end_y)));
+			1.0f / Global::fps, Vec2(pkt->end_x, pkt->end_y)));
 
 	printf("move end %d\n", pkt->id);
 }
