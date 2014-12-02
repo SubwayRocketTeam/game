@@ -152,8 +152,16 @@ void Client::processPacket() {
 			gameroom->broadcast((char*)&noti, sizeof(Packet_EnterNoti));
 
 			spawnNoti.id = id;
+			spawnNoti.unit_type = 0;
+
+			for (auto id : *gameroom) {
+				if (id == this->id)
+					continue;
+				ClientManager::getInstance()->getClient(id)->sendLocalData(
+					(char*)&spawnNoti, sizeof(Packet_Spawn));
+			}
 			spawnNoti.unit_type = 1;
-			gameroom->broadcast((char*)&spawnNoti, sizeof(Packet_Spawn));
+			sendLocalData((char*)&spawnNoti, sizeof(Packet_Spawn));
 
 			break;
 		}
