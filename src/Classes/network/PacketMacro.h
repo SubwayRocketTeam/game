@@ -2,14 +2,14 @@
 
 struct packet_header{
 	int size;
-	int id;
+	int type;
 };
 
 #define PACKET(name) \
 	struct name : packet_header{\
 		name(){ \
 			memset(this, 0, sizeof(name)); \
-			id = id_##name; \
+			type = PT_##name; \
 			size = sizeof(name); \
 		};
 #define END };

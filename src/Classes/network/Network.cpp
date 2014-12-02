@@ -108,7 +108,7 @@ void Network::recvLoop(){
 			return;
 		}
 
-		auto pair = handlers.find(header.id);
+		auto pair = handlers.find(header.type);
 		if(pair == handlers.end())
 			cocos2d::log("unhandled packet");
 		else{

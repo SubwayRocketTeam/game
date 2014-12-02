@@ -24,7 +24,7 @@ public:
 	void close();
 
 	void sendLoginRequest(
-		STRING(user_id), STRING(user_pw));
+		const char *user_id, const char *user_pw);
 
 	template <typename T>
 	void route(
