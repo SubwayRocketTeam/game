@@ -10,18 +10,8 @@
 void Network::handleEnterRoomNoti(
 	EnterNoti *pkt){
 
-	auto stage = Stage::getInstance(0);
-	auto unit = Unit::create(R::PlayerBody);
-
-	unit->setID(pkt->clientId);
-	stage->addChild(unit);
 }
 void Network::handleLeaveRoomNoti(
 	LeaveNoti *pkt){
 
-	auto stage = Stage::getInstance(0);
-	auto unit = Unit::getInstanceByID(
-		pkt->clientId);
-
-	stage->removeChild(unit);
 }

@@ -5,14 +5,22 @@
 
 #include "objects/Stage.h"
 #include "objects/Unit.h"
+#include "objects/Player.h"
 
 void Network::handleSpawn(
 	Spawn *pkt){
 
-	auto stage = Stage::getInstance(0);
-	auto unit = Unit::create(R::PlayerBody);
+	if(pkt->type){
+		printf("Typetrue\n ");
+		auto player = Player::getInstance();
+		player->setID(pkt->id);
+	}
+	else{
+		auto stage = Stage::getInstance(0);
+		auto unit = Unit::create(R::PlayerBody);
 	
-	unit->setID(pkt->id);
-	unit->setPosition(pkt->x,pkt->y);
-	stage->addChild(unit);
+		unit->setID(pkt->id);
+		unit->setPosition(pkt->x,pkt->y);
+		stage->addChild(unit);
+	}
 }

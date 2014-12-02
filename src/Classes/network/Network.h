@@ -55,9 +55,9 @@ protected:
 	void handleSpawn(
 		Spawn *pkt);
 	void handleMoveStart(
-		MoveStartResponse *pkt);
+		MoveStartNoti *pkt);
 	void handleMoveEnd(
-		MoveEndResponse *pkt);
+		MoveEndNoti *pkt);
 
 	int recv(
 		void *dst, int len);

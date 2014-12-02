@@ -196,6 +196,9 @@
     <ClCompile Include="..\Classes\network\Routes.cpp">
       <Filter>source\network</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\network\UnitHandler.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">

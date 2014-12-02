@@ -11,8 +11,8 @@ void Network::initHandlers(){
 		std::bind(&Network::handleLeaveRoomNoti, this, placeholders::_1));
 	route<Spawn>(PT_Spawn,
 		std::bind(&Network::handleSpawn, this, placeholders::_1));
-	route<MoveStartResponse>(PT_MoveStartResponse,
+	route<MoveStartNoti>(PT_MoveStartNoti,
 		std::bind(&Network::handleMoveStart, this, placeholders::_1));
-	route<MoveEndResponse>(PT_MoveEndResponse,
+	route<MoveEndNoti>(PT_MoveEndNoti,
 		std::bind(&Network::handleMoveEnd, this, placeholders::_1));
 }

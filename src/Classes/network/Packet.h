@@ -13,10 +13,10 @@ enum PacketID{
 
 	PT_Spawn,
 
-	PT_MoveStartRequest,
-	PT_MoveStartResponse,
-	PT_MoveEndRequest,
-	PT_MoveEndResponse,
+	PT_MoveStart,
+	PT_MoveStartNoti,
+	PT_MoveEnd,
+	PT_MoveEndNoti,
 
 	PT_MAX
 };
@@ -47,18 +47,18 @@ END
 
 PACKET(Spawn)
 	int id;
+	int type;
 	float x;
 	float y;
 END
 
 
-PACKET(MoveStartRequest)
-	int id;
+PACKET(MoveStart)
 	float direction_x;
 	float direction_y;
 END
 
-PACKET(MoveStartResponse)
+PACKET(MoveStartNoti)
 	int id;
 	float start_x;
 	float start_y;
@@ -66,11 +66,10 @@ PACKET(MoveStartResponse)
 	float velocity_y;
 END
 
-PACKET(MoveEndRequest)
-	int id;
+PACKET(MoveEnd)
 END
 
-PACKET(MoveEndResponse)
+PACKET(MoveEndNoti)
 	int id;
 	float end_x;
 	float end_y;

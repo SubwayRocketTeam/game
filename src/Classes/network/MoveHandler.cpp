@@ -4,7 +4,7 @@
 #include "objects/Unit.h"
 
 void Network::handleMoveStart(
-	MoveStartResponse *pkt){
+	MoveStartNoti *pkt){
 
 	auto unit = Unit::getInstanceByID(
 		pkt->id);
@@ -15,7 +15,7 @@ void Network::handleMoveStart(
 	printf("move %d\n", pkt->id);
 }
 void Network::handleMoveEnd(
-	MoveEndResponse *pkt){
+	MoveEndNoti *pkt){
 
 	auto unit = Unit::getInstanceByID(
 		pkt->id);
