@@ -35,7 +35,7 @@ END
 PACKET(LoginResponse)
 	int result;
 	char nickname[32];
-	END
+END
 
 PACKET(EnterRoom)
 END
