@@ -35,8 +35,7 @@ void FrontDash::use(
 			CC_DEGREES_TO_RADIANS(-angle));
 	
 	u->runAction(
-		MoveBy::create(duration, foward * distance))
-	->setTag(Unit::actionMove);
+		MoveBy::create(duration, foward * distance));
 
 	auto afterimage =  Afterimage::create(
 		u->getParent(),

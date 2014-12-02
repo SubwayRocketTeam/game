@@ -169,6 +169,8 @@ void Player::update(
 		
 	updateConditions(dt);
 
+	printf("%f %f\n", velocity.x, velocity.y);
+
 	/* TODO : 충돌 범위 상수나 이미지 크기 기반으로 하도록 */
 	/* TODO : 빨려들어오는건 쓰레기가 직접 오는데,
 	 *        청소하는건 플레이어가 청소
@@ -355,7 +357,8 @@ void Player::onKeyboardDown(
 		auto norm = speed.getNormalized();
 		Network::getInstance()
 			->sendMoveStart(norm.x, norm.y);
-
+		
+		moveCounter ++;
 		tick = 0;
 	}
 }
@@ -376,12 +379,11 @@ void Player::onKeyboardUp(
 		speed -= Vec2(1,0), moved = true;
 
 	if(moved){
+		moveCounter --;
+
 		if(speed.equals(Vec2::ZERO)){
 			Network::getInstance()
-				->sendMoveEnd();
-
-			printf("ETET %f\n",
-				tick);
+				->sendMoveEnd(tick);
 		}
 		else{
 			auto norm = speed.getNormalized();
@@ -394,7 +396,6 @@ void Player::onKeyboardPressed(
 	EventKeyboard::KeyCode keycode){
 
 	processEyeline(cursor.x, cursor.y);
-	//processMove(keycode);
 	processRotation(cursor.x,cursor.y);
 }
 

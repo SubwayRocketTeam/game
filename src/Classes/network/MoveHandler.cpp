@@ -1,7 +1,10 @@
 ﻿#include "pch.h"
 #include "Network.h"
 
+#include "objects/tags.h"
 #include "objects/Unit.h"
+
+using namespace cocos2d;
 
 void Network::handleMoveStart(
 	MoveStartNoti *pkt){
@@ -23,13 +26,15 @@ void Network::handleMoveEnd(
 		pkt->id);
 
 	unit->velocity.set(0,0);
+	unit->stopAllActionsByTag(
+		ActionType::Move);
 
-	/*
-	printf("adj %f %f / %f %f\n",
+	printf("adj %f %f TO %f %f\n",
 		unit->getPositionX(), unit->getPositionY(),
 		pkt->end_x, pkt->end_y);
-	unit->setPosition(pkt->end_x, pkt->end_y);
-	*/
+	unit->runAction(
+		MoveTo::create(
+			Global::fps, Vec2(pkt->end_x, pkt->end_y)));
 
 	printf("move end %d\n", pkt->id);
 }

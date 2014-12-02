@@ -196,9 +196,10 @@ void Client::processPacket() {
 
 			float delta =
 				(float)(GetTickCount() - tick) / 1000.0f;
-			printf("%f\n", delta);
-			x += speed_x * 350 * delta;
-			y += speed_y * 350 * delta;
+			printf("%f / %f %f\n", delta, speed_x, speed_y);
+			x += speed_x * 350 * packet->delta;
+			y += speed_y * 350 * packet->delta;
+			printf("x : %f / y : %f\n", x,y);
 
 			Packet_MoveEndNoti response;
 			response.id = id;

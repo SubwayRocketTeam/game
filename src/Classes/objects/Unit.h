@@ -29,7 +29,6 @@ public:
 	struct PassiveData;
 
 	enum ActionType{
-		actionMove,
 		actionAttack,
 		actionFocus,
 		actionBlink

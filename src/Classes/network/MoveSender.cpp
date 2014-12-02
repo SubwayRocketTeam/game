@@ -9,7 +9,10 @@ void Network::sendMoveStart(
 	pkt.direction_y = direction_y;
 	send(pkt);
 }
-void Network::sendMoveEnd(){
+void Network::sendMoveEnd(
+	float delta){
+
 	MoveEnd pkt;
+	pkt.delta = delta;
 	send(pkt);
 }

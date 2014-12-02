@@ -70,6 +70,7 @@ PACKET(MoveStartNoti)
 END
 
 PACKET(MoveEnd)
+	float delta;
 END
 
 PACKET(MoveEndNoti)

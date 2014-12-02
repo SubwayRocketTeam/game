@@ -27,7 +27,8 @@ public:
 		const char *user_id, const char *user_pw);
 	void sendMoveStart(
 		float direction_x, float direction_y);
-	void sendMoveEnd();
+	void sendMoveEnd(
+		float delta);
 	void sendEnterRoom();
 	void sendLeaveRoom();
 	void sendChatMessage(

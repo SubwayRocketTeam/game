@@ -8,6 +8,7 @@
 #include "Stage.h"
 #include "CollisionDetector.h"
 #include "DamageLabel.h"
+#include "tags.h"
 
 #include "common/resource.h"
 
@@ -180,10 +181,15 @@ void Unit::updatePassives(
 
 void Unit::updatePhysics(
 	float dt){
+
+	tick += dt;
 	velocity += acceleration * dt;
 	velocity = velocity.getNormalized() * MAX(0, velocity.getLength() - friction * dt);
+
+	/* TODO : :: */
 	runAction(
-		MoveBy::create(dt, velocity * dt));
+		MoveBy::create(dt, velocity * dt))
+	->setTag(::ActionType::Move);
 }
 
 
