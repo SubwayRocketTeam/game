@@ -24,12 +24,22 @@ if src == nil
 end
 
 load src
+
+puts "PACKETS"
+$_packets.each do |packet|
+  puts "  %2d - %15s" % [packet.id, packet.name]	
+end
+puts "\n"
+
 erb = ERB.new(File.read("outform.erb"))
 
 if preview == true
+  puts "PREVIEW"
   puts erb.result
+  puts "\n"
 end
 
+puts "OUTPUTS"
 dsts.each do |outpath|
   puts "out - #{outpath}"
   fp = File.new(outpath, "w:utf-8")
