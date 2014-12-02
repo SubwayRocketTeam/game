@@ -140,35 +140,43 @@ void Client::processPacket() {
 			for (auto id : *gameroom) {
 				noti.clientId = id;
 				sendLocalData((char*)&noti, sizeof(Packet_EnterNoti));
+
+				spawnNoti.id = id;
+				spawnNoti.type = 0;
+				sendLocalData((char*)&spawnNoti, sizeof(Packet_Spawn));
 			}
 			gameroom->enter(id);
 			gameRoomId = 1;
+
 			noti.clientId = id;
-			spawnNoti.id = id;
 			gameroom->broadcast((char*)&noti, sizeof(Packet_EnterNoti));
+
+			spawnNoti.id = id;
+			spawnNoti.type = 1;
 			gameroom->broadcast((char*)&spawnNoti, sizeof(Packet_Spawn));
+
 			break;
 		}
 
-		case PT_MoveStartRequest:
+		case PT_MoveStart:
 		{
-			Packet_MoveStartRequest* packet = (Packet_MoveStartRequest*)buf;
+			Packet_MoveStart* packet = (Packet_MoveStart*)buf;
 			auto gameroom = GameRoomManager::getInstance()->getGameRoom(gameRoomId);
-			Packet_MoveStartResponse response;
-			response.id = packet->id;
+			Packet_MoveStartNoti response;
+			response.id = id;
 			response.velocity_x = packet->direction_x * 7;
 			response.velocity_y = packet->direction_y * 7;
-			gameroom->broadcast((char*)&response, sizeof(Packet_MoveStartResponse));
+			gameroom->broadcast((char*)&response, sizeof(Packet_MoveStartNoti));
 			break;
 		}
 
-		case PT_MoveEndRequest:
+		case PT_MoveEnd:
 		{
-			Packet_MoveEndRequest* packet = (Packet_MoveEndRequest*)buf;
+			Packet_MoveEnd* packet = (Packet_MoveEnd*)buf;
 			auto gameroom = GameRoomManager::getInstance()->getGameRoom(gameRoomId);
-			Packet_MoveEndResponse response;
-			response.id = packet->id;
-			gameroom->broadcast((char*)&response, sizeof(Packet_MoveEndResponse));
+			Packet_MoveEndNoti response;
+			response.id = id;
+			gameroom->broadcast((char*)&response, sizeof(Packet_MoveEndNoti));
 			break;
 		}
 
