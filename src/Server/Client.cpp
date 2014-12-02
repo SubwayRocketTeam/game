@@ -183,9 +183,11 @@ void Client::onConnect() {
 }
 
 void Client::onDisconnect() {
-	Packet_LeaveNoti noti;
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(gameRoomId);
-	noti.clientId = id;
-	gameroom->leave(id);
-	gameroom->broadcast((char*)&noti, sizeof(Packet_LeaveNoti));
+	if (gameroom) {
+		Packet_LeaveNoti noti;
+		noti.clientId = id;
+		gameroom->leave(id);
+		gameroom->broadcast((char*)&noti, sizeof(Packet_LeaveNoti));
+	}
 }
