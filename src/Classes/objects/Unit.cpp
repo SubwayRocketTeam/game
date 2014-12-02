@@ -307,6 +307,8 @@ void Unit::removePassive(
 void Unit::setID(
 	int _id){
 	id = _id;
+
+	instances[id] = this;
 }
 int Unit::getID(){
 	return id;
