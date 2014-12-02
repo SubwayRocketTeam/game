@@ -177,8 +177,8 @@ void Unit::updatePassives(
 
 void Unit::updatePhysics(
 	float dt){
-//	velocity += acceleration * dt;
-//	velocity = velocity.getNormalized() * MAX(0, velocity.getLength() - friction * dt);
+	velocity += acceleration * dt;
+	velocity = velocity.getNormalized() * MAX(0, velocity.getLength() - friction * dt);
 	runAction(
 		MoveBy::create(dt, velocity));
 }
