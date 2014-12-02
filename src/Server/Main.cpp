@@ -30,7 +30,7 @@ void main()
 
 	std::thread worker(WorkerThread, hCP);
 
-	SOCKET listenSocket = WSASocket(AF_INET, SOCK_STREAM, 0, nullptr, 0, WSA_FLAG_OVERLAPPED);
+	SOCKET listenSocket = WSASocketW(AF_INET, SOCK_STREAM, 0, nullptr, 0, WSA_FLAG_OVERLAPPED);
 	if (listenSocket == INVALID_SOCKET) {
 		ErrorLog(WSAGetLastError());
 		return;
