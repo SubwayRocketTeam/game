@@ -10,7 +10,18 @@ enum PacketID{
 	PT_EnterRoom,
 	PT_EnterNoti,
 	PT_LeaveNoti,
+
+	PT_Spawn,
+
+	PT_MoveStartRequest,
+	PT_MoveStartResponse,
+	PT_MoveEndRequest,
+	PT_MoveEndResponse,
+
+	PT_MAX
 };
+
+#pragma pack (push, 1)
 
 PACKET(LoginRequest)
 	char id[32];
@@ -32,3 +43,37 @@ END
 PACKET(LeaveNoti)
 	int clientId;
 END
+
+
+PACKET(Spawn)
+	int id;
+	float x;
+	float y;
+END
+
+
+PACKET(MoveStartRequest)
+	int id;
+	float direction_x;
+	float direction_y;
+END
+
+PACKET(MoveStartResponse)
+	int id;
+	float start_x;
+	float start_y;
+	float velocity_x;
+	float velocity_y;
+END
+
+PACKET(MoveEndRequest)
+	int id;
+END
+
+PACKET(MoveEndResponse)
+	int id;
+	float end_x;
+	float end_y;
+END
+
+#pragma pack (pop)
