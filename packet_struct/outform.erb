@@ -1,0 +1,10 @@
+/* pgen auto-generated packets */
+
+enum packet_id{
+<%$_packets.each do |packet|%>
+  id_<%=packet.name%> = <%=packet.id%>,<%end%>
+}
+
+<%$_packets.each do |packet|%>
+<%=packet.dump%>
+<%end%>
