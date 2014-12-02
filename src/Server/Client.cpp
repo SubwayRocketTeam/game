@@ -166,8 +166,8 @@ void Client::processPacket() {
 			spawnNoti.unit_type = 1;
 			sendLocalData((char*)&spawnNoti, sizeof(Packet_Spawn));
 
-			x = 0;
-			y = 0;
+			speed_x = x = 0;
+			speed_y = y = 0;
 
 			break;
 		}
@@ -177,6 +177,14 @@ void Client::processPacket() {
 			Packet_MoveStart* packet = (Packet_MoveStart*)buf;
 			auto gameroom = GameRoomManager::getInstance()->getGameRoom(gameRoomId);
 			Packet_MoveStartNoti response;
+
+			if(speed_x || speed_y){
+				float delta =
+					(float)(GetTickCount() - tick) / 1000.0f;
+				x += speed_x * 350 * delta;
+				y += speed_y * 350 * delta;
+			}
+
 			response.id = id;
 			response.velocity_x = packet->direction_x * 350;
 			response.velocity_y = packet->direction_y * 350;
@@ -197,8 +205,8 @@ void Client::processPacket() {
 			float delta =
 				(float)(GetTickCount() - tick) / 1000.0f;
 			printf("%f / %f %f\n", delta, speed_x, speed_y);
-			x += speed_x * 350 * packet->delta;
-			y += speed_y * 350 * packet->delta;
+			x += speed_x * 350 * delta;
+			y += speed_y * 350 * delta;
 			printf("x : %f / y : %f\n", x,y);
 
 			Packet_MoveEndNoti response;
@@ -206,6 +214,8 @@ void Client::processPacket() {
 			response.end_x = x;
 			response.end_y = y;
 			gameroom->broadcast((char*)&response, sizeof(Packet_MoveEndNoti));
+
+			speed_x = speed_y = 0;
 
 			break;
 		}
