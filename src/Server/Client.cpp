@@ -141,6 +141,9 @@ void Client::processPacket() {
 				noti.clientId = id;
 				sendLocalData((char*)&noti, sizeof(Packet_EnterNoti));
 
+				auto client = ClientManager::getInstance()->getClient(id);
+				spawnNoti.x = client->x;
+				spawnNoti.y = client->y;
 				spawnNoti.id = id;
 				spawnNoti.unit_type = 0;
 				sendLocalData((char*)&spawnNoti, sizeof(Packet_Spawn));
@@ -163,6 +166,9 @@ void Client::processPacket() {
 			spawnNoti.unit_type = 1;
 			sendLocalData((char*)&spawnNoti, sizeof(Packet_Spawn));
 
+			x = 0;
+			y = 0;
+
 			break;
 		}
 
@@ -172,9 +178,14 @@ void Client::processPacket() {
 			auto gameroom = GameRoomManager::getInstance()->getGameRoom(gameRoomId);
 			Packet_MoveStartNoti response;
 			response.id = id;
-			response.velocity_x = packet->direction_x * 7;
-			response.velocity_y = packet->direction_y * 7;
+			response.velocity_x = packet->direction_x * 350;
+			response.velocity_y = packet->direction_y * 350;
 			gameroom->broadcast((char*)&response, sizeof(Packet_MoveStartNoti));
+
+			tick = GetTickCount();
+			speed_x = packet->direction_x;
+			speed_y = packet->direction_y;
+
 			break;
 		}
 
@@ -182,9 +193,19 @@ void Client::processPacket() {
 		{
 			Packet_MoveEnd* packet = (Packet_MoveEnd*)buf;
 			auto gameroom = GameRoomManager::getInstance()->getGameRoom(gameRoomId);
+
+			float delta =
+				(float)(GetTickCount() - tick) / 1000.0f;
+			printf("%f\n", delta);
+			x += speed_x * 350 * delta;
+			y += speed_y * 350 * delta;
+
 			Packet_MoveEndNoti response;
 			response.id = id;
+			response.end_x = x;
+			response.end_y = y;
 			gameroom->broadcast((char*)&response, sizeof(Packet_MoveEndNoti));
+
 			break;
 		}
 

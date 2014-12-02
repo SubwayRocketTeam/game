@@ -36,5 +36,7 @@ private:
 	BufferQueue<BUF_SIZE> bufferQueue;
 	SOCKET socket;
 	id_t gameRoomId;
-
+	float x, y;
+	float speed_x, speed_y;
+	int tick;
 };
