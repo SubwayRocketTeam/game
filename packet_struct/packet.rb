@@ -71,12 +71,14 @@ class Packet
     return obj
   end
 
-  def self.id value
+  def self.required
     $_packets << self
+    
+    id = $_packets.size
     items = Array.new
     fmt = String.new("II")
     define_singleton_method "id" do
-      return value
+      return id
     end
     define_singleton_method "items" do
       return items

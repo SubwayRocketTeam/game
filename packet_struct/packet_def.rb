@@ -1,10 +1,10 @@
 class LoginRequest < Packet
-  id 2
+  required
   string "id", 31
   string "pw", 31
 end
 class LoginResponse < Packet
-  id 3
+  required
   int "result"
   string "nickname", 31
 end
