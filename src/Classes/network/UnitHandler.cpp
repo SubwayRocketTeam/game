@@ -10,8 +10,7 @@
 void Network::handleSpawn(
 	Spawn *pkt){
 
-	if(pkt->type){
-		printf("Typetrue\n ");
+	if(pkt->unit_type){
 		auto player = Player::getInstance();
 		player->setID(pkt->id);
 	}

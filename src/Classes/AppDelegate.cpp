@@ -67,9 +67,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	network->open("localhost", 4321,
 		[=](int result){
 			if(result){
-				network->sendLoginRequest(
-					"pjc0247", "asdf1234");
-				network->sendEnterRoom();
+				
 			}
 	});
 

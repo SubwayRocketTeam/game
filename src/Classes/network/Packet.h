@@ -47,7 +47,7 @@ END
 
 PACKET(Spawn)
 	int id;
-	int type;
+	int unit_type;
 	float x;
 	float y;
 END

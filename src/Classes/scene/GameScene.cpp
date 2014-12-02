@@ -36,6 +36,8 @@
 
 #include "skill/SkillPool.h"
 
+#include "network/Network.h"
+
 using namespace std;
 using namespace cocos2d;
 using namespace cocostudio;
@@ -153,6 +155,11 @@ void GameScene::onEnter(){
 	audio->playBackgroundMusic(R::BGM.c_str(), true);
 
 	ShowCursor(false);
+
+	auto network = Network::getInstance();
+	network->sendLoginRequest(
+		"pjc0247", "asdf1234");
+	network->sendEnterRoom();
 }
 void GameScene::onExit(){
 	Layer::onExit();

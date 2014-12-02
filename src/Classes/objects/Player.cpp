@@ -305,13 +305,16 @@ void Player::processMove(
 	float frameRate =
 		Director::getInstance()->getFrameRate();
 
+	auto norm = moveBy.getNormalized();
 	Network::getInstance()
 		->sendMoveStart(
-			moveBy.x, moveBy.y);
+			norm.x, norm.y);
 
+	/*
 	runAction(
 		MoveBy::create(1.0/frameRate, moveBy))
 		->setTag(actionMove);
+		*/
 
 	moveCounter++;
 }
@@ -335,19 +338,18 @@ void Player::onKeyboardDown(
 
 	if(keycode == EventKeyboard::KeyCode::KEY_1)
 		addPassive(100);
-
 	if (keycode == EventKeyboard::KeyCode::KEY_SPACE)
 		addPassive(12);
 
-	if (keycode == EventKeyboard::KeyCode::KEY_Z) {
-		EnemyFactory::getInstance()->spawn(EnemyType::enemyBasic);
-	}
+
 }
 void Player::onKeyboardUp(
 	EventKeyboard::KeyCode keycode){
 
 	if (keycode == EventKeyboard::KeyCode::KEY_SPACE)
 		removePassive(12);
+
+	printf("%d\n", moveCounter);
 }
 void Player::onKeyboardPressed(
 	EventKeyboard::KeyCode keycode){
