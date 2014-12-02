@@ -145,7 +145,12 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClCompile Include="..\Classes\common\Preloader.cpp" />
     <ClCompile Include="..\Classes\common\resource.cpp" />
     <ClCompile Include="..\Classes\Network\LoginSender.cpp" />
+    <ClCompile Include="..\Classes\network\MoveHandler.cpp" />
+    <ClCompile Include="..\Classes\network\MoveSender.cpp" />
     <ClCompile Include="..\Classes\network\Network.cpp" />
+    <ClCompile Include="..\Classes\network\RoomHandler.cpp" />
+    <ClCompile Include="..\Classes\network\RoomSender.cpp" />
+    <ClCompile Include="..\Classes\network\Routes.cpp" />
     <ClCompile Include="..\Classes\objects\Afterimage.cpp" />
     <ClCompile Include="..\Classes\objects\Ally.cpp" />
     <ClCompile Include="..\Classes\objects\Bullet.cpp" />

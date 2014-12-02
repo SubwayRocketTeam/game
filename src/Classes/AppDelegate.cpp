@@ -64,16 +64,17 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	JsonLoader::create();
 
 	auto network = Network::getInstance();
-	network->open("localhost", 9916,
+	network->open("localhost", 4321,
 		[=](int result){
 			if(result){
 				network->sendLoginRequest(
 					"pjc0247", "asdf1234");
+				network->sendEnterRoom();
 			}
 	});
 
-	network->route<login_response>(id_login_response,
-		[](login_response *pkt){
+	network->route<LoginResponse>(PT_LoginResponse,
+		[](LoginResponse *pkt){
 			printf("%d\n", pkt->result);
 	});
 

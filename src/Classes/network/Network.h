@@ -25,6 +25,10 @@ public:
 
 	void sendLoginRequest(
 		const char *user_id, const char *user_pw);
+	void sendMoveStart();
+	void sendMoveEnd();
+	void sendEnterRoom();
+	void sendLeaveRoom();
 
 	template <typename T>
 	void route(
@@ -40,6 +44,15 @@ public:
 protected:
 	Network();
 	virtual ~Network();
+
+	void initHandlers();
+
+	void handleEnterRoomNoti(
+		EnterNoti *pkt);
+	void handleLeaveRoomNoti(
+		LeaveNoti *pkt);
+	void handleMoveStart();
+	void handleMoveEnd();
 
 	int recv(
 		void *dst, int len);
