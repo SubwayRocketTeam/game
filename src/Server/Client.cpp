@@ -142,7 +142,7 @@ void Client::processPacket() {
 				sendLocalData((char*)&noti, sizeof(Packet_EnterNoti));
 
 				spawnNoti.id = id;
-				spawnNoti.type = 0;
+				spawnNoti.unit_type = 0;
 				sendLocalData((char*)&spawnNoti, sizeof(Packet_Spawn));
 			}
 			gameroom->enter(id);
@@ -152,7 +152,7 @@ void Client::processPacket() {
 			gameroom->broadcast((char*)&noti, sizeof(Packet_EnterNoti));
 
 			spawnNoti.id = id;
-			spawnNoti.type = 1;
+			spawnNoti.unit_type = 1;
 			gameroom->broadcast((char*)&spawnNoti, sizeof(Packet_Spawn));
 
 			break;
