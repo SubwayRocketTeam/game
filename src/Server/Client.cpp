@@ -8,7 +8,7 @@
 #include "GameRoomManager.h"
 
 
-std::map<PacketType, PacketHandler> Client::handlerMap;
+PacketHandler Client::handlerMap[PT_MAX];
 
 void Client::bindHandler(const PacketType type, PacketHandler handler) {
 	handlerMap[type] = handler;
@@ -99,8 +99,8 @@ void Client::processPacket() {
 			break;
 
 		/*
-		auto it = handlerMap.find((PacketType)header.type);
-		if (it == handlerMap.end())
+		auto handler = handlerMap[header.type];
+		if (handler.target<void(PacketHeader*)>() == nullptr)
 			continue;
 		*/
 
@@ -109,7 +109,7 @@ void Client::processPacket() {
 		bufferQueue.pop(buf, header.size);
 
 		/*
-		(it->second)((PacketHeader*)buf);
+		handler((PacketHeader*)buf);
 		*/
 
 		switch (header.type) {
@@ -135,6 +135,7 @@ void Client::processPacket() {
 		case PT_EnterRoom:
 		{
 			Packet_EnterNoti noti;
+			Packet_Spawn spawnNoti;
 			auto gameroom = GameRoomManager::getInstance()->getGameRoom(1);
 			for (auto id : *gameroom) {
 				noti.clientId = id;
@@ -143,7 +144,31 @@ void Client::processPacket() {
 			gameroom->enter(id);
 			gameRoomId = 1;
 			noti.clientId = id;
+			spawnNoti.id = id;
 			gameroom->broadcast((char*)&noti, sizeof(Packet_EnterNoti));
+			gameroom->broadcast((char*)&spawnNoti, sizeof(Packet_Spawn));
+			break;
+		}
+
+		case PT_MoveStartRequest:
+		{
+			Packet_MoveStartRequest* packet = (Packet_MoveStartRequest*)buf;
+			auto gameroom = GameRoomManager::getInstance()->getGameRoom(gameRoomId);
+			Packet_MoveStartResponse response;
+			response.id = packet->id;
+			response.velocity_x = packet->direction_x * 7;
+			response.velocity_y = packet->direction_y * 7;
+			gameroom->broadcast((char*)&response, sizeof(Packet_MoveStartResponse));
+			break;
+		}
+
+		case PT_MoveEndRequest:
+		{
+			Packet_MoveEndRequest* packet = (Packet_MoveEndRequest*)buf;
+			auto gameroom = GameRoomManager::getInstance()->getGameRoom(gameRoomId);
+			Packet_MoveEndResponse response;
+			response.id = packet->id;
+			gameroom->broadcast((char*)&response, sizeof(Packet_MoveEndResponse));
 			break;
 		}
 

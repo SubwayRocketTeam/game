@@ -31,7 +31,7 @@ public:
 	const id_t id;
 
 private:
-	static std::map<PacketType, PacketHandler> handlerMap;
+	static PacketHandler handlerMap[PT_MAX];
 
 	BufferQueue<BUF_SIZE> bufferQueue;
 	SOCKET socket;
