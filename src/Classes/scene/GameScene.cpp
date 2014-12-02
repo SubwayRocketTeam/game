@@ -99,7 +99,7 @@ bool GameScene::initUI(){
 	/* PLAYER */
 	player = Player::getInstance();
 	player->setPosition(
-		Vec2(100,100));
+		Vec2(0,0));
 	stage->addChild(player, Z::unit);
 
 	auto trashPool = TrashPool::getInstance();
