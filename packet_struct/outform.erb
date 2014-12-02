@@ -1,10 +1,26 @@
 /* pgen auto-generated packets */
+#pragma once
+
+struct PacketHeader{
+	int size;
+	int id;
+};
+#define PACKET(name) \
+	struct name : PacketHeader{\
+		name(){ \
+			memset(this, 0, sizeof(name)); \
+			id = id_##name; \
+			size = sizeof(name); \
+		};
+#define END };
 
 enum packet_id{
 <%$_packets.each do |packet|%>
   id_<%=packet.name%> = <%=packet.id%>,<%end%>
 }
 
+#pragma pack (push, 1)
 <%$_packets.each do |packet|%>
 <%=packet.dump%>
 <%end%>
+#pragma pack (pop)
