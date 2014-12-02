@@ -144,6 +144,8 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClCompile Include="..\Classes\common\PhysicsFactory.cpp" />
     <ClCompile Include="..\Classes\common\Preloader.cpp" />
     <ClCompile Include="..\Classes\common\resource.cpp" />
+    <ClCompile Include="..\Classes\network\ChatHandler.cpp" />
+    <ClCompile Include="..\Classes\network\ChatSender.cpp" />
     <ClCompile Include="..\Classes\Network\LoginSender.cpp" />
     <ClCompile Include="..\Classes\network\MoveHandler.cpp" />
     <ClCompile Include="..\Classes\network\MoveSender.cpp" />

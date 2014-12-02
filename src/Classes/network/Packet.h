@@ -11,12 +11,15 @@ enum PacketID{
 	PT_EnterNoti,
 	PT_LeaveNoti,
 
-	PT_Spawn,
+	PT_SpawnUnit,
 
 	PT_MoveStart,
 	PT_MoveStartNoti,
 	PT_MoveEnd,
 	PT_MoveEndNoti,
+
+	PT_ChatMessage,
+	PT_ChatNoti,
 
 	PT_MAX
 };
@@ -45,7 +48,7 @@ PACKET(LeaveNoti)
 END
 
 
-PACKET(Spawn)
+PACKET(SpawnUnit)
 	int id;
 	int unit_type;
 	float x;
@@ -73,6 +76,13 @@ PACKET(MoveEndNoti)
 	int id;
 	float end_x;
 	float end_y;
+END
+
+PACKET(ChatMessage)
+	char msg[64];
+END
+PACKET(ChatNoti)
+	char msg[64];
 END
 
 #pragma pack (pop)

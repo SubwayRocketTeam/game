@@ -30,6 +30,8 @@ public:
 	void sendMoveEnd();
 	void sendEnterRoom();
 	void sendLeaveRoom();
+	void sendChatMessage(
+		const char *msg);
 
 	template <typename T>
 	void route(
@@ -53,11 +55,13 @@ protected:
 	void handleLeaveRoomNoti(
 		LeaveNoti *pkt);
 	void handleSpawn(
-		Spawn *pkt);
+		SpawnUnit *pkt);
 	void handleMoveStart(
 		MoveStartNoti *pkt);
 	void handleMoveEnd(
 		MoveEndNoti *pkt);
+	void handleChatNoti(
+		ChatNoti *pkt);
 
 	int recv(
 		void *dst, int len);

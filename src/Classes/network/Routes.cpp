@@ -9,10 +9,12 @@ void Network::initHandlers(){
 		std::bind(&Network::handleEnterRoomNoti, this, placeholders::_1));
 	route<LeaveNoti>(PT_LeaveNoti,
 		std::bind(&Network::handleLeaveRoomNoti, this, placeholders::_1));
-	route<Spawn>(PT_Spawn,
+	route<SpawnUnit>(PT_SpawnUnit,
 		std::bind(&Network::handleSpawn, this, placeholders::_1));
 	route<MoveStartNoti>(PT_MoveStartNoti,
 		std::bind(&Network::handleMoveStart, this, placeholders::_1));
 	route<MoveEndNoti>(PT_MoveEndNoti,
 		std::bind(&Network::handleMoveEnd, this, placeholders::_1));
+	route<ChatNoti>(PT_ChatNoti,
+		std::bind(&Network::handleChatNoti, this, placeholders::_1));
 }

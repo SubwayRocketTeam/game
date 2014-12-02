@@ -209,6 +209,19 @@ void Client::processPacket() {
 			break;
 		}
 
+		case PT_ChatMessage:
+		{
+			Packet_ChatMessage* packet = (Packet_ChatMessage*)buf;
+			auto gameroom = GameRoomManager::getInstance()->getGameRoom(gameRoomId);
+
+			Packet_ChatNoti noti;
+			strcat_s(noti.msg, packet->msg);
+
+			gameroom->broadcast((char*)&noti, sizeof(Packet_ChatNoti));
+
+			break;
+		}
+
 		}
 
 		SAFE_DELETE_ARR(buf);

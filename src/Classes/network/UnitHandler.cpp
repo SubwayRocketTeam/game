@@ -9,7 +9,7 @@
 #include "objects/Ally.h"
 
 void Network::handleSpawn(
-	Spawn *pkt){
+	SpawnUnit *pkt){
 
 	if(pkt->unit_type){
 		auto player = Player::getInstance();

@@ -21,6 +21,9 @@ enum PacketType {
 	PT_MoveEnd,
 	PT_MoveEndNoti,
 
+	PT_ChatMessage,
+	PT_ChatNoti,
+
 	PT_MAX
 };
 
@@ -86,6 +89,13 @@ PACKET(MoveEndNoti)
 	int id;
 	float end_x;
 	float end_y;
+END
+
+PACKET(ChatMessage)
+	char msg[64];
+END
+PACKET(ChatNoti)
+	char msg[64];
 END
 
 #pragma pack(pop)

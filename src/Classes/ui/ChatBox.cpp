@@ -4,6 +4,8 @@
 
 #include "common/resource.h"
 
+#include "network/Network.h"
+
 using namespace cocos2d;
 
 static ChatBox *instance = nullptr;
@@ -102,7 +104,8 @@ void ChatBox::onKeyboardUp(
 	EventKeyboard::KeyCode key){
 
 	if(key == EventKeyboard::KeyCode::KEY_KP_ENTER){
-		output(input->getString());
+		Network::getInstance()
+			->sendChatMessage(input->getString().c_str());
 		input->clear();
 	}
 }
