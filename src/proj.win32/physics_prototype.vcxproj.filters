@@ -181,10 +181,10 @@
     <ClCompile Include="..\Classes\common\Preloader.cpp">
       <Filter>source\common</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\network\MoveSender.cpp">
+    <ClCompile Include="..\Classes\network\MoveHandler.cpp">
       <Filter>source\network</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\network\MoveHandler.cpp">
+    <ClCompile Include="..\Classes\network\MoveSender.cpp">
       <Filter>source\network</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\network\RoomHandler.cpp">

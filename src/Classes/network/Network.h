@@ -25,7 +25,8 @@ public:
 
 	void sendLoginRequest(
 		const char *user_id, const char *user_pw);
-	void sendMoveStart();
+	void sendMoveStart(
+		float direction_x, float direction_y);
 	void sendMoveEnd();
 	void sendEnterRoom();
 	void sendLeaveRoom();
@@ -51,8 +52,12 @@ protected:
 		EnterNoti *pkt);
 	void handleLeaveRoomNoti(
 		LeaveNoti *pkt);
-	void handleMoveStart();
-	void handleMoveEnd();
+	void handleSpawn(
+		Spawn *pkt);
+	void handleMoveStart(
+		MoveStartResponse *pkt);
+	void handleMoveEnd(
+		MoveEndResponse *pkt);
 
 	int recv(
 		void *dst, int len);

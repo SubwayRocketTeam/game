@@ -29,6 +29,8 @@
 #include "skill/id.h"
 #include "skill/AttributeName.h"
 
+#include "network/Network.h"
+
 using namespace std;
 using namespace cocos2d;
 
@@ -302,6 +304,10 @@ void Player::processMove(
 
 	float frameRate =
 		Director::getInstance()->getFrameRate();
+
+	Network::getInstance()
+		->sendMoveStart(
+			moveBy.x, moveBy.y);
 
 	runAction(
 		MoveBy::create(1.0/frameRate, moveBy))

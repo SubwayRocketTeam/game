@@ -84,6 +84,8 @@ void Network::worker(
 	}
 
 	throwTaskToGameThread(std::bind(handler, true));
+
+	initHandlers();
 	recvLoop();
 }
 void Network::recvLoop(){
@@ -108,9 +110,10 @@ void Network::recvLoop(){
 			return;
 		}
 
+		printf("packet %d\n", header.type);
 		auto pair = handlers.find(header.type);
 		if(pair == handlers.end())
-			cocos2d::log("unhandled packet");
+			cocos2d::log("unhandled packet %d", header.type);
 		else{
 			throwTaskToGameThread(
 				std::bind(pair->second, (packet_header*)packet));
