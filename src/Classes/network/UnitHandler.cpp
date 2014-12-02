@@ -6,6 +6,7 @@
 #include "objects/Stage.h"
 #include "objects/Unit.h"
 #include "objects/Player.h"
+#include "objects/Ally.h"
 
 void Network::handleSpawn(
 	Spawn *pkt){
@@ -16,10 +17,13 @@ void Network::handleSpawn(
 	}
 	else{
 		auto stage = Stage::getInstance(0);
+		auto players = Ally::getInstance(
+			Ally::allyPlayer);
 		auto unit = Unit::create(R::PlayerBody);
 	
 		unit->setID(pkt->id);
 		unit->setPosition(pkt->x,pkt->y);
 		stage->addChild(unit);
+		players->push(unit);
 	}
 }

@@ -188,7 +188,6 @@ void Player::update(
 		}
 	}
 
-	moveCounter = 0;
 	moveSwitchHorizontal = moveSwitchVertical = 0;
 }
 void Player::updateConditions(
@@ -341,7 +340,24 @@ void Player::onKeyboardDown(
 	if (keycode == EventKeyboard::KeyCode::KEY_SPACE)
 		addPassive(12);
 
+	bool moved = false;
 
+	if(keycode == EventKeyboard::KeyCode::KEY_W)
+		speed += Vec2(0,1), moved = true;
+	if(keycode == EventKeyboard::KeyCode::KEY_S)
+		speed += Vec2(0,-1), moved = true;
+	if(keycode == EventKeyboard::KeyCode::KEY_A)
+		speed += Vec2(-1,0), moved = true;
+	if(keycode == EventKeyboard::KeyCode::KEY_D)
+		speed += Vec2(1,0), moved = true;
+
+	if(moved){
+		auto norm = speed.getNormalized();
+		Network::getInstance()
+			->sendMoveStart(norm.x, norm.y);
+
+		tick = 0;
+	}
 }
 void Player::onKeyboardUp(
 	EventKeyboard::KeyCode keycode){
@@ -349,13 +365,36 @@ void Player::onKeyboardUp(
 	if (keycode == EventKeyboard::KeyCode::KEY_SPACE)
 		removePassive(12);
 
-	printf("%d\n", moveCounter);
+	bool moved = false;
+	if(keycode == EventKeyboard::KeyCode::KEY_W)
+		speed -= Vec2(0,1), moved = true;
+	if(keycode == EventKeyboard::KeyCode::KEY_S)
+		speed -= Vec2(0,-1), moved = true;
+	if(keycode == EventKeyboard::KeyCode::KEY_A)
+		speed -= Vec2(-1,0), moved = true;
+	if(keycode == EventKeyboard::KeyCode::KEY_D)
+		speed -= Vec2(1,0), moved = true;
+
+	if(moved){
+		if(speed.equals(Vec2::ZERO)){
+			Network::getInstance()
+				->sendMoveEnd();
+
+			printf("ETET %f\n",
+				tick);
+		}
+		else{
+			auto norm = speed.getNormalized();
+			Network::getInstance()
+				->sendMoveStart(norm.x, norm.y);
+		}
+	}
 }
 void Player::onKeyboardPressed(
 	EventKeyboard::KeyCode keycode){
 
 	processEyeline(cursor.x, cursor.y);
-	processMove(keycode);
+	//processMove(keycode);
 	processRotation(cursor.x,cursor.y);
 }
 

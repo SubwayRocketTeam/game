@@ -12,7 +12,9 @@ void Network::handleMoveStart(
 	unit->velocity.x = pkt->velocity_x;
 	unit->velocity.y = pkt->velocity_y;
 
-	printf("move %d\n", pkt->id);
+	printf("move %d / %f %f\n",
+		pkt->id,
+		pkt->velocity_x, pkt->velocity_y);
 }
 void Network::handleMoveEnd(
 	MoveEndNoti *pkt){
@@ -21,6 +23,13 @@ void Network::handleMoveEnd(
 		pkt->id);
 
 	unit->velocity.set(0,0);
+
+	/*
+	printf("adj %f %f / %f %f\n",
+		unit->getPositionX(), unit->getPositionY(),
+		pkt->end_x, pkt->end_y);
+	unit->setPosition(pkt->end_x, pkt->end_y);
+	*/
 
 	printf("move end %d\n", pkt->id);
 }

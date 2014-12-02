@@ -88,6 +88,7 @@ protected:
 	int moveCounter;
 	int moveSwitchVertical;
 	int moveSwitchHorizontal;
+	cocos2d::Vec2 speed;
 
 	float immortal;
 	float stiff;

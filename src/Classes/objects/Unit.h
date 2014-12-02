@@ -122,4 +122,6 @@ protected:
 	IterLock passivesLock;
 	std::map<int, PassiveData> passives;
 	std::map<std::string,Attribute> attrs;
+
+	float tick;
 };

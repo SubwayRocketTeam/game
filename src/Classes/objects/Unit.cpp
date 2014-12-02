@@ -4,6 +4,7 @@
 #include "EffectFactory.h"
 #include "Effect.h"
 
+#include "Player.h"
 #include "Stage.h"
 #include "CollisionDetector.h"
 #include "DamageLabel.h"
@@ -121,6 +122,8 @@ bool Unit::initAttrs(){
 	_INIT_ATTR(mpRegen, 0.0f);
 	_INIT_ATTR(defence, 0.0f);
 	_INIT_ATTR(gold, 0);
+	_INIT_ATTR(range, 120);
+	_INIT_ATTR(attack, 50);
 
 	_ATTR_MAX(gold) = 100;
 
@@ -180,7 +183,7 @@ void Unit::updatePhysics(
 	velocity += acceleration * dt;
 	velocity = velocity.getNormalized() * MAX(0, velocity.getLength() - friction * dt);
 	runAction(
-		MoveBy::create(dt, velocity));
+		MoveBy::create(dt, velocity * dt));
 }
 
 
