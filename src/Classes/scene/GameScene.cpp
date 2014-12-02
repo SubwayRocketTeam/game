@@ -78,6 +78,8 @@ bool GameScene::init(){
 	enableKeyboardInput(this);
 	scheduleUpdate();
 
+	///schedule(SEL_SCHEDULE(&GameScene::updatePing), 1.5f);
+
 	return true;
 }
 bool GameScene::initUI(){
@@ -142,6 +144,12 @@ bool GameScene::initUI(){
 	chatBox->setPosition(0,600);
 	addChild(chatBox);
 
+	auto ping = LabelTTF::create("ping","arial", 30);
+	ping->setColor(Color3B::BLUE);
+	ping->setPosition(200,200);
+	ping->setTag(99);
+	addChild(ping);
+
 	/* LAYERS */
 	addChild(EffectLayer::getInstance());
 
@@ -157,6 +165,7 @@ void GameScene::onEnter(){
 	ShowCursor(false);
 
 	auto network = Network::getInstance();
+	network->sendSecHello();
 	network->sendLoginRequest(
 		"pjc0247", "asdf1234");
 	network->sendEnterRoom();
@@ -201,6 +210,15 @@ void GameScene::onReleaseGlobalObjects(){
 
 void GameScene::update(
 	float dt){
+
+}
+void GameScene::updatePing(
+	float dt){
+
+	ping = 0;//rand() % 900 * 0.001;
+	auto label = (LabelTTF*)getChildByTag(99);
+	label->setString(_MAKE_PATH("ping - %d %f", (int)(ping*1000), ping));
+	label->setColor(Color3B(255 * ping * (2), 0,0));
 }
 
 void GameScene::onKeyboardDown(

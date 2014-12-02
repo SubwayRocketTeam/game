@@ -7,6 +7,11 @@ typedef unsigned int packet_type_t;
 
 enum PacketType {
 	PT_None,
+
+	PT_SecHello,
+	PT_SecPubKey,
+	PT_SecSessionKey,
+
 	PT_Example,
 	PT_LoginRequest,
 	PT_LoginResponse,
@@ -37,6 +42,17 @@ struct PacketHeader {
 PACKET(Example)
 	float x;
 	float y;
+END
+
+PACKET(SecHello)
+END
+PACKET(SecPubKey)
+	int pub_key;
+	int n;
+END
+PACKET(SecSessionKey)
+	int session_key;
+	int n;
 END
 
 PACKET(LoginRequest)

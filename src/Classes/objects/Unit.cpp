@@ -188,8 +188,10 @@ void Unit::updatePhysics(
 
 	/* TODO : :: */
 	runAction(
-		MoveBy::create(dt, velocity * dt))
+		MoveBy::create(dt, velocity * dt + adj / 3))
 	->setTag(::ActionType::Move);
+
+	adj -= adj / 3;
 }
 
 

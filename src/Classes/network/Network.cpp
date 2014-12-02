@@ -1,6 +1,8 @@
 ﻿#include "pch.h"
 #include "Network.h"
 
+#include "RSA.h"
+
 using namespace std;
 using namespace cocos2d;
 
@@ -8,6 +10,8 @@ static Network *instance = nullptr;
 
 Network::Network() :
 	trd(nullptr){
+
+	ssl_ready = false;
 }
 Network::~Network(){
 }
@@ -42,6 +46,13 @@ int Network::recv(
 }
 int Network::send(
 	void *src, int len){
+
+	if(ssl_ready){
+		int id = *(int*)((char*)src+4);
+
+		id = modexp(id, enc_key, enc_n);
+		memcpy(((char*)src)+4, &id, sizeof(int));
+	}
 
 	return ::send(sock, (char*)src, len, 0);
 }
@@ -110,6 +121,11 @@ void Network::recvLoop(){
 			return;
 		}
 
+		if(ssl_ready){
+			printf("SSL ");
+			header.type = modexp(header.type, dec_key, dec_n);
+		}
+
 		printf("packet %d\n", header.type);
 		auto pair = handlers.find(header.type);
 		if(pair == handlers.end())
@@ -137,6 +153,17 @@ void Network::close(){
 void Network::throwTaskToGameThread(
 	std::function<void()> task){
 
+	auto scene = Director::getInstance()->getRunningScene();
+
 	Director::getInstance()->getScheduler()
-		->performFunctionInCocosThread(task);
+		->performFunctionInCocosThread(
+			[=](){
+			if(scene)
+				scene->runAction(
+					Sequence::create(
+						DelayTime::create(ping),
+						CallFunc::create(task),
+						nullptr));
+			else task();
+		});
 }

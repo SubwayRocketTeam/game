@@ -39,4 +39,10 @@ private:
 	float x, y;
 	float speed_x, speed_y;
 	int tick;
+
+	int ssl_ready;
+	int enc_key;
+	int dec_key;
+	int enc_n;
+	int dec_n;
 };

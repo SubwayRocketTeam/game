@@ -7,6 +7,7 @@
 #include "GameRoom.h"
 #include "GameRoomManager.h"
 
+#include "RSA.h"
 
 PacketHandler Client::handlerMap[PT_MAX];
 
@@ -17,7 +18,9 @@ void Client::bindHandler(const PacketType type, PacketHandler handler) {
 
 Client::Client(const id_t id, const SOCKET sock)
 :id(id), socket(sock), gameRoomId(INVALID_ID) {
-
+	ssl_ready = false;
+	enc_key = 0;
+	dec_key = 0;
 }
 
 Client::~Client() {
@@ -27,6 +30,14 @@ Client::~Client() {
 int Client::send(char* buf, const size_t size) {
 	if (!buf || size < 1)
 		return SOCKET_ERROR;
+
+	if(ssl_ready){
+		int id = *(int*)(buf+4);
+
+		id = modexp(id, enc_key, enc_n);
+
+		memcpy(buf+4, &id, sizeof(int));
+	}
 
 	SocketContext* context = new SocketContext();
 	context->buf = buf;
@@ -112,12 +123,39 @@ void Client::processPacket() {
 		handler((PacketHeader*)buf);
 		*/
 
+		if(ssl_ready){
+			header.type = 
+				modexp(header.type, dec_key, dec_n);
+		}
+
 		switch (header.type) {
 		
 		case PT_Example:
 		{
 			Packet_Example* packet = (Packet_Example*)buf;
 			printf("%u: %f %f\n", id, packet->x, packet->y);
+			break;
+		}
+
+		case PT_SecHello:
+		{
+			Packet_SecPubKey response;
+			response.pub_key = 79;
+			response.n = 14873;
+			sendLocalData((char*)&response, sizeof(response));
+
+			enc_n = 14873;
+			enc_key = 1111;
+			break;
+		}
+		case PT_SecSessionKey:
+		{
+			Packet_SecSessionKey* packet = (Packet_SecSessionKey*)buf;
+			dec_n = packet->n;
+			dec_key = 
+				modexp(packet->session_key, 79, packet->n);
+
+			ssl_ready = true;
 			break;
 		}
 

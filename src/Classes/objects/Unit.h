@@ -123,4 +123,8 @@ protected:
 	std::map<std::string,Attribute> attrs;
 
 	float tick;
+
+	/* FIXME */
+public:
+	cocos2d::Vec2 adj;
 };

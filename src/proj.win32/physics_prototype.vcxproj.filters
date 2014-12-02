@@ -205,6 +205,15 @@
     <ClCompile Include="..\Classes\network\ChatSender.cpp">
       <Filter>source\network</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\network\SecHandler.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\network\SecSender.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\network\RSA.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -449,6 +458,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\common\Preloader.h">
       <Filter>source\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\network\RSA.h">
+      <Filter>source\network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

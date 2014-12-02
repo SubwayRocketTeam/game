@@ -3,6 +3,7 @@
 
 #include "objects/tags.h"
 #include "objects/Unit.h"
+#include "objects/Player.h"
 
 using namespace cocos2d;
 
@@ -12,8 +13,10 @@ void Network::handleMoveStart(
 	auto unit = Unit::getInstanceByID(
 		pkt->id);
 
-	unit->velocity.x = pkt->velocity_x;
-	unit->velocity.y = pkt->velocity_y;
+	if(Player::getInstance() != unit){
+		unit->velocity.x = pkt->velocity_x;
+		unit->velocity.y = pkt->velocity_y;
+	}
 
 	printf("move %d / %f %f\n",
 		pkt->id,
@@ -33,9 +36,11 @@ void Network::handleMoveEnd(
 		unit->getPositionX(), unit->getPositionY(),
 		pkt->end_x, pkt->end_y);
 
+	/*
 	unit->runAction(
 		MoveTo::create(
 			1.0f / Global::fps, Vec2(pkt->end_x, pkt->end_y)));
-
+	*/
+	unit->adj += Vec2(pkt->end_x, pkt->end_y) - unit->getPosition();
 	printf("move end %d\n", pkt->id);
 }

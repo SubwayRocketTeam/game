@@ -353,9 +353,19 @@ void Player::onKeyboardDown(
 
 	if(moved){
 		auto norm = speed.getNormalized();
-		Network::getInstance()
-			->sendMoveStart(norm.x, norm.y);
+
+		runAction(
+			Sequence::create(
+				DelayTime::create(ping),
+				CallFunc::create([=](){
+					Network::getInstance()
+						->sendMoveStart(norm.x, norm.y);
+				}),
+				nullptr));
 		
+		/* FIXIT */
+		velocity.x = norm.x * 350;
+		velocity.y = norm.y * 350;
 		moveCounter ++;
 		tick = 0;
 	}
@@ -380,13 +390,31 @@ void Player::onKeyboardUp(
 		moveCounter --;
 
 		if(moveCounter == 0){
-			Network::getInstance()
-				->sendMoveEnd(tick);
+			runAction(
+			Sequence::create(
+				DelayTime::create(ping),
+				CallFunc::create([=](){
+					Network::getInstance()
+						->sendMoveEnd(tick);
+				}),
+				nullptr));
+
+			velocity.x = 0;
+			velocity.y = 0;
 		}
 		else{
 			auto norm = speed.getNormalized();
-			Network::getInstance()
-				->sendMoveStart(norm.x, norm.y);
+			runAction(
+			Sequence::create(
+				DelayTime::create(ping),
+				CallFunc::create([=](){
+					Network::getInstance()
+						->sendMoveStart(norm.x, norm.y);
+				}),
+				nullptr));
+
+			velocity.x = norm.x * 350;
+			velocity.y = norm.y * 350;
 		}
 	}
 }

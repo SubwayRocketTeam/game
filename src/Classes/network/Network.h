@@ -23,6 +23,9 @@ public:
 		OpenHandler handler);
 	void close();
 
+	void sendSecHello();
+	void sendSecSessionKey(
+		int n, int pub_key);
 	void sendLoginRequest(
 		const char *user_id, const char *user_pw);
 	void sendMoveStart(
@@ -51,6 +54,8 @@ protected:
 
 	void initHandlers();
 
+	void handleSecPubKey(
+		SecPubKey *pkt);
 	void handleEnterRoomNoti(
 		EnterNoti *pkt);
 	void handleLeaveRoomNoti(
@@ -96,4 +101,10 @@ private:
 	std::map<int,std::function<void(packet_header*)>> handlers;
 
 	SOCKET sock;
+
+	bool ssl_ready;
+	int enc_key;
+	int dec_key;
+	int enc_n;
+	int dec_n;
 };

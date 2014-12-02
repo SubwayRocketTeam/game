@@ -28,5 +28,6 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="PacketMacro.h" />
+    <ClInclude Include="RSA.h" />
   </ItemGroup>
 </Project>

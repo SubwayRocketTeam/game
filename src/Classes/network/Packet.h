@@ -4,6 +4,11 @@
 
 enum PacketID{
 	PT_None,
+
+	PT_SecHello,
+	PT_SecPubKey,
+	PT_SecSessionKey,
+
 	PT_Example,
 	PT_LoginRequest,
 	PT_LoginResponse,
@@ -25,6 +30,17 @@ enum PacketID{
 };
 
 #pragma pack (push, 1)
+
+PACKET(SecHello)
+END
+PACKET(SecPubKey)
+	int pub_key;
+	int n;
+END
+PACKET(SecSessionKey)
+	int session_key;
+	int n;
+END
 
 PACKET(LoginRequest)
 	char id[32];

@@ -5,6 +5,9 @@ using namespace std;
 
 void Network::initHandlers(){
 	//route(PT_LoginResponse, &Network::handleLoginResponse);
+	route<SecPubKey>(PT_SecPubKey,
+		std::bind(&Network::handleSecPubKey, this, placeholders::_1));
+
 	route<EnterNoti>(PT_EnterNoti, 
 		std::bind(&Network::handleEnterRoomNoti, this, placeholders::_1));
 	route<LeaveNoti>(PT_LeaveNoti,

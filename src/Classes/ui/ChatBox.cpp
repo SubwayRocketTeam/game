@@ -45,6 +45,7 @@ bool ChatBox::init(){
 		"", "arial", 20);
 	input->setColor(Color3B::BLACK);
 	input->setAnchorPoint(Vec2(0,0));
+	input->setPosition(20,20);
 	addChild(input);
 
 	enableKeyboardInput(this);
@@ -104,8 +105,37 @@ void ChatBox::onKeyboardUp(
 	EventKeyboard::KeyCode key){
 
 	if(key == EventKeyboard::KeyCode::KEY_KP_ENTER){
-		Network::getInstance()
-			->sendChatMessage(input->getString().c_str());
+		auto msg = input->getString();
+
+		if(msg[0] == '/'){
+			if(msg == "/random"){
+				runAction(
+					RepeatForever::create(
+					Sequence::create(
+						DelayTime::create(1.5),
+						CallFunc::create([&](){
+							ping = rand() % 900 * 0.001;
+							
+							auto label = (LabelTTF*)getParent()->getChildByTag(99);
+							label->setString(_MAKE_PATH("ping - %d %f", (int)(ping*1000), ping));
+							label->setColor(Color3B(255 * ping * (2), 0,0));
+						}),
+						nullptr)));
+				
+			}
+			else{
+				float n;
+				sscanf(msg.c_str(), "/%f", &n);
+				ping = n;//rand() % 900 * 0.001;
+				auto label = (LabelTTF*)getParent()->getChildByTag(99);
+				label->setString(_MAKE_PATH("ping - %d %f", (int)(ping*1000), ping));
+				label->setColor(Color3B(255 * ping * (2), 0,0));
+			}
+		}
+		else{
+			Network::getInstance()
+				->sendChatMessage(msg.c_str());
+		}
 		input->clear();
 	}
 }
