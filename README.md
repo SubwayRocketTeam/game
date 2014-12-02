@@ -1,5 +1,10 @@
 # Robotopia Cleaner
 
+패킷 생성 방법
+----
+* gen_packet.bat 파일 실행
+* (PGen)[packet_struct/README.md]
+
 Pull 할 때 주의사항
 ----
 * gitshell 열기
