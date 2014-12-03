@@ -92,7 +92,7 @@ class Packet
     self.items.push([key, value, "int"])
   end
   def self.string key, size, value=""
-    self.fmt.concat "a"+(size+1).to_s
+    self.fmt.concat "Z" +(size+1).to_s
     self.items.push([key, value, "string", size])
   end
   def self.float key, value=0
