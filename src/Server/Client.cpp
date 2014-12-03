@@ -217,10 +217,15 @@ void Client::processPacket() {
 			Packet_MoveStartNoti response;
 
 			if(speed_x || speed_y){
+				printf("bef2 %.0f, %.0f\n", x,y);
+
 				float delta =
 					(float)(GetTickCount() - tick) / 1000.0f;
 				x += speed_x * 350 * delta;
 				y += speed_y * 350 * delta;
+
+				printf("D2  %f / speed %.0f, %.0f / x %0.f, %0.f\n",
+				delta, speed_x, speed_y, x,y);
 			}
 
 			response.id = id;
@@ -232,6 +237,8 @@ void Client::processPacket() {
 			speed_x = packet->direction_x;
 			speed_y = packet->direction_y;
 
+			printf("PKT %f %f\n", packet->direction_x, packet->direction_y);
+
 			break;
 		}
 
@@ -242,10 +249,14 @@ void Client::processPacket() {
 
 			float delta =
 				(float)(GetTickCount() - tick) / 1000.0f;
-			printf("%f / %f %f\n", delta, speed_x, speed_y);
+
+
+			printf("bef %.0f, %.0f\n", x,y);
 			x += speed_x * 350 * delta;
 			y += speed_y * 350 * delta;
-			printf("x : %f / y : %f\n", x,y);
+
+			printf("D  %f / speed %.0f, %.0f / x %0.f, %0.f\n",
+				delta, speed_x, speed_y, x,y);
 
 			Packet_MoveEndNoti response;
 			response.id = id;

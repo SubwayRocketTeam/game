@@ -354,14 +354,23 @@ void Player::onKeyboardDown(
 	if(moved){
 		auto norm = speed.getNormalized();
 
+		if(ping){
 		runAction(
 			Sequence::create(
 				DelayTime::create(ping),
 				CallFunc::create([=](){
+					printf("NORM %f %f\n", norm.x, norm.y);
 					Network::getInstance()
 						->sendMoveStart(norm.x, norm.y);
 				}),
 				nullptr));
+		}
+		else{
+			printf("NORM %f %f\n", norm.x, norm.y);
+
+			Network::getInstance()
+				->sendMoveStart(norm.x, norm.y);
+		}
 		
 		/* FIXIT */
 		velocity.x = norm.x * 350;
@@ -390,6 +399,7 @@ void Player::onKeyboardUp(
 		moveCounter --;
 
 		if(moveCounter == 0){
+			if(ping){
 			runAction(
 			Sequence::create(
 				DelayTime::create(ping),
@@ -398,20 +408,33 @@ void Player::onKeyboardUp(
 						->sendMoveEnd(tick);
 				}),
 				nullptr));
-
+			}
+			else{
+				Network::getInstance()
+					->sendMoveEnd(tick);
+			}
 			velocity.x = 0;
 			velocity.y = 0;
 		}
 		else{
 			auto norm = speed.getNormalized();
+			if(ping){
 			runAction(
 			Sequence::create(
 				DelayTime::create(ping),
 				CallFunc::create([=](){
+					printf("NORM %f %f\n", norm.x, norm.y);
 					Network::getInstance()
 						->sendMoveStart(norm.x, norm.y);
 				}),
 				nullptr));
+			}
+			else{
+			printf("NORM 2 %f %f\n", norm.x, norm.y);
+
+				Network::getInstance()
+						->sendMoveStart(norm.x, norm.y);
+			}
 
 			velocity.x = norm.x * 350;
 			velocity.y = norm.y * 350;

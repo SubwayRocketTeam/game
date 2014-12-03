@@ -42,5 +42,4 @@ void Network::handleMoveEnd(
 			1.0f / Global::fps, Vec2(pkt->end_x, pkt->end_y)));
 	*/
 	unit->adj += Vec2(pkt->end_x, pkt->end_y) - unit->getPosition();
-	printf("move end %d\n", pkt->id);
 }

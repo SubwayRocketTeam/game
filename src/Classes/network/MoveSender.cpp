@@ -7,6 +7,7 @@ void Network::sendMoveStart(
 	MoveStart pkt;
 	pkt.direction_x = direction_x;
 	pkt.direction_y = direction_y;
+
 	send(pkt);
 }
 void Network::sendMoveEnd(

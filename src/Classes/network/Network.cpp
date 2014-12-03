@@ -158,7 +158,7 @@ void Network::throwTaskToGameThread(
 	Director::getInstance()->getScheduler()
 		->performFunctionInCocosThread(
 			[=](){
-			if(scene)
+			if(scene && ping > 0)
 				scene->runAction(
 					Sequence::create(
 						DelayTime::create(ping),
