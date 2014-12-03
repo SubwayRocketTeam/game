@@ -7,6 +7,12 @@ typedef unsigned int packet_type_t;
 
 enum PacketType {
 	PT_None,
+
+	asdf,
+	sdfg,
+	dfgh,
+
+
 	PT_Example,
 	PT_LoginRequest,
 	PT_LoginResponse,

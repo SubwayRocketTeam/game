@@ -16,7 +16,7 @@ public:
 		if (end + size > _BUF_SIZE_) {
 			size_t remain = _BUF_SIZE_ - end;
 			memcpy_s(buffer + end, remain, buf, remain);
-			memcpy_s(buffer, size - remain, buf, size - remain);
+			memcpy_s(buffer, size - remain, buf + remain, size - remain);
 		}
 		else {
 			memcpy_s(buffer + end, size, buf, size);
@@ -44,7 +44,7 @@ public:
 		if (begin + size > _BUF_SIZE_) {
 			size_t remain = _BUF_SIZE_ - begin;
 			memcpy_s(buf, remain, buffer + begin, remain);
-			memcpy_s(buf, size - remain, buffer, size - remain);
+			memcpy_s(buf + remain, size - remain, buffer, size - remain);
 		}
 		else {
 			memcpy_s(buf, size, buffer + begin, size);
