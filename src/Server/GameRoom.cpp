@@ -20,7 +20,7 @@ bool GameRoom::enter(const id_t client_id) {
 	if (client_id == INVALID_ID) return false;
 	if (!clientIds.insert(client_id).second)
 		return false;
-
+	ClientManager::getInstance()->getClient(client_id)->setGameRoomId(id);
 	return true;
 }
 
@@ -30,6 +30,7 @@ bool GameRoom::leave(const id_t client_id) {
 	if (it == clientIds.end())
 		return false;
 	clientIds.erase(it);
+	ClientManager::getInstance()->getClient(client_id)->setGameRoomId(INVALID_ID);
 	// 모두 나가면 방폭
 //	if (clientIds.size() == 0)
 //		GameRoomManager::getInstance()->removeGameRoom(id);

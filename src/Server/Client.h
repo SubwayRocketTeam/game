@@ -3,16 +3,12 @@
 #include <WinSock2.h>
 #include "BufferQueue.h"
 #include "IDDispenser.h"
-#include "PacketType.h"
-
-typedef std::function<void(PacketHeader*)> PacketHandler;
+#include "PacketHandler.h"
 
 class GameRoom;
 
 class Client {
 public:
-	static void bindHandler(const PacketType type, PacketHandler handler);
-
 	Client(const id_t id = INVALID_ID, const SOCKET sock = INVALID_SOCKET);
 	~Client();
 
@@ -27,16 +23,19 @@ public:
 	void onConnect();
 	void onDisconnect();
 
+	void setGameRoomId(id_t id);
+	id_t getGameRoomId();
+
+
 public:
 	const id_t id;
-
-private:
-	static PacketHandler handlerMap[PT_MAX];
-
-	BufferQueue<BUF_SIZE> bufferQueue;
-	SOCKET socket;
-	id_t gameRoomId;
 	float x, y;
 	float speed_x, speed_y;
 	int tick;
+
+private:
+	BufferQueue<BUF_SIZE> bufferQueue;
+	SOCKET socket;
+
+	id_t gameRoomId;
 };

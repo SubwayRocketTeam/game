@@ -8,11 +8,6 @@ typedef unsigned int packet_type_t;
 enum PacketType {
 	PT_None,
 
-	asdf,
-	sdfg,
-	dfgh,
-
-
 	PT_Example,
 	PT_LoginRequest,
 	PT_LoginResponse,
@@ -40,6 +35,9 @@ struct PacketHeader {
 	packet_size_t size;
 	packet_type_t type;
 };
+
+PACKET(None)
+END
 
 PACKET(Example)
 	float x;

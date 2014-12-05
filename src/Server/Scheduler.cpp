@@ -6,6 +6,11 @@
 #include "GameRoomManager.h"
 #include "Event.h"
 
+struct TimerArg {
+	HANDLE timer;
+	id_t room_id;
+	DWORD tick;
+};
 
 void timerThreadProc(ScheduleQueue* scheduleQueue);
 void CALLBACK timerCallback(LPVOID lpArgToCompletionRoutine, DWORD dwTimerLowValue, DWORD dwTimerHighValue);
@@ -40,7 +45,7 @@ void timerThreadProc(ScheduleQueue* scheduleQueue){
 		WaitForSingleObjectEx(Event::newSchedule, INFINITE, TRUE);
 		while (!scheduleQueue->empty()) {
 			HANDLE timer = CreateWaitableTimer(NULL, TRUE, NULL);
-			Scheduler::TimerArg* schedulerArg = new Scheduler::TimerArg();
+			TimerArg* schedulerArg = new TimerArg();
 			schedulerArg->timer = timer;
 			while (scheduleQueue->try_pop(schedulerArg->room_id));
 			SetWaitableTimer(timer, &period, 16, timerCallback, schedulerArg, TRUE);
@@ -51,7 +56,7 @@ void timerThreadProc(ScheduleQueue* scheduleQueue){
 
 void CALLBACK timerCallback(LPVOID lpArgToCompletionRoutine, DWORD dwTimerLowValue, DWORD dwTimerHighValue) {
 	LARGE_INTEGER period = { 0, };
-	Scheduler::TimerArg* schedulerArg = (Scheduler::TimerArg*)lpArgToCompletionRoutine;
+	TimerArg* schedulerArg = (TimerArg*)lpArgToCompletionRoutine;
 
 	TimerContext* context = new TimerContext();
 	context->gameRoomId = schedulerArg->room_id;

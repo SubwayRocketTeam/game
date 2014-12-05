@@ -80,6 +80,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClCompile Include="GameRoomManager.cpp" />
     <ClCompile Include="IOContext.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="PacketHandler.cpp" />
     <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -96,6 +97,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClInclude Include="GameRoomManager.h" />
     <ClInclude Include="IDDispenser.h" />
     <ClInclude Include="IOContext.h" />
+    <ClInclude Include="PacketHandler.h" />
     <ClInclude Include="PacketMacro.h" />
     <ClInclude Include="PacketType.h" />
     <ClInclude Include="Scheduler.h" />

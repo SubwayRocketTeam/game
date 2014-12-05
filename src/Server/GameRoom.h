@@ -26,5 +26,6 @@ public:
 	const id_t id;
 
 private:
+	IDDispenser dispenser;
 	std::set<id_t> clientIds;
 };

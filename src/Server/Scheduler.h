@@ -6,13 +6,6 @@ typedef concurrency::concurrent_queue<id_t> ScheduleQueue;
 
 class Scheduler {
 public:
-	struct TimerArg {
-		HANDLE timer;
-		id_t room_id;
-		DWORD tick;
-	};
-
-public:
 	static Scheduler* getInstance();
 
 	Scheduler();

@@ -16,6 +16,7 @@
     <ClCompile Include="IOContext.cpp" />
     <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="Event.cpp" />
+    <ClCompile Include="PacketHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -32,5 +33,6 @@
     <ClInclude Include="PacketMacro.h" />
     <ClInclude Include="Scheduler.h" />
     <ClInclude Include="Event.h" />
+    <ClInclude Include="PacketHandler.h" />
   </ItemGroup>
 </Project>
