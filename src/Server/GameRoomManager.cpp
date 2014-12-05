@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "GameRoomManager.h"
 #include "GameRoom.h"
 #include "Scheduler.h"

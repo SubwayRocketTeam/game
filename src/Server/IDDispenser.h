@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #define INVALID_ID 0
 

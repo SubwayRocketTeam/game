@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "GameRoom.h"
 #include "GameRoomManager.h"
 #include "ClientManager.h"
@@ -30,7 +30,7 @@ bool GameRoom::leave(const id_t client_id) {
 	if (it == clientIds.end())
 		return false;
 	clientIds.erase(it);
-	// ¸ðµÎ ³ª°¡¸é ¹æÆø
+	// ëª¨ë‘ ë‚˜ê°€ë©´ ë°©í­
 //	if (clientIds.size() == 0)
 //		GameRoomManager::getInstance()->removeGameRoom(id);
 	return true;
