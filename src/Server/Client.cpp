@@ -17,17 +17,17 @@ Client::~Client() {
 	closesocket(socket);
 }
 
-int Client::send(char* buf, const size_t size) {
+int Client::send(void* buf, const size_t size) {
 	if (!buf || size < 1)
 		return SOCKET_ERROR;
 
 	SocketContext* context = new SocketContext();
-	context->buf = buf;
+	context->buf = (char*)buf;
 	context->clientId = id;
 	context->recv = false;
 
 	WSABUF wsabuf;
-	wsabuf.buf = buf;
+	wsabuf.buf = (char*)buf;
 	wsabuf.len = size;
 
 	DWORD byteSent;
@@ -43,7 +43,7 @@ int Client::send(char* buf, const size_t size) {
 	return byteSent;
 }
 
-int Client::sendLocalData(const char* buf, const size_t size) {
+int Client::sendLocalData(void* buf, const size_t size) {
 	if (!buf || size < 1)
 		return SOCKET_ERROR;
 	char* new_buf = new char[size];
@@ -77,8 +77,8 @@ int Client::recv() {
 }
 
 
-bool Client::push(const char* buf, const size_t size) {
-	return bufferQueue.push(buf, size);
+bool Client::push(void* buf, const size_t size) {
+	return bufferQueue.push((char*)buf, size);
 }
 
 

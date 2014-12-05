@@ -39,7 +39,7 @@ bool GameRoom::leave(const id_t client_id) {
 }
 
 
-void GameRoom::broadcast(const char* const buf, const size_t size) {
+void GameRoom::broadcast(void* const buf, const size_t size) {
 	if (!buf || size < 1) return;
 	for (auto id : clientIds) {
 		Client* client = ClientManager::getInstance()->getClient(id);
@@ -48,7 +48,7 @@ void GameRoom::broadcast(const char* const buf, const size_t size) {
 	}
 }
 
-void GameRoom::broadcastExceptOne(const char* const buf, const size_t size, const id_t except_id) {
+void GameRoom::broadcastExceptOne(void* const buf, const size_t size, const id_t except_id) {
 	if (!buf || size < 1) return;
 	for (auto id : clientIds) {
 		if (id == except_id)

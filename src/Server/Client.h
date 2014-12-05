@@ -12,11 +12,11 @@ public:
 	Client(const id_t id = INVALID_ID, const SOCKET sock = INVALID_SOCKET);
 	~Client();
 
-	int send(char* buf, const size_t size);
-	int sendLocalData(const char* buf, const size_t size);
+	int send(void* buf, const size_t size);
+	int sendLocalData(void* buf, const size_t size);
 	int recv();
 
-	bool push(const char* buf, const size_t size);
+	bool push(void* buf, const size_t size);
 
 	void processPacket();
 

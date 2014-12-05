@@ -4,6 +4,8 @@
 
 #include "IDDispenser.h"
 
+class GameRoomManager;
+
 class GameRoom {
 	friend GameRoomManager;
 
@@ -16,8 +18,8 @@ public:
 	bool enter(const id_t client_id);
 	bool leave(const id_t client_id);
 
-	void broadcast(const char* const buf, const size_t size);
-	void broadcastExceptOne(const char* const buf, const size_t size, const id_t except_id);
+	void broadcast(void* const buf, const size_t size);
+	void broadcastExceptOne(void* const buf, const size_t size, const id_t except_id);
 
 	const std::set<id_t>::iterator begin() const;
 	const std::set<id_t>::iterator end() const;
