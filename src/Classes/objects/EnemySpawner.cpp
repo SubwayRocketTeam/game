@@ -45,6 +45,7 @@ void EnemySpawner::update(
  
 void EnemySpawner::spawn(
 	EnemyType type){
+
 	auto stage = Stage::getInstance(0);
 	auto ally = Ally::getInstance(
 		Ally::Type::allyEnemy);
