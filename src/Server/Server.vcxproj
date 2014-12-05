@@ -75,10 +75,12 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientManager.cpp" />
+    <ClCompile Include="Event.cpp" />
     <ClCompile Include="GameRoom.cpp" />
     <ClCompile Include="GameRoomManager.cpp" />
     <ClCompile Include="IOContext.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -89,12 +91,14 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClInclude Include="ClientManager.h" />
     <ClInclude Include="CompletionKeyType.h" />
     <ClInclude Include="config.h" />
+    <ClInclude Include="Event.h" />
     <ClInclude Include="GameRoom.h" />
     <ClInclude Include="GameRoomManager.h" />
     <ClInclude Include="IDDispenser.h" />
     <ClInclude Include="IOContext.h" />
     <ClInclude Include="PacketMacro.h" />
     <ClInclude Include="PacketType.h" />
+    <ClInclude Include="Scheduler.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

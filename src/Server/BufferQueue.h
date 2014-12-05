@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 template <int _BUF_SIZE_>
 class BufferQueue {
@@ -59,10 +59,10 @@ public:
 private:
 	char buffer[_BUF_SIZE_];
 	
-	// popÇÒ À§Ä¡: Ã¹ ¿ø¼Ò À§Ä¡
+	// popí•  ìœ„ì¹˜: ì²« ì›ì†Œ ìœ„ì¹˜
 	size_t begin;
-	// pushÇÒ À§Ä¡: ¸¶Áö¸· ¿ø¼Ò ´ÙÀ½ À§Ä¡
+	// pushí•  ìœ„ì¹˜: ë§ˆì§€ë§‰ ì›ì†Œ ë‹¤ìŒ ìœ„ì¹˜
 	size_t end;
-	// Ã¤¿öÁø ¾ç
+	// ì±„ì›Œì§„ ì–‘
 	size_t length;
 };

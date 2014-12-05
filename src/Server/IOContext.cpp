@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "IOContext.h"
 
 
@@ -12,7 +12,7 @@ AcceptContext::AcceptContext()
 }
 
 TimerContext::TimerContext()
-:IOContext(), gameRoomId(INVALID_ID), hTimer(INVALID_HANDLE_VALUE) {
+:IOContext(), gameRoomId(INVALID_ID) {
 
 }
 

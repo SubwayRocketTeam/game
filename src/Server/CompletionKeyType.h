@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 enum ComplationKeyType {
 	CKT_NONE,

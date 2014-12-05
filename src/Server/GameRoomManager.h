@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "IDDispenser.h"
 #include <map>
@@ -14,6 +14,8 @@ public:
 	bool removeGameRoom(const id_t id);
 
 private:
+	std::mutex mutex;
+
 	IDDispenser dispenser;
 	std::map<id_t, GameRoom*> rooms;
 };
