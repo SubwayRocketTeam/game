@@ -80,6 +80,7 @@ void Bullet::fire(
 }
 void Bullet::fire(
 	cocos2d::Vec2 direction, float speed){
+
 	direction.normalize();
 	setRotation(-CC_RADIANS_TO_DEGREES(direction.getAngle()));
 	runAction(
@@ -89,7 +90,9 @@ void Bullet::fire(
 		nullptr));
 }
 
-void Bullet::update(float dt){
+void Bullet::update(
+	float dt){
+
 	attackData.postion = getPosition();
 
 	Ally::getInstance(_OPPOSITE(allyID))
