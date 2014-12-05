@@ -57,7 +57,7 @@ void StatusConsole::addLine(
 	const std::string &msg){
 
 	auto label = LabelTTF::create(
-		msg, "arial", LineSize);
+		msg, Global::Font, LineSize);
 	label->setColor(Color3B::RED);
 	label->setOpacity(0);
 	label->setAnchorPoint(Vec2(0,0));

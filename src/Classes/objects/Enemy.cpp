@@ -47,7 +47,7 @@ bool Enemy::init(){
 	attackData.aggro = 0;
 	attackData.damage = 1;
 
-	label = LabelTTF::create("", "Arial", 20);
+	label = LabelTTF::create("", Global::Font, 20);
 	addChild(label);
 
 	scheduleUpdate();

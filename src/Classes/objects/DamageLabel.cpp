@@ -22,7 +22,7 @@ DamageLabel *DamageLabel::create(){
 	return nullptr;
 }
 bool DamageLabel::init(){
-	if(!LabelTTF::initWithString("","arial", FontSize))
+	if(!LabelTTF::initWithString("",Global::Font, FontSize))
 		return false;
 
 	setColor(Color3B::RED);

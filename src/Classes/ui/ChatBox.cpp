@@ -39,7 +39,7 @@ bool ChatBox::init(){
 	addChild(bgi);
 
 	input = InputBox::create(
-		"", "arial", 20);
+		"", Global::Font, 20);
 	input->setColor(Color3B::BLACK);
 	input->setAnchorPoint(Vec2(0,0));
 	addChild(input);
@@ -77,7 +77,7 @@ void ChatBox::addLine(
 	const std::string &msg){
 
 	auto label = LabelTTF::create(
-		msg, "arial", LineSize);
+		msg, Global::Font, LineSize);
 	label->setColor(Color3B::RED);
 	label->setOpacity(0);
 	label->setAnchorPoint(Vec2(0,0));
