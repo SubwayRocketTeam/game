@@ -3,20 +3,23 @@
 
 struct PacketHeader{
   int size;
-  int id;
+  int type;
 };
 #define PACKET(name) \
   struct name : PacketHeader{\
     name(){ \
       memset(this, 0, sizeof(name)); \
-      id = id_##name; \
+      type = PT_##name; \
       size = sizeof(name); \
     };
 #define END };
 
 enum packet_id{
+  PT_PacketNone,
 <%$_packets.each do |packet|%>
-  id_<%=packet.name%> = <%=packet.id%>,<%end%>
+  PT_<%=packet.name%> = <%=packet.id%>,<%end%>
+
+  PT_PacketMax
 }
 
 #pragma pack (push, 1)
