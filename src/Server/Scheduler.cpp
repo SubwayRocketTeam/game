@@ -24,8 +24,9 @@ Scheduler* Scheduler::getInstance() {
 	return &instance;
 }
 
-Scheduler::Scheduler() {
-
+Scheduler::~Scheduler() {
+	SetEvent(Event::newSchedule);
+	timerThread.join();
 }
 
 void Scheduler::init() {
@@ -43,6 +44,10 @@ void timerThreadProc(ScheduleQueue* scheduleQueue){
 
 	while (true) {
 		WaitForSingleObjectEx(Event::newSchedule, INFINITE, TRUE);
+
+		if (scheduleQueue->empty())
+			break;
+
 		while (!scheduleQueue->empty()) {
 			HANDLE timer = CreateWaitableTimer(NULL, TRUE, NULL);
 			TimerArg* schedulerArg = new TimerArg();

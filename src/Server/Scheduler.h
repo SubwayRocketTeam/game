@@ -8,7 +8,7 @@ class Scheduler {
 public:
 	static Scheduler* getInstance();
 
-	Scheduler();
+	~Scheduler();
 	void init();
 
 	void schedule(id_t room_id);
