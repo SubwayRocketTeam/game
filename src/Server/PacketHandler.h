@@ -3,7 +3,7 @@
 #include "PacketType.h"
 
 struct PacketHeader;
-struct Client;
+class Client;
 
 typedef void PacketHandler(Client*, PacketHeader*);
 
