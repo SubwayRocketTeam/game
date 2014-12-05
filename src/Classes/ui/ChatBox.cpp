@@ -34,12 +34,9 @@ bool ChatBox::init(){
 	if(!ClippingRectangleNode::init())
 		return false;
 
-	setClippingRegion(Rect(0,0,400,300));
-
 	auto bgi = Sprite::create("how_to_play.png");
 	bgi->setAnchorPoint(Vec2(0,0));
 	addChild(bgi);
-	setColor(Color3B::RED);
 
 	input = InputBox::create(
 		"", "arial", 20);
@@ -47,6 +44,9 @@ bool ChatBox::init(){
 	input->setAnchorPoint(Vec2(0,0));
 	addChild(input);
 
+	auto size = bgi->getContentSize();
+	setClippingRegion(
+		Rect(0,0, size.width,size.height));
 	enableKeyboardInput(this);
 
 	return true;
