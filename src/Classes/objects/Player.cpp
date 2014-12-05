@@ -183,7 +183,6 @@ void Player::update(
 		for(auto trash : trashes){
 			trash->sweep();
 			resource->trash += 1;
-			__ATTR(gold).increase(1);
 		}
 	}
 
