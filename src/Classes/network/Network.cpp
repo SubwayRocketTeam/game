@@ -21,6 +21,8 @@ Network *Network::create(){
 	return nullptr;
 }
 void Network::purge(){
+	instance->close();
+
 	CC_SAFE_DELETE(instance);
 }
 Network *Network::getInstance(){
@@ -133,6 +135,9 @@ void Network::open(
 }
 void Network::close(){
 	CC_ASSERT(trd != nullptr);
+
+	TerminateThread(
+		trd->native_handle(), -1);
 
 	CC_SAFE_DELETE(trd);
 }
