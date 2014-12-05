@@ -5,6 +5,8 @@
 #include "IDDispenser.h"
 
 class GameRoom {
+	friend GameRoomManager;
+
 public:
 	GameRoom(const id_t id = INVALID_ID);
 	~GameRoom();
