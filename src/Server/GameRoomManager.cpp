@@ -3,6 +3,7 @@
 #include "GameRoom.h"
 #include "Scheduler.h"
 
+/* ISSUE : 이러면 생성자 무조건 public으로 놔야됨 */
 GameRoomManager instance;
 
 GameRoomManager::GameRoomManager() :
