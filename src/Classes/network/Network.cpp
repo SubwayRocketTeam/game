@@ -15,7 +15,7 @@ Network::~Network(){
 Network *Network::create(){
 	instance = new Network();
 
-	if(instance)
+	if(instance) ///< new로 할당한거는 널체크 할 필요 없단다~~ 할당 안되면 따로 익셉션 발생함..
 		return instance;
 	CC_SAFE_DELETE(instance);
 	return nullptr;

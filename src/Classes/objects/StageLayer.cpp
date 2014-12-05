@@ -87,6 +87,8 @@ void StageLayer::onKeyboardDown(
 		switchStage();
 	}
 }
+
+/// 아래 위 함수 똑같은거 같은데...
 void StageLayer::onKeyboardUp(
 	cocos2d::EventKeyboard::KeyCode keycode){
 

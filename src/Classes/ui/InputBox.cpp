@@ -82,7 +82,7 @@ void InputBox::refreshContent(){
 
 	setString(cmsg);
 
-	delete msg;
+	delete msg; ///< delete [] 아님?
 	delete cmsg;
 }
 
