@@ -25,9 +25,8 @@ bool SkillIcon::init(
 
 	id = _id;
 
-	char tmp[128];
-	sprintf(tmp, "%d.png", id);
-	if(!Sprite::initWithFile(tmp))
+	if(!Sprite::initWithFile(
+		_MAKE_PATH("%d.png", id)))
 		return false;
 
 	auto black = Sprite::create(R::SkillIconOverlay);
