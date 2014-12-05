@@ -20,6 +20,9 @@ Network *Network::create(){
 	CC_SAFE_DELETE(instance);
 	return nullptr;
 }
+void Network::purge(){
+	CC_SAFE_DELETE(instance);
+}
 Network *Network::getInstance(){
 	return instance;
 }

@@ -16,6 +16,7 @@ public:
 
 public:
 	static Network *create();
+	static void purge();
 	static Network *getInstance();
 
 	void open(
