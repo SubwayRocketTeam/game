@@ -8,6 +8,7 @@ enum PacketID{
 	PT_LoginRequest,
 	PT_LoginResponse,
 	PT_EnterRoom,
+	PT_LeaveRoom,
 	PT_EnterNoti,
 	PT_LeaveNoti,
 
@@ -37,6 +38,8 @@ PACKET(LoginResponse)
 END
 
 PACKET(EnterRoom)
+END
+PACKET(LeaveRoom)
 END
 
 PACKET(EnterNoti)

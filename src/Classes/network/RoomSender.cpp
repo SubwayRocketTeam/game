@@ -6,4 +6,6 @@ void Network::sendEnterRoom(){
 	send(pkt);
 }
 void Network::sendLeaveRoom(){
+	LeaveRoom pkt;
+	send(pkt);
 }
