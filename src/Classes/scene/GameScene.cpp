@@ -27,7 +27,6 @@
 
 #include "ui/cursor.h"
 #include "ui/StatusConsole.h"
-#include "ui/UserResources.h"
 #include "ui/Minimap.h"
 #include "ui/SkillIconPanel.h"
 #include "ui/UpgradeBar.h"
@@ -111,9 +110,6 @@ bool GameScene::initUI(){
 	console->setPosition(Vec2(50,300));
 	addChild(console);
 
-	auto resourcesUI = UserResources::getInstance();
-	this->addChild(resourcesUI);
-
 	auto minimap = Minimap::getInstance();
 	minimap->setPosition(860,655);
 	addChild(minimap);
@@ -186,7 +182,6 @@ void GameScene::onInitGlobalObjects(){
 	SkillPool::create();
 	EnemyFactory::create();
 	PhysicsFactory::create();
-	UserResources::create();
 	SkillIconPanel::create();
 	UpgradeBar::create();
 	Player::create("type1.json");

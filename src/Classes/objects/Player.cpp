@@ -15,7 +15,6 @@
 
 #include "ui/cursor.h"
 #include "ui/gauge.h"
-#include "ui/UserResources.h"
 #include "ui/StatusConsole.h"
 #include "ui/SkillIconPanel.h"
 

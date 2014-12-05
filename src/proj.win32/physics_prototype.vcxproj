@@ -203,7 +203,6 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClCompile Include="..\Classes\ui\StatusConsole.cpp" />
     <ClCompile Include="..\Classes\ui\TrashTank.cpp" />
     <ClCompile Include="..\Classes\ui\UpgradeBar.cpp" />
-    <ClCompile Include="..\Classes\ui\UserResources.cpp" />
     <ClCompile Include="..\Classes\util\Random.cpp" />
     <ClCompile Include="..\jsoncpp\src\lib_json\json_reader.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -286,7 +285,6 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClInclude Include="..\Classes\ui\StatusConsole.h" />
     <ClInclude Include="..\Classes\ui\TrashTank.h" />
     <ClInclude Include="..\Classes\ui\UpgradeBar.h" />
-    <ClInclude Include="..\Classes\ui\UserResources.h" />
     <ClInclude Include="..\Classes\util\Random.h" />
     <ClInclude Include="..\Classes\ui\Cursor.h" />
     <ClInclude Include="..\jsoncpp\include\json\assertions.h" />

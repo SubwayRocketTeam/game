@@ -85,9 +85,6 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ui\UserResources.cpp">
-      <Filter>source\ui</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\ui\Minimap.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
@@ -329,9 +326,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\skill\AttributeName.h">
       <Filter>source\skill\base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\UserResources.h">
-      <Filter>source\ui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\common\max.h">
       <Filter>source\common</Filter>

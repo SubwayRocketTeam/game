@@ -7,7 +7,6 @@
 class Player;
 class Stage;
 class Cursor;
-class UserResources;
 
 class GameScene : public cocos2d::Layer,
 	public KeyboardEventListener{
