@@ -82,8 +82,8 @@ void InputBox::refreshContent(){
 
 	setString(cmsg);
 
-	delete msg; ///< delete [] 아님?
-	delete cmsg;
+	delete[] msg;
+	delete[] cmsg;
 }
 
 void InputBox::saveConvMode(){
