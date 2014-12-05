@@ -14,8 +14,9 @@ public:
 	id_t createGameRoom();
 	bool removeGameRoom(const id_t id);
 
-private:
 	GameRoomManager();
+private:
+	
 
 private:
 	std::mutex mutex;
