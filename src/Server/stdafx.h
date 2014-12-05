@@ -1,5 +1,6 @@
 #pragma once
 
+#pragma comment(lib, "Winmm.lib")
 #pragma comment(lib, "ws2_32.lib")
 
 #include <cstdio>
@@ -8,11 +9,13 @@
 
 #include <thread>
 // #include <memory>
+#include <concurrent_queue.h>
 #include <vector>
 #include <set>
 #include <map>
 #include <exception>
 #include <functional>
+#include <mutex>
 
 #define SAFE_DELETE(p) do{if(p){delete(p);(p)=nullptr;}}while(false)
 #define SAFE_DELETE_ARR(p) do{if(p){delete[](p);(p)=nullptr;}}while(false)

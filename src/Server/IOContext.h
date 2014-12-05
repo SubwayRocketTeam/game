@@ -15,11 +15,16 @@ struct AcceptContext : IOContext {
 	sockaddr_in addr;
 };
 
+struct ScheduleTimerContext : IOContext {
+	ScheduleTimerContext();
+
+	id_t gameRoomId;
+};
+
 struct TimerContext : IOContext {
 	TimerContext();
 
 	id_t gameRoomId;
-	HANDLE hTimer;
 };
 
 struct SocketContext : IOContext {

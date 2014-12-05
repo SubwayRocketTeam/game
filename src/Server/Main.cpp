@@ -7,7 +7,9 @@
 #include "ClientManager.h"
 #include "GameRoom.h"
 #include "GameRoomManager.h"
+#include "Scheduler.h"
 
+#include "Event.h"
 #include "config.h"
 
 void WorkerThread(HANDLE hCP);
@@ -26,7 +28,15 @@ void main()
 		return;
 	}
 
-	GameRoom::hCompletionPort = hCP;
+	Scheduler::hCompletionPort = hCP;
+	
+	Event::newSchedule = CreateEvent(NULL, TRUE, FALSE, NULL);
+	if (Event::newSchedule == INVALID_HANDLE_VALUE) {
+		ErrorLog(GetLastError());
+		return;
+	}
+
+	Scheduler::getInstance()->init();
 
 	std::thread worker(WorkerThread, hCP);
 
@@ -41,12 +51,10 @@ void main()
 		ErrorLog(WSAGetLastError());
 		return;
 	}
-	/*
 	if (setsockopt(listenSocket, IPPROTO_TCP, TCP_NODELAY, &option, sizeof(option)) == SOCKET_ERROR) {
 		ErrorLog(WSAGetLastError());
 		return;
 	}
-	*/
 
 	sockaddr_in serverAddr = { 0, };
 	serverAddr.sin_family = PF_INET;
@@ -83,6 +91,7 @@ void main()
 
 	closesocket(listenSocket);
 	CloseHandle(hCP);
+	CloseHandle(Event::newSchedule);
 	WSACleanup();
 }
 
@@ -124,7 +133,7 @@ void WorkerThread(HANDLE hCP) {
 			TimerContext* context = (TimerContext*)iocontext;
 			GameRoom* room = GameRoomManager::getInstance()->getGameRoom(context->gameRoomId);
 			if (room)
-				room->update();
+				room->update(16.f/1000.f);
 			break;
 		}
 
@@ -150,4 +159,9 @@ void WorkerThread(HANDLE hCP) {
 
 		SAFE_DELETE(iocontext);
 	}
+}
+
+
+void ScheduleThread() {
+
 }

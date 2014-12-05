@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "GameRoomManager.h"
 #include "GameRoom.h"
+#include "Scheduler.h"
 
 GameRoomManager instance;
 
@@ -10,6 +11,7 @@ GameRoomManager* GameRoomManager::getInstance() {
 
 
 GameRoom* GameRoomManager::getGameRoom(const id_t id) {
+	std::lock_guard<std::mutex> lock(mutex);
 	auto it = rooms.find(id);
 	if (it == rooms.end())
 		return nullptr;
@@ -17,19 +19,16 @@ GameRoom* GameRoomManager::getGameRoom(const id_t id) {
 }
 
 id_t GameRoomManager::createGameRoom() {
+	std::lock_guard<std::mutex> lock(mutex);
 	id_t id = dispenser.issue();
 	GameRoom* room = new GameRoom(id);
-	if (!room->initTimer()) {
-		SAFE_DELETE(room);
-		return INVALID_ID;
-	}
-	room->update();
 	rooms[id] = room;
-
+	Scheduler::getInstance()->schedule(id);
 	return id;
 }
 
 bool GameRoomManager::removeGameRoom(const id_t id) {
+	std::lock_guard<std::mutex> lock(mutex);
 	auto it = rooms.find(id);
 	if (it == rooms.end())
 		return false;
