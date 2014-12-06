@@ -1,12 +1,11 @@
 ﻿#pragma once
 
-#include <set>
-
 #include "IDDispenser.h"
+#include "Sendable.h"
 
 class GameRoomManager;
 
-class GameRoom {
+class GameRoom :public Sendable {
 	friend GameRoomManager;
 
 public:
@@ -18,8 +17,8 @@ public:
 	bool enter(const id_t client_id);
 	bool leave(const id_t client_id);
 
-	void broadcast(void* const buf, const size_t size);
-	void broadcastExceptOne(void* const buf, const size_t size, const id_t except_id);
+	virtual int send(void* const buf, const size_t size);
+	int sendExceptOne(void* const buf, const size_t size, const id_t except_id);
 
 	const std::set<id_t>::iterator begin() const;
 	const std::set<id_t>::iterator end() const;

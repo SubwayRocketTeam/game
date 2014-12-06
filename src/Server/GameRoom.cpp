@@ -39,24 +39,34 @@ bool GameRoom::leave(const id_t client_id) {
 }
 
 
-void GameRoom::broadcast(void* const buf, const size_t size) {
-	if (!buf || size < 1) return;
+int GameRoom::send(void* const buf, const size_t size) {
+	if (!buf || size < 1)
+		return SOCKET_ERROR;
 	for (auto id : clientIds) {
 		Client* client = ClientManager::getInstance()->getClient(id);
 		if (client)
-			client->sendLocalData(buf, size);
+		{
+			if (client->send(buf, size) == SOCKET_ERROR)
+				return SOCKET_ERROR;
+		}
 	}
+	return 0;
 }
 
-void GameRoom::broadcastExceptOne(void* const buf, const size_t size, const id_t except_id) {
-	if (!buf || size < 1) return;
+int GameRoom::sendExceptOne(void* const buf, const size_t size, const id_t except_id) {
+	if (!buf || size < 1)
+		return SOCKET_ERROR;
 	for (auto id : clientIds) {
 		if (id == except_id)
 			continue;
 		Client* client = ClientManager::getInstance()->getClient(id);
 		if (client)
-			client->sendLocalData(buf, size);
+		{
+			if (client->send(buf, size) == SOCKET_ERROR)
+				return SOCKET_ERROR;
+		}
 	}
+	return 0;
 }
 
 

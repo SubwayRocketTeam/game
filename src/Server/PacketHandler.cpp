@@ -42,10 +42,10 @@ END
 
 REGISTER_HANDLER(LoginRequest)
 	printf("%u: %s %s\n", client->id, packet->id, packet->pw);
-	Packet_LoginResponse* response = new Packet_LoginResponse();
-	response->result = 1;
-	strcpy_s(response->nickname, "Anz");
-	client->send(response, response->size);
+	Packet_LoginResponse response;
+	response.result = 1;
+	strcpy_s(response.nickname, "Anz");
+	client->sendPacket(response);
 END
 
 
@@ -55,26 +55,26 @@ REGISTER_HANDLER(EnterRoom)
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(1);
 	for (auto id : *gameroom) {
 		noti.clientId = id;
-		client->sendLocalData(&noti, sizeof(Packet_EnterNoti));
+		client->sendPacket(noti);
 
 		auto client = ClientManager::getInstance()->getClient(id);
 		spawnNoti.x = client->x;
 		spawnNoti.y = client->y;
 		spawnNoti.id = id;
 		spawnNoti.unit_type = 0;
-		client->sendLocalData(&spawnNoti, sizeof(Packet_Spawn));
+		client->sendPacket(spawnNoti);
 	}
 	gameroom->enter(client->id);
 
 	noti.clientId = client->id;
-	gameroom->broadcast(&noti, sizeof(Packet_EnterNoti));
+	gameroom->sendPacket(noti);
 
 	spawnNoti.id = client->id;
 	spawnNoti.unit_type = 0;
-	gameroom->broadcastExceptOne(&spawnNoti, sizeof(Packet_Spawn), client->id);
+	gameroom->sendExceptOne(&spawnNoti, sizeof(Packet_Spawn), client->id);
 
 	spawnNoti.unit_type = 1;
-	client->sendLocalData(&spawnNoti, sizeof(Packet_Spawn));
+	client->sendPacket(spawnNoti);
 
 	client->speed_x = client->x = 0;
 	client->speed_y = client->y = 0;
@@ -85,7 +85,7 @@ REGISTER_HANDLER(LeaveRoom)
 	Packet_LeaveNoti noti;
 	noti.clientId = client->id;
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(1);
-	gameroom->broadcast(&noti, sizeof(Packet_LeaveNoti));
+	gameroom->sendPacket(noti);
 	gameroom->leave(client->id);
 END
 
@@ -111,7 +111,7 @@ REGISTER_HANDLER(MoveStart)
 	response.id = client->id;
 	response.velocity_x = packet->direction_x * 350;
 	response.velocity_y = packet->direction_y * 350;
-	gameroom->broadcast(&response, sizeof(Packet_MoveStartNoti));
+	gameroom->sendPacket(response);
 
 	tick = GetTickCount();
 	speed_x = packet->direction_x;
@@ -138,7 +138,7 @@ REGISTER_HANDLER(MoveEnd)
 	response.id = client->id;
 	response.end_x = x;
 	response.end_y = y;
-	gameroom->broadcast(&response, sizeof(Packet_MoveEndNoti));
+	gameroom->sendPacket(response);
 
 	speed_x = speed_y = 0;
 END
@@ -150,5 +150,5 @@ REGISTER_HANDLER(ChatMessage)
 	Packet_ChatNoti noti;
 	strcat_s(noti.msg, packet->msg);
 
-	gameroom->broadcast(&noti, sizeof(Packet_ChatNoti));
+	gameroom->sendPacket(noti);
 END

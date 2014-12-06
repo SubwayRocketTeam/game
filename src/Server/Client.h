@@ -4,16 +4,17 @@
 #include "BufferQueue.h"
 #include "IDDispenser.h"
 #include "PacketHandler.h"
+#include "Sendable.h"
 
 class GameRoom;
 
-class Client {
+class Client : public Sendable {
 public:
 	Client(const id_t id = INVALID_ID, const SOCKET sock = INVALID_SOCKET);
 	~Client();
 
-	int send(void* buf, const size_t size);
-	int sendLocalData(void* buf, const size_t size);
+	virtual int send(void* const buf, const size_t size);
+	int sendAllocatedData(void* const buf, const size_t size);
 	int recv();
 
 	bool push(void* buf, const size_t size);

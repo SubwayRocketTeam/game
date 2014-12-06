@@ -17,7 +17,7 @@ Client::~Client() {
 	closesocket(socket);
 }
 
-int Client::send(void* buf, const size_t size) {
+int Client::sendAllocatedData(void* const buf, const size_t size) {
 	if (!buf || size < 1)
 		return SOCKET_ERROR;
 
@@ -43,12 +43,12 @@ int Client::send(void* buf, const size_t size) {
 	return byteSent;
 }
 
-int Client::sendLocalData(void* buf, const size_t size) {
+int Client::send(void* const buf, const size_t size) {
 	if (!buf || size < 1)
 		return SOCKET_ERROR;
 	char* new_buf = new char[size];
 	memcpy_s(new_buf, size, buf, size);
-	return send(new_buf, size);
+	return sendAllocatedData(new_buf, size);
 }
 
 int Client::recv() {
@@ -114,7 +114,7 @@ void Client::onDisconnect() {
 		Packet_LeaveNoti noti;
 		noti.clientId = id;
 		gameroom->leave(id);
-		gameroom->broadcast((char*)&noti, sizeof(Packet_LeaveNoti));
+		gameroom->sendPacket(noti);
 	}
 }
 
