@@ -70,11 +70,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 			}
 	});
 
-	network->route<LoginResponse>(PT_LoginResponse,
-		[](LoginResponse *pkt){
-			printf("%d\n", pkt->result);
-	});
-
 	glview->setDesignResolutionSize(
 		1024,768, ResolutionPolicy::SHOW_ALL);
 	glview->setFrameSize(
