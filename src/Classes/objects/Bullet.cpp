@@ -79,13 +79,13 @@ void Bullet::fire(
 	fire(Vec2(x, y) - pos, speed);
 }
 void Bullet::fire(
-	cocos2d::Vec2 direction, float speed){
+	const Vec2 &direction, float speed){
 
-	direction.normalize();
-	setRotation(-CC_RADIANS_TO_DEGREES(direction.getAngle()));
+	auto norm = direction.getNormalized();
+	setRotation(-CC_RADIANS_TO_DEGREES(norm.getAngle()));
 	runAction(
 		Sequence::create(
-			MoveBy::create(1, direction * 800),
+			MoveBy::create(1, norm * 800),
 			RemoveSelf::create(),
 			nullptr));
 }
