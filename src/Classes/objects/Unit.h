@@ -28,11 +28,6 @@ public:
 
 	struct PassiveData;
 
-	enum ActionType{
-		actionAttack,
-		actionFocus,
-		actionBlink
-	};
 	enum CollisionChannel{
 		channelPlayer = 0x0000000F,
 		channelBullet = 0x000000F0,

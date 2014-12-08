@@ -191,7 +191,7 @@ void Unit::updatePhysics(
 
 
 void Unit::blink(){
-	stopActionByTag(actionBlink);
+	stopActionByTag(ActionType::Blink);
 	runAction(
 		Repeat::create(
 			Sequence::create(
@@ -199,7 +199,7 @@ void Unit::blink(){
 				FadeTo::create(0.125, 255),
 				nullptr),
 			2))
-		->setTag(actionBlink);
+		->setTag(ActionType::Blink);
 }
 
 void Unit::onExit(){
