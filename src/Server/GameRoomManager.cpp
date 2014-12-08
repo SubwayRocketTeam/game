@@ -1,5 +1,7 @@
 ﻿#include "stdafx.h"
 #include "GameRoomManager.h"
+#include "Client.h"
+#include "ClientManager.h"
 #include "GameRoom.h"
 #include "Scheduler.h"
 #include "PacketType.h"
@@ -31,6 +33,25 @@ GameRoom *GameRoomManager::getAvailableGameRoom(){
 	else if (room->clientIds.size() >= 2) {
 		StartGame packet;
 		room->sendPacket(packet);
+
+		for (auto id : *room) {
+			SpawnUnit noti;
+			noti.id = id;
+			noti.unit_type = 1;
+			auto client = ClientManager::getInstance()->getClient(id);
+			client->sendPacket(noti);
+
+			client->speed_x = client->x = 0;
+			client->speed_y = client->y = 0;
+		}
+
+		for (auto id : *room) {
+			SpawnUnit noti;
+			noti.id = id;
+			noti.unit_type = 0;
+			room->sendPacket(noti);
+		}
+
 		available = INVALID_ID;
 	}
 

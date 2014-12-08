@@ -49,32 +49,10 @@ REGISTER_HANDLER(EnterRoom)
 	SpawnUnit spawnNoti;
 	auto gameroom = GameRoomManager::getInstance()->getAvailableGameRoom();
 	client->setGameRoomId(gameroom->id);
-	for (auto id : *gameroom) {
-		noti.client_id = id;
-		client->sendPacket(noti);
-
-		auto client = ClientManager::getInstance()->getClient(id);
-		spawnNoti.x = client->x;
-		spawnNoti.y = client->y;
-		spawnNoti.id = id;
-		spawnNoti.unit_type = 0;
-		client->sendPacket(spawnNoti);
-	}
 	gameroom->enter(client->id);
 
 	noti.client_id = client->id;
 	gameroom->sendPacket(noti);
-
-	spawnNoti.id = client->id;
-
-	spawnNoti.unit_type = 1;
-	client->sendPacket(spawnNoti);
-
-	spawnNoti.unit_type = 0;
-	gameroom->sendPacket(spawnNoti);
-
-	client->speed_x = client->x = 0;
-	client->speed_y = client->y = 0;
 END
 
 
