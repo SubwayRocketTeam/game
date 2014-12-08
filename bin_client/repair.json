@@ -1,0 +1,15 @@
+{
+  "id" : 10000,
+  "name" : "repair",
+  "tooltip" : "repair",
+  "duration": 0,
+  "interval" : 0.1,
+	
+  "bonus" : [
+    {
+      "target" : "hp_regen",
+      "value" : 4,
+      "rate" : 0
+    }
+  ]
+}

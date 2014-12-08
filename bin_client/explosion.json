@@ -1,0 +1,9 @@
+{
+  "id" : 201,
+  "name" : "explosion",
+  "tooltip" : "explosion",
+
+  "duration" : 0,
+  "cooltime" : 0,
+  "cost" : 0
+}
