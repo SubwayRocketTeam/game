@@ -355,9 +355,6 @@
     <ClInclude Include="..\Classes\network\Network.h">
       <Filter>source\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\network\Packet.h">
-      <Filter>source\network</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\network\PacketMacro.h">
       <Filter>source\network</Filter>
     </ClInclude>
@@ -465,6 +462,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\scene\LobbyScene.h">
       <Filter>source\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\network\Packet.h">
+      <Filter>source\network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

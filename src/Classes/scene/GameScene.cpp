@@ -151,11 +151,6 @@ void GameScene::onEnter(){
 	audio->playBackgroundMusic(R::BGM.c_str(), true);
 
 	ShowCursor(false);
-
-	auto network = Network::getInstance();
-	network->sendLoginRequest(
-		"pjc0247", "asdf1234");
-	network->sendEnterRoom();
 }
 void GameScene::onExit(){
 	Layer::onExit();

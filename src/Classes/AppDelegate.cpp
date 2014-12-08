@@ -79,7 +79,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	director->setDisplayStats(true);
 	director->setAnimationInterval(1.0 / Global::fps);
 	
-	auto scene = GameScene::scene();
+	auto scene = LoginScene::scene();
 	director->runWithScene(scene);
 	
 	return true;

@@ -13,6 +13,5 @@ void Network::sendMoveEnd(
 	float delta){
 
 	MoveEnd pkt;
-	pkt.delta = delta;
 	send(pkt);
 }

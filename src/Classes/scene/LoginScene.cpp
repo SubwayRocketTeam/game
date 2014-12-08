@@ -1,6 +1,9 @@
 ﻿#include "pch.h"
 #include "LoginScene.h"
 #include "GameScene.h"
+#include "LobbyScene.h"
+
+#include "network/Network.h"
 
 #include "audio/include/SimpleAudioEngine.h"
 
@@ -53,7 +56,12 @@ void LoginScene::onLogin(
 	if(type != ui::Widget::TouchEventType::ENDED)
 		return;
 
-	auto scene = GameScene::scene();
+	/* TODO : 입력받은 아이디로 로그인 & 리스폰스 체크 */
+	auto network = Network::getInstance();
+	network->sendLoginRequest(
+		"pjc0247", "asdf1234");
+
+	auto scene = LobbyScene::scene();
 	Director::getInstance()
 		->pushScene(scene);
 }
