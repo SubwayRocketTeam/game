@@ -127,13 +127,13 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>set bin_path=$(SolutionDir)..\..\bin
+      <Command>set bin_path=$(SolutionDir)..\..\bin_client
 rd /s /q %bin_path%
 md %bin_path%
 copy $(OutDir)$(ProjectName).exe %bin_path%
 copy $(OutDir)*.dll %bin_path%
 xcopy /s $(ProjectDir)..\Resources %bin_path%
-echo cd bin &gt; $(SolutionDir)..\..\start_game.bat
+echo cd bin_client &gt; $(SolutionDir)..\..\start_game.bat
 echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
