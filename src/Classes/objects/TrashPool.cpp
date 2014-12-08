@@ -60,7 +60,7 @@ void TrashPool::spawn(
 	}
 }
 void TrashPool::spawn(
-	Vec2 pos,
+	const Vec2 &pos,
 	int count){
 
 	auto stage = Stage::getInstance(0);
@@ -80,7 +80,7 @@ void TrashPool::spawn(
 	}
 }
 Vector<Trash*> TrashPool::query(
-	Rect rect){
+	const Rect &rect){
 
 	Vector<Trash*> objects;
 	for(auto trash : trashes){

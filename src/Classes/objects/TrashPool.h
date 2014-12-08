@@ -14,11 +14,11 @@ public:
 	void spawn(
 		int count =0);
 	void spawn(
-		cocos2d::Vec2 pos,
+		const cocos2d::Vec2 &pos,
 		int count = 0);
 
 	cocos2d::Vector<Trash*> query(
-		cocos2d::Rect rect);
+		const cocos2d::Rect &rect);
 
 protected:
 	TrashPool();
