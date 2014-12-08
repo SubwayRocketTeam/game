@@ -31,6 +31,9 @@ class LeaveNoti < Packet
 end
 
 # GAME
+class Ready < Packet
+  required
+end
 class StartGame < Packet
 	required
 end

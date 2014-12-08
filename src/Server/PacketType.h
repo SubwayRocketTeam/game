@@ -26,14 +26,15 @@ enum packet_id{
   PT_LeaveRoom = 4,
   PT_EnterNoti = 5,
   PT_LeaveNoti = 6,
-  PT_StartGame = 7,
-  PT_SpawnUnit = 8,
-  PT_MoveStart = 9,
-  PT_MoveEnd = 10,
-  PT_MoveStartNoti = 11,
-  PT_MoveEndNoti = 12,
-  PT_ChatMessage = 13,
-  PT_ChatNoti = 14,
+  PT_Ready = 7,
+  PT_StartGame = 8,
+  PT_SpawnUnit = 9,
+  PT_MoveStart = 10,
+  PT_MoveEnd = 11,
+  PT_MoveStartNoti = 12,
+  PT_MoveEndNoti = 13,
+  PT_ChatMessage = 14,
+  PT_ChatNoti = 15,
 
   PT_PacketMax
 };
@@ -65,6 +66,9 @@ END
 
 PACKET(LeaveNoti)
   int client_id;
+END
+
+PACKET(Ready)
 END
 
 PACKET(StartGame)
