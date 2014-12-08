@@ -149,8 +149,12 @@ void Enemy::decreaseAggro(
 	aggros[u] -= value;
 }
 Unit *Enemy::getTarget(){
-	Unit *target = nullptr;
-	float max = 0;
+
+	if (aggros.empty())
+		return nullptr;
+
+	Unit *target = aggros.begin()->first;
+	float max = aggros.begin()->second;
 
 	for(auto pair : aggros){
 		if(pair.second > max){
