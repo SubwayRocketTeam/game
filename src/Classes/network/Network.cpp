@@ -96,7 +96,7 @@ void Network::worker(
 void Network::recvLoop(){
 	while(true){
 		int len;
-		packet_header header;
+		PacketHeader header;
 		size_t headerSize = sizeof(header);
 
 		len = recv(&header, headerSize);
@@ -121,7 +121,7 @@ void Network::recvLoop(){
 			cocos2d::log("unhandled packet %d", header.type);
 		else{
 			throwTaskToGameThread(
-				std::bind(pair->second, (packet_header*)packet));
+				std::bind(pair->second, (PacketHeader*)packet));
 		}
 	}
 }

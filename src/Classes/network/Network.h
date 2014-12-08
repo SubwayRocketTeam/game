@@ -56,6 +56,8 @@ protected:
 		EnterNoti *pkt);
 	void handleLeaveRoomNoti(
 		LeaveNoti *pkt);
+	void handleStartGame(
+		StartGame *pkt);
 	void handleSpawn(
 		SpawnUnit *pkt);
 	void handleMoveStart(
@@ -87,14 +89,14 @@ protected:
 	template <typename T>
 	void invoker(
 		std::function<void(T*)> f,
-		packet_header* arg){
+		PacketHeader* arg){
 
 		f((T*)arg);	
 	}
 
 private:
 	std::thread *trd;
-	std::map<int,std::function<void(packet_header*)>> handlers;
+	std::map<int,std::function<void(PacketHeader*)>> handlers;
 
 	SOCKET sock;
 };
