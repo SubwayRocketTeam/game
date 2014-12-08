@@ -208,9 +208,11 @@
     <ClCompile Include="..\Classes\skill\enemy\EnemyShot.cpp">
       <Filter>source\skill\enemy</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\objects\Enemy_Explode.cpp" />
     <ClCompile Include="..\Classes\scene\LobbyScene.cpp">
       <Filter>source\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Enemy_Explode.cpp">
+      <Filter>source\object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
