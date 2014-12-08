@@ -1,24 +1,25 @@
 <?xml version="1.0"?>
 <UIProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ProjectDir>E:\repos\game\ui\cleaner</ProjectDir>
+  <ProjectDir>C:\Users\nhnnext\Documents\GitHub\game\ui\cleaner</ProjectDir>
   <Version>1.6.0.0</Version>
-  <Resources>E:\repos\game\ui\cleaner\Resources</Resources>
+  <Resources>C:\Users\nhnnext\Documents\GitHub\game\ui\cleaner\Resources</Resources>
   <Name>cleaner</Name>
   <JsonFileName>cleaner.json</JsonFileName>
-  <JsonFolder>E:\repos\game\ui\cleaner\Json</JsonFolder>
+  <JsonFolder>C:\Users\nhnnext\Documents\GitHub\game\ui\cleaner\Json</JsonFolder>
   <JsonList>
     <string>login_scene.json</string>
     <string>pause_menu.json</string>
+    <string>lobby.json</string>
   </JsonList>
   <CanvasSize>
     <Width>480</Width>
     <Height>320</Height>
   </CanvasSize>
-  <filePath>E:\repos\game\ui\cleaner\cleaner.xml.ui</filePath>
+  <filePath>C:\Users\nhnnext\Documents\GitHub\game\ui\cleaner\cleaner.xml.ui</filePath>
   <ProjectType>UIProject</ProjectType>
   <ResRelativePath />
   <imageFileList />
   <imagePngList />
   <JsonSuffix>.json</JsonSuffix>
-  <CurrentUIJson />
+  <CurrentUIJson>lobby.json</CurrentUIJson>
 </UIProject>

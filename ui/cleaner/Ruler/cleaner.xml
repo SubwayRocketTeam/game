@@ -8,4 +8,8 @@
     <Project>pause_menu</Project>
     <GuidesList />
   </GuidesProject>
+  <GuidesProject>
+    <Project>lobby</Project>
+    <GuidesList />
+  </GuidesProject>
 </ArrayOfGuidesProject>
