@@ -15,7 +15,7 @@ void Network::handleSpawn(
 		auto player = Player::getInstance();
 		player->setID(pkt->id);
 	}
-	else{
+	else if(Unit::getInstanceByID(pkt->id) == nullptr){
 		auto stage = Stage::getInstance(0);
 		auto players = Ally::getInstance(
 			Ally::allyPlayer);
