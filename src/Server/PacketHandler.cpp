@@ -7,18 +7,18 @@
 #include "GameRoom.h"
 #include "GameRoomManager.h"
 
-static PacketHandler* handlerMap[PT_MAX];
+static PacketHandler* handlerMap[PT_PacketMax];
 
 
 PacketHandler* PacketHandlerMap::function(packet_type_t type) {
-	_ASSERT(type < PT_MAX);
+	_ASSERT(type < PT_PacketMax);
 	return handlerMap[type];
 }
 
 
 struct RegisterHandler {
 	RegisterHandler(packet_type_t type, PacketHandler* handler) {
-		_ASSERT(type < PT_MAX);
+		_ASSERT(type < PT_PacketMax);
 		handlerMap[type] = handler;
 	}
 };
@@ -27,22 +27,17 @@ struct RegisterHandler {
 	static PacketHandler handler_##type;\
 	static RegisterHandler _reg_##type(PT_##type, handler_##type);\
 	static void handler_##type(Client* client, PacketHeader* header) {\
-		Packet_##type* packet = (Packet_##type*) header;\
+		type* packet = (type*) header;\
 
 
 
-REGISTER_HANDLER(None)
-END
-
-
-REGISTER_HANDLER(Example)
-	printf("%u: %f %f\n", client->id, packet->x, packet->y);
+REGISTER_HANDLER(PacketNone)
 END
 
 
 REGISTER_HANDLER(LoginRequest)
 	printf("%u: %s %s\n", client->id, packet->id, packet->pw);
-	Packet_LoginResponse response;
+	LoginResponse response;
 	response.result = 1;
 	strcpy_s(response.nickname, "Anz");
 	client->sendPacket(response);
@@ -50,12 +45,12 @@ END
 
 
 REGISTER_HANDLER(EnterRoom)
-	Packet_EnterNoti noti;
-	Packet_Spawn spawnNoti;
+	EnterNoti noti;
+	SpawnUnit spawnNoti;
 	auto gameroom = GameRoomManager::getInstance()->getAvailableGameRoom();
 	client->setGameRoomId(gameroom->id);
 	for (auto id : *gameroom) {
-		noti.clientId = id;
+		noti.client_id = id;
 		client->sendPacket(noti);
 
 		auto client = ClientManager::getInstance()->getClient(id);
@@ -67,7 +62,7 @@ REGISTER_HANDLER(EnterRoom)
 	}
 	gameroom->enter(client->id);
 
-	noti.clientId = client->id;
+	noti.client_id = client->id;
 	gameroom->sendPacket(noti);
 
 	spawnNoti.id = client->id;
@@ -84,8 +79,8 @@ END
 
 
 REGISTER_HANDLER(LeaveRoom)
-	Packet_LeaveNoti noti;
-	noti.clientId = client->id;
+	LeaveNoti noti;
+	noti.client_id = client->id;
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	gameroom->sendPacket(noti);
 	gameroom->leave(client->id);
@@ -94,7 +89,7 @@ END
 
 REGISTER_HANDLER(MoveStart)
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
-	Packet_MoveStartNoti response;
+	MoveStartNoti response;
 
 	float& speed_x = client->speed_x;
 	float& speed_y = client->speed_y;
@@ -136,7 +131,7 @@ REGISTER_HANDLER(MoveEnd)
 	y += speed_y * 350 * delta;
 	printf("x : %f / y : %f\n", x, y);
 
-	Packet_MoveEndNoti response;
+	MoveEndNoti response;
 	response.id = client->id;
 	response.end_x = x;
 	response.end_y = y;
@@ -149,7 +144,7 @@ END
 REGISTER_HANDLER(ChatMessage)
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 
-	Packet_ChatNoti noti;
+	ChatNoti noti;
 	strcat_s(noti.msg, packet->msg);
 
 	gameroom->sendPacket(noti);

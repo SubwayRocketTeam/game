@@ -111,8 +111,8 @@ void Client::onDisconnect() {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(gameRoomId);
 	printf("Disconnected : Client id %d\n", id);
 	if (gameroom) {
-		Packet_LeaveNoti noti;
-		noti.clientId = id;
+		LeaveNoti noti;
+		noti.client_id = id;
 		gameroom->leave(id);
 		gameroom->sendPacket(noti);
 	}

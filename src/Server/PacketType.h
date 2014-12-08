@@ -1,57 +1,56 @@
-﻿#pragma once
+﻿/* pgen auto-generated packets */
+#pragma once
 
-#include "PacketMacro.h"
+typedef int packet_type_t;
+typedef int packet_size_t;
 
-typedef unsigned int packet_size_t;
-typedef unsigned int packet_type_t;
+struct PacketHeader{
+  packet_size_t size;
+  packet_type_t type;
+};
+#define PACKET(name) \
+  struct name : PacketHeader{\
+	name(){ \
+	  memset(this, 0, sizeof(name)); \
+	  type = PT_##name; \
+	  size = sizeof(name); \
+	};
+#define END };
 
-enum PacketType {
-	PT_None,
+enum packet_id{
 
-	PT_Example,
-	PT_LoginRequest,
-	PT_LoginResponse,
-	PT_EnterRoom,
-	PT_LeaveRoom,
-	PT_EnterNoti,
-	PT_LeaveNoti,
+	PT_PacketNone = 0,
+	PT_LoginRequest = 1,
+	PT_LoginResponse = 2,
+	PT_EnterRoom = 3,
+	PT_LeaveRoom = 4,
+	PT_EnterNoti = 5,
+	PT_LeaveNoti = 6,
+	PT_StartGame = 7,
+	PT_SpawnUnit = 8,
+	PT_MoveStart = 9,
+	PT_MoveEnd = 10,
+	PT_MoveStartNoti = 11,
+	PT_MoveEndNoti = 12,
+	PT_ChatMessage = 13,
+	PT_ChatNoti = 14,
 
-	PT_Spawn,
-
-	PT_MoveStart,
-	PT_MoveStartNoti,
-	PT_MoveEnd,
-	PT_MoveEndNoti,
-
-	PT_ChatMessage,
-	PT_ChatNoti,
-
-	PT_MAX
+	PT_PacketMax
 };
 
-#pragma pack(push, 1)
+#pragma pack (push, 1)
 
-struct PacketHeader {
-	packet_size_t size;
-	packet_type_t type;
-};
-
-PACKET(None)
-END
-
-PACKET(Example)
-	float x;
-	float y;
+PACKET(PacketNone)
 END
 
 PACKET(LoginRequest)
-	char id[32];
-	char pw[32];
+  char id[33];
+  char pw[33];
 END
 
 PACKET(LoginResponse)
-	int result;
-	char nickname[32];
+  int result;
+  char nickname[33];
 END
 
 PACKET(EnterRoom)
@@ -61,50 +60,51 @@ PACKET(LeaveRoom)
 END
 
 PACKET(EnterNoti)
-	int clientId;
+  int client_id;
 END
 
 PACKET(LeaveNoti)
-	int clientId;
+  int client_id;
 END
 
-
-PACKET(Spawn)
-	int id;
-	int unit_type;
-	float x;
-	float y;
+PACKET(StartGame)
 END
 
+PACKET(SpawnUnit)
+  int id;
+  int unit_type;
+  float x;
+  float y;
+END
 
 PACKET(MoveStart)
-	float direction_x;
-	float direction_y;
-END
-
-PACKET(MoveStartNoti)
-	int id;
-	float start_x;
-	float start_y;
-	float velocity_x;
-	float velocity_y;
+  float direction_x;
+  float direction_y;
 END
 
 PACKET(MoveEnd)
-	float delta;
+END
+
+PACKET(MoveStartNoti)
+  int id;
+  float start_x;
+  float start_y;
+  float velocity_x;
+  float velocity_y;
 END
 
 PACKET(MoveEndNoti)
-	int id;
-	float end_x;
-	float end_y;
+  int id;
+  float end_x;
+  float end_y;
 END
 
 PACKET(ChatMessage)
-	char msg[64];
-END
-PACKET(ChatNoti)
-	char msg[64];
+  char msg[65];
 END
 
-#pragma pack(pop)
+PACKET(ChatNoti)
+  char msg[65];
+END
+
+#pragma pack (pop)
