@@ -2,6 +2,8 @@
 #include "LobbyScene.h"
 #include "GameScene.h"
 
+#include "network/Network.h"
+
 #include "audio/include/SimpleAudioEngine.h"
 
 using namespace std;
@@ -29,6 +31,9 @@ bool LobbyScene::init(){
 	auto layout = reader->widgetFromJsonFile("lobby_scene.json");
 
 	addChild(layout);
+
+	auto network = Network::getInstance();
+	network->sendEnterRoom();
 
 	return true;
 }
