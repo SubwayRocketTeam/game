@@ -3,7 +3,11 @@
 
 패치노트
 ----
-
+* 패킷
+  - 패킷 생성기 실제로 사용
+  - [패킷 테스트 모듈 작성](https://github.com/SubwayRocketTeam/game/blob/master/tests/tests.rb)
+    - [작성 형식](https://github.com/SubwayRocketTeam/game/blob/master/tests/README.md)
+    
 * 서버
   - 게임 룸 스케줄러
   - 2명이 접속하면 매칭
