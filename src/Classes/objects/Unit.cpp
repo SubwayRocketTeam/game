@@ -77,7 +77,7 @@ Unit *Unit::create(
 Unit *Unit::getInstanceByID(
 	int id){
 
-	CC_ASSERT(instances.find(id) != instances.end());
+	//CC_ASSERT(instances.find(id) != instances.end());
 
 	return instances[id];
 }
