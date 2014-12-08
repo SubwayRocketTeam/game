@@ -9,7 +9,7 @@
     <GuidesList />
   </GuidesProject>
   <GuidesProject>
-    <Project>lobby</Project>
+    <Project>lobby_scene</Project>
     <GuidesList />
   </GuidesProject>
 </ArrayOfGuidesProject>
