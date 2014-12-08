@@ -2,28 +2,6 @@ require 'eventmachine'
 load 'packet.rb'
 load 'packet_protocol.rb'
 
-class LoginRequest < Packet
-  id 5
-  string "id", 31
-  string "pw", 31
-end
-
-class LoginResponse < Packet
-  id 6
-  int "result"
-  string "nickname", 31
-end
-
-class EnterRoom < Packet
-  id 7
-end
-
-class EnterNoti < Packet
-  id 8
-  int "client_id"
-end
-
-
 class RocketTestPool
   def self.tests
   	return @@tests
@@ -144,34 +122,6 @@ class RocketTestUnit
     $_client.send_packet qry_packet
   end
 end
-
-class LoginTest < RocketTestUnit
-  def query
-  	p = LoginRequest.new
-    p.id = "pjc0247"
-    p.pw = "asdf1234"
-    return p
-  end
-  def should
-  	p = LoginResponse.new
-    p.nickname = "Anaz"
-    p.result = 12
-    return p
-  end
-end
-
-class EnterRoomTest < RocketTestUnit
-  def query
-  	p = EnterRoom.new
-    return p
-  end
-  def should
-  	p = EnterNoti.new
-    p.client_id = SKIP
-    return p
-  end
-end
-
 
 RocketTestPool.execute \
   [LoginTest, EnterRoomTest]
