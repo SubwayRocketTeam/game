@@ -72,7 +72,7 @@ void LoginScene::onDescription(
 		return;
 
 	auto audio = SimpleAudioEngine::getInstance();
-	audio->playEffect("1setsumei_siyou.mp3");
+	audio->playEffect("setsumei_siyou.mp3");
 }
 void LoginScene::onValley(
 	Ref *sender, ui::Widget::TouchEventType type){
