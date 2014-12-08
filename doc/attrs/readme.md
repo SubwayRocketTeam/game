@@ -26,5 +26,5 @@ Attribute
 * attack : 공격력
 * defence : 방어력
 * attackSpeed : 공격 속도 비율(%)
-* criticalRate
-* evasionRate 
+* range : 빨아들이는 범위
+* drops : (몬스터일 경우) 드랍하는 쓰레기 수
