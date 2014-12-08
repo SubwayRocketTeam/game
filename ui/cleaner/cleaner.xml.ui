@@ -9,7 +9,7 @@
   <JsonList>
     <string>login_scene.json</string>
     <string>pause_menu.json</string>
-    <string>lobby.json</string>
+    <string>lobby_scene.json</string>
   </JsonList>
   <CanvasSize>
     <Width>480</Width>
@@ -19,7 +19,9 @@
   <ProjectType>UIProject</ProjectType>
   <ResRelativePath />
   <imageFileList />
-  <imagePngList />
+  <imagePngList>
+    <string>lobby_background.png</string>
+  </imagePngList>
   <JsonSuffix>.json</JsonSuffix>
-  <CurrentUIJson>lobby.json</CurrentUIJson>
+  <CurrentUIJson>lobby_scene.json</CurrentUIJson>
 </UIProject>

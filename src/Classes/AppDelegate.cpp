@@ -8,6 +8,7 @@
 
 #include "scene/GameScene.h"
 #include "scene/LoginScene.h"
+#include "scene/LobbyScene.h"
 
 #include "skill/SkillPool.h"
 
