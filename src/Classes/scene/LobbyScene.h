@@ -15,4 +15,7 @@ protected:
 	virtual ~LobbyScene();
 
 	virtual bool init();
+
+	virtual void onInitGlobalObjects();
+	virtual void onReleaseGlobalObjects();
 };
