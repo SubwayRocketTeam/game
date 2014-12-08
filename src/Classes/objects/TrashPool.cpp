@@ -70,8 +70,10 @@ void TrashPool::spawn(
 		trash->velocity = Vec2::UNIT_X.rotateByAngle(
 			Vec2::ZERO,
 			CC_DEGREES_TO_RADIANS(rand() % 360))
-			* (20 + rand() % 20);
-		trash->friction = 128;
+			* (20 + rand() % 20) * 60.0f;
+
+		/* ISSUE : friction도 * 60? */
+		trash->friction = 128 * 60;
 		stage->addChild(trash);
 
 		push(trash);
