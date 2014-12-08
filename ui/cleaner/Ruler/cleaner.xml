@@ -12,4 +12,8 @@
     <Project>lobby_scene</Project>
     <GuidesList />
   </GuidesProject>
+  <GuidesProject>
+    <Project>select_scene</Project>
+    <GuidesList />
+  </GuidesProject>
 </ArrayOfGuidesProject>

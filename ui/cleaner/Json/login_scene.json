@@ -10,7 +10,10 @@
   "designHeight": 768,
   "designWidth": 1024,
   "textures": [],
-  "texturesPng": [],
+  "texturesPng": [
+    "login_background.jpg",
+    "button.png"
+  ],
   "version": "1.6.0.0",
   "widgetTree": {
     "classname": "Panel",
@@ -117,9 +120,9 @@
           "fontType": 0,
           "normal": null,
           "normalData": {
-            "path": "C:\\Program Files (x86)\\Cocos Studio\\EditorDefaultRes\\GUI/button.png",
+            "path": "button.png",
             "plistFile": "",
-            "resourceType": 2
+            "resourceType": 0
           },
           "pressed": null,
           "pressedData": {
@@ -190,9 +193,9 @@
           "fontType": 0,
           "normal": null,
           "normalData": {
-            "path": "C:\\Program Files (x86)\\Cocos Studio\\EditorDefaultRes\\GUI/button.png",
+            "path": "button.png",
             "plistFile": "",
-            "resourceType": 2
+            "resourceType": 0
           },
           "pressed": null,
           "pressedData": {
@@ -263,9 +266,9 @@
           "fontType": 0,
           "normal": null,
           "normalData": {
-            "path": "C:\\Program Files (x86)\\Cocos Studio\\EditorDefaultRes\\GUI/button.png",
+            "path": "button.png",
             "plistFile": "",
-            "resourceType": 2
+            "resourceType": 0
           },
           "pressed": null,
           "pressedData": {

@@ -214,6 +214,12 @@
     <ClCompile Include="..\Classes\objects\Enemy_Explode.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ext\uiProgressTo.cpp">
+      <Filter>source\ext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\SelectScene.cpp">
+      <Filter>source\scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -468,6 +474,12 @@
     <ClInclude Include="..\Classes\network\Packet.h">
       <Filter>source\network</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\ext\uiProgressTo.h">
+      <Filter>source\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\SelectScene.h">
+      <Filter>source\scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">
@@ -523,6 +535,9 @@
     </Filter>
     <Filter Include="source\skill\enemy">
       <UniqueIdentifier>{98f35ba4-8c55-44bc-a3d7-8fb5afd6c4e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ext">
+      <UniqueIdentifier>{8dec3226-6e15-4a78-9640-d025c30536d5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

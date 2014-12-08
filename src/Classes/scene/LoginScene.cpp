@@ -2,6 +2,7 @@
 #include "LoginScene.h"
 #include "GameScene.h"
 #include "LobbyScene.h"
+#include "SelectScene.h"
 
 #include "network/Network.h"
 
@@ -73,6 +74,10 @@ void LoginScene::onDescription(
 
 	auto audio = SimpleAudioEngine::getInstance();
 	audio->playEffect("setsumei_siyou.mp3");
+
+	auto scene = SelectScene::scene();
+	Director::getInstance()
+		->pushScene(scene);
 }
 void LoginScene::onValley(
 	Ref *sender, ui::Widget::TouchEventType type){
