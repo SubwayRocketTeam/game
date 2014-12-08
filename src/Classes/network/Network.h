@@ -24,6 +24,8 @@ public:
 		OpenHandler handler);
 	void close();
 
+	bool isConnected();
+
 	void sendLoginRequest(
 		const char *user_id, const char *user_pw);
 	void sendMoveStart(
@@ -102,4 +104,6 @@ private:
 	std::map<int,std::function<void(PacketHeader*)>> handlers;
 
 	SOCKET sock;
+
+	bool connected;
 };

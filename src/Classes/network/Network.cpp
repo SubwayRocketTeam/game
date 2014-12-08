@@ -7,7 +7,8 @@ using namespace cocos2d;
 static Network *instance = nullptr;
 
 Network::Network() :
-	trd(nullptr){
+	trd(nullptr),
+	connected(false){
 }
 Network::~Network(){
 }
@@ -88,6 +89,7 @@ void Network::worker(
 		return;
 	}
 
+	connected = true;
 	throwTaskToGameThread(std::bind(handler, true));
 
 	initHandlers();
@@ -124,6 +126,8 @@ void Network::recvLoop(){
 				std::bind(pair->second, (PacketHeader*)packet));
 		}
 	}
+	
+	connected = false;
 }
 
 void Network::open(
@@ -147,4 +151,8 @@ void Network::throwTaskToGameThread(
 
 	Director::getInstance()->getScheduler()
 		->performFunctionInCocosThread(task);
+}
+
+bool Network::isConnected(){
+	return connected;
 }
