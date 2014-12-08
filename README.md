@@ -1,34 +1,34 @@
-# Robotopia Cleaner
+6주차 릴리즈
+====
 
-패킷 생성 방법
+패치노트
 ----
-* gen_packet.bat 파일 실행
-* [PGen](packet_struct/README.md)
+* 패킷
+  - 패킷 생성기 실제로 사용
+  - [패킷 테스트 모듈 작성](https://github.com/SubwayRocketTeam/game/blob/master/tests/tests.rb)
+    - [작성 형식](https://github.com/SubwayRocketTeam/game/blob/master/tests/README.md)
+    
+* 서버
+  - 게임 룸 스케줄러
+  - 2명이 접속하면 매칭
+  - 툭 하면 터지던 것 fix
+    - 클라 나가면 터지던 것
+    - 방 폭파되고 들어오면 터지던 것
+    - 방 폭파되면서 반환된 리소스 참조해 터지던 것
+* 클라
+  - 몹 2종 추가
+  - 타이틀, 대기실 scene 추가
+  - 버그 수정
+    - 어그로가 0이면 몹의 target이 null이 되어 터지던 것
+  - 나간 사람 청소기 반투명화
+  - 로봇 선택 씬 추가
+    - 타이틀 화면에서 게임 방법 버튼 클릭
+    - 임시로 연결시킨 것이라 로봇 선택 씬을 통해서 게임을 시작할 경우 네트워크 연결이 되지 않습니다.
+    
 
-Pull 할 때 주의사항
+이슈
 ----
-* gitshell 열기
-```
-git submodule init
-git submodule update
-```
-
-* cocos2d/download-deps.py를 실행
-
-
-ToDo List
-----
-* UI 작업들
-* [ActiveJson](https://github.com/SubwayRocketTeam/ActiveJson)
-
-
-Inner Links
-----
-* [코딩 스타일](https://github.com/SubwayRocketTeam/game/tree/master/doc/style)
-* [구조 및 설계](https://github.com/SubwayRocketTeam/game/tree/master/doc/arch)
-
-Outer Links
-----
-* [팀 wiki](https://github.com/SubwayRocketTeam/documents/wiki)
-* [게임 컨셉 기획](https://github.com/SubwayRocketTeam/documents/wiki/%EA%B2%8C%EC%9E%84-%EC%BB%A8%EC%85%89-%EA%B8%B0%ED%9A%8D)
-* [프로토타입 레포](https://github.com/SubwayRocketTeam/Prototype)
+* 게임 로직이 아직 서버에서 돌지 않습니다. (위치만 동기화)
+  * 서버 측에서는 넉백이 적용되지 않기 때문에 넉백 당한후 움직일 경우 순간 이동이 일어납니다.
+  * 가끔 자신 이외의 다른 플레이어가 쓰레기를 빨아들이지 않습니다.
+* 
