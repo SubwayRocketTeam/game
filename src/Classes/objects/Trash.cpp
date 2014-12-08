@@ -23,7 +23,7 @@ bool Trash::init(){
 	int type = rand() % 6+1;
 
 	if(!Unit::init(
-		_MAKE_PATH("trash%d", type)))
+		_MAKE_PATH("trashs%d", type)))
 		return false;
 
 	setRotation(rand() % 360);
