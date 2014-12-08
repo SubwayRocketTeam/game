@@ -70,11 +70,12 @@ REGISTER_HANDLER(EnterRoom)
 	gameroom->sendPacket(noti);
 
 	spawnNoti.id = client->id;
-	spawnNoti.unit_type = 0;
-	gameroom->sendExceptOne(&spawnNoti, sizeof(Packet_Spawn), client->id);
 
 	spawnNoti.unit_type = 1;
 	client->sendPacket(spawnNoti);
+
+	spawnNoti.unit_type = 0;
+	gameroom->sendPacket(spawnNoti);
 
 	client->speed_x = client->x = 0;
 	client->speed_y = client->y = 0;

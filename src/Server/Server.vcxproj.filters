@@ -35,5 +35,6 @@
     <ClInclude Include="Event.h" />
     <ClInclude Include="PacketHandler.h" />
     <ClInclude Include="Sendable.h" />
+    <ClInclude Include="Unit.h" />
   </ItemGroup>
 </Project>

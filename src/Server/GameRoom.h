@@ -18,7 +18,6 @@ public:
 	bool leave(const id_t client_id);
 
 	virtual int send(void* const buf, const size_t size);
-	int sendExceptOne(void* const buf, const size_t size, const id_t except_id);
 
 	const std::set<id_t>::iterator begin() const;
 	const std::set<id_t>::iterator end() const;

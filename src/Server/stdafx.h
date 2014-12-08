@@ -16,6 +16,7 @@
 #include <exception>
 #include <functional>
 #include <mutex>
+#include <atomic>
 
 #define SAFE_DELETE(p) do{if(p){delete(p);(p)=nullptr;}}while(false)
 #define SAFE_DELETE_ARR(p) do{if(p){delete[](p);(p)=nullptr;}}while(false)

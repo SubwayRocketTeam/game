@@ -13,6 +13,8 @@ GameRoom::~GameRoom() {
 }
 
 void GameRoom::update(const float dt) {
+	static int a = 0;
+	printf("%d - %d\n", id, ++a);
 }
 
 
@@ -52,23 +54,6 @@ int GameRoom::send(void* const buf, const size_t size) {
 	}
 	return 0;
 }
-
-int GameRoom::sendExceptOne(void* const buf, const size_t size, const id_t except_id) {
-	if (!buf || size < 1)
-		return SOCKET_ERROR;
-	for (auto id : clientIds) {
-		if (id == except_id)
-			continue;
-		Client* client = ClientManager::getInstance()->getClient(id);
-		if (client)
-		{
-			if (client->send(buf, size) == SOCKET_ERROR)
-				return SOCKET_ERROR;
-		}
-	}
-	return 0;
-}
-
 
 
 const std::set<id_t>::iterator GameRoom::begin() const {

@@ -9,7 +9,6 @@
 struct TimerArg {
 	HANDLE timer;
 	id_t room_id;
-	DWORD tick;
 };
 
 void timerThreadProc(ScheduleQueue* scheduleQueue);
@@ -18,13 +17,14 @@ void CALLBACK timerCallback(LPVOID lpArgToCompletionRoutine, DWORD dwTimerLowVal
 HANDLE Scheduler::hCompletionPort = INVALID_HANDLE_VALUE;
 
 Scheduler instance;
-
+static std::atomic<bool> scheduleOver = false;
 
 Scheduler* Scheduler::getInstance() {
 	return &instance;
 }
 
 Scheduler::~Scheduler() {
+	scheduleOver = true;
 	SetEvent(Event::newSchedule);
 	timerThread.join();
 }
@@ -45,7 +45,7 @@ void timerThreadProc(ScheduleQueue* scheduleQueue){
 	while (true) {
 		WaitForSingleObjectEx(Event::newSchedule, INFINITE, TRUE);
 
-		if (scheduleQueue->empty())
+		if (scheduleOver)
 			break;
 
 		while (!scheduleQueue->empty()) {
@@ -53,9 +53,8 @@ void timerThreadProc(ScheduleQueue* scheduleQueue){
 			TimerArg* schedulerArg = new TimerArg();
 			schedulerArg->timer = timer;
 			while (scheduleQueue->try_pop(schedulerArg->room_id));
-			SetWaitableTimer(timer, &period, 16, timerCallback, schedulerArg, TRUE);
+			SetWaitableTimer(timer, &period, 16, timerCallback, schedulerArg, FALSE);
 		}
-		ResetEvent(Event::newSchedule);
 	}
 }
 
@@ -68,8 +67,8 @@ void CALLBACK timerCallback(LPVOID lpArgToCompletionRoutine, DWORD dwTimerLowVal
 
 	if (GameRoomManager::getInstance()->getGameRoom(schedulerArg->room_id)) {
 		PostQueuedCompletionStatus(Scheduler::hCompletionPort, 0, CKT_TIMER, (LPOVERLAPPED)context);
-		schedulerArg->tick = timeGetTime();
-		SetWaitableTimer(schedulerArg->timer, &period, 16, timerCallback, lpArgToCompletionRoutine, TRUE);
+		// schedulerArg->tick = timeGetTime();
+		// SetWaitableTimer(schedulerArg->timer, &period, 16, timerCallback, lpArgToCompletionRoutine, TRUE);
 	}
 	else {
 		CloseHandle(schedulerArg->timer);

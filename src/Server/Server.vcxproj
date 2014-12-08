@@ -103,6 +103,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClInclude Include="Scheduler.h" />
     <ClInclude Include="Sendable.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Unit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

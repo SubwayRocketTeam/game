@@ -30,7 +30,7 @@ void main()
 
 	Scheduler::hCompletionPort = hCP;
 	
-	Event::newSchedule = CreateEvent(NULL, TRUE, FALSE, NULL);
+	Event::newSchedule = CreateEvent(NULL, FALSE, FALSE, NULL);
 	if (Event::newSchedule == INVALID_HANDLE_VALUE) {
 		ErrorLog(GetLastError());
 		return;
