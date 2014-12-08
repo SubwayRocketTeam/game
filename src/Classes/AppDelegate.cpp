@@ -2,11 +2,12 @@
 #include "AppDelegate.h"
 #include "Compat.h"
 
-#include "scene/GameScene.h"
-#include "scene/LoginScene.h"
-
+#include "common/resource.h"
 #include "common/PhysicsFactory.h"
 #include "common/JsonLoader.h"
+
+#include "scene/GameScene.h"
+#include "scene/LoginScene.h"
 
 #include "skill/SkillPool.h"
 
@@ -24,8 +25,6 @@
 #include "ui/SkillIconPanel.h"
 #include "ui/UpgradeBar.h"
 #include "ui/TrashTank.h"
-
-#include "common/resource.h"
 
 #include "network/Network.h"
 
