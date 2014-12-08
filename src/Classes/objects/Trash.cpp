@@ -21,10 +21,9 @@ Trash *Trash::create(){
 }
 bool Trash::init(){
 	int type = rand() % 6+1;
-	char path[128];
-	sprintf(path, "trashs%d", type);
 
-	if(!Unit::init(path))
+	if(!Unit::init(
+		_MAKE_PATH("trash%d", type)))
 		return false;
 
 	setRotation(rand() % 360);
