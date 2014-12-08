@@ -74,7 +74,7 @@ class Packet
   def self.required
     $_packets << self
     
-    id = $_packets.size
+    id = $_packets.size - 1
     items = Array.new
     fmt = String.new("II")
     define_singleton_method "id" do

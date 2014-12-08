@@ -1,9 +1,12 @@
 /* pgen auto-generated packets */
 #pragma once
 
+typedef int packet_type_t;
+typedef int packet_size_t;
+
 struct PacketHeader{
-  int size;
-  int type;
+  packet_size_t size;
+  packet_type_t type;
 };
 #define PACKET(name) \
   struct name : PacketHeader{\
@@ -15,12 +18,11 @@ struct PacketHeader{
 #define END };
 
 enum packet_id{
-  PT_PacketNone,
 <%$_packets.each do |packet|%>
   PT_<%=packet.name%> = <%=packet.id%>,<%end%>
 
   PT_PacketMax
-}
+};
 
 #pragma pack (push, 1)
 <%$_packets.each do |packet|%>

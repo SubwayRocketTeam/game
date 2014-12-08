@@ -1,3 +1,7 @@
+class PacketNone < Packet
+  required
+end
+
 # LOGIN
 class LoginRequest < Packet
   required
@@ -24,6 +28,11 @@ end
 class LeaveNoti < Packet
   required
   int "client_id"
+end
+
+# GAME
+class StartGame <Packet
+	required
 end
 
 # UNIT
