@@ -40,6 +40,7 @@ void Network::handleRemoveUnit(
 			Ally::allyPlayer);
 
 		players->remove(unit);
-		stage->removeChild(unit);
+		unit->setOpacity(128);
+		//stage->removeChild(unit);
 	}
 }
