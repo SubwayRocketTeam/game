@@ -85,9 +85,9 @@ void Bullet::fire(
 	setRotation(-CC_RADIANS_TO_DEGREES(direction.getAngle()));
 	runAction(
 		Sequence::create(
-		MoveBy::create(1, direction * 800),
-		RemoveSelf::create(),
-		nullptr));
+			MoveBy::create(1, direction * 800),
+			RemoveSelf::create(),
+			nullptr));
 }
 
 void Bullet::update(
