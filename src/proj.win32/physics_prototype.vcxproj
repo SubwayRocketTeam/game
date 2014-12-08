@@ -183,6 +183,7 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Classes\scene\GameScene.cpp" />
+    <ClCompile Include="..\Classes\scene\LobbyScene.cpp" />
     <ClCompile Include="..\Classes\scene\LoginScene.cpp" />
     <ClCompile Include="..\Classes\skill\ActiveSkill.cpp" />
     <ClCompile Include="..\Classes\skill\Attribute.cpp" />
@@ -266,6 +267,7 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClInclude Include="..\Classes\objects\Enemy_Explode.h" />
     <ClInclude Include="..\Classes\pch.h" />
     <ClInclude Include="..\Classes\scene\GameScene.h" />
+    <ClInclude Include="..\Classes\scene\LobbyScene.h" />
     <ClInclude Include="..\Classes\scene\LoginScene.h" />
     <ClInclude Include="..\Classes\skill\ActiveSkill.h" />
     <ClInclude Include="..\Classes\skill\Attribute.h" />

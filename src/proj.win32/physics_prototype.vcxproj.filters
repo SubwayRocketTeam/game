@@ -209,6 +209,9 @@
       <Filter>source\skill\enemy</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\objects\Enemy_Explode.cpp" />
+    <ClCompile Include="..\Classes\scene\LobbyScene.cpp">
+      <Filter>source\scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -459,6 +462,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\objects\Enemy_Explode.h">
       <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\LobbyScene.h">
+      <Filter>source\scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
