@@ -71,7 +71,8 @@ public:
 	// 충돌했을 때
 	// delta: 충돌되어 밀어내어지는 크기와 방향
 	virtual void collide(
-		cocos2d::Vec2 delta);
+		cocos2d::Vec2 delta,
+		Unit* other);
 
 public:
 	cocos2d::Vec2 velocity;

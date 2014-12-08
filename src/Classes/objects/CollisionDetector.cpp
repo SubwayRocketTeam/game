@@ -43,21 +43,21 @@ void CollisionDetector::update(
 				if (distance == 0)
 					other2me = Vec2::UNIT_X;
 				Vec2 delta = other2me.getNormalized() * deltaSize;
-				me->collide(delta);
-				other->collide(-delta);
+				me->collide(delta, other);
+				other->collide(-delta, me);
 			}
 		}
 
 		// 벽과의 충돌
 		// TODO: 상하좌우 벽의 위치를 외부에서 가져오기.
 		if (pos.x < -800)
-			me->collide(Vec2(-(pos.x + 800), 0));
+			me->collide(Vec2(-(pos.x + 800), 0), nullptr);
 		if (pos.x > 800)
-			me->collide(Vec2(-(pos.x - 800), 0));
+			me->collide(Vec2(-(pos.x - 800), 0), nullptr);
 		if (pos.y < -600)
-			me->collide(Vec2(0, -(pos.y + 600)));
+			me->collide(Vec2(0, -(pos.y + 600)), nullptr);
 		if (pos.y > 600)
-			me->collide(Vec2(0, -(pos.y - 600)));
+			me->collide(Vec2(0, -(pos.y - 600)), nullptr);
 	}
 }
 

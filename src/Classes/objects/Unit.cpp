@@ -336,6 +336,7 @@ void Unit::hit() {
 }
 
 void Unit::collide(
-	cocos2d::Vec2 delta){
+	cocos2d::Vec2 delta,
+	Unit* other){
 	setPosition(getPosition() + delta * 0.5f);
 }
