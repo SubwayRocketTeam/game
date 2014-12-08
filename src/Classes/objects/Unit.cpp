@@ -183,10 +183,9 @@ void Unit::updatePhysics(
 	velocity += acceleration * dt;
 	velocity = velocity.getNormalized() * MAX(0, velocity.getLength() - friction * dt);
 
-	/* TODO : :: */
 	runAction(
 		MoveBy::create(dt, velocity * dt))
-	->setTag(::ActionType::Move);
+	->setTag(ActionType::Move);
 }
 
 
