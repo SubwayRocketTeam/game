@@ -164,7 +164,26 @@ void GameScene::onExit(){
 }
 
 void GameScene::onInitGlobalObjects(){
-	
+	/* TODO : 여기에 글로벌 오브젝트들 초기화 처리 */
+	GlobalResource::create();
+	TrashTank::create();
+	TrashPool::create();
+	EffectLayer::create();
+	EffectFactory::create();
+	Minimap::create();
+	Stage::create();
+	Ally::create();
+	StatusConsole::create();
+	SkillPool::create();
+	EnemyFactory::create();
+	PhysicsFactory::create();
+	SkillIconPanel::create();
+	UpgradeBar::create();
+	Player::create("type1.json");
+	ChatBox::create();
+
+	/* TODO : 커서 전역에서 쓸수 잇도록 */
+	Cursor::create();
 }
 void GameScene::onReleaseGlobalObjects(){
 	/* TODO : 여기에 글로벌 오브젝트들 해제 처리 */
