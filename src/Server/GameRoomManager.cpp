@@ -2,6 +2,7 @@
 #include "GameRoomManager.h"
 #include "GameRoom.h"
 #include "Scheduler.h"
+#include "PacketType.h"
 
 /* ISSUE : 이러면 생성자 무조건 public으로 놔야됨 */
 GameRoomManager instance;
@@ -24,8 +25,11 @@ GameRoom* GameRoomManager::getGameRoom(const id_t id) {
 }
 GameRoom *GameRoomManager::getAvailableGameRoom(){
 	/* TODO : 4 교체 */
-	if (!getGameRoom(available) || getGameRoom(available)->clientIds.size() >= 4)
+	if (!getGameRoom(available) || getGameRoom(available)->clientIds.size() >= 2) {
+		StartGame packet;
+		getGameRoom(available)->sendPacket(packet);
 		available = INVALID_ID;
+	}
 
 	if (available == INVALID_ID){
 		/* ISSUE : id로 관리하면 매번 map::find가 실행됨 */ 
