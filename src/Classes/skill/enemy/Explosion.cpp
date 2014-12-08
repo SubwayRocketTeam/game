@@ -18,9 +18,7 @@ using namespace CocosDenshion;
 void Explosion::use(
 	Unit *u,
 	cocos2d::Vec2 pos){
-	u->runAction(
-		CallFuncN::create(CC_CALLBACK_1(Explosion::circleShot, this, u, CC_DEGREES_TO_RADIANS(rand()%360)))
-		);
+	circleShot(nullptr, u, CC_DEGREES_TO_RADIANS(rand() % 360));
 }
 
 void Explosion::circleShot(
@@ -33,9 +31,9 @@ void Explosion::circleShot(
 	for (int i = 0; i < 32; ++i){
 		auto bullet = Bullet::create(2);
 		Vec2 direction = Vec2::UNIT_X.rotateByAngle(
-			Vec2::ZERO, CC_DEGREES_TO_RADIANS(angle + 360/32 * i));
+			Vec2::ZERO, CC_DEGREES_TO_RADIANS(angle + 360/31 * i));
 		bullet->setPosition(u->getPosition());
-		bullet->fire(direction, 1);
+		bullet->fire(direction, 1.5f);
 
 		bullet->setUser(u);
 		bullet->setRadius(10);

@@ -163,6 +163,7 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClCompile Include="..\Classes\objects\EffectFactory.cpp" />
     <ClCompile Include="..\Classes\objects\EffectLayer.cpp" />
     <ClCompile Include="..\Classes\objects\EnemyFactory.cpp" />
+    <ClCompile Include="..\Classes\objects\Enemy_Explode.cpp" />
     <ClCompile Include="..\Classes\objects\GlobalResource.cpp" />
     <ClCompile Include="..\Classes\objects\PlayerGauge.cpp" />
     <ClCompile Include="..\Classes\objects\RepairArea.cpp" />
@@ -262,6 +263,7 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClInclude Include="..\Classes\objects\Trash.h" />
     <ClInclude Include="..\Classes\objects\TrashPool.h" />
     <ClInclude Include="..\Classes\objects\Unit.h" />
+    <ClInclude Include="..\Classes\objects\Enemy_Explode.h" />
     <ClInclude Include="..\Classes\pch.h" />
     <ClInclude Include="..\Classes\scene\GameScene.h" />
     <ClInclude Include="..\Classes\scene\LoginScene.h" />

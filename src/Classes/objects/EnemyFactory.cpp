@@ -2,7 +2,7 @@
 #include "EnemyFactory.h"
 
 #include "Enemy.h"
-#include "Enemy.h"
+#include "Enemy_Explode.h"
 #include "Stage.h"
 #include "Ally.h"
 
@@ -40,7 +40,15 @@ EnemyFactory* EnemyFactory::getInstance() {
 
 Enemy* EnemyFactory::createEnemy(EnemyType type)
 {
-	Enemy* enemy = Enemy::create();
+	Enemy* enemy;
+	switch (type) {
+	case enemyExplode:
+		enemy = Enemy_Explode::create();
+		break;
+	default:
+		enemy = Enemy::create();
+		break;
+	}
 	enemy->setInfo(instance->dic[type]);
 	return enemy;
 }
