@@ -25,9 +25,12 @@ GameRoom* GameRoomManager::getGameRoom(const id_t id) {
 }
 GameRoom *GameRoomManager::getAvailableGameRoom(){
 	/* TODO : 4 교체 */
-	if (!getGameRoom(available) || getGameRoom(available)->clientIds.size() >= 2) {
+	auto room = getGameRoom(available);
+	if (!room)
+		available = INVALID_ID;
+	else if (room->clientIds.size() >= 2) {
 		StartGame packet;
-		getGameRoom(available)->sendPacket(packet);
+		room->sendPacket(packet);
 		available = INVALID_ID;
 	}
 
