@@ -30,12 +30,13 @@ enum packet_id{
   PT_Ready = 8,
   PT_StartGame = 9,
   PT_SpawnUnit = 10,
-  PT_MoveStart = 11,
-  PT_MoveEnd = 12,
-  PT_MoveStartNoti = 13,
-  PT_MoveEndNoti = 14,
-  PT_ChatMessage = 15,
-  PT_ChatNoti = 16,
+  PT_RemoveUnit = 11,
+  PT_MoveStart = 12,
+  PT_MoveEnd = 13,
+  PT_MoveStartNoti = 14,
+  PT_MoveEndNoti = 15,
+  PT_ChatMessage = 16,
+  PT_ChatNoti = 17,
 
   PT_PacketMax
 };
@@ -83,6 +84,10 @@ PACKET(SpawnUnit)
   int unit_type;
   float x;
   float y;
+END
+
+PACKET(RemoveUnit)
+  int id;
 END
 
 PACKET(MoveStart)

@@ -49,6 +49,10 @@ class SpawnUnit < Packet
   float "x"
   float "y"
 end
+class RemoveUnit < Packet
+  required
+  int "id"
+end
 
 # MOVE
 class MoveStart < Packet
