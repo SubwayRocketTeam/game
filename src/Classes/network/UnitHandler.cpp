@@ -29,3 +29,17 @@ void Network::handleSpawn(
 		players->push(unit);
 	}
 }
+void Network::handleRemoveUnit(
+	RemoveUnit *pkt){
+
+	auto unit = Unit::getInstanceByID(pkt->id);
+
+	if(unit != nullptr){
+		auto stage = Stage::getInstance(0);
+		auto players = Ally::getInstance(
+			Ally::allyPlayer);
+
+		players->remove(unit);
+		stage->removeChild(unit);
+	}
+}

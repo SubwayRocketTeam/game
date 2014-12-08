@@ -65,6 +65,8 @@ protected:
 		StartGame *pkt);
 	void handleSpawn(
 		SpawnUnit *pkt);
+	void handleRemoveUnit(
+		RemoveUnit *pkt);
 	void handleMoveStart(
 		MoveStartNoti *pkt);
 	void handleMoveEnd(

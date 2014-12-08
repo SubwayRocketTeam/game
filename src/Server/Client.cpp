@@ -115,6 +115,11 @@ void Client::onDisconnect() {
 		noti.client_id = id;
 		gameroom->leave(id);
 		gameroom->sendPacket(noti);
+
+		/* 나간 사람 유닛 지우기 */
+		RemoveUnit p;
+		p.id = id;
+		gameroom->sendPacket(p);
 	}
 }
 
