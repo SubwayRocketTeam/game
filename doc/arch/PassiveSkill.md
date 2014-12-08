@@ -9,7 +9,7 @@ PassiveSkill이 가지는 프로퍼티
 
 PassiveSkill이 할 수 있는 액션
 ----
-
+* 일정 시간 마다 작업 (periodic work)
 
 추가 기재
 ----
