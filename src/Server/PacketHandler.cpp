@@ -53,6 +53,29 @@ REGISTER_HANDLER(EnterRoom)
 
 	noti.client_id = client->id;
 	gameroom->sendPacket(noti);
+
+	if (gameroom->size() >= 2) {
+		StartGame packet;
+		gameroom->sendPacket(packet);
+
+		for (auto id : *gameroom) {
+			SpawnUnit noti;
+			noti.id = id;
+			noti.unit_type = 1;
+			auto client = ClientManager::getInstance()->getClient(id);
+			client->sendPacket(noti);
+
+			client->speed_x = client->x = 0;
+			client->speed_y = client->y = 0;
+		}
+
+		for (auto id : *gameroom) {
+			SpawnUnit noti;
+			noti.id = id;
+			noti.unit_type = 0;
+			gameroom->sendPacket(noti);
+		}
+	}
 END
 
 

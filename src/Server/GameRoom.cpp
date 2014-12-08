@@ -67,3 +67,7 @@ const std::set<id_t>::iterator GameRoom::end() const {
 bool GameRoom::empty() const {
 	return clientIds.empty();
 }
+
+size_t GameRoom::size() const {
+	return clientIds.size();
+}

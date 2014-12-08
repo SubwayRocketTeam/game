@@ -28,30 +28,7 @@ GameRoom* GameRoomManager::getGameRoom(const id_t id) {
 GameRoom *GameRoomManager::getAvailableGameRoom(){
 	/* TODO : 4 교체 */
 	auto room = getGameRoom(available);
-	if (!room)
-		available = INVALID_ID;
-	else if (room->clientIds.size() >= 2) {
-		StartGame packet;
-		room->sendPacket(packet);
-
-		for (auto id : *room) {
-			SpawnUnit noti;
-			noti.id = id;
-			noti.unit_type = 1;
-			auto client = ClientManager::getInstance()->getClient(id);
-			client->sendPacket(noti);
-
-			client->speed_x = client->x = 0;
-			client->speed_y = client->y = 0;
-		}
-
-		for (auto id : *room) {
-			SpawnUnit noti;
-			noti.id = id;
-			noti.unit_type = 0;
-			room->sendPacket(noti);
-		}
-
+	if (!room || room->clientIds.size() >= 2) {
 		available = INVALID_ID;
 	}
 

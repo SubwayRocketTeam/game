@@ -23,6 +23,7 @@ public:
 	const std::set<id_t>::iterator end() const;
 
 	bool empty() const;
+	size_t size() const;
 
 public:
 	const id_t id;
