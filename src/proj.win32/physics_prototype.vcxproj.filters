@@ -202,6 +202,12 @@
     <ClCompile Include="..\Classes\network\ChatSender.cpp">
       <Filter>source\network</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\skill\enemy\Explosion.cpp">
+      <Filter>source\skill\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\enemy\EnemyShot.cpp">
+      <Filter>source\skill\enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -443,6 +449,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\common\Preloader.h">
       <Filter>source\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\enemy\Explosion.h">
+      <Filter>source\skill\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\enemy\EnemyShot.h">
+      <Filter>source\skill\enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

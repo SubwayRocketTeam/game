@@ -6,7 +6,7 @@
 			"attrs" : [
 				{"name" : "hp", "value" : 3},
 				{"name" : "hp_gen", "value" : 0},
-				{"name" : "speed", "value" : 2},
+				{"name" : "speed", "value" : 3},
 				{"name" : "attack", "value" : 50},
 				{"name" : "attack_speed", "value" : 3.0},
 				{"name" : "range", "value" : 120},
@@ -18,21 +18,17 @@
 			"pay" : 10
 		},
 		{
-			"name" : "enemyShooting",
+			"name" : "enemyFollow",
 			
 			"attrs" : [
 				{"name" : "hp", "value" : 3},
 				{"name" : "hp_gen", "value" : 0},
-				{"name" : "speed", "value" : 0},
+				{"name" : "speed", "value" : 2},
 				{"name" : "attack", "value" : 50},
-				{"name" : "attack_speed", "value" : 3.0},
-				{"name" : "range", "value" : 120},
 				{"name" : "defence", "value" : 0}
 			],
 			
-			"skills" : [
-				10
-			],
+			"skills" : [202],
 			
 			"pay" : 10
 		},
@@ -44,14 +40,27 @@
 				{"name" : "hp_gen", "value" : 0},
 				{"name" : "speed", "value" : 0},
 				{"name" : "attack", "value" : 50},
-				{"name" : "attack_speed", "value" : 3.0},
-				{"name" : "range", "value" : 120},
 				{"name" : "defence", "value" : 0}
 			],
 			
 			"skills" : [
 				200
 			],
+			
+			"pay" : 10
+		},
+		{
+			"name" : "enemyExplosion",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 3},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 5},
+				{"name" : "attack", "value" : 50},
+				{"name" : "defence", "value" : 0}
+			],
+			
+			"skills" : [],
 			
 			"pay" : 10
 		}

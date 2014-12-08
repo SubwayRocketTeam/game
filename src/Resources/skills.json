@@ -4,6 +4,8 @@
 , {"id" : 12, "path" : "suction.json"}
 , {"id" : 100, "path" : "adrenaline.json"}
 , {"id" : 200, "path" : "spiral.json"}
+, {"id" : 201, "path" : "explosion.json"}
+, {"id" : 202, "path" : "enemyshot.json"}
 
 , {"id" : 10000, "path" : "repair.json"}
 ]

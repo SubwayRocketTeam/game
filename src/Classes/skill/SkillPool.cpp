@@ -11,7 +11,11 @@
 #include "skill/type1/FrontDash.h"
 #include "skill/type1/Adrenaline.h"
 #include "skill/enemy/Spiral.h"
+#include "skill/enemy/Explosion.h"
+#include "skill/enemy/EnemyShot.h"
 #include "skill/PassiveSkill.h"
+
+#define REGISTER_SKILL(name) skills[skill##name] = new name()
 
 using namespace std;
 using namespace cocos2d;
@@ -35,12 +39,14 @@ bool SkillPool::init(){
 	if(!JsonLoader::load(R::SkillList, root))
 		return false;
 
-	skills[skillSlash] = new Slash();
-	skills[skillFrontDash] = new FrontDash();
-	skills[skillSuction] = new Suction();
-	skills[skillTestPassive] = new Adrenaline();
-	skills[skillSpiral] = new Spiral();
-	skills[skillRepair] = new Repair();
+	REGISTER_SKILL(Slash);
+	REGISTER_SKILL(FrontDash);
+	REGISTER_SKILL(Suction);
+	REGISTER_SKILL(Adrenaline);
+	REGISTER_SKILL(Spiral);
+	REGISTER_SKILL(Explosion);
+	REGISTER_SKILL(EnemyShot);
+	REGISTER_SKILL(Repair);
 
 	for(auto skill : root){
 		int id = skill.get("id",0).asInt();

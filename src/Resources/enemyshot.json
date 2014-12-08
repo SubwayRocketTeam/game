@@ -1,0 +1,9 @@
+{
+  "id" : 202,
+  "name" : "enemyshot",
+  "tooltip" : "enemyshot",
+
+  "duration" : 0,
+  "cooltime" : 2,
+  "cost" : 0
+}

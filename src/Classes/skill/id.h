@@ -5,9 +5,11 @@ enum SkillID{
 	skillFrontDash,
 	skillSuction,
 
-	skillTestPassive = 100,
+	skillAdrenaline = 100,
 
 	skillSpiral = 200,
+	skillExplosion,
+	skillEnemyShot,
 
 	skillRepair = 10000
 };
