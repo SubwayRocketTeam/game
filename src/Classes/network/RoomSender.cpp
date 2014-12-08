@@ -9,3 +9,7 @@ void Network::sendLeaveRoom(){
 	LeaveRoom pkt;
 	send(pkt);
 }
+void Network::sendReady(){
+	Ready pkt;
+	send(pkt);
+}

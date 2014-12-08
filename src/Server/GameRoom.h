@@ -27,6 +27,7 @@ public:
 
 public:
 	const id_t id;
+	int ready;
 
 private:
 	IDDispenser dispenser;

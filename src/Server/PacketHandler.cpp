@@ -55,26 +55,45 @@ REGISTER_HANDLER(EnterRoom)
 	gameroom->sendPacket(noti);
 
 	if (gameroom->size() >= 2) {
+		ReadyRequest packet;
+		gameroom->sendPacket(packet);
+	}
+END
+
+REGISTER_HANDLER(Ready)
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(
+		client->getGameRoomId());
+	gameroom->ready ++;
+
+	if(gameroom->ready != 2)
+		return;
+
+	/* TODO : °íÄ¡±â */
+	{
 		StartGame packet;
 		gameroom->sendPacket(packet);
+	}
 
-		for (auto id : *gameroom) {
-			SpawnUnit noti;
-			noti.id = id;
-			noti.unit_type = 1;
-			auto client = ClientManager::getInstance()->getClient(id);
-			client->sendPacket(noti);
+	for (auto id : *gameroom) {
+		SpawnUnit noti;
+		noti.id = id;
+		noti.unit_type = 1;
+		noti.x = 0;
+		noti.y = 0;
+		auto client = ClientManager::getInstance()->getClient(id);
+		client->sendPacket(noti);
 
-			client->speed_x = client->x = 0;
-			client->speed_y = client->y = 0;
-		}
+		client->speed_x = client->x = 0;
+		client->speed_y = client->y = 0;
+	}
 
-		for (auto id : *gameroom) {
-			SpawnUnit noti;
-			noti.id = id;
-			noti.unit_type = 0;
-			gameroom->sendPacket(noti);
-		}
+	for (auto id : *gameroom) {
+		SpawnUnit noti;
+		noti.id = id;
+		noti.unit_type = 0;
+		noti.x = 0;
+		noti.y = 0;
+		gameroom->sendPacket(noti);
 	}
 END
 

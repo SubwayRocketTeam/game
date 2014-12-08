@@ -20,10 +20,13 @@ void Network::handleLeaveRoomNoti(
 
 }
 
-void Network::handleStartGame(
-	StartGame *pkt){
+void Network::handleReadyRequest(
+	ReadyRequest *pkt){
 
 	auto scene = GameScene::scene();
 	Director::getInstance()
 		->replaceScene(scene);
+}
+void Network::handleStartGame(
+	StartGame *pkt){
 }

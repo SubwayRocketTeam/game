@@ -11,6 +11,8 @@
 void Network::handleSpawn(
 	SpawnUnit *pkt){
 
+	printf("ID %d / TYPE %d\n", pkt->id, pkt->unit_type);
+
 	if(pkt->unit_type){
 		auto player = Player::getInstance();
 		player->setID(pkt->id);

@@ -32,6 +32,7 @@ public:
 		float delta);
 	void sendEnterRoom();
 	void sendLeaveRoom();
+	void sendReady();
 	void sendChatMessage(
 		const char *msg);
 
@@ -56,6 +57,8 @@ protected:
 		EnterNoti *pkt);
 	void handleLeaveRoomNoti(
 		LeaveNoti *pkt);
+	void handleReadyRequest(
+		ReadyRequest *pkt);
 	void handleStartGame(
 		StartGame *pkt);
 	void handleSpawn(

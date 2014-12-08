@@ -6,7 +6,7 @@
 #include "CompletionKeyType.h"
 
 GameRoom::GameRoom(const id_t id)
-:id(id) {
+:id(id), ready(0) {
 }
 
 GameRoom::~GameRoom() {
