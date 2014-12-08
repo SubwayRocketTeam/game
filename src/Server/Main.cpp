@@ -70,7 +70,7 @@ void main()
 		return;
 	}
 
-	GameRoomManager::getInstance()->createGameRoom();
+//	GameRoomManager::getInstance()->createGameRoom();
 
 	while (true) {
 		AcceptContext* context = new AcceptContext;

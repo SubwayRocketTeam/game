@@ -24,5 +24,5 @@ private:
 	IDDispenser dispenser;
 	std::map<id_t, GameRoom*> rooms;
 
-	GameRoom *available;
+	id_t available;
 };

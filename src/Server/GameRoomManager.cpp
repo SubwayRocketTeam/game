@@ -7,7 +7,7 @@
 GameRoomManager instance;
 
 GameRoomManager::GameRoomManager() :
-	available(nullptr){
+	available(INVALID_ID){
 }
 
 GameRoomManager* GameRoomManager::getInstance() {
@@ -24,17 +24,16 @@ GameRoom* GameRoomManager::getGameRoom(const id_t id) {
 }
 GameRoom *GameRoomManager::getAvailableGameRoom(){
 	/* TODO : 4 교체 */
-	if(available->clientIds.size() >= 4)
-		available = nullptr;
+	if (!getGameRoom(available) || getGameRoom(available)->clientIds.size() >= 4)
+		available = INVALID_ID;
 
-	if(available == nullptr){
+	if (available == INVALID_ID){
 		/* ISSUE : id로 관리하면 매번 map::find가 실행됨 */ 
 		/* SOLUTION : createGameRoom이 GameRoom*을 반환하게 */
-		available = 
-			getGameRoom(createGameRoom());
+		available = createGameRoom();
 	}
 
-	return available;
+	return getGameRoom(available);
 }
 
 id_t GameRoomManager::createGameRoom() {
@@ -52,5 +51,6 @@ bool GameRoomManager::removeGameRoom(const id_t id) {
 	if (it == rooms.end())
 		return false;
 	rooms.erase(it);
+	printf("Room %d Exploded.\n", id);
 	return true;
 }

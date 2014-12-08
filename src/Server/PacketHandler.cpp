@@ -52,7 +52,8 @@ END
 REGISTER_HANDLER(EnterRoom)
 	Packet_EnterNoti noti;
 	Packet_Spawn spawnNoti;
-	auto gameroom = GameRoomManager::getInstance()->getGameRoom(1);
+	auto gameroom = GameRoomManager::getInstance()->getAvailableGameRoom();
+	client->setGameRoomId(gameroom->id);
 	for (auto id : *gameroom) {
 		noti.clientId = id;
 		client->sendPacket(noti);
@@ -85,7 +86,7 @@ END
 REGISTER_HANDLER(LeaveRoom)
 	Packet_LeaveNoti noti;
 	noti.clientId = client->id;
-	auto gameroom = GameRoomManager::getInstance()->getGameRoom(1);
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	gameroom->sendPacket(noti);
 	gameroom->leave(client->id);
 END

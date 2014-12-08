@@ -9,6 +9,7 @@
 struct TimerArg {
 	HANDLE timer;
 	id_t room_id;
+	size_t ref_count;
 };
 
 void timerThreadProc(ScheduleQueue* scheduleQueue);
@@ -41,6 +42,7 @@ void Scheduler::schedule(id_t room_id) {
 
 void timerThreadProc(ScheduleQueue* scheduleQueue){
 	LARGE_INTEGER period = { 0, };
+	period.QuadPart = -160000;
 
 	while (true) {
 		WaitForSingleObjectEx(Event::newSchedule, INFINITE, TRUE);
@@ -52,15 +54,20 @@ void timerThreadProc(ScheduleQueue* scheduleQueue){
 			HANDLE timer = CreateWaitableTimer(NULL, TRUE, NULL);
 			TimerArg* schedulerArg = new TimerArg();
 			schedulerArg->timer = timer;
+			schedulerArg->ref_count = 1;
 			while (scheduleQueue->try_pop(schedulerArg->room_id));
-			SetWaitableTimer(timer, &period, 16, timerCallback, schedulerArg, FALSE);
+			// SetWaitableTimer(timer, &period, 16, timerCallback, schedulerArg, FALSE);
+			SetWaitableTimer(timer, &period, 0, timerCallback, schedulerArg, FALSE);
 		}
 	}
 }
 
 void CALLBACK timerCallback(LPVOID lpArgToCompletionRoutine, DWORD dwTimerLowValue, DWORD dwTimerHighValue) {
 	LARGE_INTEGER period = { 0, };
+	period.QuadPart = -160000;
+
 	TimerArg* schedulerArg = (TimerArg*)lpArgToCompletionRoutine;
+	schedulerArg->ref_count -= 1;
 
 	TimerContext* context = new TimerContext();
 	context->gameRoomId = schedulerArg->room_id;
@@ -69,8 +76,10 @@ void CALLBACK timerCallback(LPVOID lpArgToCompletionRoutine, DWORD dwTimerLowVal
 		PostQueuedCompletionStatus(Scheduler::hCompletionPort, 0, CKT_TIMER, (LPOVERLAPPED)context);
 		// schedulerArg->tick = timeGetTime();
 		// SetWaitableTimer(schedulerArg->timer, &period, 16, timerCallback, lpArgToCompletionRoutine, TRUE);
+		schedulerArg->ref_count += 1;
+		SetWaitableTimer(schedulerArg->timer, &period, 0, timerCallback, lpArgToCompletionRoutine, TRUE);
 	}
-	else {
+	else if (schedulerArg->ref_count == 0) {
 		CloseHandle(schedulerArg->timer);
 		SAFE_DELETE(schedulerArg);
 	}
