@@ -24,15 +24,7 @@ class DamageLabel;
 
 class Unit : public cocos2d::Sprite{
 public:
-	static const int BodyParts = 6;
-
 	struct PassiveData;
-
-	enum CollisionChannel{
-		channelPlayer = 0x0000000F,
-		channelBullet = 0x000000F0,
-		channelEnemy = 0x00000F00,
-	};
 
 public:
 	static Unit *create();
