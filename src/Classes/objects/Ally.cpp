@@ -69,7 +69,7 @@ void Ally::processAttack(
 
 		if(data.postion.getDistance(memberPosition) <= r){
 			if (member->getAllyID() != Ally::Type::allyPlayer) {
-				member->hit();
+				//member->hit();
 			}
 			if (member->damage(data)){
 				it = members.erase(it);

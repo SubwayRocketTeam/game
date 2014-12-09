@@ -62,8 +62,6 @@ public:
 		const std::string &name);
 	Ally::Type getAllyID();
 
-	// 얻어맞을 때
-	virtual void hit();
 	// 충돌했을 때
 	// delta: 충돌되어 밀어내어지는 크기와 방향
 	virtual void collide(

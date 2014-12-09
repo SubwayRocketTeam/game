@@ -338,11 +338,6 @@ Ally::Type Unit::getAllyID(){
 	return allyID;
 }
 
-void Unit::hit() {
-	//gauge->setOpacity(255);
-	//gauge->runAction(FadeOut::create(0.3f));
-}
-
 void Unit::collide(
 	cocos2d::Vec2 delta,
 	Unit* other){
