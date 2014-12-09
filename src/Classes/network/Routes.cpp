@@ -3,8 +3,12 @@
 
 using namespace std;
 
+#define _ROUTE(name) \
+	route<name>(PT_##name, \
+		std::bind(&Network::handle##name, this, placeholders::_1));
+
 void Network::initHandlers(){
-	//route(PT_LoginResponse, &Network::handleLoginResponse);
+
 	route<EnterNoti>(PT_EnterNoti, 
 		std::bind(&Network::handleEnterRoomNoti, this, placeholders::_1));
 	route<LeaveNoti>(PT_LeaveNoti,
