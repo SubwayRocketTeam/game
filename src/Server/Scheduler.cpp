@@ -72,6 +72,7 @@ void CALLBACK timerCallback(LPVOID lpArgToCompletionRoutine, DWORD dwTimerLowVal
 	TimerContext* context = new TimerContext();
 	context->gameRoomId = schedulerArg->room_id;
 
+	/* ISSUE : 게임 룸 컨테이너에 대한 레이스컨디션 */
 	if (GameRoomManager::getInstance()->getGameRoom(schedulerArg->room_id)) {
 		PostQueuedCompletionStatus(Scheduler::hCompletionPort, 0, CKT_TIMER, (LPOVERLAPPED)context);
 		// schedulerArg->tick = timeGetTime();
