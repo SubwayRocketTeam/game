@@ -43,6 +43,15 @@ class StartGame < Packet
 end
 
 # UNIT
+class UnitType < Enum
+  required
+
+  keys [
+    :NONE,
+    :PLAYER
+  ]
+end
+
 class SpawnUnit < Packet
   required
   int "id"

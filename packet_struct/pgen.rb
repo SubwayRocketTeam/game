@@ -1,6 +1,7 @@
 require 'optparse'
 require 'erb'
 load 'packet.rb'
+load 'enum.rb'
 
 src = nil
 dsts = nil
@@ -31,7 +32,7 @@ $_packets.each do |packet|
 end
 puts "\n"
 
-erb = ERB.new(File.read("outform.erb"))
+erb = ERB.new(File.read("outform.erb"), nil, '<>')
 
 if preview == true
   puts "PREVIEW"
