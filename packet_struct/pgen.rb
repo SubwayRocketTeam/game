@@ -29,7 +29,6 @@ load src
 puts "PACKETS"
 $_packets.each do |packet|
   puts "  %2d - %15s" % [packet.id, packet.name]
-  puts packet.object_id
 end
 puts "\n"
 
