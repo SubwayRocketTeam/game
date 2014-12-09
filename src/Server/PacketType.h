@@ -77,6 +77,7 @@ PACKET(Ready)
 END
 
 PACKET(StartGame)
+  int team;
 END
 
 PACKET(SpawnUnit)

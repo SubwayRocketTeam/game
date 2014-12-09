@@ -38,7 +38,8 @@ class Ready < Packet
   required
 end
 class StartGame < Packet
-	required
+  required
+  int "team"
 end
 
 # UNIT
