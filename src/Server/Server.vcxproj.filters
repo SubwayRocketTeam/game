@@ -17,6 +17,7 @@
     <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="PacketHandler.cpp" />
+    <ClCompile Include="Vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -36,5 +37,6 @@
     <ClInclude Include="PacketHandler.h" />
     <ClInclude Include="Sendable.h" />
     <ClInclude Include="Unit.h" />
+    <ClInclude Include="Vec2.h" />
   </ItemGroup>
 </Project>
