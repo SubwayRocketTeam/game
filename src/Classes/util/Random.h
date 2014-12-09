@@ -1,4 +1,8 @@
-﻿#pragma once
+﻿/* DEPRECATED              *
+ * SEE src/shared/random.h */
+
+/*
+#pragma once
 
 class Random{
 public:
@@ -13,3 +17,4 @@ public:
 
 	int rand();
 };
+*/

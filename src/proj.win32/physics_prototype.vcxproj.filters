@@ -220,6 +220,9 @@
     <ClCompile Include="..\Classes\scene\SelectScene.cpp">
       <Filter>source\scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\shared\random.cpp">
+      <Filter>source\shared</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -480,6 +483,9 @@
     <ClInclude Include="..\Classes\scene\SelectScene.h">
       <Filter>source\scene</Filter>
     </ClInclude>
+    <ClInclude Include="..\shared\random.h">
+      <Filter>source\shared</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">
@@ -538,6 +544,9 @@
     </Filter>
     <Filter Include="source\ext">
       <UniqueIdentifier>{8dec3226-6e15-4a78-9640-d025c30536d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\shared">
+      <UniqueIdentifier>{f97ba02e-9e95-4546-8297-13041aebe198}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,10 @@
 ﻿#include "pch.h"
+
+/* DEPRECATED                *
+ * SEE src/shared/random.cpp */
+
+/*
+#include "pch.h"
 #include "Random.h"
 
 #include <stdlib.h>
@@ -16,3 +22,4 @@ unsigned int Random::getIndex(){
 int Random::rand(){
 	return ::rand();
 }
+*/
