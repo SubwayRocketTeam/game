@@ -62,6 +62,10 @@ public:
 	void setID(
 		int id);
 	int getID();
+	void setStageID(
+		int id);
+	int getStageID();
+
 	Attribute &getAttribute(
 		const std::string &name);
 	Ally::Type getAllyID();

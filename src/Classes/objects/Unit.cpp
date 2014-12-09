@@ -319,6 +319,14 @@ void Unit::setID(
 int Unit::getID(){
 	return id;
 }
+void Unit::setStageID(
+	int _stageID){
+	stageID = _stageID;
+}
+int Unit::getStageID(){
+	return stageID;
+}
+
 Attribute &Unit::getAttribute(
 	const string &name){
 	
