@@ -1,6 +1,16 @@
 ﻿#include "pch.h"
 #include "Network.h"
 
+void Network::sendUseSkill(
+	int skillID,
+	float x,float y){
+
+	UseSkill pkt;
+	pkt.skill_id = skillID;
+	pkt.x = x;
+	pkt.y = y;
+	send(pkt);
+}
 void Network::sendFireBullet(
 	int bulletType,
 	float x,float y,

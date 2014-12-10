@@ -36,6 +36,9 @@ public:
 	void sendLeaveRoom();
 	void sendReady();
 
+	void sendUseSkill(
+		int skillID,
+		float x,float y);
 	void sendFireBullet(
 		int bulletTYpe,
 		float x, float y,
@@ -74,6 +77,8 @@ protected:
 	void handleRemoveUnit(
 		RemoveUnit *pkt);
 
+	void handleUseSkillNoti(
+		UseSkillNoti *pkt);
 	void handleFireBulletNoti(
 		FireBulletNoti *pkt);
 

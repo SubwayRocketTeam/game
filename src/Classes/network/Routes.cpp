@@ -19,6 +19,10 @@ void Network::initHandlers(){
 		std::bind(&Network::handleStartGame, this, placeholders::_1));
 	route<SpawnUnit>(PT_SpawnUnit,
 		std::bind(&Network::handleSpawn, this, placeholders::_1));
+
+	_ROUTE(FireBulletNoti);
+	_ROUTE(UseSkillNoti);
+
 	route<RemoveUnit>(PT_RemoveUnit,
 		std::bind(&Network::handleRemoveUnit, this, placeholders::_1));
 	route<MoveStartNoti>(PT_MoveStartNoti,

@@ -5,6 +5,16 @@
 #include "objects/Bullet.h"
 #include "objects/Stage.h"
 
+using namespace cocos2d;
+
+void Network::handleUseSkillNoti(
+	UseSkillNoti *pkt){
+
+	auto unit = Unit::getInstanceByID(pkt->id);
+	unit->useSkill(
+		pkt->skill_id,
+		Vec2(pkt->x, pkt->y));
+}
 void Network::handleFireBulletNoti(
 	FireBulletNoti *pkt){
 
