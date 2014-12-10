@@ -138,6 +138,16 @@ class MoveEndNoti < Packet
   float "end_y"
 end
 
+class SyncRotation < Packet
+  required
+  float "angle"
+end
+class SyncRotationNoti < Packet
+  required
+  int "id"
+  float "angle"
+end
+
 # CHAT
 class ChatMessage < Packet
   required

@@ -17,7 +17,7 @@ struct PacketHeader{
     };
 #define END };
 
-#define PACKET_VERSION 427931873
+#define PACKET_VERSION 2515964301
 
 enum packet_id{
   PT_PacketNone = 0,
@@ -43,8 +43,10 @@ enum packet_id{
   PT_MoveEnd = 20,
   PT_MoveStartNoti = 21,
   PT_MoveEndNoti = 22,
-  PT_ChatMessage = 23,
-  PT_ChatNoti = 24,
+  PT_SyncRotation = 23,
+  PT_SyncRotationNoti = 24,
+  PT_ChatMessage = 25,
+  PT_ChatNoti = 26,
 
   PT_PacketMax
 };
@@ -170,6 +172,15 @@ PACKET(MoveEndNoti)
   int id;
   float end_x;
   float end_y;
+END
+
+PACKET(SyncRotation)
+  float angle;
+END
+
+PACKET(SyncRotationNoti)
+  int id;
+  float angle;
 END
 
 PACKET(ChatMessage)
