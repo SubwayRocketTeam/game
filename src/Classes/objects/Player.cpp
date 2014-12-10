@@ -84,6 +84,8 @@ bool Player::init(
 
 	schedule(
 		SEL_SCHEDULE(&Player::updateRotation), 0.1f);
+	schedule(
+		SEL_SCHEDULE(&Player::updateConditions), 1.0f / Global::fps);
 	scheduleUpdate();
 
 	return true;
@@ -164,8 +166,6 @@ bool Player::useSkill(
 void Player::update(
 	float dt){
 		
-	updateConditions(dt);
-
 	/* TODO : 충돌 범위 상수나 이미지 크기 기반으로 하도록 */
 	/* TODO : 빨려들어오는건 쓰레기가 직접 오는데,
 	 *        청소하는건 플레이어가 청소
