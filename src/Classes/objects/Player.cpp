@@ -82,6 +82,8 @@ bool Player::init(
 	enableMouseInput(this);
 	enableKeyboardInput(this);
 
+	schedule(
+		SEL_SCHEDULE(&Player::updateRotation), 0.1f);
 	scheduleUpdate();
 
 	return true;
@@ -200,6 +202,13 @@ void Player::updateConditions(
 	/* IMMORTAL */
 	if(immortal > 0.0f)
 		immortal -= dt;
+}
+void Player::updateRotation(
+	float dt){
+
+	auto network = Network::getInstance();
+	network->sendSyncRotation(
+		getRotation());
 }
 
 bool Player::onDamage(

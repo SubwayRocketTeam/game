@@ -51,6 +51,8 @@ protected:
 		float dt);
 	void updateConditions(
 		float dt);
+	void updateRotation(
+		float dt);
 
 	void processRotation(
 		float x,float y);
