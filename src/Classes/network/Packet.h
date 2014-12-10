@@ -17,7 +17,7 @@ struct PacketHeader{
     };
 #define END };
 
-#define PACKET_VERSION 1811104343
+#define PACKET_VERSION 2380389444
 
 enum packet_id{
   PT_PacketNone = 0,
@@ -124,6 +124,7 @@ END
 
 PACKET(FireBulletNoti)
   int id;
+  int team;
   int bullet_type;
   float x;
   float y;

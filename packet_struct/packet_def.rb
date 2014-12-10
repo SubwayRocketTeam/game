@@ -88,6 +88,7 @@ end
 class FireBulletNoti < Packet
   required
   int "id"
+  int "team"
   int "bullet_type"
   float "x"
   float "y"
