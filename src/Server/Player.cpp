@@ -68,11 +68,6 @@ bool Player::initExternalData(
 		attrs[name].set(value);
 	}
 
-	/* incr */
-	auto incrList = root.get("incrs", Json::Value::null);
-	if (incrList.isNull())
-		return false;
-
 	/* skill list */
 	auto skillList = root.get("skills", Json::Value::null);
 	if (skillList.isNull())
