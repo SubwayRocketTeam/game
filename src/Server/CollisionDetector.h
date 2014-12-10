@@ -8,8 +8,8 @@ public:
 
 	void update(float dt);
 
-	void addUnit(Unit* unit);
-	void removeUnit(Unit* unit);
+	void addUnit(Unit* unit);		// Stage에서만 불러야 한다.
+	void removeUnit(Unit* unit);	// Stage에서만 불러야 한다.
 
 protected:
 	std::vector<Unit*> unitVector;

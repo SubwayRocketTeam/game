@@ -36,8 +36,10 @@ public:
 	bool empty() const;
 	size_t size() const;
 
+	id_t addUnit(Unit* unit, const int type, const int stage_id);
+	void eraseUnit(const id_t id);
+
 private:
-	Unit* createUnit(const int type, const int stage_id);
 
 public:
 	const id_t id;

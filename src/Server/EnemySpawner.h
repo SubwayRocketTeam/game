@@ -3,13 +3,17 @@
 #include "EnemyType.h"
 
 class Enemy;
+class Stage;
 
 class EnemySpawner {
 public:
-	EnemySpawner();
+	EnemySpawner(Stage* const stage);
 	~EnemySpawner();
 
-	bool init();
+	void init();
 
 	void spawn(EnemyType type);
+
+public:
+	Stage* const stage;
 };

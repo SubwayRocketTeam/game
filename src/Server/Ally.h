@@ -14,10 +14,10 @@ public:
 	};
 
 public:
-	virtual bool init();
+	void init();
 
-	void push(Unit *u);
-	void remove(Unit *u);
+	void push(Unit *u);		// Stage에서만 불러야 한다.
+	void remove(Unit *u);	// Stage에서만 불러야 한다.
 
 	void processAttack(const AttackData& data);
 

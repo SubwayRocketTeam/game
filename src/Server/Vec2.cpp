@@ -1,9 +1,9 @@
 #include "stdafx.h"
 #include "Vec2.h"
 
-Vec2 Vec2::ZERO = Vec2();
-Vec2 Vec2::UNIT_X = Vec2(1, 0);
-Vec2 Vec2::UNIT_Y = Vec2(0, 1);
+const Vec2 Vec2::ZERO = Vec2();
+const Vec2 Vec2::UNIT_X = Vec2(1, 0);
+const Vec2 Vec2::UNIT_Y = Vec2(0, 1);
 
 
 Vec2::Vec2() :x(0), y(0) {
@@ -20,6 +20,11 @@ Vec2& Vec2::operator =(const Vec2& other) {
 	x = other.x;
 	y = other.y;
 	return *this;
+}
+
+
+Vec2&& Vec2::operator -() const {
+	return Vec2(-x, -y);
 }
 
 

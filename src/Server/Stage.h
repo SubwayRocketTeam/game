@@ -19,8 +19,8 @@ public:
 
 	void update(const float dt);
 
-	void addUnit(Unit* unit);
-	void removeUnit(const id_t id);
+	void addUnit(Unit* unit);		// GameRoom에서 불러야 한다.
+	void removeUnit(const id_t id); // GameRoom에서 불러야 한다.
 
 	Unit* getUnit(const id_t id);
 

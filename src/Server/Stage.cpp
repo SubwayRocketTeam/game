@@ -12,8 +12,8 @@ Stage::Stage(GameRoom* gameroom, const int id)
 	:gameroom(gameroom), id(id) {
 
 	collisionDetector = new CollisionDetector();
-	trashPool = new TrashPool();
-	spawner = new EnemySpawner();
+	trashPool = new TrashPool(this);
+	spawner = new EnemySpawner(this);
 	for (int i = 0; i < ALLY_MAX; ++i)
 		ally[i] = new Ally();
 
@@ -21,7 +21,11 @@ Stage::Stage(GameRoom* gameroom, const int id)
 }
 
 Stage::~Stage() {
-
+	SAFE_DELETE(collisionDetector);
+	SAFE_DELETE(trashPool);
+	SAFE_DELETE(spawner);
+	for (int i = 0; i < ALLY_MAX; ++i)
+		SAFE_DELETE(ally[i]);
 }
 
 void Stage::init() {
@@ -40,17 +44,63 @@ void Stage::update(const float dt) {
 	}
 	collisionDetector->update(dt);
 	trashPool->update(dt);
-//	spawner->update(dt);
 }
 
 
 void Stage::addUnit(Unit* unit) {
-	if (unit)
-		units.push_back(unit);
+	if (!unit)
+		return;
+
+	switch (unit->type)
+	{
+	case UT_PLAYER:
+		ally[Ally::Type::allyPlayer]->push(unit);
+		collisionDetector->addUnit(unit);
+		break;
+	case UT_ENEMY:
+		break;
+		ally[Ally::Type::allyEnemy]->push(unit);
+		collisionDetector->addUnit(unit);
+	case UT_BULLET:
+		collisionDetector->addUnit(unit);
+		break;
+	case UT_TRASH:
+		trashPool->push(unit);
+		break;
+	default:
+		break;
+	}
+
+	units.push_back(unit);
 }
 
 void Stage::removeUnit(const id_t id) {
-	auto it = std::find_if(units.begin(), units.end(), [id](Unit* u){ return u->id == id; });
+	Unit* unit = getUnit(id);
+
+	if (!unit)
+		return;
+
+	switch (unit->type)
+	{
+	case UT_PLAYER:
+		ally[Ally::Type::allyPlayer]->remove(unit);
+		collisionDetector->removeUnit(unit);
+		break;
+	case UT_ENEMY:
+		break;
+		ally[Ally::Type::allyEnemy]->remove(unit);
+		collisionDetector->removeUnit(unit);
+	case UT_BULLET:
+		collisionDetector->removeUnit(unit);
+		break;
+	case UT_TRASH:
+		trashPool->remove(unit);
+		break;
+	default:
+		break;
+	}
+
+	auto it = std::find(units.begin(), units.end(), unit);
 	if (it != units.end())
 		units.erase(it);
 }

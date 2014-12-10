@@ -42,6 +42,10 @@
     <ClCompile Include="..\shared\JsonLoader.cpp">
       <Filter>shared</Filter>
     </ClCompile>
+    <ClCompile Include="EnemySpawner.cpp" />
+    <ClCompile Include="Ally.cpp" />
+    <ClCompile Include="CollisionDetector.cpp" />
+    <ClCompile Include="TrashPool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -109,6 +113,8 @@
     <ClInclude Include="..\jsoncpp\src\lib_json\json_tool.h">
       <Filter>jsoncpp</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyType.h" />
+    <ClInclude Include="AttributeName.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\jsoncpp\src\lib_json\json_internalarray.inl">

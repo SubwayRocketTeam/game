@@ -3,6 +3,13 @@
 #include "IDDispenser.h"
 #include "Vec2.h"
 #include "Attribute.h"
+#include "AttributeName.h"
+
+#define __ATTR(name) getAttribute(Attr::##name)
+#define _ATTR(name) __ATTR(name).get()
+#define _ATTR_VALUE(name) __ATTR(name).getValue()
+#define _ATTR_MAX(name) __ATTR(name).getMaxValue()
+#define _INIT_ATTR(name, value) attrs[Attr::##name].set(value)	 
 
 struct AttackData;
 class GameRoom;
@@ -43,8 +50,6 @@ public:
 	/* pre-death */
 	virtual bool onDeath();
 
-	// 얻어맞을 때
-	virtual void hit();
 	// 충돌했을 때
 	// delta: 충돌되어 밀어내어지는 크기와 방향
 	virtual void collide(Vec2 delta, Unit* other);
@@ -54,11 +59,15 @@ public:
 	virtual void updatePassives(float dt);
 	void updatePhysics(float dt);
 
+	Attribute &getAttribute(
+		const std::string &name);
+
 public:
 	Stage* stage;
 
 	id_t id;
 	int type;
+	int ally;
 	
 	Vec2 position;
 	Vec2 direction;

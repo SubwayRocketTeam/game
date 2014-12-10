@@ -1,9 +1,9 @@
 #pragma once
 
 struct Vec2 {
-	static Vec2 ZERO;
-	static Vec2 UNIT_X;
-	static Vec2 UNIT_Y;
+	static const Vec2 ZERO;
+	static const Vec2 UNIT_X;
+	static const Vec2 UNIT_Y;
 
 	float x;
 	float y;
@@ -13,6 +13,8 @@ struct Vec2 {
 	Vec2(const float x, const float y);
 
 	inline Vec2& operator =(const Vec2& other);
+
+	inline Vec2&& operator -() const;
 
 	inline Vec2&& operator +(const Vec2& other) const;
 	inline Vec2&& operator -(const Vec2& other) const;

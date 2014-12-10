@@ -89,12 +89,15 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClCompile Include="..\shared\JsonLoader.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Ally.cpp" />
     <ClCompile Include="Attribute.cpp" />
     <ClCompile Include="..\shared\random.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientManager.cpp" />
+    <ClCompile Include="CollisionDetector.cpp" />
+    <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="GameRoom.cpp" />
     <ClCompile Include="GameRoomManager.cpp" />
@@ -106,6 +109,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TrashPool.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="Vec2.cpp" />
   </ItemGroup>
@@ -126,6 +130,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClInclude Include="AttackData.h" />
     <ClInclude Include="Attribute.h" />
     <ClInclude Include="..\shared\random.h" />
+    <ClInclude Include="AttributeName.h" />
     <ClInclude Include="BufferQueue.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="ClientManager.h" />
@@ -133,6 +138,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClInclude Include="CompletionKeyType.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="EnemySpawner.h" />
+    <ClInclude Include="EnemyType.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="GameRoom.h" />
     <ClInclude Include="GameRoomManager.h" />

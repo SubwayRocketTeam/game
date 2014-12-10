@@ -56,7 +56,7 @@ bool GameRoom::startGame() {
 	// TODO: 게임 시작을 통보
 
 	for (auto& id : clientIds) {
-		id.second = createUnit(UT_PLAYER, 0)->id;
+		id.second = addUnit(new Unit(), UT_PLAYER, 0);
 		// TODO: 클라에게 자신이 생성됨을 통보
 	}
 
@@ -66,12 +66,29 @@ bool GameRoom::startGame() {
 }
 
 
-Unit* GameRoom::createUnit(const int type, const int stage_id) {
+id_t GameRoom::addUnit(Unit* unit, const int type, const int stage_id) {
 	_ASSERT(stage_id >= 0 && stage_id < STAGE_MAX);
-	Unit* u = new Unit(dispenser.issue(), type, stage[stage_id]);
-	units.push_back(u);
-	stage[stage_id]->addUnit(u);
-	return u;
+	id_t id = dispenser.issue();
+	Stage* now_stage = stage[stage_id];
+	unit->id = id;
+	unit->type = type;
+	unit->stage = now_stage;
+	now_stage->addUnit(unit);
+	units.push_back(unit);
+}
+
+void GameRoom::eraseUnit(const id_t id) {
+	Unit* unit = getUnit(id);
+	if (!unit)
+		return;
+
+	unit->stage->removeUnit(id);
+
+	auto it = std::find(units.begin(), units.end(), unit);
+	if (it != units.end())
+		units.erase(it);
+
+	SAFE_DELETE(unit);
 }
 
 Unit* GameRoom::getUnit(const id_t id) {
