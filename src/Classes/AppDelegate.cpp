@@ -2,9 +2,10 @@
 #include "AppDelegate.h"
 #include "Compat.h"
 
+#include "shared/JsonLoader.h"
+
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
-#include "common/JsonLoader.h"
 
 #include "scene/GameScene.h"
 #include "scene/LoginScene.h"

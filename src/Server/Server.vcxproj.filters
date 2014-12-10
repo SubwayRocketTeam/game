@@ -26,6 +26,9 @@
     <ClCompile Include="..\shared\random.cpp">
       <Filter>shared</Filter>
     </ClCompile>
+    <ClCompile Include="..\shared\JsonLoader.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -51,6 +54,9 @@
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Ref.h" />
     <ClInclude Include="..\shared\random.h">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\JsonLoader.h">
       <Filter>shared</Filter>
     </ClInclude>
   </ItemGroup>

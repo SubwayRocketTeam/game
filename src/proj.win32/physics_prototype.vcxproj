@@ -140,7 +140,6 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\common\IterLock.cpp" />
-    <ClCompile Include="..\Classes\common\JsonLoader.cpp" />
     <ClCompile Include="..\Classes\common\PhysicsFactory.cpp" />
     <ClCompile Include="..\Classes\common\Preloader.cpp" />
     <ClCompile Include="..\Classes\common\resource.cpp" />
@@ -223,6 +222,9 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Classes\ui\Cursor.cpp" />
+    <ClCompile Include="..\shared\JsonLoader.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="..\shared\random.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -232,7 +234,6 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\common\global.h" />
     <ClInclude Include="..\Classes\common\IterLock.h" />
-    <ClInclude Include="..\Classes\common\JsonLoader.h" />
     <ClInclude Include="..\Classes\common\makepath.h" />
     <ClInclude Include="..\Classes\common\max.h" />
     <ClInclude Include="..\Classes\common\PhysicsFactory.h" />
@@ -314,6 +315,7 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClInclude Include="..\jsoncpp\include\json\writer.h" />
     <ClInclude Include="..\jsoncpp\src\lib_json\json_batchallocator.h" />
     <ClInclude Include="..\jsoncpp\src\lib_json\json_tool.h" />
+    <ClInclude Include="..\shared\JsonLoader.h" />
     <ClInclude Include="..\shared\random.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

@@ -74,6 +74,9 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\shared\JsonLoader.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Attribute.cpp" />
     <ClCompile Include="..\shared\random.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -94,6 +97,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClCompile Include="Vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\shared\JsonLoader.h" />
     <ClInclude Include="AttackData.h" />
     <ClInclude Include="Attribute.h" />
     <ClInclude Include="..\shared\random.h" />

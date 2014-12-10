@@ -1,7 +1,8 @@
 ﻿#include "pch.h"
 #include "SkillPool.h"
 
-#include "common/JsonLoader.h"
+#include "shared/JsonLoader.h"
+
 #include "common/resource.h"
 
 #include "skill/id.h"

@@ -9,7 +9,7 @@
 #include "skill/SkillPool.h"
 #include "skill/id.h"
 
-#include "common/JsonLoader.h"
+#include "shared/JsonLoader.h"
 
 #include "objects/enemyInfo.h"
 
