@@ -2,7 +2,8 @@
 
 #include "Vec2.h"
 
-class Unit;
+class Trash;
+class Stage;
 
 class TrashPool {
 public:
@@ -16,12 +17,14 @@ public:
 	void spawn(int count = 0);
 	void spawn(const Vec2 &pos,	int count = 0);
 
-	void push(Unit *trash);		// Stage에서만 불러야 한다.
-	void remove(Unit *trash);	// Stage에서만 불러야 한다.
+	std::vector<Trash*> query(float x, float y, float w, float h);
+
+	void push(Trash *trash);		// Stage에서만 불러야 한다.
+	void remove(Trash *trash);	// Stage에서만 불러야 한다.
 
 public:
 	Stage* const stage;
 
 private:
-	std::vector<Unit*> trashes;
+	std::vector<Trash*> trashes;
 };

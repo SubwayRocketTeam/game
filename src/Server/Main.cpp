@@ -133,7 +133,7 @@ void WorkerThread(HANDLE hCP) {
 			TimerContext* context = (TimerContext*)iocontext;
 			GameRoom* room = GameRoomManager::getInstance()->getGameRoom(context->gameRoomId);
 			if (room)
-				room->update(16.f/1000.f);
+				room->update();
 			break;
 		}
 

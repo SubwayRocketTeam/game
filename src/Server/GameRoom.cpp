@@ -5,23 +5,33 @@
 #include "Client.h"
 #include "CompletionKeyType.h"
 #include "Unit.h"
+#include "Player.h"
 
 typedef std::pair<id_t, id_t> IdPair;
 
 GameRoom::GameRoom(const id_t id)
 	:id(id), ready(0), gameRunning(false) {
-	for (int i = 0; i < STAGE_MAX; ++i)
+	for (int i = 0; i < Max::Teams; ++i)
 		stage[i] = new Stage(this, i);
 }
 
 GameRoom::~GameRoom() {
-
+	for (Unit* u : units) {
+		SAFE_DELETE(u);
+	}
+	units.clear();
 }
 
 void GameRoom::update() {
 	DWORD now_tick = timeGetTime();
-	for (int i = 0; i < STAGE_MAX; ++i)
-		stage[i]->update(now_tick - tick);
+
+	for (int i = 0; i < Max::Teams; ++i)
+		stage[i]->update((now_tick - tick) * 0.001f);
+
+	for (Unit* u : removeUnits)
+		removeUnitImmediate(u);
+	removeUnits.clear();
+
 	tick = now_tick;
 }
 
@@ -50,13 +60,13 @@ bool GameRoom::leave(const id_t client_id) {
 
 
 bool GameRoom::startGame() {
-	if (gameRunning || ready < clientIds.size()) return false;
+	if (gameRunning || (size_t)ready < clientIds.size()) return false;
 	gameRunning = true;
 
 	// TODO: 게임 시작을 통보
 
 	for (auto& id : clientIds) {
-		id.second = addUnit(new Unit(), UT_PLAYER, 0);
+		id.second = stage[0]->addUnit(new Player());
 		// TODO: 클라에게 자신이 생성됨을 통보
 	}
 
@@ -66,23 +76,22 @@ bool GameRoom::startGame() {
 }
 
 
-id_t GameRoom::addUnit(Unit* unit, const int type, const int stage_id) {
-	_ASSERT(stage_id >= 0 && stage_id < STAGE_MAX);
+id_t GameRoom::addUnit(Unit* unit) {
 	id_t id = dispenser.issue();
-	Stage* now_stage = stage[stage_id];
 	unit->id = id;
-	unit->type = type;
-	unit->stage = now_stage;
-	now_stage->addUnit(unit);
 	units.push_back(unit);
+	return id;
 }
 
-void GameRoom::eraseUnit(const id_t id) {
-	Unit* unit = getUnit(id);
-	if (!unit)
-		return;
+void GameRoom::removeUnit(Unit* unit) {
+	if (!unit) return;
+	removeUnits.push_back(unit);
+}
 
-	unit->stage->removeUnit(id);
+void GameRoom::removeUnitImmediate(Unit* unit) {
+	if (!unit) return;
+
+	unit->stage->removeUnitImmediate(unit);
 
 	auto it = std::find(units.begin(), units.end(), unit);
 	if (it != units.end())

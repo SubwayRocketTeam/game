@@ -2,8 +2,8 @@
 
 #include "IDDispenser.h"
 #include "Vec2.h"
-#include "Attribute.h"
-#include "AttributeName.h"
+#include "shared/skill/Attribute.h"
+#include "shared/skill/AttributeName.h"
 
 #define __ATTR(name) getAttribute(Attr::##name)
 #define _ATTR(name) __ATTR(name).get()
@@ -31,7 +31,6 @@ class Unit{
 
 public:
 	Unit();
-	Unit(const id_t id, const int type, Stage* stage);
 
 	virtual ~Unit();
 
@@ -54,10 +53,10 @@ public:
 	// delta: 충돌되어 밀어내어지는 크기와 방향
 	virtual void collide(Vec2 delta, Unit* other);
 
-	void update(float dt);
+	virtual void update(float dt);
 	virtual void updateGen(float dt);
 	virtual void updatePassives(float dt);
-	void updatePhysics(float dt);
+	virtual void updatePhysics(float dt);
 
 	Attribute &getAttribute(
 		const std::string &name);

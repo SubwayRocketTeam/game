@@ -88,7 +88,7 @@ void Client::processPacket() {
 		if (!bufferQueue.peek((char*)&header, sizeof(PacketHeader)))
 			break;
 
-		if (bufferQueue.getLength() < header.size)
+		if (bufferQueue.getLength() < (size_t)header.size)
 			break;
 
 		char* buf = new char[header.size];

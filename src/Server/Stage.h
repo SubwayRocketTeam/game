@@ -19,13 +19,14 @@ public:
 
 	void update(const float dt);
 
-	void addUnit(Unit* unit);		// GameRoom에서 불러야 한다.
-	void removeUnit(const id_t id); // GameRoom에서 불러야 한다.
+	id_t addUnit(Unit* unit);
+	void removeUnit(Unit* unit);
+	void removeUnitImmediate(Unit* unit);	// GameRoom에서만 불러야 한다.
 
 	Unit* getUnit(const id_t id);
 
 public:
-	const GameRoom* gameroom;
+	GameRoom* const gameroom;
 	const int id;
 
 	CollisionDetector* collisionDetector;

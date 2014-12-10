@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "TrashPool.h"
-#include "Unit.h"
+#include "Trash.h"
+#include "Player.h"
 
 #include "Stage.h"
 #include "Ally.h"
@@ -14,22 +15,21 @@ TrashPool::~TrashPool(){
 void TrashPool::init(){
 }
 
-void TrashPool::push(Unit *trash){
+void TrashPool::push(Trash *trash){
 	_ASSERT(trash->type == UT_TRASH);
 	trashes.push_back(trash);
 }
-void TrashPool::remove(Unit *trash){
+void TrashPool::remove(Trash *trash){
 	auto it = std::find(trashes.begin(), trashes.end(), trash);
 	if (it != trashes.end())
 		trashes.erase(it);
 }
 
 void TrashPool::spawn(int count){
-
 	for (int i = 0; i < count; ++i){
-		auto trash = Unit::create();
-		trash->setPosition(
-			rand() % 1600 - 800, rand() % 1200 - 600);
+		auto trash = new Trash();
+		trash->position =
+			Vec2(rand() % 1600 - 800.f, rand() % 1200 - 600.f);
 		stage->addUnit(trash);
 
 		push(trash);
@@ -38,11 +38,11 @@ void TrashPool::spawn(int count){
 void TrashPool::spawn(const Vec2 &pos, int count){
 
 	for (int i = 0; i < count; ++i){
-		auto trash = Unit::create();
-		trash->setPosition(pos);
+		auto trash = new Trash();
+		trash->position = pos;
 		trash->velocity = Vec2::UNIT_X.getRotated(
 			Vec2::ZERO,
-			CC_DEGREES_TO_RADIANS(rand() % 360))
+			DEGREES_TO_RADIANS(rand() % 360))
 			* (20 + rand() % 20) * 60.0f;
 
 		/* ISSUE : frictionµµ * 60? */
@@ -56,15 +56,15 @@ void TrashPool::spawn(const Vec2 &pos, int count){
 void TrashPool::update(float dt){
 
 	auto players = stage->ally[Ally::Type::allyPlayer];
-	auto resource = GlobalResource::getInstance();
 
 	for (auto trash : trashes){
 		auto pos = trash->position;
 
-		for (auto player : *players){
+		for (auto unit : *players){
+			Player* player = (Player*)unit;
 			auto playerPos = player->position;
 
-			if (resource->trash >= Max::Tank)
+			if (player->isTankFull())
 				continue;
 
 			if (pos.getDistance(playerPos) <=
@@ -74,9 +74,20 @@ void TrashPool::update(float dt){
 					(playerPos - pos).getNormalized() *
 					trash->_ATTR(speed);
 
-				trash->runAction(
-					MoveBy::create(dt, move));
+				trash->position += move * dt;
 			}
 		}
 	}
+}
+
+std::vector<Trash*> TrashPool::query(float x, float y, float w, float h) {
+	std::vector<Trash*> objects;
+
+	for (auto trash : trashes){
+		auto pos = trash->position;
+		if (pos.x >= x && pos.y >= y && pos.x <= x + w && pos.y <= y + h)
+			objects.push_back(trash);
+	}
+
+	return objects;
 }

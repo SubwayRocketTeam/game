@@ -23,24 +23,24 @@ Vec2& Vec2::operator =(const Vec2& other) {
 }
 
 
-Vec2&& Vec2::operator -() const {
+Vec2 Vec2::operator -() const {
 	return Vec2(-x, -y);
 }
 
 
-Vec2&& Vec2::operator +(const Vec2& other) const {
+Vec2 Vec2::operator +(const Vec2& other) const {
 	return Vec2(x + other.x, y + other.y);
 }
 
-Vec2&& Vec2::operator -(const Vec2& other) const {
+Vec2 Vec2::operator -(const Vec2& other) const {
 	return Vec2(x - other.x, y - other.y);
 }
 
-Vec2&& Vec2::operator *(float other) const {
+Vec2 Vec2::operator *(float other) const {
 	return Vec2(x * other, y * other);
 }
 
-Vec2&& Vec2::operator /(float other) const {
+Vec2 Vec2::operator /(float other) const {
 	return Vec2(x / other, y / other);
 }
 
@@ -84,6 +84,10 @@ float Vec2::getAngle() const {
 	return atan2f(y, x);
 }
 
+float Vec2::getAngle(const Vec2& other) const {
+	return (other - *this).getAngle();
+}
+
 float Vec2::dot(const Vec2& other) const {
 	return x*other.x + y*other.y;
 }
@@ -93,7 +97,7 @@ void Vec2::normalize() {
 	*this = getNormalized();
 }
 
-Vec2&& Vec2::getNormalized() const {
+Vec2 Vec2::getNormalized() const {
 	return *this / getLength();
 }
 
@@ -102,9 +106,9 @@ void Vec2::rotate(const Vec2& pivot, const float angle) {
 	*this = getRotated(pivot, angle);
 }
 
-Vec2&& Vec2::getRotated(const Vec2& pivot, const float angle) const {
-	double sinAngle = sin(angle);
-	double cosAngle = cos(angle);
+Vec2 Vec2::getRotated(const Vec2& pivot, const float angle) const {
+	float sinAngle = sin(angle);
+	float cosAngle = cos(angle);
 	float tempX = x - pivot.x;
 	float tempY = y - pivot.y;
 

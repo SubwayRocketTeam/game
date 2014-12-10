@@ -2,9 +2,12 @@
 #include "EnemySpawner.h"
 #include "EnemyFactory.h"
 
+#include "Unit.h"
 #include "Enemy.h"
 #include "Stage.h"
 #include "Ally.h"
+
+#include "Vec2.h"
 
 EnemySpawner::EnemySpawner(Stage* const stage)
 	:stage(stage){
@@ -22,10 +25,9 @@ void EnemySpawner::spawn(
 	auto factory = EnemyFactory::getInstance();
 
 	Enemy *e = factory->createEnemy(type);
-	e->setPosition(
-		getPosition());
+	e->position = Vec2();
 	e->resetAggro();
 
 	ally->push(e);
-	stage->addChild(e, Z::unit);
+	stage->addUnit(e);
 }

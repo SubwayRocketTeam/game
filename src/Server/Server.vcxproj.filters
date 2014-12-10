@@ -17,6 +17,12 @@
     <Filter Include="common">
       <UniqueIdentifier>{4fa98b29-b882-4e87-82d1-330de9cea7f2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="skill">
+      <UniqueIdentifier>{581b421f-5319-4502-903a-406640427f9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="skill\type1">
+      <UniqueIdentifier>{402ed938-f337-415e-bbf1-83cee516ec84}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -31,7 +37,6 @@
     <ClCompile Include="PacketHandler.cpp" />
     <ClCompile Include="Vec2.cpp" />
     <ClCompile Include="Unit.cpp" />
-    <ClCompile Include="Attribute.cpp" />
     <ClCompile Include="..\shared\random.cpp">
       <Filter>shared</Filter>
     </ClCompile>
@@ -67,9 +72,15 @@
     <ClCompile Include="..\shared\skill\SkillPool.cpp">
       <Filter>shared\skill_base</Filter>
     </ClCompile>
-    <ClCompile Include="common\resource.cpp">
-      <Filter>common</Filter>
+    <ClCompile Include="common\resources.cpp" />
+    <ClCompile Include="skill\type1\Slash.cpp">
+      <Filter>skill\type1</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyFactory.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Trash.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -90,8 +101,6 @@
     <ClInclude Include="Sendable.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="Vec2.h" />
-    <ClInclude Include="AttackData.h" />
-    <ClInclude Include="Attribute.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Ref.h" />
     <ClInclude Include="..\shared\random.h">
@@ -138,7 +147,6 @@
       <Filter>jsoncpp</Filter>
     </ClInclude>
     <ClInclude Include="EnemyType.h" />
-    <ClInclude Include="AttributeName.h" />
     <ClInclude Include="..\shared\skill\ActiveSkill.h">
       <Filter>shared\skill_base</Filter>
     </ClInclude>
@@ -164,6 +172,19 @@
       <Filter>shared</Filter>
     </ClInclude>
     <ClInclude Include="common\resource.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackData.h" />
+    <ClInclude Include="skill\type1\Slash.h">
+      <Filter>skill\type1</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFactory.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyInfo.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Trash.h" />
+    <ClInclude Include="common\max.h">
       <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>

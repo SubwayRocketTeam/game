@@ -107,13 +107,15 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClCompile Include="..\shared\skill\SkillPool.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Attribute.cpp" />
     <ClCompile Include="..\shared\random.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientManager.cpp" />
     <ClCompile Include="CollisionDetector.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="common\resources.cpp" />
     <ClCompile Include="Event.cpp" />
@@ -122,11 +124,14 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClCompile Include="IOContext.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PacketHandler.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scheduler.cpp" />
+    <ClCompile Include="skill\type1\Slash.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Trash.cpp" />
     <ClCompile Include="TrashPool.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="Vec2.cpp" />
@@ -153,17 +158,20 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClInclude Include="..\shared\skill\PassiveSkill.h" />
     <ClInclude Include="..\shared\skill\Skill.h" />
     <ClInclude Include="..\shared\skill\SkillPool.h" />
-    <ClInclude Include="AttackData.h" />
-    <ClInclude Include="Attribute.h" />
     <ClInclude Include="..\shared\random.h" />
-    <ClInclude Include="AttributeName.h" />
+    <ClInclude Include="AttackData.h" />
     <ClInclude Include="BufferQueue.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="ClientManager.h" />
     <ClInclude Include="CollisionDetector.h" />
+    <ClInclude Include="common\max.h" />
     <ClInclude Include="common\resource.h" />
     <ClInclude Include="CompletionKeyType.h" />
     <ClInclude Include="config.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyFactory.h" />
+    <ClInclude Include="EnemyInfo.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="EnemyType.h" />
     <ClInclude Include="Event.h" />
@@ -174,11 +182,14 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClInclude Include="PacketHandler.h" />
     <ClInclude Include="PacketMacro.h" />
     <ClInclude Include="PacketType.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Ref.h" />
     <ClInclude Include="Scheduler.h" />
     <ClInclude Include="Sendable.h" />
+    <ClInclude Include="skill\type1\Slash.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Trash.h" />
     <ClInclude Include="TrashPool.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="Vec2.h" />

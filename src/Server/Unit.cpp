@@ -4,9 +4,11 @@
 #include "Stage.h"
 #include "CollisionDetector.h"
 
-#include "SkillPool.h"
-#include "ActiveSkill.h"
-#include "PassiveSkill.h"
+#include "AttackData.h"
+
+#include "shared/skill/SkillPool.h"
+#include "shared/skill/ActiveSkill.h"
+#include "shared/skill/PassiveSkill.h"
 
 struct Unit::PassiveData{
 	float remaining;
@@ -45,6 +47,12 @@ bool Unit::initAttrs(){
 
 bool Unit::initPhysics(){
 	return true;
+}
+
+void Unit::update(float dt) {
+	updateGen(dt);
+	updatePassives(dt);
+	updatePhysics(dt);
 }
 
 void Unit::updateGen(float dt){
@@ -106,7 +114,7 @@ bool Unit::damage(const AttackData& attackData){
 
 	if (_ATTR(hp) <= 0) {
 		if (onDeath()){
-			removeFromParentAndCleanup(true);
+			stage->removeUnit(this);
 			return true;
 		}
 	}

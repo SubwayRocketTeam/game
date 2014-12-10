@@ -14,12 +14,12 @@ struct Vec2 {
 
 	inline Vec2& operator =(const Vec2& other);
 
-	inline Vec2&& operator -() const;
+	inline Vec2 operator -() const;
 
-	inline Vec2&& operator +(const Vec2& other) const;
-	inline Vec2&& operator -(const Vec2& other) const;
-	inline Vec2&& operator *(float other) const;
-	inline Vec2&& operator /(float other) const;
+	inline Vec2 operator +(const Vec2& other) const;
+	inline Vec2 operator -(const Vec2& other) const;
+	inline Vec2 operator *(float other) const;
+	inline Vec2 operator /(float other) const;
 
 	inline Vec2& operator +=(const Vec2& other);
 	inline Vec2& operator -=(const Vec2& other);
@@ -33,12 +33,13 @@ struct Vec2 {
 	inline float getDistanceSq(const Vec2& other) const;
 
 	inline float getAngle() const;
+	inline float getAngle(const Vec2& other) const;
 
 	inline float dot(const Vec2& other) const;
 
 	inline void normalize();
-	inline Vec2&& getNormalized() const;
+	inline Vec2 getNormalized() const;
 
 	void rotate(const Vec2& pivot, const float angle);
-	Vec2&& getRotated(const Vec2& pivot, const float angle) const;
+	Vec2 getRotated(const Vec2& pivot, const float angle) const;
 };

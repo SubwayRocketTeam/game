@@ -47,9 +47,9 @@ void Stage::update(const float dt) {
 }
 
 
-void Stage::addUnit(Unit* unit) {
+id_t Stage::addUnit(Unit* unit) {
 	if (!unit)
-		return;
+		return INVALID_ID;
 
 	switch (unit->type)
 	{
@@ -65,18 +65,23 @@ void Stage::addUnit(Unit* unit) {
 		collisionDetector->addUnit(unit);
 		break;
 	case UT_TRASH:
-		trashPool->push(unit);
+		trashPool->push((Trash*)unit);
 		break;
 	default:
 		break;
 	}
 
 	units.push_back(unit);
+	return gameroom->addUnit(unit);
 }
 
-void Stage::removeUnit(const id_t id) {
-	Unit* unit = getUnit(id);
+void Stage::removeUnit(Unit* unit) {
+	if (!unit)
+		return;
+	gameroom->removeUnit(unit);
+}
 
+void Stage::removeUnitImmediate(Unit* unit) {
 	if (!unit)
 		return;
 
@@ -94,7 +99,7 @@ void Stage::removeUnit(const id_t id) {
 		collisionDetector->removeUnit(unit);
 		break;
 	case UT_TRASH:
-		trashPool->remove(unit);
+		trashPool->remove((Trash*)unit);
 		break;
 	default:
 		break;
@@ -103,6 +108,8 @@ void Stage::removeUnit(const id_t id) {
 	auto it = std::find(units.begin(), units.end(), unit);
 	if (it != units.end())
 		units.erase(it);
+
+	gameroom->removeUnit(unit);
 }
 
 

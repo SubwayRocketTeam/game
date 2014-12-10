@@ -3,8 +3,7 @@
 #include "IDDispenser.h"
 #include "Sendable.h"
 #include "Stage.h"
-
-#define STAGE_MAX 2
+#include "common\max.h"
 
 class GameRoomManager;
 class Unit;
@@ -36,10 +35,11 @@ public:
 	bool empty() const;
 	size_t size() const;
 
-	id_t addUnit(Unit* unit, const int type, const int stage_id);
-	void eraseUnit(const id_t id);
+	id_t addUnit(Unit* unit);		// Stage에서만 불러야 한다.
+	void removeUnit(Unit* unit);
 
 private:
+	void removeUnitImmediate(Unit* unit);
 
 public:
 	const id_t id;
@@ -54,9 +54,10 @@ private:
 
 	DWORD tick;
 
-	Stage* stage[STAGE_MAX];
+	Stage* stage[Max::Teams];
 
 	bool gameRunning;
 
 	std::vector<Unit*> units;
+	std::vector<Unit*> removeUnits;
 };
