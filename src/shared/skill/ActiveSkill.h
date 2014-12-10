@@ -20,3 +20,5 @@ protected:
 	virtual bool initExternalData(
 		const std::string &dataPath);
 };
+
+#include "shared/end_compat.h"

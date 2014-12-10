@@ -1,5 +1,7 @@
 ﻿#include "ActiveSkill.h"
 
+#include "shared/compat.h"
+
 using namespace std;
 
 void ActiveSkill::use(
