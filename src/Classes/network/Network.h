@@ -36,6 +36,9 @@ public:
 	void sendLeaveRoom();
 	void sendReady();
 
+	void sendSpawnRequest(
+		int unitType);
+
 	void sendUseSkill(
 		int skillID,
 		float x,float y);

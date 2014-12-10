@@ -229,6 +229,9 @@
     <ClCompile Include="..\shared\skill\SkillPool.cpp">
       <Filter>source\shared\skill_base</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\network\UnitSender.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">

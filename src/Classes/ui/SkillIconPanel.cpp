@@ -1,4 +1,5 @@
 ﻿#include "pch.h"
+
 #include "SkillIconPanel.h"
 #include "SkillIcon.h"
 
@@ -6,6 +7,8 @@
 #include "skill/ActiveSkill.h"
 
 #include "common/resource.h"
+
+#include "network/Network.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -28,9 +31,10 @@ SkillIconPanel *SkillIconPanel::getInstance(){
 }
 
 bool SkillIconPanel::init(){
-
 	if(!Sprite::initWithFile(R::SkillPanel))
 		return false;
+
+	enableKeyboardInput(this);
 
 	return true;
 }
@@ -49,4 +53,32 @@ void SkillIconPanel::use(
 	int id){
 	
 	icons[id]->use();
+}
+
+void SkillIconPanel::processSpawn(
+	EventKeyboard::KeyCode code){
+
+	auto network = Network::getInstance();
+	int type = -1;
+
+	/* TODO : 키<->몹ID 어딘가에 저장 */
+	switch(code){
+	case EventKeyboard::KeyCode::KEY_1:
+		type = 1;
+		break;
+	case EventKeyboard::KeyCode::KEY_2:
+		type = 2;
+		break;
+	case EventKeyboard::KeyCode::KEY_3:
+		type = 3;
+		break;
+	}
+
+	if(type >= 0)
+		network->sendSpawnRequest(type);
+}
+void SkillIconPanel::onKeyboardDown(
+	EventKeyboard::KeyCode code){
+
+	processSpawn(code);
 }
