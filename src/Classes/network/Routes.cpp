@@ -23,6 +23,8 @@ void Network::initHandlers(){
 	_ROUTE(FireBulletNoti);
 	_ROUTE(UseSkillNoti);
 
+	_ROUTE(SyncRotationNoti);
+
 	route<RemoveUnit>(PT_RemoveUnit,
 		std::bind(&Network::handleRemoveUnit, this, placeholders::_1));
 	route<MoveStartNoti>(PT_MoveStartNoti,

@@ -39,3 +39,12 @@ void Network::handleMoveEnd(
 
 	printf("move end %d\n", pkt->id);
 }
+
+void Network::handleSyncRotationNoti(
+	SyncRotationNoti *pkt){
+
+	auto unit = Unit::getInstanceByID(
+		pkt->id);
+
+	unit->setRotation(pkt->angle);
+}
