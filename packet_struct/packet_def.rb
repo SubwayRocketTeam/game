@@ -47,6 +47,7 @@ class SpawnUnit < Packet
   required
   int "id"
   int "unit_type"
+  int "stage"
   float "x"
   float "y"
 end

@@ -4,6 +4,10 @@
 #include "Sendable.h"
 
 class GameRoomManager;
+class Unit;
+class Stage;
+
+typedef std::map<id_t, id_t> IdPairMap;
 
 class GameRoom :public Sendable {
 	friend GameRoomManager;
@@ -14,16 +18,24 @@ public:
 
 	void update(const float dt);
 
-	bool enter(const id_t client_id);
-	bool leave(const id_t client_id);
+	bool startGame();
+
+	Unit* getUnit(const id_t id);
+	Unit* getClientUnit(const id_t client_id);
 
 	virtual int send(void* const buf, const size_t size);
 
-	const std::set<id_t>::iterator begin() const;
-	const std::set<id_t>::iterator end() const;
+	bool enter(const id_t client_id);
+	bool leave(const id_t client_id);
+
+	IdPairMap::const_iterator begin() const;
+	IdPairMap::const_iterator end() const;
 
 	bool empty() const;
 	size_t size() const;
+
+private:
+	Unit* createUnit(const int type);
 
 public:
 	const id_t id;
@@ -31,5 +43,18 @@ public:
 
 private:
 	IDDispenser dispenser;
-	std::set<id_t> clientIds;
+
+	// first: client id
+	// second : unit id
+	IdPairMap clientIds;
+
+	// Stage[2]
+	//	CollisionDetector;
+	//	TrashPool;
+	//	Ally[2];
+	//	EnemySpawner;
+
+	bool gameRunning;
+
+	std::vector<Unit*> units;
 };

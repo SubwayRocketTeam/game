@@ -47,6 +47,7 @@ id_t GameRoomManager::createGameRoom() {
 	GameRoom* room = new GameRoom(id);
 	rooms[id] = room;
 	Scheduler::getInstance()->schedule(id);
+	printf("Room %d Created.\n", id);
 	return id;
 }
 

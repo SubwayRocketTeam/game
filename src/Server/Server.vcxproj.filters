@@ -18,6 +18,8 @@
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="PacketHandler.cpp" />
     <ClCompile Include="Vec2.cpp" />
+    <ClCompile Include="Unit.cpp" />
+    <ClCompile Include="Attribute.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -38,5 +40,8 @@
     <ClInclude Include="Sendable.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="Vec2.h" />
+    <ClInclude Include="AttackData.h" />
+    <ClInclude Include="Attribute.h" />
+    <ClInclude Include="Stage.h" />
   </ItemGroup>
 </Project>

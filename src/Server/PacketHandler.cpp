@@ -76,11 +76,11 @@ REGISTER_HANDLER(Ready)
 
 	for (auto id : *gameroom) {
 		SpawnUnit noti;
-		noti.id = id;
+		noti.id = id.first;
 		noti.unit_type = 1;
 		noti.x = 0;
 		noti.y = 0;
-		auto client = ClientManager::getInstance()->getClient(id);
+		auto client = ClientManager::getInstance()->getClient(id.first);
 		client->sendPacket(noti);
 
 		client->speed_x = client->x = 0;
@@ -89,7 +89,7 @@ REGISTER_HANDLER(Ready)
 
 	for (auto id : *gameroom) {
 		SpawnUnit noti;
-		noti.id = id;
+		noti.id = id.first;
 		noti.unit_type = 0;
 		noti.x = 0;
 		noti.y = 0;
