@@ -5,7 +5,7 @@
 class Ref{
 	typedef std::atomic<int> counter_t;
 
-	Ref() : refCount(0){};
+	Ref() : refCount(0) {};
 	virtual ~Ref(){};
 
 	void retain(){
