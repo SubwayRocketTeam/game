@@ -77,6 +77,19 @@ class RemoveUnit < Packet
 end
 
 # BATTLE
+class UseSkill < Packet
+  required
+  int "skill_id"
+  float "x"
+  float "y"
+end
+class UseSkillNoti < Packet
+  required
+  int "skill_id"
+  float "x"
+  float "y"
+end
+
 class FireBullet < Packet
   required
   int "bullet_type"
