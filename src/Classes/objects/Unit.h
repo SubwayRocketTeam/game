@@ -26,12 +26,6 @@ class Unit : public cocos2d::Sprite{
 public:
 	struct PassiveData;
 
-	enum CollisionChannel{
-		channelPlayer = 0x0000000F,
-		channelBullet = 0x000000F0,
-		channelEnemy = 0x00000F00,
-	};
-
 public:
 	static Unit *create();
 	static Unit *create(
@@ -60,12 +54,14 @@ public:
 	void setID(
 		int id);
 	int getID();
+	void setStageID(
+		int id);
+	int getStageID();
+
 	Attribute &getAttribute(
 		const std::string &name);
 	Ally::Type getAllyID();
 
-	// 얻어맞을 때
-	virtual void hit();
 	// 충돌했을 때
 	// delta: 충돌되어 밀어내어지는 크기와 방향
 	virtual void collide(

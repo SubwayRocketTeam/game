@@ -19,6 +19,7 @@ Vec2::Vec2(const float x, const float y) :x(x), y(y) {
 Vec2& Vec2::operator =(const Vec2& other) {
 	x = other.x;
 	y = other.y;
+	return *this;
 }
 
 

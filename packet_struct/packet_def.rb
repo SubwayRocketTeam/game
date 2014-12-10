@@ -1,5 +1,15 @@
-class PacketNone < Packet
+﻿class PacketNone < Packet
   required
+end
+
+# INIT
+class CheckVersionRequest < Packet
+  required
+  int "version"
+end
+class CheckVersionResponse < Packet
+  required
+  int "result"
 end
 
 # LOGIN
@@ -39,10 +49,20 @@ class Ready < Packet
 end
 class StartGame < Packet
   required
-  int "team"
+  int "seed" # 랜덤 시드
+  int "team" # 팀 넘버 0~1
 end
 
 # UNIT
+class UnitType < Enum
+  required
+
+  keys [
+    :NONE,
+    :PLAYER
+  ]
+end
+
 class SpawnUnit < Packet
   required
   int "id"
@@ -54,6 +74,17 @@ end
 class RemoveUnit < Packet
   required
   int "id"
+end
+
+# BATTLE
+class FireBullet < Packet
+  required
+  int "id"
+  int "bullet_type"
+  float "x"
+  float "y"
+  float "speed_x"
+  float "speed_y"
 end
 
 # MOVE
@@ -68,8 +99,6 @@ end
 class MoveStartNoti < Packet
   required
   int "id"
-  float "start_x"
-  float "start_y"
   float "velocity_x"
   float "velocity_y"
 end

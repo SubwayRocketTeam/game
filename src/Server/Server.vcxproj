@@ -40,6 +40,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <IncludePath>$(ProjectDir)..\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -74,6 +75,9 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Attribute.cpp" />
+    <ClCompile Include="..\shared\random.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientManager.cpp" />
     <ClCompile Include="Event.cpp" />
@@ -92,6 +96,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
   <ItemGroup>
     <ClInclude Include="AttackData.h" />
     <ClInclude Include="Attribute.h" />
+    <ClInclude Include="..\shared\random.h" />
     <ClInclude Include="BufferQueue.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="ClientManager.h" />
@@ -105,6 +110,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClInclude Include="PacketHandler.h" />
     <ClInclude Include="PacketMacro.h" />
     <ClInclude Include="PacketType.h" />
+    <ClInclude Include="Ref.h" />
     <ClInclude Include="Scheduler.h" />
     <ClInclude Include="Sendable.h" />
     <ClInclude Include="Stage.h" />

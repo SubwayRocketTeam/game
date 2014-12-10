@@ -5,6 +5,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="shared">
+      <UniqueIdentifier>{05d4480c-ce33-4e3a-8352-63b6149bf34e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -20,6 +23,9 @@
     <ClCompile Include="Vec2.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="Attribute.cpp" />
+    <ClCompile Include="..\shared\random.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -43,5 +49,9 @@
     <ClInclude Include="AttackData.h" />
     <ClInclude Include="Attribute.h" />
     <ClInclude Include="Stage.h" />
+    <ClInclude Include="Ref.h" />
+    <ClInclude Include="..\shared\random.h">
+      <Filter>shared</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

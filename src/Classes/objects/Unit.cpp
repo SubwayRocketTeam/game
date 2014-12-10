@@ -319,6 +319,14 @@ void Unit::setID(
 int Unit::getID(){
 	return id;
 }
+void Unit::setStageID(
+	int _stageID){
+	stageID = _stageID;
+}
+int Unit::getStageID(){
+	return stageID;
+}
+
 Attribute &Unit::getAttribute(
 	const string &name){
 	
@@ -328,11 +336,6 @@ Attribute &Unit::getAttribute(
 }
 Ally::Type Unit::getAllyID(){
 	return allyID;
-}
-
-void Unit::hit() {
-	//gauge->setOpacity(255);
-	//gauge->runAction(FadeOut::create(0.3f));
 }
 
 void Unit::collide(
