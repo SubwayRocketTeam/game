@@ -1,13 +1,11 @@
 ﻿#pragma once
 
-#include "cocos2d.h"
-
 #include <string>
 #include <map>
 
 #include "Skill.h"
 
-class SkillPool : public cocos2d::Ref{
+class SkillPool{
 public:
 	static SkillPool *create();
 	static SkillPool *getInstance();

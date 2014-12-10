@@ -1,9 +1,6 @@
 ﻿#include "JsonLoader.h"
 
-#include "cocos2d.h"
-
 using namespace std;
-using namespace cocos2d;
 
 static JsonLoader *instance = nullptr;
 
@@ -13,7 +10,7 @@ JsonLoader *JsonLoader::create(){
 	if(instance)
 		return instance;
 
-	CC_SAFE_DELETE(instance);
+	delete instance;
 	return nullptr;
 }
 JsonLoader *JsonLoader::getInstance(){
@@ -44,8 +41,9 @@ bool JsonLoader::isCached(
 bool JsonLoader::loadToCache(
 	const string &path){
 
-	CC_ASSERT(isCached(path) == false);
+	_ASSERT(isCached(path) == false);
 
+	/*
 	auto file = FileUtils::getInstance();
 	ssize_t fileSize;
 	Json::Reader reader;
@@ -57,14 +55,30 @@ bool JsonLoader::loadToCache(
 		return false;
 
 	jsonData[fileSize] = '\0';
+	*/
+	Json::Reader reader;
+	Json::Value root;
+	char *jsonData;
+	size_t size;
+	FILE *fp;
+
+	fopen_s(&fp, path.c_str(), "r");
+	if(fp == nullptr)
+		return false;
+
+	fseek(fp, 0, SEEK_END);
+	size = ftell(fp);
+	fseek(fp, 0, SEEK_SET);
+
+	jsonData = (char*)malloc(size);
+	fread(jsonData, 1, size, fp);
+
+	fclose(fp);
 
 	if(!reader.parse(jsonData, root))
 		return false;
 
 	cache[path] = root;
-
-	cocos2d::log(
-		"cached - %s", path.c_str());
 
 	return true;
 }
@@ -72,7 +86,7 @@ bool JsonLoader::loadFromCache(
 	const string &path,
 	Json::Value &root){
 
-	CC_ASSERT(isCached(path) == true);
+	_ASSERT(isCached(path) == true);
 
 	root = cache[path];
 

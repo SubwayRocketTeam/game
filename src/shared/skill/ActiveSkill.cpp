@@ -1,17 +1,11 @@
-﻿#include "pch.h"
-#include "ActiveSkill.h"
-
-#include "objects/Unit.h"
+﻿#include "ActiveSkill.h"
 
 using namespace std;
-using namespace cocos2d;
 
 void ActiveSkill::use(
 	Unit *u,
-	cocos2d::Vec2 pos){
+	Vec2 pos){
 
-	cocos2d::log(
-		"ActiveSkill::use : override me");
 }
 
 bool ActiveSkill::initExternalData(

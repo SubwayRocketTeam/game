@@ -11,6 +11,12 @@
     <Filter Include="jsoncpp">
       <UniqueIdentifier>{c2c7f799-e56e-4bfa-9392-1b1ff088c94f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="shared\skill_base">
+      <UniqueIdentifier>{abf13762-fdf4-433a-9036-271562529b78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{4fa98b29-b882-4e87-82d1-330de9cea7f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -46,6 +52,24 @@
     <ClCompile Include="Ally.cpp" />
     <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="TrashPool.cpp" />
+    <ClCompile Include="..\shared\skill\ActiveSkill.cpp">
+      <Filter>shared\skill_base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\Attribute.cpp">
+      <Filter>shared\skill_base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\PassiveSkill.cpp">
+      <Filter>shared\skill_base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\Skill.cpp">
+      <Filter>shared\skill_base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\SkillPool.cpp">
+      <Filter>shared\skill_base</Filter>
+    </ClCompile>
+    <ClCompile Include="common\resources.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -115,6 +139,33 @@
     </ClInclude>
     <ClInclude Include="EnemyType.h" />
     <ClInclude Include="AttributeName.h" />
+    <ClInclude Include="..\shared\skill\ActiveSkill.h">
+      <Filter>shared\skill_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\skill\Attribute.h">
+      <Filter>shared\skill_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\skill\AttributeName.h">
+      <Filter>shared\skill_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\skill\id.h">
+      <Filter>shared\skill_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\skill\PassiveSkill.h">
+      <Filter>shared\skill_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\skill\Skill.h">
+      <Filter>shared\skill_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\skill\SkillPool.h">
+      <Filter>shared\skill_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\compat.h">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="common\resources.h">
+      <Filter>common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\jsoncpp\src\lib_json\json_internalarray.inl">

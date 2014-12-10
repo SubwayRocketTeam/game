@@ -17,33 +17,56 @@ struct PacketHeader{
     };
 #define END };
 
-enum packet_id{
+#define PACKET_VERSION 1165865626
 
+enum packet_id{
   PT_PacketNone = 0,
-  PT_LoginRequest = 1,
-  PT_LoginResponse = 2,
-  PT_EnterRoom = 3,
-  PT_LeaveRoom = 4,
-  PT_EnterNoti = 5,
-  PT_LeaveNoti = 6,
-  PT_ReadyRequest = 7,
-  PT_Ready = 8,
-  PT_StartGame = 9,
-  PT_SpawnUnit = 10,
-  PT_RemoveUnit = 11,
-  PT_MoveStart = 12,
-  PT_MoveEnd = 13,
-  PT_MoveStartNoti = 14,
-  PT_MoveEndNoti = 15,
-  PT_ChatMessage = 16,
-  PT_ChatNoti = 17,
+  PT_CheckVersionRequest = 1,
+  PT_CheckVersionResponse = 2,
+  PT_LoginRequest = 3,
+  PT_LoginResponse = 4,
+  PT_EnterRoom = 5,
+  PT_LeaveRoom = 6,
+  PT_EnterNoti = 7,
+  PT_LeaveNoti = 8,
+  PT_ReadyRequest = 9,
+  PT_Ready = 10,
+  PT_StartGame = 11,
+  PT_SpawnUnit = 12,
+  PT_RemoveUnit = 13,
+  PT_UseSkill = 14,
+  PT_UseSkillNoti = 15,
+  PT_FireBullet = 16,
+  PT_FireBulletNoti = 17,
+  PT_MoveStart = 18,
+  PT_MoveEnd = 19,
+  PT_MoveStartNoti = 20,
+  PT_MoveEndNoti = 21,
+  PT_ChatMessage = 22,
+  PT_ChatNoti = 23,
 
   PT_PacketMax
 };
 
+/* ENUMS */
+enum UnitType_{
+  
+  NONE,
+  PLAYER,
+};
+
+/* PACKETS */
 #pragma pack (push, 1)
 
 PACKET(PacketNone)
+END
+
+PACKET(CheckVersionRequest)
+  int version;
+END
+
+PACKET(CheckVersionResponse)
+  int result;
 END
 
 PACKET(LoginRequest)
@@ -77,18 +100,51 @@ PACKET(Ready)
 END
 
 PACKET(StartGame)
+  int seed;
   int team;
 END
 
 PACKET(SpawnUnit)
   int id;
   int unit_type;
+  int stage;
   float x;
   float y;
 END
 
 PACKET(RemoveUnit)
   int id;
+END
+
+PACKET(UseSkill)
+  int skill_id;
+  float x;
+  float y;
+END
+
+PACKET(UseSkillNoti)
+  int id;
+  int skill_id;
+  float x;
+  float y;
+END
+
+PACKET(FireBullet)
+  int bullet_type;
+  float x;
+  float y;
+  float direction_x;
+  float direction_y;
+END
+
+PACKET(FireBulletNoti)
+  int id;
+  int team;
+  int bullet_type;
+  float x;
+  float y;
+  float velocity_x;
+  float velocity_y;
 END
 
 PACKET(MoveStart)
@@ -101,8 +157,6 @@ END
 
 PACKET(MoveStartNoti)
   int id;
-  float start_x;
-  float start_y;
   float velocity_x;
   float velocity_y;
 END

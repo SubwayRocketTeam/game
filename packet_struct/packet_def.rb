@@ -54,7 +54,7 @@ class StartGame < Packet
 end
 
 # UNIT
-class UnitType < Enum
+class UnitType_ < Enum
   required
 
   keys [
@@ -77,14 +77,37 @@ class RemoveUnit < Packet
 end
 
 # BATTLE
-class FireBullet < Packet
+class UseSkill < Packet
+  required
+  int "skill_id"
+  float "x"
+  float "y"
+end
+class UseSkillNoti < Packet
   required
   int "id"
+  int "skill_id"
+  float "x"
+  float "y"
+end
+
+class FireBullet < Packet
+  required
   int "bullet_type"
   float "x"
   float "y"
-  float "speed_x"
-  float "speed_y"
+  float "direction_x"
+  float "direction_y"
+end
+class FireBulletNoti < Packet
+  required
+  int "id"
+  int "team"
+  int "bullet_type"
+  float "x"
+  float "y"
+  float "velocity_x"
+  float "velocity_y"
 end
 
 # MOVE

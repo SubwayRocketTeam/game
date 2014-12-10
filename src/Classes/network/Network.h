@@ -35,6 +35,15 @@ public:
 	void sendEnterRoom();
 	void sendLeaveRoom();
 	void sendReady();
+
+	void sendUseSkill(
+		int skillID,
+		float x,float y);
+	void sendFireBullet(
+		int bulletTYpe,
+		float x, float y,
+		float directionX, float directionY);
+
 	void sendChatMessage(
 		const char *msg);
 
@@ -67,6 +76,12 @@ protected:
 		SpawnUnit *pkt);
 	void handleRemoveUnit(
 		RemoveUnit *pkt);
+
+	void handleUseSkillNoti(
+		UseSkillNoti *pkt);
+	void handleFireBulletNoti(
+		FireBulletNoti *pkt);
+
 	void handleMoveStart(
 		MoveStartNoti *pkt);
 	void handleMoveEnd(

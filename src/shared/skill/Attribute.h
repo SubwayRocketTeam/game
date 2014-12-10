@@ -1,8 +1,6 @@
 ﻿#pragma once
 
-#include "cocos2d.h"
-
-class Attribute : public cocos2d::Ref{
+class Attribute{
 public:
 	Attribute();
 	Attribute(

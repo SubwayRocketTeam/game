@@ -1,8 +1,6 @@
-﻿#include "pch.h"
-#include "PassiveSkill.h"
+﻿#include "PassiveSkill.h"
 
 using namespace std;
-using namespace cocos2d;
 
 bool PassiveSkill::initExternalData(
 	const string &dataPath){

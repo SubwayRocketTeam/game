@@ -46,23 +46,8 @@
     <ClCompile Include="..\Classes\util\Random.cpp">
       <Filter>source\util</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\skill\ActiveSkill.cpp">
-      <Filter>source\skill\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\skill\Attribute.cpp">
-      <Filter>source\skill\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\skill\PassiveSkill.cpp">
-      <Filter>source\skill\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\skill\Skill.cpp">
-      <Filter>source\skill\base</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\skill\type1\Slash.cpp">
       <Filter>source\skill\type1</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\skill\SkillPool.cpp">
-      <Filter>source\skill\base</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\pch.cpp">
       <Filter>source</Filter>
@@ -223,6 +208,27 @@
     <ClCompile Include="..\shared\JsonLoader.cpp">
       <Filter>source\shared</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\network\BattleHandler.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\network\BattleSender.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\ActiveSkill.cpp">
+      <Filter>source\shared\skill_base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\Attribute.cpp">
+      <Filter>source\shared\skill_base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\PassiveSkill.cpp">
+      <Filter>source\shared\skill_base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\Skill.cpp">
+      <Filter>source\shared\skill_base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\SkillPool.cpp">
+      <Filter>source\shared\skill_base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -303,26 +309,8 @@
     <ClInclude Include="..\Classes\util\Random.h">
       <Filter>source\util</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\skill\ActiveSkill.h">
-      <Filter>source\skill\base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\skill\Attribute.h">
-      <Filter>source\skill\base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\skill\PassiveSkill.h">
-      <Filter>source\skill\base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\skill\Skill.h">
-      <Filter>source\skill\base</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\skill\type1\Slash.h">
       <Filter>source\skill\type1</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\skill\SkillPool.h">
-      <Filter>source\skill\base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\skill\id.h">
-      <Filter>source\skill\base</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\pch.h">
       <Filter>source</Filter>
@@ -341,9 +329,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\skill\AttributeName.h">
-      <Filter>source\skill\base</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\common\max.h">
       <Filter>source\common</Filter>
@@ -486,6 +471,27 @@
     <ClInclude Include="..\shared\JsonLoader.h">
       <Filter>source\shared</Filter>
     </ClInclude>
+    <ClInclude Include="..\shared\skill\ActiveSkill.h">
+      <Filter>source\shared\skill_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\skill\Attribute.h">
+      <Filter>source\shared\skill_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\skill\AttributeName.h">
+      <Filter>source\shared\skill_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\skill\id.h">
+      <Filter>source\shared\skill_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\skill\PassiveSkill.h">
+      <Filter>source\shared\skill_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\skill\Skill.h">
+      <Filter>source\shared\skill_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\skill\SkillPool.h">
+      <Filter>source\shared\skill_base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">
@@ -514,9 +520,6 @@
     </Filter>
     <Filter Include="source\util">
       <UniqueIdentifier>{f199e76c-c9d1-4627-9712-cc101ff99708}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\skill\base">
-      <UniqueIdentifier>{3f04a830-a0e8-485d-a71d-801d5f9da8b8}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\skill\type1">
       <UniqueIdentifier>{f55e68ab-04be-464d-ac94-9a9e935edb10}</UniqueIdentifier>
@@ -547,6 +550,9 @@
     </Filter>
     <Filter Include="source\shared">
       <UniqueIdentifier>{f97ba02e-9e95-4546-8297-13041aebe198}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\shared\skill_base">
+      <UniqueIdentifier>{8eac7edf-c50a-4c06-a948-66ecf14325f4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
