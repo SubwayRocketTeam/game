@@ -46,5 +46,6 @@ void Network::handleSyncRotationNoti(
 	auto unit = Unit::getInstanceByID(
 		pkt->id);
 
-	unit->setRotation(pkt->angle);
+	unit->runAction(
+		RotateTo::create(0.1, pkt->angle));
 }
