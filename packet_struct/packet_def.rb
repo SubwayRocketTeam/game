@@ -76,6 +76,12 @@ class RemoveUnit < Packet
   int "id"
 end
 
+# 쓰레기 이용해서 적 생성 요청
+class SpawnRequest < Packet
+  required
+  int "unit_type"
+end
+
 # BATTLE
 class UseSkill < Packet
   required
