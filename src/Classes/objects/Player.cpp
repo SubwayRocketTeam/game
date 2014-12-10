@@ -13,6 +13,8 @@
 #include "Stage.h"
 #include "CollisionDetector.h"
 
+#include "shared/JsonLoader.h"
+
 #include "ui/cursor.h"
 #include "ui/gauge.h"
 #include "ui/StatusConsole.h"
@@ -20,7 +22,6 @@
 
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
-#include "common/JsonLoader.h"
 
 #include "skill/PassiveSkill.h"
 #include "skill/ActiveSkill.h"

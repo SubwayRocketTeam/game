@@ -1,5 +1,6 @@
 require 'optparse'
 require 'erb'
+require 'zlib'
 load 'packet.rb'
 load 'enum.rb'
 
@@ -26,10 +27,27 @@ end
 
 load src
 
+$_crc_old = [0,0]
+$_crc = 0
+
+def update_crc value
+  tmp = Zlib::crc32 value
+  $_crc = Zlib::crc32_combine tmp, $_crc_old[0], $_crc_old[1]
+  $_crc_old = [$_crc, value.length]
+end
+
 puts "PACKETS"
 $_packets.each do |packet|
   puts "  %2d - %15s" % [packet.id, packet.name]
+
+  update_crc packet.name
+  packet.items.each do |item|
+    update_crc item[0]
+  end
 end
+puts "\n"
+
+puts "PACKET VERSION #{$_crc}"
 puts "\n"
 
 erb = ERB.new(File.read("outform.erb"), nil, '<>')

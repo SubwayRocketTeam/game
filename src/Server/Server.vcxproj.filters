@@ -39,6 +39,9 @@
     <ClCompile Include="..\jsoncpp\src\lib_json\json_writer.cpp">
       <Filter>jsoncpp</Filter>
     </ClCompile>
+    <ClCompile Include="..\shared\JsonLoader.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -117,5 +120,8 @@
     <None Include="..\jsoncpp\src\lib_json\json_valueiterator.inl">
       <Filter>jsoncpp</Filter>
     </None>
+    <ClInclude Include="..\shared\JsonLoader.h">
+      <Filter>shared</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

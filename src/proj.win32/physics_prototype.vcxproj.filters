@@ -43,9 +43,6 @@
     <ClCompile Include="..\jsoncpp\src\lib_json\json_writer.cpp">
       <Filter>jsoncpp</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\common\JsonLoader.cpp">
-      <Filter>source\common</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\util\Random.cpp">
       <Filter>source\util</Filter>
     </ClCompile>
@@ -223,6 +220,9 @@
     <ClCompile Include="..\shared\random.cpp">
       <Filter>source\shared</Filter>
     </ClCompile>
+    <ClCompile Include="..\shared\JsonLoader.cpp">
+      <Filter>source\shared</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -296,9 +296,6 @@
     </ClInclude>
     <ClInclude Include="..\jsoncpp\include\json\writer.h">
       <Filter>jsoncpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\JsonLoader.h">
-      <Filter>source\common</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Compat.h">
       <Filter>source</Filter>
@@ -484,6 +481,9 @@
       <Filter>source\scene</Filter>
     </ClInclude>
     <ClInclude Include="..\shared\random.h">
+      <Filter>source\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\JsonLoader.h">
       <Filter>source\shared</Filter>
     </ClInclude>
   </ItemGroup>

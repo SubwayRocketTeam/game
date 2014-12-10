@@ -1,12 +1,13 @@
 ﻿#include "pch.h"
 #include "Stage.h"
 
+#include "shared/JsonLoader.h"
+
+#include "common/resource.h"
+
 #include "objects/Player.h"
 #include "objects/EnemySpawner.h"
 #include "objects/CollisionDetector.h"
-#include "common/resource.h"
-
-#include "common/JsonLoader.h"
 
 using namespace std;
 using namespace cocos2d;

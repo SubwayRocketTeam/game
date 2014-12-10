@@ -1,5 +1,4 @@
-﻿#include "pch.h"
-#include "JsonLoader.h"
+﻿#include "JsonLoader.h"
 
 #include "cocos2d.h"
 

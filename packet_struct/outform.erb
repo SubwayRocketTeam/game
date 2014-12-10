@@ -17,6 +17,8 @@ struct PacketHeader{
     };
 #define END };
 
+#define PACKET_VERSION <%=$_crc%>
+
 enum packet_id{
 <%$_packets.each do |packet|%>
   PT_<%=packet.name%> = <%=packet.id%>,
