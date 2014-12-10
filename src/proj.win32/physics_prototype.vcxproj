@@ -65,7 +65,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(ProjectDir)..\Classes;$(ProjectDir)..\jsoncpp\include;C:\cocos2d-x\game\cocos2d\external\win32-specific\gles\include\OGLES\GL;C:\cocos2d-x\game\cocos2d\external\glfw3\include;$(ProjectDir)..\cocos2d\external\json;$(ProjectDir)..\cocos2d\external;$(ProjectDir)..\;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\Classes;$(ProjectDir)..\jsoncpp\include;C:\cocos2d-x\game\cocos2d\external\win32-specific\gles\include\OGLES\GL;C:\cocos2d-x\game\cocos2d\external\glfw3\include;$(ProjectDir)..\cocos2d\external\json;$(ProjectDir)..\cocos2d\external;$(ProjectDir)..\;$(ProjectDir)..\shared;$(IncludePath)</IncludePath>
     <SourcePath>$(SourcePath)</SourcePath>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
@@ -188,16 +188,11 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClCompile Include="..\Classes\scene\LobbyScene.cpp" />
     <ClCompile Include="..\Classes\scene\LoginScene.cpp" />
     <ClCompile Include="..\Classes\scene\SelectScene.cpp" />
-    <ClCompile Include="..\Classes\skill\ActiveSkill.cpp" />
-    <ClCompile Include="..\Classes\skill\Attribute.cpp" />
     <ClCompile Include="..\Classes\skill\enemy\EnemyShot.cpp" />
     <ClCompile Include="..\Classes\skill\enemy\Explosion.cpp" />
     <ClCompile Include="..\Classes\skill\enemy\Spiral.cpp" />
     <ClCompile Include="..\Classes\skill\general\Repair.cpp" />
     <ClCompile Include="..\Classes\skill\general\Suction.cpp" />
-    <ClCompile Include="..\Classes\skill\PassiveSkill.cpp" />
-    <ClCompile Include="..\Classes\skill\Skill.cpp" />
-    <ClCompile Include="..\Classes\skill\SkillPool.cpp" />
     <ClCompile Include="..\Classes\skill\type1\Adrenaline.cpp" />
     <ClCompile Include="..\Classes\skill\type1\FrontDash.cpp" />
     <ClCompile Include="..\Classes\skill\type1\Slash.cpp" />
@@ -228,6 +223,21 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\shared\random.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\ActiveSkill.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\Attribute.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\PassiveSkill.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\Skill.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\SkillPool.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="main.cpp" />
@@ -279,18 +289,11 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClInclude Include="..\Classes\scene\LobbyScene.h" />
     <ClInclude Include="..\Classes\scene\LoginScene.h" />
     <ClInclude Include="..\Classes\scene\SelectScene.h" />
-    <ClInclude Include="..\Classes\skill\ActiveSkill.h" />
-    <ClInclude Include="..\Classes\skill\Attribute.h" />
-    <ClInclude Include="..\Classes\skill\AttributeName.h" />
     <ClInclude Include="..\Classes\skill\enemy\EnemyShot.h" />
     <ClInclude Include="..\Classes\skill\enemy\Spiral.h" />
     <ClInclude Include="..\Classes\skill\enemy\Explosion.h" />
     <ClInclude Include="..\Classes\skill\general\Repair.h" />
     <ClInclude Include="..\Classes\skill\general\Suction.h" />
-    <ClInclude Include="..\Classes\skill\id.h" />
-    <ClInclude Include="..\Classes\skill\PassiveSkill.h" />
-    <ClInclude Include="..\Classes\skill\Skill.h" />
-    <ClInclude Include="..\Classes\skill\SkillPool.h" />
     <ClInclude Include="..\Classes\skill\type1\Adrenaline.h" />
     <ClInclude Include="..\Classes\skill\type1\FrontDash.h" />
     <ClInclude Include="..\Classes\skill\type1\Slash.h" />
@@ -319,6 +322,13 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClInclude Include="..\jsoncpp\src\lib_json\json_tool.h" />
     <ClInclude Include="..\shared\JsonLoader.h" />
     <ClInclude Include="..\shared\random.h" />
+    <ClInclude Include="..\shared\skill\ActiveSkill.h" />
+    <ClInclude Include="..\shared\skill\Attribute.h" />
+    <ClInclude Include="..\shared\skill\AttributeName.h" />
+    <ClInclude Include="..\shared\skill\id.h" />
+    <ClInclude Include="..\shared\skill\PassiveSkill.h" />
+    <ClInclude Include="..\shared\skill\Skill.h" />
+    <ClInclude Include="..\shared\skill\SkillPool.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

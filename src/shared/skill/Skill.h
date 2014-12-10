@@ -1,14 +1,12 @@
 ﻿#pragma once
 
-#include "cocos2d.h"
-
 #include "json/json.h"
 
 #include <string>
 
 class SkillPool;
 
-class Skill : public cocos2d::Ref{
+class Skill{
 	friend SkillPool;
 public:
 	const static int Infinite = 0;

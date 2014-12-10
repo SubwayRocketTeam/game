@@ -1,10 +1,8 @@
-﻿#include "pch.h"
-#include "Skill.h"
+﻿#include "Skill.h"
 
 #include "shared/JsonLoader.h"
 
 using namespace std;
-using namespace cocos2d;
 
 bool Skill::init(
 	const string &dataPath){

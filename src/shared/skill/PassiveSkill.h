@@ -1,7 +1,5 @@
 ﻿#pragma once
 
-#include "cocos2d.h"
-
 #include "Skill.h"
 #include "Attribute.h"
 

@@ -40,7 +40,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
-    <IncludePath>$(ProjectDir)..\;$(ProjectDir)..\jsoncpp\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\;$(ProjectDir)..\jsoncpp\include;$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -89,12 +89,28 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClCompile Include="..\shared\JsonLoader.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\shared\skill\ActiveSkill.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\Attribute.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\PassiveSkill.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\Skill.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shared\skill\SkillPool.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Attribute.cpp" />
     <ClCompile Include="..\shared\random.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientManager.cpp" />
+    <ClCompile Include="common\resources.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="GameRoom.cpp" />
     <ClCompile Include="GameRoomManager.cpp" />
@@ -122,7 +138,15 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClInclude Include="..\jsoncpp\include\json\writer.h" />
     <ClInclude Include="..\jsoncpp\src\lib_json\json_batchallocator.h" />
     <ClInclude Include="..\jsoncpp\src\lib_json\json_tool.h" />
+    <ClInclude Include="..\shared\compat.h" />
     <ClInclude Include="..\shared\JsonLoader.h" />
+    <ClInclude Include="..\shared\skill\ActiveSkill.h" />
+    <ClInclude Include="..\shared\skill\Attribute.h" />
+    <ClInclude Include="..\shared\skill\AttributeName.h" />
+    <ClInclude Include="..\shared\skill\id.h" />
+    <ClInclude Include="..\shared\skill\PassiveSkill.h" />
+    <ClInclude Include="..\shared\skill\Skill.h" />
+    <ClInclude Include="..\shared\skill\SkillPool.h" />
     <ClInclude Include="AttackData.h" />
     <ClInclude Include="Attribute.h" />
     <ClInclude Include="..\shared\random.h" />
@@ -130,6 +154,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClInclude Include="Client.h" />
     <ClInclude Include="ClientManager.h" />
     <ClInclude Include="CollisionDetector.h" />
+    <ClInclude Include="common\resources.h" />
     <ClInclude Include="CompletionKeyType.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="EnemySpawner.h" />

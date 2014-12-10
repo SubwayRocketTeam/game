@@ -1,10 +1,10 @@
-﻿#include "pch.h"
-#include "SkillPool.h"
+﻿#include "SkillPool.h"
+
+#include "common/resources.h"
 
 #include "shared/JsonLoader.h"
 
-#include "common/resource.h"
-
+/*
 #include "skill/id.h"
 #include "skill/general/Suction.h"
 #include "skill/general/Repair.h"
@@ -15,11 +15,11 @@
 #include "skill/enemy/Explosion.h"
 #include "skill/enemy/EnemyShot.h"
 #include "skill/PassiveSkill.h"
+*/
 
 #define REGISTER_SKILL(name) skills[skill##name] = new name()
 
 using namespace std;
-using namespace cocos2d;
 
 static SkillPool *instance = nullptr;
 
@@ -40,6 +40,7 @@ bool SkillPool::init(){
 	if(!JsonLoader::load(R::SkillList, root))
 		return false;
 
+	/*
 	REGISTER_SKILL(Slash);
 	REGISTER_SKILL(FrontDash);
 	REGISTER_SKILL(Suction);
@@ -48,6 +49,7 @@ bool SkillPool::init(){
 	REGISTER_SKILL(Explosion);
 	REGISTER_SKILL(EnemyShot);
 	REGISTER_SKILL(Repair);
+	*/
 
 	for(auto skill : root){
 		int id = skill.get("id",0).asInt();

@@ -1,5 +1,7 @@
-﻿#include "pch.h"
-#include "Attribute.h"
+﻿#include "Attribute.h"
+
+#define MIN(a,b) (((a)<(b))?(a):(b))
+#define MAX(a,b) (((a)>(b))?(a):(b))
 
 Attribute::Attribute() :
 	value(0),
@@ -22,14 +24,14 @@ void Attribute::set(
 
 float Attribute::increase(
 	float plus){
-
+	
 	value = MAX(MIN(value + plus, maxValue), 0);
 	return value;
 }
 
 float Attribute::upgrade(
 	float plus){
-
+	
 	maxValue = MAX(maxValue + plus, 0);
 	value = maxValue;
 	return maxValue;

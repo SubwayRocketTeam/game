@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "cocos2d.h"
+#include "shared/compat.h"
 
 #include "Skill.h"
 
@@ -14,7 +14,7 @@ public:
 public:
 	virtual void use(
 		Unit *u,
-		cocos2d::Vec2 pos);
+		Vec2 pos);
 
 protected:
 	virtual bool initExternalData(
