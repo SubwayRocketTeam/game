@@ -74,6 +74,18 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\jsoncpp\src\lib_json\json_reader.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\jsoncpp\src\lib_json\json_value.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\jsoncpp\src\lib_json\json_writer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Attribute.cpp" />
     <ClCompile Include="..\shared\random.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -87,6 +99,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PacketHandler.cpp" />
     <ClCompile Include="Scheduler.cpp" />
+    <ClCompile Include="Stage.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -94,14 +107,28 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClCompile Include="Vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\jsoncpp\include\json\assertions.h" />
+    <ClInclude Include="..\jsoncpp\include\json\autolink.h" />
+    <ClInclude Include="..\jsoncpp\include\json\config.h" />
+    <ClInclude Include="..\jsoncpp\include\json\features.h" />
+    <ClInclude Include="..\jsoncpp\include\json\forwards.h" />
+    <ClInclude Include="..\jsoncpp\include\json\json.h" />
+    <ClInclude Include="..\jsoncpp\include\json\reader.h" />
+    <ClInclude Include="..\jsoncpp\include\json\value.h" />
+    <ClInclude Include="..\jsoncpp\include\json\version.h" />
+    <ClInclude Include="..\jsoncpp\include\json\writer.h" />
+    <ClInclude Include="..\jsoncpp\src\lib_json\json_batchallocator.h" />
+    <ClInclude Include="..\jsoncpp\src\lib_json\json_tool.h" />
     <ClInclude Include="AttackData.h" />
     <ClInclude Include="Attribute.h" />
     <ClInclude Include="..\shared\random.h" />
     <ClInclude Include="BufferQueue.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="ClientManager.h" />
+    <ClInclude Include="CollisionDetector.h" />
     <ClInclude Include="CompletionKeyType.h" />
     <ClInclude Include="config.h" />
+    <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="GameRoom.h" />
     <ClInclude Include="GameRoomManager.h" />
@@ -115,8 +142,15 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClInclude Include="Sendable.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TrashPool.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="Vec2.h" />
+    <ClInclude Include="Ally.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\jsoncpp\src\lib_json\json_internalarray.inl" />
+    <None Include="..\jsoncpp\src\lib_json\json_internalmap.inl" />
+    <None Include="..\jsoncpp\src\lib_json\json_valueiterator.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

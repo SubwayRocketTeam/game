@@ -6,6 +6,7 @@
 
 struct AttackData;
 class GameRoom;
+class Stage;
 
 enum UnitType {
 	UT_NONE,
@@ -23,7 +24,7 @@ class Unit{
 
 public:
 	Unit();
-	Unit(const id_t id, const int type, GameRoom* gameroom);
+	Unit(const id_t id, const int type, Stage* stage);
 
 	virtual ~Unit();
 
@@ -54,7 +55,7 @@ public:
 	void updatePhysics(float dt);
 
 public:
-	GameRoom* gameRoom;
+	Stage* stage;
 
 	id_t id;
 	int type;

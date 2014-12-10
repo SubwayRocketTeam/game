@@ -2,10 +2,12 @@
 
 #include "IDDispenser.h"
 #include "Sendable.h"
+#include "Stage.h"
+
+#define STAGE_MAX 2
 
 class GameRoomManager;
 class Unit;
-class Stage;
 
 typedef std::map<id_t, id_t> IdPairMap;
 
@@ -16,7 +18,7 @@ public:
 	GameRoom(const id_t id = INVALID_ID);
 	~GameRoom();
 
-	void update(const float dt);
+	void update();
 
 	bool startGame();
 
@@ -35,7 +37,7 @@ public:
 	size_t size() const;
 
 private:
-	Unit* createUnit(const int type);
+	Unit* createUnit(const int type, const int stage_id);
 
 public:
 	const id_t id;
@@ -48,11 +50,9 @@ private:
 	// second : unit id
 	IdPairMap clientIds;
 
-	// Stage[2]
-	//	CollisionDetector;
-	//	TrashPool;
-	//	Ally[2];
-	//	EnemySpawner;
+	DWORD tick;
+
+	Stage* stage[STAGE_MAX];
 
 	bool gameRunning;
 

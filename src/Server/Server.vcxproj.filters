@@ -8,6 +8,9 @@
     <Filter Include="shared">
       <UniqueIdentifier>{05d4480c-ce33-4e3a-8352-63b6149bf34e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="jsoncpp">
+      <UniqueIdentifier>{c2c7f799-e56e-4bfa-9392-1b1ff088c94f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -25,6 +28,16 @@
     <ClCompile Include="Attribute.cpp" />
     <ClCompile Include="..\shared\random.cpp">
       <Filter>shared</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="..\jsoncpp\src\lib_json\json_reader.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\jsoncpp\src\lib_json\json_value.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\jsoncpp\src\lib_json\json_writer.cpp">
+      <Filter>jsoncpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,5 +66,56 @@
     <ClInclude Include="..\shared\random.h">
       <Filter>shared</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionDetector.h" />
+    <ClInclude Include="TrashPool.h" />
+    <ClInclude Include="Ally.h" />
+    <ClInclude Include="EnemySpawner.h" />
+    <ClInclude Include="..\jsoncpp\include\json\assertions.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\autolink.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\config.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\features.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\forwards.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\json.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\reader.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\value.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\version.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\include\json\writer.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\src\lib_json\json_batchallocator.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jsoncpp\src\lib_json\json_tool.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\jsoncpp\src\lib_json\json_internalarray.inl">
+      <Filter>jsoncpp</Filter>
+    </None>
+    <None Include="..\jsoncpp\src\lib_json\json_internalmap.inl">
+      <Filter>jsoncpp</Filter>
+    </None>
+    <None Include="..\jsoncpp\src\lib_json\json_valueiterator.inl">
+      <Filter>jsoncpp</Filter>
+    </None>
   </ItemGroup>
 </Project>

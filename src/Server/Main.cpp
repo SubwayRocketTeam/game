@@ -145,7 +145,7 @@ void WorkerThread(HANDLE hCP) {
 				if (transferred == 0) {
 					ClientManager::getInstance()->removeClient(context->clientId);
 				}
-				else {
+				else if (client) {
 					client->push(context->buf, transferred);
 					client->processPacket();
 					client->recv();

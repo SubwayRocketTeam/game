@@ -10,15 +10,19 @@ typedef std::pair<id_t, id_t> IdPair;
 
 GameRoom::GameRoom(const id_t id)
 	:id(id), ready(0), gameRunning(false) {
+	for (int i = 0; i < STAGE_MAX; ++i)
+		stage[i] = new Stage(this, i);
 }
 
 GameRoom::~GameRoom() {
+
 }
 
-void GameRoom::update(const float dt) {
-	for (auto unit : units) {
-		unit->update(dt);
-	}
+void GameRoom::update() {
+	DWORD now_tick = timeGetTime();
+	for (int i = 0; i < STAGE_MAX; ++i)
+		stage[i]->update(now_tick - tick);
+	tick = now_tick;
 }
 
 
@@ -52,7 +56,7 @@ bool GameRoom::startGame() {
 	// TODO: 게임 시작을 통보
 
 	for (auto& id : clientIds) {
-		id.second = createUnit(UT_PLAYER)->id;
+		id.second = createUnit(UT_PLAYER, 0)->id;
 		// TODO: 클라에게 자신이 생성됨을 통보
 	}
 
@@ -62,9 +66,11 @@ bool GameRoom::startGame() {
 }
 
 
-Unit* GameRoom::createUnit(const int type) {
-	Unit* u = new Unit(dispenser.issue(), type, this);
+Unit* GameRoom::createUnit(const int type, const int stage_id) {
+	_ASSERT(stage_id >= 0 && stage_id < STAGE_MAX);
+	Unit* u = new Unit(dispenser.issue(), type, stage[stage_id]);
 	units.push_back(u);
+	stage[stage_id]->addUnit(u);
 	return u;
 }
 
