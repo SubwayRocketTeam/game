@@ -35,6 +35,15 @@ REGISTER_HANDLER(PacketNone)
 END
 
 
+REGISTER_HANDLER(CheckVersionRequest)
+	CheckVersionResponse response;
+	
+	if(packet->version == PACKET_VERSION)
+		response.result = 1;
+
+	client->sendPacket(response);
+END
+
 REGISTER_HANDLER(LoginRequest)
 	printf("%u: %s %s\n", client->id, packet->id, packet->pw);
 	LoginResponse response;
