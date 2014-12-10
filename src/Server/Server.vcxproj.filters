@@ -63,7 +63,7 @@
     <ClCompile Include="..\shared\skill\SkillPool.cpp">
       <Filter>shared\skill_base</Filter>
     </ClCompile>
-    <ClCompile Include="common\resources.cpp">
+    <ClCompile Include="common\resource.cpp">
       <Filter>common</Filter>
     </ClCompile>
   </ItemGroup>
@@ -157,7 +157,7 @@
     <ClInclude Include="..\shared\compat.h">
       <Filter>shared</Filter>
     </ClInclude>
-    <ClInclude Include="common\resources.h">
+    <ClInclude Include="common\resource.h">
       <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>
