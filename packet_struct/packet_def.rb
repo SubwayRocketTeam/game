@@ -79,12 +79,20 @@ end
 # BATTLE
 class FireBullet < Packet
   required
+  int "bullet_type"
+  float "x"
+  float "y"
+  float "direction_x"
+  float "direction_y"
+end
+class FireBulletNoti < Packet
+  required
   int "id"
   int "bullet_type"
   float "x"
   float "y"
-  float "speed_x"
-  float "speed_y"
+  float "velocity_x"
+  float "velocity_y"
 end
 
 # MOVE
