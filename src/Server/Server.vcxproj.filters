@@ -67,6 +67,7 @@
     <ClCompile Include="..\shared\skill\SkillPool.cpp">
       <Filter>shared\skill_base</Filter>
     </ClCompile>
+    <ClCompile Include="common\resources.cpp" />
     <ClCompile Include="common\resource.cpp">
       <Filter>common</Filter>
     </ClCompile>
