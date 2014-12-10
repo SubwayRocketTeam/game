@@ -223,6 +223,12 @@
     <ClCompile Include="..\shared\JsonLoader.cpp">
       <Filter>source\shared</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\network\BattleHandler.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\network\BattleSender.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">

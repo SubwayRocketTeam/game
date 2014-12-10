@@ -1,29 +1,25 @@
 ﻿#include "pch.h"
 #include "Network.h"
 
-#include "objects/Unit.h"
-#include "objects/Bullet.h"
-#include "objects/Stage.h"
+void Network::sendUseSkill(
+	int skillID,
+	float x,float y){
 
-using namespace cocos2d;
-
-void Network::handleUseSkillNoti(
-	UseSkillNoti *pkt){
-
-	auto unit = Unit::getInstanceByID(pkt->id);
-	unit->useSkill(
-		pkt->skill_id,
-		Vec2(pkt->x, pkt->y));
+	UseSkill pkt;
+	pkt.skill_id = skillID;
+	pkt.x = x;
+	pkt.y = y;
+	send(pkt);
 }
-void Network::handleFireBulletNoti(
-	FireBulletNoti *pkt){
+void Network::sendFireBullet(
+	int bulletType,
+	float x,float y,
+	float directionX,float directionY){
 
-	auto bullet = Bullet::create();
-	auto stage = Stage::getInstance(pkt->team);
-
-	bullet->setPosition(pkt->x,pkt->y);
-	bullet->fire(
-		pkt->velocity_x, pkt->velocity_y,
-		1);
-	stage->addChild(bullet);
+	FireBullet pkt;
+	pkt.bullet_type = bulletType;
+	pkt.x = x, pkt.y = y;
+	pkt.direction_x = directionX;
+	pkt.direction_y = directionY;
+	send(pkt);
 }
