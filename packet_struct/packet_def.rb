@@ -85,6 +85,7 @@ class UseSkill < Packet
 end
 class UseSkillNoti < Packet
   required
+  int "id"
   int "skill_id"
   float "x"
   float "y"

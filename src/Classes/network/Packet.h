@@ -17,7 +17,7 @@ struct PacketHeader{
     };
 #define END };
 
-#define PACKET_VERSION 2842188564
+#define PACKET_VERSION 1165865626
 
 enum packet_id{
   PT_PacketNone = 0,
@@ -123,6 +123,7 @@ PACKET(UseSkill)
 END
 
 PACKET(UseSkillNoti)
+  int id;
   int skill_id;
   float x;
   float y;
