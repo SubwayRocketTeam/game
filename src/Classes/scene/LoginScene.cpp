@@ -45,7 +45,7 @@ bool LoginScene::init(){
 		CC_CALLBACK_2(LoginScene::onValley, this));
 	btnDescription->addTouchEventListener(
 		CC_CALLBACK_2(LoginScene::onDescription, this));
-
+		
 	addChild(layout);
 
 	return true;

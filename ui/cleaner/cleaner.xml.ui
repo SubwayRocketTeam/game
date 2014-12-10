@@ -11,6 +11,7 @@
     <string>pause_menu.json</string>
     <string>lobby_scene.json</string>
     <string>select_scene.json</string>
+    <string>login_scene_2.json</string>
   </JsonList>
   <CanvasSize>
     <Width>1024</Width>
@@ -21,11 +22,8 @@
   <ResRelativePath />
   <imageFileList />
   <imagePngList>
-    <string>select_background.png</string>
-    <string>robot1.png</string>
-    <string>loadingbar.png</string>
-    <string>button.png</string>
+    <string>login_background.jpg</string>
   </imagePngList>
   <JsonSuffix>.json</JsonSuffix>
-  <CurrentUIJson>select_scene.json</CurrentUIJson>
+  <CurrentUIJson>login_scene_2.json</CurrentUIJson>
 </UIProject>

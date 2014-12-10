@@ -10,7 +10,9 @@
   "designHeight": 320,
   "designWidth": 480,
   "textures": [],
-  "texturesPng": [],
+  "texturesPng": [
+    "login_background.jpg"
+  ],
   "version": "1.6.0.0",
   "widgetTree": {
     "classname": "Panel",

@@ -11,8 +11,7 @@
   "designWidth": 1024,
   "textures": [],
   "texturesPng": [
-    "login_background.jpg",
-    "button.png"
+    "login_background.jpg"
   ],
   "version": "1.6.0.0",
   "widgetTree": {
