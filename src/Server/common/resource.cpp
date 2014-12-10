@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "resources.h"
+#include "resource.h"
 
 namespace R{
-	_RESD(SkillList, "skill_list.json");
+	_RESD(SkillList, "skills.json");
 };

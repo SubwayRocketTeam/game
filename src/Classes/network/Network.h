@@ -32,9 +32,14 @@ public:
 		float direction_x, float direction_y);
 	void sendMoveEnd(
 		float delta);
+	void sendSyncRotation(
+		float angle);
 	void sendEnterRoom();
 	void sendLeaveRoom();
 	void sendReady();
+
+	void sendSpawnRequest(
+		int unitType);
 
 	void sendUseSkill(
 		int skillID,
@@ -86,6 +91,8 @@ protected:
 		MoveStartNoti *pkt);
 	void handleMoveEnd(
 		MoveEndNoti *pkt);
+	void handleSyncRotationNoti(
+		SyncRotationNoti *pkt);
 	void handleChatNoti(
 		ChatNoti *pkt);
 

@@ -160,6 +160,16 @@ REGISTER_HANDLER(MoveEnd)
 	speed_x = speed_y = 0;
 END
 
+REGISTER_HANDLER(SyncRotation)
+	auto gameroom =
+		GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+
+	SyncRotationNoti noti;
+	noti.id = client->id;
+	noti.angle = packet->angle;
+
+	gameroom->sendPacket(noti);
+END
 
 REGISTER_HANDLER(ChatMessage)
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());

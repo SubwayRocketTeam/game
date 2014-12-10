@@ -76,6 +76,9 @@
     <ClCompile Include="skill\type1\Slash.cpp">
       <Filter>skill\type1</Filter>
     </ClCompile>
+    <ClCompile Include="common\resource.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
     <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Player.cpp" />

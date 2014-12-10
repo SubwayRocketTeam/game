@@ -82,6 +82,10 @@ bool Player::init(
 	enableMouseInput(this);
 	enableKeyboardInput(this);
 
+	schedule(
+		SEL_SCHEDULE(&Player::updateRotation), 0.1f);
+	schedule(
+		SEL_SCHEDULE(&Player::updateConditions), 1.0f / Global::ups);
 	scheduleUpdate();
 
 	return true;
@@ -116,11 +120,6 @@ bool Player::initExternalData(
 
 		attrs[name].set(value);
 	}
-
-	/* incr */
-	auto incrList = root.get("incrs", Json::Value::null);
-	if(incrList.isNull())
-		return false;
 
 	/* skill list */
 	auto skillList = root.get("skills", Json::Value::null);
@@ -167,8 +166,6 @@ bool Player::useSkill(
 void Player::update(
 	float dt){
 		
-	updateConditions(dt);
-
 	/* TODO : 충돌 범위 상수나 이미지 크기 기반으로 하도록 */
 	/* TODO : 빨려들어오는건 쓰레기가 직접 오는데,
 	 *        청소하는건 플레이어가 청소
@@ -205,6 +202,13 @@ void Player::updateConditions(
 	/* IMMORTAL */
 	if(immortal > 0.0f)
 		immortal -= dt;
+}
+void Player::updateRotation(
+	float dt){
+
+	auto network = Network::getInstance();
+	network->sendSyncRotation(
+		getRotation());
 }
 
 bool Player::onDamage(

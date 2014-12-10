@@ -76,6 +76,12 @@ class RemoveUnit < Packet
   int "id"
 end
 
+# 쓰레기 이용해서 적 생성 요청
+class SpawnRequest < Packet
+  required
+  int "unit_type"
+end
+
 # BATTLE
 class UseSkill < Packet
   required
@@ -130,6 +136,16 @@ class MoveEndNoti < Packet
   int "id"
   float "end_x"
   float "end_y"
+end
+
+class SyncRotation < Packet
+  required
+  float "angle"
+end
+class SyncRotationNoti < Packet
+  required
+  int "id"
+  float "angle"
 end
 
 # CHAT

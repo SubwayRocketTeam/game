@@ -15,3 +15,11 @@ void Network::sendMoveEnd(
 	MoveEnd pkt;
 	send(pkt);
 }
+
+void Network::sendSyncRotation(
+	float angle){
+
+	SyncRotation pkt;
+	pkt.angle = angle;
+	send(pkt);
+}

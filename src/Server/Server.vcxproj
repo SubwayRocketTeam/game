@@ -116,6 +116,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyFactory.cpp" />
+    <ClCompile Include="common\resource.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="common\resources.cpp" />
     <ClCompile Include="Event.cpp" />
