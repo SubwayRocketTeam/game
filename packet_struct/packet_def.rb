@@ -54,7 +54,7 @@ class StartGame < Packet
 end
 
 # UNIT
-class UnitType < Enum
+class UnitType_ < Enum
   required
 
   keys [
