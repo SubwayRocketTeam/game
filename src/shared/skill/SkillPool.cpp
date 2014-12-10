@@ -4,6 +4,7 @@
 
 #include "shared/JsonLoader.h"
 
+/* 임시 조치 */
 #ifdef _CLIENT
 	#include "skill/id.h"
 	#include "skill/general/Suction.h"
