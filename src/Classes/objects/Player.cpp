@@ -85,7 +85,7 @@ bool Player::init(
 	schedule(
 		SEL_SCHEDULE(&Player::updateRotation), 0.1f);
 	schedule(
-		SEL_SCHEDULE(&Player::updateConditions), 1.0f / Global::fps);
+		SEL_SCHEDULE(&Player::updateConditions), 1.0f / Global::ups);
 	scheduleUpdate();
 
 	return true;
