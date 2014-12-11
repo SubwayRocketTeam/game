@@ -19,6 +19,7 @@ git submodule update
 ToDo List
 ----
 * UI 작업들
+* 네트워크
 * [ActiveJson](https://github.com/SubwayRocketTeam/ActiveJson)
 
 
