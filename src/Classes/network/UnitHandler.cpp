@@ -7,6 +7,7 @@
 #include "objects/Unit.h"
 #include "objects/Player.h"
 #include "objects/Ally.h"
+#include "objects/CollisionDetector.h"
 
 void Network::handleSpawn(
 	SpawnUnit *pkt){
@@ -23,6 +24,9 @@ void Network::handleSpawn(
 			Ally::allyPlayer);
 		auto unit = Unit::create(R::PlayerBody);
 	
+		stage->getCollisionDetector()
+			->addUnit(unit);
+		unit->setAllyID(Ally::Type::allyPlayer);
 		unit->setID(pkt->id);
 		unit->setPosition(pkt->x,pkt->y);
 		stage->addChild(unit);
