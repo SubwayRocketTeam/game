@@ -102,6 +102,7 @@ REGISTER_HANDLER(MoveStart)
 	response.id = player->id;
 	response.velocity_x = player->moveDirection.x * player->_ATTR(speed);
 	response.velocity_y = player->moveDirection.y * player->_ATTR(speed);
+	printf("START %d (%f %f)\n", response.id, response.velocity_x, response.velocity_y);
 	gameroom->sendPacket(response);
 END
 
@@ -114,6 +115,7 @@ REGISTER_HANDLER(MoveEnd)
 	response.id = player->id;
 	response.end_x = player->position.x;
 	response.end_y = player->position.y;
+	printf("END %d (%f %f)\n", response.id, response.end_x, response.end_y);
 	gameroom->sendPacket(response);
 END
 
@@ -122,7 +124,7 @@ REGISTER_HANDLER(SyncRotation)
 		GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 
 	SyncRotationNoti noti;
-	noti.id = client->id;
+	noti.id = gameroom->getClientUnitId(client->id);
 	noti.angle = packet->angle;
 
 	gameroom->sendPacket(noti);
