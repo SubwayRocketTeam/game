@@ -160,6 +160,10 @@ bool Player::useSkill(
 	auto panel = SkillIconPanel::getInstance();
 	panel->use(skill->id);
 
+	auto network = Network::getInstance();
+	network->sendUseSkill(
+		skill->id, x,y);
+
 	return true;
 }
 
