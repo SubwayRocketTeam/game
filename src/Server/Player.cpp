@@ -86,29 +86,6 @@ bool Player::initExternalData(
 	return true;
 }
 
-bool Player::useSkill(
-	SKillIndex index,
-	float x, float y){
-
-	auto skill = skills[index];
-	float cooltime = skill->cooltime;
-
-	if (cooltimes[index] > 0.0f)
-		return false;
-	if (skill->cost > _ATTR(mp))
-		return false;
-	if (index == skillMouseLeft)
-		cooltime *= _ATTR(attackSpeed);
-
-	skill->use(this, Vec2(x, y));
-
-	cooltimes[index] = cooltime;
-	_ATTR_VALUE(mp) -= skill->cost;
-	stiff = skill->duration;
-
-	return true;
-}
-
 void Player::update(
 	float dt){
 	updateConditions(dt);
