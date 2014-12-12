@@ -64,13 +64,32 @@ bool GameRoom::startGame() {
 	gameRunning = true;
 
 	// TODO: 게임 시작을 통보
+	StartGame packet;
+	sendPacket(packet);
 
 	for (auto& id : clientIds) {
+		Client* client = ClientManager::getInstance()->getClient(id.first);
 		id.second = stage[0]->addUnit(new Player());
+		Unit* player = getUnit(id.second);
 		// TODO: 클라에게 자신이 생성됨을 통보
+		SpawnUnit noti;
+		noti.id = id.second;
+		noti.unit_type = 1;
+		noti.x = player->position.x;
+		noti.y = player->position.y;
+		client->sendPacket(noti);
 	}
 
 	// TODO: 모든 클라에게 생성된 유닛을 통보
+	for (auto id : clientIds) {
+		Unit* player = getUnit(id.second);
+		SpawnUnit noti;
+		noti.id = id.second;
+		noti.unit_type = 0;
+		noti.x = player->position.x;
+		noti.y = player->position.y;
+		sendPacket(noti);
+	}
 
 	return true;
 }

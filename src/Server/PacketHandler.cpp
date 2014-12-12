@@ -2,6 +2,8 @@
 #include "PacketHandler.h"
 #include "PacketType.h"
 
+#include "Unit.h"
+#include "Player.h"
 #include "Client.h"
 #include "ClientManager.h"
 #include "GameRoom.h"
@@ -27,7 +29,7 @@ struct RegisterHandler {
 	static PacketHandler handler_##type;\
 	static RegisterHandler _reg_##type(PT_##type, handler_##type);\
 	static void handler_##type(Client* client, PacketHeader* header) {\
-		type* packet = (type*) header;\
+		type* packet = (type*) header;
 
 
 
@@ -72,38 +74,13 @@ END
 REGISTER_HANDLER(Ready)
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(
 		client->getGameRoomId());
-	gameroom->ready ++;
+
+gameroom->ready++;
 
 	if(gameroom->ready != 2)
 		return;
 
-	/* TODO : 고치기 */
-	{
-		StartGame packet;
-		gameroom->sendPacket(packet);
-	}
-
-	for (auto id : *gameroom) {
-		SpawnUnit noti;
-		noti.id = id.first;
-		noti.unit_type = 1;
-		noti.x = 0;
-		noti.y = 0;
-		auto client = ClientManager::getInstance()->getClient(id.first);
-		client->sendPacket(noti);
-
-		client->speed_x = client->x = 0;
-		client->speed_y = client->y = 0;
-	}
-
-	for (auto id : *gameroom) {
-		SpawnUnit noti;
-		noti.id = id.first;
-		noti.unit_type = 0;
-		noti.x = 0;
-		noti.y = 0;
-		gameroom->sendPacket(noti);
-	}
+	gameroom->startGame();
 END
 
 
@@ -118,55 +95,26 @@ END
 
 REGISTER_HANDLER(MoveStart)
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	Player* player = (Player*)gameroom->getClientUnit(client->id);
+	player->moveDirection = Vec2(packet->direction_x, packet->direction_y).getNormalized();
+
 	MoveStartNoti response;
-
-	float& speed_x = client->speed_x;
-	float& speed_y = client->speed_y;
-	float& x = client->x;
-	float& y = client->y;
-	int& tick = client->tick;
-
-
-	if (speed_x || speed_y){
-		float delta =
-			(float)(GetTickCount() - tick) / 1000.0f;
-		x += speed_x * 350 * delta;
-		y += speed_y * 350 * delta;
-	}
-
-	response.id = client->id;
-	response.velocity_x = packet->direction_x * 350;
-	response.velocity_y = packet->direction_y * 350;
+	response.id = player->id;
+	response.velocity_x = player->moveDirection.x * player->_ATTR(speed);
+	response.velocity_y = player->moveDirection.y * player->_ATTR(speed);
 	gameroom->sendPacket(response);
-
-	tick = GetTickCount();
-	speed_x = packet->direction_x;
-	speed_y = packet->direction_y;
 END
 
 REGISTER_HANDLER(MoveEnd)
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
-
-	float& speed_x = client->speed_x;
-	float& speed_y = client->speed_y;
-	float& x = client->x;
-	float& y = client->y;
-	int& tick = client->tick;
-
-	float delta =
-		(float)(GetTickCount() - tick) / 1000.0f;
-	printf("%f / %f %f\n", delta, speed_x, speed_y);
-	x += speed_x * 350 * delta;
-	y += speed_y * 350 * delta;
-	printf("x : %f / y : %f\n", x, y);
+	Player* player = (Player*)gameroom->getClientUnit(client->id);
+	player->moveDirection = Vec2::ZERO;
 
 	MoveEndNoti response;
-	response.id = client->id;
-	response.end_x = x;
-	response.end_y = y;
+	response.id = player->id;
+	response.end_x = player->position.x;
+	response.end_y = player->position.y;
 	gameroom->sendPacket(response);
-
-	speed_x = speed_y = 0;
 END
 
 REGISTER_HANDLER(SyncRotation)
