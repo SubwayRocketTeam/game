@@ -3,6 +3,7 @@
 
 #include "objects/tags.h"
 #include "objects/Unit.h"
+#include "objects/Player.h"
 
 using namespace cocos2d;
 
@@ -45,6 +46,11 @@ void Network::handleSyncRotationNoti(
 
 	auto unit = Unit::getInstanceByID(
 		pkt->id);
+	auto player = Player::getInstance();
+
+	/* 자신 플레이어 회전 패킷은 무시 */
+	if(pkt->id == player->getID())
+		return;
 
 	unit->runAction(
 		RotateTo::create(0.1, pkt->angle));
