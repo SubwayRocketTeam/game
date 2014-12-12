@@ -20,6 +20,7 @@ Unit::Unit()
 	:stage(nullptr)
 	, id(INVALID_ID), type(UT_NONE), ally(0)
 	, friction(0), radius(0) {
+	init();
 }
 Unit::~Unit(){
 }

@@ -17,6 +17,7 @@ Enemy::Enemy(){
 	ally = Ally::Type::allyEnemy;
 	skill = nullptr;
 	cooltime = 0;
+	init();
 }
 Enemy::~Enemy(){
 }

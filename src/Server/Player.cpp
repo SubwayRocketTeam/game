@@ -27,6 +27,7 @@ Player::Player()
 	:speedFactor(1), immortal(0), stiff(0), trash(0){
 	type = UT_PLAYER;
 	ally = Ally::Type::allyPlayer;
+	init("type1.json");
 }
 Player::~Player(){
 }
@@ -73,12 +74,14 @@ bool Player::initExternalData(
 	if (skillList.isNull())
 		return false;
 
+	/*
 	auto pool = SkillPool::getInstance();
 	for (auto skill : skillList){
 		skills.push_back(
 			(ActiveSkill*)pool->get(skill.asInt()));
 		cooltimes.push_back(0);
 	}
+	*/
 
 	return true;
 }
