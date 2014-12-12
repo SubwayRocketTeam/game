@@ -334,6 +334,11 @@ Attribute &Unit::getAttribute(
 
 	return attrs[name];
 }
+void Unit::setAllyID(
+	Ally::Type id){
+
+	allyID = id;
+}
 Ally::Type Unit::getAllyID(){
 	return allyID;
 }

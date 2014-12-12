@@ -60,6 +60,8 @@ public:
 
 	Attribute &getAttribute(
 		const std::string &name);
+	void setAllyID(
+		Ally::Type id);
 	Ally::Type getAllyID();
 
 	// 충돌했을 때
