@@ -51,6 +51,8 @@ id_t Stage::addUnit(Unit* unit) {
 	if (!unit)
 		return INVALID_ID;
 
+	unit->stage = this;
+
 	switch (unit->type)
 	{
 	case UT_PLAYER:
@@ -58,9 +60,9 @@ id_t Stage::addUnit(Unit* unit) {
 		collisionDetector->addUnit(unit);
 		break;
 	case UT_ENEMY:
-		break;
 		ally[Ally::Type::allyEnemy]->push(unit);
 		collisionDetector->addUnit(unit);
+		break;
 	case UT_BULLET:
 		collisionDetector->addUnit(unit);
 		break;
