@@ -1,4 +1,4 @@
-﻿/* pgen auto-generated packets */
+/* pgen auto-generated packets */
 #pragma once
 
 typedef int packet_type_t;
@@ -17,7 +17,7 @@ struct PacketHeader{
     };
 #define END };
 
-#define PACKET_VERSION 2515964301
+#define PACKET_VERSION 1124429165
 
 enum packet_id{
   PT_PacketNone = 0,
@@ -100,6 +100,7 @@ PACKET(ReadyRequest)
 END
 
 PACKET(Ready)
+  int robot_id;
 END
 
 PACKET(StartGame)

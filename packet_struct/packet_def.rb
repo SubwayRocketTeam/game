@@ -46,6 +46,7 @@ class ReadyRequest < Packet
 end
 class Ready < Packet
   required
+  int "robot_id"
 end
 class StartGame < Packet
   required
