@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "TrashPool.h"
 #include "Trash.h"
 #include "Player.h"
@@ -45,7 +45,7 @@ void TrashPool::spawn(const Vec2 &pos, int count){
 			DEGREES_TO_RADIANS(rand() % 360))
 			* (20 + rand() % 20) * 60.0f;
 
-		/* ISSUE : frictionµµ * 60? */
+		/* ISSUE : frictionë„ * 60? */
 		trash->friction = 128 * 60;
 		stage->addUnit(trash);
 

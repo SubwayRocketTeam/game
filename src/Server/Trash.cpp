@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "Trash.h"
 #include "TrashPool.h"
 #include "Stage.h"

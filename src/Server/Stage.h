@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "IDDispenser.h"
 
@@ -21,7 +21,7 @@ public:
 
 	id_t addUnit(Unit* unit);
 	void removeUnit(Unit* unit);
-	void removeUnitImmediate(Unit* unit);	// GameRoom¿¡¼­¸¸ ºÒ·¯¾ß ÇÑ´Ù.
+	void removeUnitImmediate(Unit* unit);	// GameRoomì—ì„œë§Œ ë¶ˆëŸ¬ì•¼ í•œë‹¤.
 
 	Unit* getUnit(const id_t id);
 

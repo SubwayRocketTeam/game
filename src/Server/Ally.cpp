@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "Ally.h"
 #include "Unit.h"
 #include "AttackData.h"

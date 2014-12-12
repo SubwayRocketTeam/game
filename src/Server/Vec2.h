@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 struct Vec2 {
 	static const Vec2 ZERO;

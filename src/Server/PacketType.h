@@ -1,4 +1,4 @@
-/* pgen auto-generated packets */
+﻿/* pgen auto-generated packets */
 #pragma once
 
 typedef int packet_type_t;

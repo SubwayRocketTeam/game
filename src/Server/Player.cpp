@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "Player.h"
 
 #include "Bullet.h"
@@ -116,10 +116,10 @@ void Player::update(
 
 	Unit::update(dt);
 
-	/* TODO : Ãæµ¹ ¹üÀ§ »ó¼ö³ª ÀÌ¹ÌÁö Å©±â ±â¹İÀ¸·Î ÇÏµµ·Ï */
-	/* TODO : »¡·Áµé¾î¿À´Â°Ç ¾²·¹±â°¡ Á÷Á¢ ¿À´Âµ¥,
-	*        Ã»¼ÒÇÏ´Â°Ç ÇÃ·¹ÀÌ¾î°¡ Ã»¼Ò
-	*        ¾î¶»°Ô ÇÒ°ÇÁö Á¤ÇÏ±â */
+	/* TODO : ì¶©ëŒ ë²”ìœ„ ìƒìˆ˜ë‚˜ ì´ë¯¸ì§€ í¬ê¸° ê¸°ë°˜ìœ¼ë¡œ í•˜ë„ë¡ */
+	/* TODO : ë¹¨ë ¤ë“¤ì–´ì˜¤ëŠ”ê±´ ì“°ë ˆê¸°ê°€ ì§ì ‘ ì˜¤ëŠ”ë°,
+	*        ì²­ì†Œí•˜ëŠ”ê±´ í”Œë ˆì´ì–´ê°€ ì²­ì†Œ
+	*        ì–´ë–»ê²Œ í• ê±´ì§€ ì •í•˜ê¸° */
 	auto pos = position;
 	auto trashPool = stage->trashPool;
 	auto trashes = trashPool->query(
@@ -164,7 +164,7 @@ bool Player::onDamage(
 	if (immortal > 0.0f)
 		return false;
 
-	/* TODO : ¹«Àû ±â°£ »ó¼ö¿¡ Áı¾î³Ö±â */
+	/* TODO : ë¬´ì  ê¸°ê°„ ìƒìˆ˜ì— ì§‘ì–´ë„£ê¸° */
 	immortal = 0.5;
 	stiff = max(stiff, 0.2f);
 

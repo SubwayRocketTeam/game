@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "CollisionDetector.h"
 
 #include "Unit.h"
@@ -11,7 +11,7 @@ void CollisionDetector::update(float dt){
 	for (auto it = unitVector.begin(); it != unitVector.end(); ++it){
 		Unit* me = *it;
 		Vec2 pos = me->position;
-		// ´Ù¸¥ Unit°úÀÇ Ãæµ¹
+		// ë‹¤ë¥¸ Unitê³¼ì˜ ì¶©ëŒ
 		for (auto itt = it + 1; itt != unitVector.end(); ++itt){
 			Unit* other = *itt;
 			Vec2 other2me = pos - other->position;
@@ -27,8 +27,8 @@ void CollisionDetector::update(float dt){
 			}
 		}
 
-		// º®°úÀÇ Ãæµ¹
-		// TODO: »óÇÏÁÂ¿ì º®ÀÇ À§Ä¡¸¦ ¿ÜºÎ¿¡¼­ °¡Á®¿À±â.
+		// ë²½ê³¼ì˜ ì¶©ëŒ
+		// TODO: ìƒí•˜ì¢Œìš° ë²½ì˜ ìœ„ì¹˜ë¥¼ ì™¸ë¶€ì—ì„œ ê°€ì ¸ì˜¤ê¸°.
 		if (pos.x < -800)
 			me->collide(Vec2(-(pos.x + 800), 0), nullptr);
 		if (pos.x > 800)

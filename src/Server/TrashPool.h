@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "Vec2.h"
 
@@ -19,8 +19,8 @@ public:
 
 	std::vector<Trash*> query(float x, float y, float w, float h);
 
-	void push(Trash *trash);	// Stage¿¡¼­¸¸ ºÒ·¯¾ß ÇÑ´Ù.
-	void remove(Trash *trash);	// Stage¿¡¼­¸¸ ºÒ·¯¾ß ÇÑ´Ù.
+	void push(Trash *trash);	// Stageì—ì„œë§Œ ë¶ˆëŸ¬ì•¼ í•œë‹¤.
+	void remove(Trash *trash);	// Stageì—ì„œë§Œ ë¶ˆëŸ¬ì•¼ í•œë‹¤.
 
 public:
 	Stage* const stage;

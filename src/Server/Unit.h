@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "IDDispenser.h"
 #include "Vec2.h"
@@ -49,8 +49,8 @@ public:
 	/* pre-death */
 	virtual bool onDeath();
 
-	// Ãæµ¹ÇßÀ» ¶§
-	// delta: Ãæµ¹µÇ¾î ¹Ğ¾î³»¾îÁö´Â Å©±â¿Í ¹æÇâ
+	// ì¶©ëŒí–ˆì„ ë•Œ
+	// delta: ì¶©ëŒë˜ì–´ ë°€ì–´ë‚´ì–´ì§€ëŠ” í¬ê¸°ì™€ ë°©í–¥
 	virtual void collide(Vec2 delta, Unit* other);
 
 	virtual void update(float dt);

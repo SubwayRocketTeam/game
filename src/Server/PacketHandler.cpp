@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "PacketHandler.h"
 #include "PacketType.h"
 
@@ -77,7 +77,7 @@ REGISTER_HANDLER(Ready)
 	if(gameroom->ready != 2)
 		return;
 
-	/* TODO : °íÄ¡±â */
+	/* TODO : ê³ ì¹˜ê¸° */
 	{
 		StartGame packet;
 		gameroom->sendPacket(packet);

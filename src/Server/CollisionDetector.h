@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 class Unit;
 
@@ -8,8 +8,8 @@ public:
 
 	void update(float dt);
 
-	void addUnit(Unit* unit);		// Stage¿¡¼­¸¸ ºÒ·¯¾ß ÇÑ´Ù.
-	void removeUnit(Unit* unit);	// Stage¿¡¼­¸¸ ºÒ·¯¾ß ÇÑ´Ù.
+	void addUnit(Unit* unit);		// Stageì—ì„œë§Œ ë¶ˆëŸ¬ì•¼ í•œë‹¤.
+	void removeUnit(Unit* unit);	// Stageì—ì„œë§Œ ë¶ˆëŸ¬ì•¼ í•œë‹¤.
 
 protected:
 	std::vector<Unit*> unitVector;

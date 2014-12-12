@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "Vec2.h"
 
 const Vec2 Vec2::ZERO = Vec2();

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #define _OPPOSITE(id) \
 	((Ally::Type) (((int)id) ^ 1))
@@ -16,8 +16,8 @@ public:
 public:
 	void init();
 
-	void push(Unit *u);		// Stage¿¡¼­¸¸ ºÒ·¯¾ß ÇÑ´Ù.
-	void remove(Unit *u);	// Stage¿¡¼­¸¸ ºÒ·¯¾ß ÇÑ´Ù.
+	void push(Unit *u);		// Stageì—ì„œë§Œ ë¶ˆëŸ¬ì•¼ í•œë‹¤.
+	void remove(Unit *u);	// Stageì—ì„œë§Œ ë¶ˆëŸ¬ì•¼ í•œë‹¤.
 
 	void processAttack(const AttackData& data);
 

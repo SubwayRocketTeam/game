@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "Unit.h"
 
 #include "Stage.h"
@@ -71,11 +71,11 @@ void Unit::updatePassives(float dt){
 		data.remaining -= dt;
 		data.update -= dt;
 
-		/* Áö¼Ó ½Ã°£ÀÌ ³¡³µÀ¸¸é Áö¿ì±â */
+		/* ì§€ì† ì‹œê°„ì´ ëë‚¬ìœ¼ë©´ ì§€ìš°ê¸° */
 		if (skill->duration != Skill::Infinite &&
 			data.remaining <= 0)
 			removeList.push_back(id);
-		/* interval¸¶´Ù update È£ÃâÇØÁÖ±â */
+		/* intervalë§ˆë‹¤ update í˜¸ì¶œí•´ì£¼ê¸° */
 		else if (data.interval != 0){
 			if (data.update <= 0){
 				auto pool = SkillPool::getInstance();
@@ -136,12 +136,12 @@ void Unit::addPassive(int id){
 	auto pool = SkillPool::getInstance();
 	auto skill = (PassiveSkill*)pool->get(id);
 
-	/* ÀÌ¹Ì °¡Áö°í ÀÖ´Â ÆÐ½Ãºê */
+	/* ì´ë¯¸ ê°€ì§€ê³  ìžˆëŠ” íŒ¨ì‹œë¸Œ */
 	if (passives.find(id) != passives.end())
 		return;
 
-	/* TODO : ÆÐ½Ãºê Áßº¹ Àû¿ëÀÌ¸é
-	³²Àº ½Ã°£ ´õÇÏ±â or ÃÊ±âÈ­ÇÒ°ÇÁö */
+	/* TODO : íŒ¨ì‹œë¸Œ ì¤‘ë³µ ì ìš©ì´ë©´
+	ë‚¨ì€ ì‹œê°„ ë”í•˜ê¸° or ì´ˆê¸°í™”í• ê±´ì§€ */
 	PassiveData data;
 	data.update = data.interval = skill->interval;
 	data.remaining = skill->duration;
