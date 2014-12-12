@@ -30,9 +30,6 @@ public:
 
 public:
 	const id_t id;
-	float x, y;
-	float speed_x, speed_y;
-	int tick;
 
 private:
 	BufferQueue<BUF_SIZE> bufferQueue;

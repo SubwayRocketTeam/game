@@ -69,8 +69,6 @@ public:
 	int ally;
 	
 	Vec2 position;
-	Vec2 direction;
-
 	Vec2 velocity;
 	Vec2 acceleration;
 	float friction;
