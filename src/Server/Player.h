@@ -11,16 +11,6 @@ class UserResources;
 
 class Player : public Unit{
 public:
-	enum SKillIndex{
-		skillMouseLeft = 0,
-		skillMouseRight,
-		skillKeyboardQ,
-		skillKeyboardW,
-		skillKeyboardE,
-		skillKeyboardR,
-	};
-
-public:
 	Player();
 	virtual ~Player();
 
@@ -37,10 +27,6 @@ public:
 
 	virtual bool onDamage(const AttackData& attackData);
 	virtual bool onDeath();
-
-	virtual bool useSkill(
-		SKillIndex id,
-		float x, float y);
 
 	bool isTankFull() const;
 	int getTrash() const;

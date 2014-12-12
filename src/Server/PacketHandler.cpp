@@ -96,6 +96,9 @@ END
 REGISTER_HANDLER(UseSkill)
 	auto gameroom =
 	GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	Player* player = (Player*)gameroom->getClientUnit(client->id);
+
+	// player->useSkill(packet->skill_id, Vec2(packet->x, packet->y));
 
 	UseSkillNoti noti;
 	noti.id = gameroom->getClientUnitId(client->id);
