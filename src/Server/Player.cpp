@@ -114,7 +114,7 @@ void Player::update(
 	updateConditions(dt);
 
 	if (!stiff) {
-		position += moveDirection * _ATTR(speed);
+		position += moveDirection * _ATTR(speed) * dt;
 	}
 
 	Unit::update(dt);
