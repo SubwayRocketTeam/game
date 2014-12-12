@@ -12,6 +12,9 @@
 #include "Event.h"
 #include "config.h"
 
+#include "shared/JsonLoader.h"
+#include "shared/skill/SkillPool.h"
+
 void WorkerThread(HANDLE hCP);
 
 void main()
@@ -70,7 +73,8 @@ void main()
 		return;
 	}
 
-//	GameRoomManager::getInstance()->createGameRoom();
+	JsonLoader::create();
+	// SkillPool::create();
 
 	while (true) {
 		AcceptContext* context = new AcceptContext;
