@@ -36,7 +36,8 @@ public:
 		float angle);
 	void sendEnterRoom();
 	void sendLeaveRoom();
-	void sendReady();
+	void sendReady(
+		int robot_id);
 
 	void sendSpawnRequest(
 		int unitType);

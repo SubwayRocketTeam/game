@@ -9,7 +9,10 @@ void Network::sendLeaveRoom(){
 	LeaveRoom pkt;
 	send(pkt);
 }
-void Network::sendReady(){
+void Network::sendReady(
+	int robot_id){
+
 	Ready pkt;
+	pkt.robot_id = 0;
 	send(pkt);
 }
