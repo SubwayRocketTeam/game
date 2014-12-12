@@ -23,6 +23,7 @@ public:
 
 	Unit* getUnit(const id_t id);
 	Unit* getClientUnit(const id_t client_id);
+	id_t getClientUnitId(const id_t client_id);
 
 	virtual int send(void* const buf, const size_t size);
 

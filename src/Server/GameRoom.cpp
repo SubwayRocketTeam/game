@@ -127,10 +127,14 @@ Unit* GameRoom::getUnit(const id_t id) {
 }
 
 Unit* GameRoom::getClientUnit(const id_t client_id) {
+	return getUnit(GameRoom::getClientUnitId(client_id));
+}
+
+id_t GameRoom::getClientUnitId(const id_t client_id) {
 	auto it = clientIds.find(client_id);
 	if (it == clientIds.end())
-		return nullptr;
-	return getUnit(it->second);
+		return INVALID_ID;
+	return it->second;
 }
 
 
