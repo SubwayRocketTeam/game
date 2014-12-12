@@ -359,6 +359,7 @@ void Player::onKeyboardDown(
 		Network::getInstance()
 			->sendMoveStart(norm.x, norm.y);
 		
+		velocity = speed * _ATTR(speed);
 		moveCounter ++;
 		tick = 0;
 	}
@@ -381,6 +382,7 @@ void Player::onKeyboardUp(
 
 	if(moved){
 		moveCounter --;
+		velocity = speed * _ATTR(speed);
 
 		if(moveCounter == 0){
 			Network::getInstance()
