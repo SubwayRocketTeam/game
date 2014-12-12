@@ -6,7 +6,7 @@
     {"name" : "hp_gen", "value" : 0},
     {"name" : "mp", "value" : 400},
     {"name" : "mp_gen", "value" : 0},
-    {"name" : "speed", "value" : 60},
+    {"name" : "speed", "value" : 360},
     {"name" : "attack", "value" : 50},
     {"name" : "attack_speed", "value" : 1.0},
     {"name" : "range", "value" : 120},
