@@ -98,7 +98,10 @@ void Vec2::normalize() {
 }
 
 Vec2 Vec2::getNormalized() const {
-	return *this / getLength();
+	float length = getLength();
+	if (length == 0)
+		return *this;
+	return *this / length;
 }
 
 
