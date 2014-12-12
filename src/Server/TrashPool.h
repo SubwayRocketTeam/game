@@ -19,7 +19,7 @@ public:
 
 	std::vector<Trash*> query(float x, float y, float w, float h);
 
-	void push(Trash *trash);		// Stage에서만 불러야 한다.
+	void push(Trash *trash);	// Stage에서만 불러야 한다.
 	void remove(Trash *trash);	// Stage에서만 불러야 한다.
 
 public:
