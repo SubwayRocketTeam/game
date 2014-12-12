@@ -93,6 +93,20 @@ REGISTER_HANDLER(LeaveRoom)
 END
 
 
+REGISTER_HANDLER(UseSkill)
+	auto gameroom =
+	GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+
+	UseSkillNoti noti;
+	noti.id = gameroom->getClientUnitId(client->id);
+	noti.skill_id = packet->skill_id;
+	noti.x = packet->x;
+	noti.y = packet->y;
+
+	gameroom->sendPacket(noti);
+END
+
+
 REGISTER_HANDLER(MoveStart)
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
