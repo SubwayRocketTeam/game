@@ -14,10 +14,12 @@ using namespace cocos2d;
 void Network::handleEnterRoomNoti(
 	EnterNoti *pkt){
 
+	printf("enter noti : %d\n", pkt->client_id);
 }
 void Network::handleLeaveRoomNoti(
 	LeaveNoti *pkt){
 
+	printf("leave noti : %d\n", pkt->client_id);
 }
 
 void Network::handleReadyRequest(
@@ -29,4 +31,7 @@ void Network::handleReadyRequest(
 }
 void Network::handleStartGame(
 	StartGame *pkt){
+
+	printf("start game / team : %d, seed : %d\n",
+		pkt->team, pkt->seed);
 }
