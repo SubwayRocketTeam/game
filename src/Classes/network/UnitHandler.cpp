@@ -41,7 +41,7 @@ void Network::handleRemoveUnit(
 	if(unit != nullptr){
 		auto stage = Stage::getInstance(0);
 		auto players = Ally::getInstance(
-			Ally::allyPlayer);
+			Ally::Type::allyPlayer);
 
 		players->remove(unit);
 		unit->setOpacity(128);
