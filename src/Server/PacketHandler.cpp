@@ -75,7 +75,7 @@ REGISTER_HANDLER(Ready)
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(
 		client->getGameRoomId());
 
-gameroom->ready++;
+	gameroom->ready++;
 
 	if(gameroom->ready != 2)
 		return;

@@ -65,6 +65,8 @@ bool GameRoom::startGame() {
 
 	// TODO: 게임 시작을 통보
 	StartGame packet;
+	packet.team = 0;
+	packet.seed = rand();
 	sendPacket(packet);
 
 	for (auto& id : clientIds) {
