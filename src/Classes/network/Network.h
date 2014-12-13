@@ -121,7 +121,8 @@ protected:
 		std::function<void(T*)> f,
 		PacketHeader* arg){
 
-		f((T*)arg);	
+		f((T*)arg);
+		free(arg);
 	}
 
 private:
