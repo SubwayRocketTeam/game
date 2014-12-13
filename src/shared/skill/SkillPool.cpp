@@ -4,9 +4,11 @@
 
 #include "shared/JsonLoader.h"
 
+#include "shared/skill/id.h"
+#include "shared/skill/ActiveSkill.h"
+#include "shared/skill/PassiveSkill.h"
 /* 임시 조치 */
 #ifdef _CLIENT
-	#include "skill/id.h"
 	#include "skill/general/Suction.h"
 	#include "skill/general/Repair.h"
 	#include "skill/type1/Slash.h"
@@ -15,7 +17,6 @@
 	#include "skill/enemy/Spiral.h"
 	#include "skill/enemy/Explosion.h"
 	#include "skill/enemy/EnemyShot.h"
-	#include "skill/PassiveSkill.h"
 #endif
 
 #define REGISTER_SKILL(name) skills[skill##name] = new name()
@@ -50,6 +51,15 @@ bool SkillPool::init(){
 	REGISTER_SKILL(Explosion);
 	REGISTER_SKILL(EnemyShot);
 	REGISTER_SKILL(Repair);
+#else
+	skills[skillSlash] = new ActiveSkill();
+	skills[skillFrontDash] = new ActiveSkill();
+	skills[skillSuction] = new ActiveSkill();
+	skills[skillAdrenaline] = new PassiveSkill();
+	skills[skillSpiral] = new ActiveSkill();
+	skills[skillExplosion] = new ActiveSkill();
+	skills[skillEnemyShot] = new ActiveSkill();
+	skills[skillRepair] = new PassiveSkill();
 #endif
 
 	for(auto skill : root){

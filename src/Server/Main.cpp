@@ -74,7 +74,7 @@ void main()
 	}
 
 	JsonLoader::create();
-	// SkillPool::create();
+	SkillPool::create();
 
 	while (true) {
 		AcceptContext* context = new AcceptContext;

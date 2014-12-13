@@ -74,14 +74,12 @@ bool Player::initExternalData(
 	if (skillList.isNull())
 		return false;
 
-	/*
 	auto pool = SkillPool::getInstance();
 	for (auto skill : skillList){
 		skills.push_back(
 			(ActiveSkill*)pool->get(skill.asInt()));
 		cooltimes.push_back(0);
 	}
-	*/
 
 	return true;
 }
