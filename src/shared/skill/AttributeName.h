@@ -15,6 +15,7 @@ namespace Attr{
 	const std::string criticalRate = "critical_rate";
 	const std::string accuracyRate = "accracy_rate";
 	const std::string evasionRate = "evasion_rate";
+	const std::string radius = "radius";
 
 	/* ENEMY */
 	const std::string drops = "drops";

@@ -27,7 +27,7 @@ void Network::handleSpawn(
 	
 		stage->getCollisionDetector()
 			->addUnit(unit);
-		unit->radius = 30;
+		unit->radius = 40;
 		unit->setAllyID(Ally::Type::allyPlayer);
 		unit->setID(pkt->id);
 		unit->setPosition(pkt->x, pkt->y);

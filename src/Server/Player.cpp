@@ -47,7 +47,6 @@ bool Player::initAttrs(){
 	return true;
 }
 bool Player::initPhysics(){
-	radius = 30;
 	return true;
 }
 bool Player::initExternalData(
@@ -68,6 +67,8 @@ bool Player::initExternalData(
 
 		attrs[name].set(value);
 	}
+
+	radius = _ATTR(radius);
 
 	/* skill list */
 	auto skillList = root.get("skills", Json::Value::null);

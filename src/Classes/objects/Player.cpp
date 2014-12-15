@@ -98,7 +98,7 @@ bool Player::initAttrs(){
 bool Player::initPhysics(){
 	Stage::getInstance(0)->getCollisionDetector()
 		->addUnit(this);
-	radius = 30;
+//	radius = 30;
 
 	return true;
 }
@@ -120,6 +120,8 @@ bool Player::initExternalData(
 
 		attrs[name].set(value);
 	}
+
+	radius = _ATTR(radius);
 
 	/* skill list */
 	auto skillList = root.get("skills", Json::Value::null);
