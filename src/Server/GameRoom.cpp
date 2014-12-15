@@ -63,7 +63,6 @@ bool GameRoom::startGame() {
 	if (gameRunning || (size_t)ready < clientIds.size()) return false;
 	gameRunning = true;
 
-	// TODO: 게임 시작을 통보
 	StartGame packet;
 	packet.team = 0;
 	packet.seed = rand();
@@ -73,7 +72,11 @@ bool GameRoom::startGame() {
 		Client* client = ClientManager::getInstance()->getClient(id.first);
 		id.second = stage[0]->addUnit(new Player());
 		Unit* player = getUnit(id.second);
-		// TODO: 클라에게 자신이 생성됨을 통보
+
+		// TODO: 위치 지정
+		player->position.x = (float)(rand() % 1600 - 800);
+		player->position.y = (float)(rand() % 1200 - 600);
+
 		SpawnUnit noti;
 		noti.id = id.second;
 		noti.unit_type = 1;
@@ -82,7 +85,6 @@ bool GameRoom::startGame() {
 		client->sendPacket(noti);
 	}
 
-	// TODO: 모든 클라에게 생성된 유닛을 통보
 	for (auto id : clientIds) {
 		Unit* player = getUnit(id.second);
 		SpawnUnit noti;

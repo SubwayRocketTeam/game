@@ -17,6 +17,7 @@ void Network::handleSpawn(
 	if(pkt->unit_type){
 		auto player = Player::getInstance();
 		player->setID(pkt->id);
+		player->setPosition(pkt->x, pkt->y);
 	}
 	else if(Unit::getInstanceByID(pkt->id) == nullptr){
 		auto stage = Stage::getInstance(0);
@@ -26,9 +27,10 @@ void Network::handleSpawn(
 	
 		stage->getCollisionDetector()
 			->addUnit(unit);
+		unit->radius = 30;
 		unit->setAllyID(Ally::Type::allyPlayer);
 		unit->setID(pkt->id);
-		unit->setPosition(pkt->x,pkt->y);
+		unit->setPosition(pkt->x, pkt->y);
 		stage->addChild(unit);
 		players->push(unit);
 	}
