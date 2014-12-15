@@ -5,10 +5,13 @@
 #include "Effect.h"
 
 #include "Player.h"
+#include "Enemy.h"
 #include "Stage.h"
 #include "CollisionDetector.h"
 #include "DamageLabel.h"
 #include "tags.h"
+
+#include "Ally.h"
 
 #include "common/resource.h"
 
@@ -78,8 +81,10 @@ Unit *Unit::getInstanceByID(
 	int id){
 
 	//CC_ASSERT(instances.find(id) != instances.end());
-
-	return instances[id];
+	if (instances.find(id) != instances.end())
+		return instances[id];
+	else
+		return nullptr;
 }
 
 bool Unit::init(){
@@ -232,6 +237,18 @@ bool Unit::damage(
 	
 	if (_ATTR(hp) <= 0) {
 		if(onDeath()){
+
+			auto ally = Ally::getInstance(Ally::Type::allyPlayer);
+			if (std::find(ally->begin(), ally->end(), this) != ally->end()) {
+				auto enemy_ally = Ally::getInstance(Ally::Type::allyEnemy);
+				for (auto unit : *enemy_ally) {
+					Enemy* enemy = (Enemy*)unit;
+					enemy->removeAggro(this);
+				}
+			}
+
+			instances.erase(id);
+
 			removeFromParentAndCleanup(true);
 			return true;
 		}

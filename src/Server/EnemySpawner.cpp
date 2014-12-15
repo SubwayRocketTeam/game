@@ -18,16 +18,18 @@ EnemySpawner::~EnemySpawner(){
 void EnemySpawner::init(){
 }
 
-void EnemySpawner::spawn(
+Enemy* EnemySpawner::spawn(
 	EnemyType type){
 
 	auto ally = stage->ally[Ally::Type::allyEnemy];
 	auto factory = EnemyFactory::getInstance();
 
 	Enemy *e = factory->createEnemy(type);
-	e->position = Vec2();
-	e->resetAggro();
+	e->position = Vec2(rand()%1600-800, rand()%1200-600);
 
 	ally->push(e);
 	stage->addUnit(e);
+
+	e->resetAggro();
+	return e;
 }

@@ -8,6 +8,7 @@
 #include "GameRoom.h"
 #include "GameRoomManager.h"
 #include "Scheduler.h"
+#include "EnemyFactory.h"
 
 #include "Event.h"
 #include "config.h"
@@ -75,6 +76,7 @@ void main()
 
 	JsonLoader::create();
 	SkillPool::create();
+	EnemyFactory::getInstance()->initExternalData("enemy_list.json");
 
 	while (true) {
 		AcceptContext* context = new AcceptContext;

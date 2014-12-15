@@ -12,7 +12,7 @@ public:
 
 	void init();
 
-	void spawn(EnemyType type);
+	Enemy* spawn(EnemyType type);
 
 public:
 	Stage* const stage;

@@ -56,7 +56,7 @@ void Enemy::update(float dt){
 	auto target = getTarget();
 	auto speed = _ATTR(speed);
 
-	if (speed){
+	if (speed && target){
 		auto delta = target->position - position;
 		auto move = delta.getNormalized() * speed;
 		position += move;

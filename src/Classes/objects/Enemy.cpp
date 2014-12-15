@@ -80,7 +80,7 @@ void Enemy::update(
 	auto target = getTarget();
 	auto speed = _ATTR(speed);
 
-	if(speed){
+	if(speed && target){
 		auto delta = getPosition() - target->getPosition();
 		auto move = delta.getNormalized() * speed;
 		auto angle = 
@@ -119,8 +119,7 @@ bool Enemy::onDamage(
 bool Enemy::onDeath(){
 	TrashPool::getInstance()->spawn(
 		getPosition(), _ATTR(drops));
-
-	return true;
+	return Unit::onDeath();
 }
 
 void Enemy::resetAggro(){
@@ -147,6 +146,11 @@ void Enemy::decreaseAggro(
 	CC_ASSERT(aggros.find(u) != aggros.end());
 
 	aggros[u] -= value;
+}
+void Enemy::removeAggro(
+	Unit* u) {
+	CC_ASSERT(aggros.find(u) != aggros.end());
+	aggros.erase(u);
 }
 Unit *Enemy::getTarget(){
 

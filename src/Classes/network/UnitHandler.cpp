@@ -5,34 +5,70 @@
 
 #include "objects/Stage.h"
 #include "objects/Unit.h"
+#include "objects/Enemy.h"
 #include "objects/Player.h"
 #include "objects/Ally.h"
 #include "objects/CollisionDetector.h"
+#include "objects/EnemyFactory.h"
 
 void Network::handleSpawn(
 	SpawnUnit *pkt){
 
 	printf("ID %d / TYPE %d\n", pkt->id, pkt->unit_type);
 
-	if(pkt->unit_type){
-		auto player = Player::getInstance();
-		player->setID(pkt->id);
-		player->setPosition(pkt->x, pkt->y);
-	}
-	else if(Unit::getInstanceByID(pkt->id) == nullptr){
-		auto stage = Stage::getInstance(0);
+	if (Unit::getInstanceByID(pkt->id))
+		return;
+
+	auto stage = Stage::getInstance(pkt->stage);
+	Unit* unit = nullptr;
+	int z = 0;
+
+	switch (pkt->unit_type) {
+
+	case 0:
+	{
 		auto players = Ally::getInstance(
 			Ally::allyPlayer);
-		auto unit = Unit::create(R::PlayerBody);
-	
+		unit = Unit::create(R::PlayerBody);
+
 		stage->getCollisionDetector()
 			->addUnit(unit);
 		unit->radius = 40;	// 임시
 		unit->setAllyID(Ally::Type::allyPlayer);
+		players->push(unit);
+		z = Z::unit;
+		break;
+	}
+
+	case 1:
+	{
+		unit = Player::getInstance();
 		unit->setID(pkt->id);
 		unit->setPosition(pkt->x, pkt->y);
-		stage->addChild(unit);
-		players->push(unit);
+		return;
+	}
+
+	case 10:
+	case 11:
+	case 12:
+	case 13:
+	{
+		auto factory = EnemyFactory::getInstance();
+		auto ally = Ally::getInstance(Ally::Type::allyEnemy);
+		auto e = factory->createEnemy((EnemyType)(pkt->unit_type - 10));
+		e->resetAggro();
+		ally->push(e);
+		unit = e;
+		z = Z::unit;
+		break;
+	}
+
+	}
+
+	if (unit) {
+		unit->setID(pkt->id);
+		unit->setPosition(pkt->x, pkt->y);
+		stage->addChild(unit, z);
 	}
 }
 void Network::handleRemoveUnit(

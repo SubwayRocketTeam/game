@@ -13,6 +13,9 @@ void Network::handleMoveStart(
 	auto unit = Unit::getInstanceByID(
 		pkt->id);
 
+	if (!unit)
+		return;
+
 	unit->velocity.x = pkt->velocity_x;
 	unit->velocity.y = pkt->velocity_y;
 
@@ -25,6 +28,9 @@ void Network::handleMoveEnd(
 
 	auto unit = Unit::getInstanceByID(
 		pkt->id);
+
+	if (!unit)
+		return;
 
 	unit->velocity.set(0,0);
 	unit->stopAllActionsByTag(
@@ -47,6 +53,9 @@ void Network::handleSyncRotationNoti(
 	auto unit = Unit::getInstanceByID(
 		pkt->id);
 	auto player = Player::getInstance();
+
+	if (!unit)
+		return;
 
 	/* 자신 플레이어 회전 패킷은 무시 */
 	if(pkt->id == player->getID())

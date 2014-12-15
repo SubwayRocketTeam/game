@@ -37,10 +37,13 @@ public:
 	size_t size() const;
 
 	id_t addUnit(Unit* unit);		// Stage에서만 불러야 한다.
-	void removeUnit(Unit* unit);
+	void removeUnit(Unit* unit);	// Stage에서만 불러야 한다.
 
 private:
+	void addUnitImmediate(Unit* unit);
 	void removeUnitImmediate(Unit* unit);
+
+	void flush();
 
 public:
 	const id_t id;
@@ -60,5 +63,6 @@ private:
 	bool gameRunning;
 
 	std::vector<Unit*> units;
-	std::vector<Unit*> removeUnits;
+	std::set<Unit*> addUnits;
+	std::set<Unit*> removeUnits;
 };

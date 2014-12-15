@@ -14,6 +14,9 @@ void Network::handleUseSkillNoti(
 	auto unit = Unit::getInstanceByID(pkt->id);
 	auto player = Player::getInstance();
 
+	if (!unit)
+		return;
+
 	if(pkt->id == player->getID())
 		return;
 

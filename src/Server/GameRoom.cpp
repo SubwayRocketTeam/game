@@ -28,9 +28,7 @@ void GameRoom::update() {
 	for (int i = 0; i < Max::Teams; ++i)
 		stage[i]->update((now_tick - tick) * 0.001f);
 
-	for (Unit* u : removeUnits)
-		removeUnitImmediate(u);
-	removeUnits.clear();
+	flush();
 
 	tick = now_tick;
 }
@@ -70,8 +68,8 @@ bool GameRoom::startGame() {
 
 	for (auto& id : clientIds) {
 		Client* client = ClientManager::getInstance()->getClient(id.first);
-		id.second = stage[0]->addUnit(new Player());
-		Unit* player = getUnit(id.second);
+		Player* player = new Player();
+		id.second = stage[0]->addUnit(player);
 
 		// TODO: 위치 지정
 		player->position.x = (float)(rand() % 1600 - 800);
@@ -84,6 +82,8 @@ bool GameRoom::startGame() {
 		noti.y = player->position.y;
 		client->sendPacket(noti);
 	}
+
+	flush();
 
 	for (auto id : clientIds) {
 		Unit* player = getUnit(id.second);
@@ -100,15 +100,23 @@ bool GameRoom::startGame() {
 
 
 id_t GameRoom::addUnit(Unit* unit) {
+	if (!unit)
+		return INVALID_ID;
 	id_t id = dispenser.issue();
 	unit->id = id;
-	units.push_back(unit);
+	addUnits.insert(unit);
 	return id;
 }
 
 void GameRoom::removeUnit(Unit* unit) {
 	if (!unit) return;
-	removeUnits.push_back(unit);
+	removeUnits.insert(unit);
+}
+
+void GameRoom::addUnitImmediate(Unit* unit) {
+	if (!unit) return;
+	units.push_back(unit);
+	unit->stage->addUnitImmediate(unit);
 }
 
 void GameRoom::removeUnitImmediate(Unit* unit) {
@@ -121,6 +129,17 @@ void GameRoom::removeUnitImmediate(Unit* unit) {
 		units.erase(it);
 
 	SAFE_DELETE(unit);
+}
+
+void GameRoom::flush() {
+	for (Unit* u : removeUnits)
+		removeUnitImmediate(u);
+	removeUnits.clear();
+
+	for (Unit* u : addUnits)
+		addUnitImmediate(u);
+	addUnits.clear();
+
 }
 
 Unit* GameRoom::getUnit(const id_t id) {

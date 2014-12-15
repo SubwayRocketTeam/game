@@ -21,6 +21,7 @@ public:
 
 	id_t addUnit(Unit* unit);
 	void removeUnit(Unit* unit);
+	id_t addUnitImmediate(Unit* unit);		// GameRoom에서만 불러야 한다.
 	void removeUnitImmediate(Unit* unit);	// GameRoom에서만 불러야 한다.
 
 	Unit* getUnit(const id_t id);

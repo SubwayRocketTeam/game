@@ -7,6 +7,7 @@
 
 Bullet::Bullet(){
 	type = UT_BULLET;
+	init();
 }
 Bullet::~Bullet(){
 }

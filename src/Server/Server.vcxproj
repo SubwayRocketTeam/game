@@ -118,6 +118,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="common\resource.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
+    <ClCompile Include="Enemy_Explode.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="GameRoom.cpp" />
     <ClCompile Include="GameRoomManager.cpp" />
@@ -181,6 +182,7 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClInclude Include="EnemyInfo.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="EnemyType.h" />
+    <ClInclude Include="Enemy_Explode.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="GameRoom.h" />
     <ClInclude Include="GameRoomManager.h" />

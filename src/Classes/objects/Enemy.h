@@ -21,6 +21,9 @@ public:
 
 	void setInfo(EnemyInfo* info);
 
+	void removeAggro(
+		Unit* u);
+
 protected:
 	Enemy();
 	virtual ~Enemy();

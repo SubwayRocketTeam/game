@@ -30,7 +30,7 @@ void Ally::processAttack(
 
 		if (data.postion.getDistance(memberPosition) <= r){
 			if (member->damage(data)){
-				it = members.erase(it);
+//				it = members.erase(it);
 				flag = false;
 			}
 			if (data.user != object)

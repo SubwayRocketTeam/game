@@ -3,17 +3,21 @@
 #include "PacketType.h"
 
 #include "Unit.h"
+#include "Enemy.h"
 #include "Player.h"
 #include "Client.h"
 #include "ClientManager.h"
 #include "GameRoom.h"
 #include "GameRoomManager.h"
+#include "EnemySpawner.h"
+#include "EnemyType.h"
 
 static PacketHandler* handlerMap[PT_PacketMax];
 
 
 PacketHandler* PacketHandlerMap::function(packet_type_t type) {
 	_ASSERT(type < PT_PacketMax);
+	printf("PACKET RECV %d\n", type);
 	return handlerMap[type];
 }
 
@@ -90,6 +94,25 @@ REGISTER_HANDLER(LeaveRoom)
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	gameroom->sendPacket(noti);
 	gameroom->leave(client->id);
+END
+
+
+REGISTER_HANDLER(SpawnRequest)
+{
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	Unit* unit = gameroom->getClientUnit(client->id);
+	auto spawner = unit->stage->spawner;
+	Enemy* enemy = spawner->spawn((EnemyType)(packet->unit_type - 10));
+
+	SpawnUnit noti;
+	noti.id = enemy->id;
+	noti.stage = enemy->stage->id;
+	noti.x = enemy->position.x;
+	noti.y = enemy->position.y;
+	noti.unit_type = packet->unit_type;
+
+	gameroom->sendPacket(noti);
+}
 END
 
 
