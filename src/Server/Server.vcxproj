@@ -75,7 +75,8 @@
       <Command>set bin_path=$(SolutionDir)..\..\bin_server
 rd /s /q %bin_path%
 md %bin_path%
-copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
+copy $(OutDir)$(ProjectName).exe %bin_path%
+xcopy /s $(ProjectDir)..\Resources_Server %bin_path%</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
