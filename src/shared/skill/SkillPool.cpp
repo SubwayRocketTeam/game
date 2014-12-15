@@ -7,17 +7,15 @@
 #include "shared/skill/id.h"
 #include "shared/skill/ActiveSkill.h"
 #include "shared/skill/PassiveSkill.h"
-/* 임시 조치 */
-#ifdef _CLIENT
-	#include "skill/general/Suction.h"
-	#include "skill/general/Repair.h"
-	#include "skill/type1/Slash.h"
-	#include "skill/type1/FrontDash.h"
-	#include "skill/type1/Adrenaline.h"
-	#include "skill/enemy/Spiral.h"
-	#include "skill/enemy/Explosion.h"
-	#include "skill/enemy/EnemyShot.h"
-#endif
+
+#include "skill/general/Suction.h"
+#include "skill/general/Repair.h"
+#include "skill/type1/Slash.h"
+#include "skill/type1/FrontDash.h"
+#include "skill/type1/Adrenaline.h"
+#include "skill/enemy/Spiral.h"
+#include "skill/enemy/Explosion.h"
+#include "skill/enemy/EnemyShot.h"
 
 #define REGISTER_SKILL(name) skills[skill##name] = new name()
 
@@ -42,7 +40,6 @@ bool SkillPool::init(){
 	if(!JsonLoader::load(R::SkillList, root))
 		return false;
 
-#ifdef _CLIENT
 	REGISTER_SKILL(Slash);
 	REGISTER_SKILL(FrontDash);
 	REGISTER_SKILL(Suction);
@@ -51,16 +48,6 @@ bool SkillPool::init(){
 	REGISTER_SKILL(Explosion);
 	REGISTER_SKILL(EnemyShot);
 	REGISTER_SKILL(Repair);
-#else
-	skills[skillSlash] = new ActiveSkill();
-	skills[skillFrontDash] = new ActiveSkill();
-	skills[skillSuction] = new ActiveSkill();
-	skills[skillAdrenaline] = new PassiveSkill();
-	skills[skillSpiral] = new ActiveSkill();
-	skills[skillExplosion] = new ActiveSkill();
-	skills[skillEnemyShot] = new ActiveSkill();
-	skills[skillRepair] = new PassiveSkill();
-#endif
 
 	for(auto skill : root){
 		int id = skill.get("id",0).asInt();

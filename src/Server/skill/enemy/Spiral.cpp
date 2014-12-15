@@ -35,7 +35,7 @@ void Spiral::circleShot(
 
 	for (int i = 0; i < 4; ++i){
 		auto bullet = new Bullet();
-		Vec2 direction = Vec2::UNIT_X.getRotated(
+		Vec2 direction = u->direction.getRotated(
 			Vec2::ZERO, DEGREES_TO_RADIANS(angle + 360/4 * i));
 		bullet->position = u->position;
 		bullet->fire(direction, 1.f);
