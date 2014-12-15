@@ -17,10 +17,6 @@ public:
 
 	virtual void update(float dt);
 
-	void setDamage(
-		float damage);
-	float getDamage();
-
 public:
 	AttackData attackData;
 

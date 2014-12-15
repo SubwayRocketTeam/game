@@ -126,6 +126,13 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClCompile Include="PacketHandler.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scheduler.cpp" />
+    <ClCompile Include="skill\enemy\EnemyShot.cpp" />
+    <ClCompile Include="skill\enemy\Explosion.cpp" />
+    <ClCompile Include="skill\enemy\Spiral.cpp" />
+    <ClCompile Include="skill\general\Repair.cpp" />
+    <ClCompile Include="skill\general\Suction.cpp" />
+    <ClCompile Include="skill\type1\Adrenaline.cpp" />
+    <ClCompile Include="skill\type1\FrontDash.cpp" />
     <ClCompile Include="skill\type1\Slash.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -186,6 +193,13 @@ copy $(OutDir)$(ProjectName).exe %bin_path%</Command>
     <ClInclude Include="Ref.h" />
     <ClInclude Include="Scheduler.h" />
     <ClInclude Include="Sendable.h" />
+    <ClInclude Include="skill\enemy\EnemyShot.h" />
+    <ClInclude Include="skill\enemy\Explosion.h" />
+    <ClInclude Include="skill\enemy\Spiral.h" />
+    <ClInclude Include="skill\general\Repair.h" />
+    <ClInclude Include="skill\general\Suction.h" />
+    <ClInclude Include="skill\type1\Adrenaline.h" />
+    <ClInclude Include="skill\type1\FrontDash.h" />
     <ClInclude Include="skill\type1\Slash.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="stdafx.h" />

@@ -98,7 +98,7 @@ REGISTER_HANDLER(UseSkill)
 	GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
 
-	// player->useSkill(packet->skill_id, Vec2(packet->x, packet->y));
+	player->useSkill(packet->skill_id, Vec2(packet->x, packet->y));
 
 	UseSkillNoti noti;
 	noti.id = gameroom->getClientUnitId(client->id);
@@ -139,6 +139,9 @@ END
 REGISTER_HANDLER(SyncRotation)
 	auto gameroom =
 		GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	Unit* unit = gameroom->getClientUnit(client->id);
+
+	unit->direction = Vec2::UNIT_X.getRotated(Vec2::ZERO, packet->angle);
 
 	SyncRotationNoti noti;
 	noti.id = gameroom->getClientUnitId(client->id);

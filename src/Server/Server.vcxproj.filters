@@ -23,6 +23,12 @@
     <Filter Include="skill\type1">
       <UniqueIdentifier>{402ed938-f337-415e-bbf1-83cee516ec84}</UniqueIdentifier>
     </Filter>
+    <Filter Include="skill\general">
+      <UniqueIdentifier>{ddb66b51-7f6c-4f83-8290-6edd715639e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="skill\enemy">
+      <UniqueIdentifier>{6f32ac6d-0922-4370-98f3-d3712a29f946}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -83,6 +89,27 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Trash.cpp" />
+    <ClCompile Include="skill\type1\Adrenaline.cpp">
+      <Filter>skill\type1</Filter>
+    </ClCompile>
+    <ClCompile Include="skill\type1\FrontDash.cpp">
+      <Filter>skill\type1</Filter>
+    </ClCompile>
+    <ClCompile Include="skill\general\Repair.cpp">
+      <Filter>skill\general</Filter>
+    </ClCompile>
+    <ClCompile Include="skill\general\Suction.cpp">
+      <Filter>skill\general</Filter>
+    </ClCompile>
+    <ClCompile Include="skill\enemy\EnemyShot.cpp">
+      <Filter>skill\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="skill\enemy\Explosion.cpp">
+      <Filter>skill\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="skill\enemy\Spiral.cpp">
+      <Filter>skill\enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -188,6 +215,27 @@
     <ClInclude Include="Trash.h" />
     <ClInclude Include="common\max.h">
       <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="skill\type1\Adrenaline.h">
+      <Filter>skill\type1</Filter>
+    </ClInclude>
+    <ClInclude Include="skill\type1\FrontDash.h">
+      <Filter>skill\type1</Filter>
+    </ClInclude>
+    <ClInclude Include="skill\general\Repair.h">
+      <Filter>skill\general</Filter>
+    </ClInclude>
+    <ClInclude Include="skill\general\Suction.h">
+      <Filter>skill\general</Filter>
+    </ClInclude>
+    <ClInclude Include="skill\enemy\EnemyShot.h">
+      <Filter>skill\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="skill\enemy\Explosion.h">
+      <Filter>skill\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="skill\enemy\Spiral.h">
+      <Filter>skill\enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
