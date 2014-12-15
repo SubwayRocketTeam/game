@@ -69,7 +69,7 @@ bool Enemy::initAttrs(){
 bool Enemy::initPhysics(){
 	Stage::getInstance(0)->getCollisionDetector()
 		->addUnit(this);
-	radius = 30;
+	// radius = 30;
 
 	return true;
 }
@@ -179,6 +179,8 @@ void Enemy::setInfo(EnemyInfo* info) {
 	for (; it != info->attrs.end(); it++) {
 		attrs[it->first] = it->second;
 	}
+
+	radius = _ATTR(radius);
 
 	if (info->skills.size() > 0)
 		skill = info->skills[0];

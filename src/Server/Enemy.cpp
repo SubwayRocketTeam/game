@@ -150,6 +150,8 @@ void Enemy::setInfo(EnemyInfo* info) {
 		attrs[it->first] = it->second;
 	}
 
+	radius = _ATTR(radius);
+
 	if (info->skills.size() > 0)
 		skill = info->skills[0];
 }

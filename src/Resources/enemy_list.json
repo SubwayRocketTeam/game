@@ -10,7 +10,8 @@
 				{"name" : "attack", "value" : 50},
 				{"name" : "attack_speed", "value" : 3.0},
 				{"name" : "range", "value" : 120},
-				{"name" : "defence", "value" : 0}
+				{"name" : "defence", "value" : 0},
+				{"name" : "radius", "value" : 30}
 			],
 			
 			"skills" : [],
@@ -25,7 +26,8 @@
 				{"name" : "hp_gen", "value" : 0},
 				{"name" : "speed", "value" : 2},
 				{"name" : "attack", "value" : 50},
-				{"name" : "defence", "value" : 0}
+				{"name" : "defence", "value" : 0},
+				{"name" : "radius", "value" : 30}
 			],
 			
 			"skills" : [202],
@@ -40,7 +42,8 @@
 				{"name" : "hp_gen", "value" : 0},
 				{"name" : "speed", "value" : 0},
 				{"name" : "attack", "value" : 50},
-				{"name" : "defence", "value" : 0}
+				{"name" : "defence", "value" : 0},
+				{"name" : "radius", "value" : 30}
 			],
 			
 			"skills" : [
@@ -57,7 +60,8 @@
 				{"name" : "hp_gen", "value" : 0},
 				{"name" : "speed", "value" : 5},
 				{"name" : "attack", "value" : 50},
-				{"name" : "defence", "value" : 0}
+				{"name" : "defence", "value" : 0},
+				{"name" : "radius", "value" : 30}
 			],
 			
 			"skills" : [],
