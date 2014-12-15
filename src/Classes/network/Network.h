@@ -85,8 +85,10 @@ protected:
 
 	void handleUseSkillNoti(
 		UseSkillNoti *pkt);
+	/*
 	void handleFireBulletNoti(
 		FireBulletNoti *pkt);
+	*/
 
 	void handleMoveStart(
 		MoveStartNoti *pkt);

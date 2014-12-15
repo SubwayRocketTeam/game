@@ -11,6 +11,7 @@ void Network::sendUseSkill(
 	pkt.y = y;
 	send(pkt);
 }
+/*
 void Network::sendFireBullet(
 	int bulletType,
 	float x,float y,
@@ -23,3 +24,4 @@ void Network::sendFireBullet(
 	pkt.direction_y = directionY;
 	send(pkt);
 }
+*/

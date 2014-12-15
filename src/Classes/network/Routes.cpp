@@ -20,7 +20,7 @@ void Network::initHandlers(){
 	route<SpawnUnit>(PT_SpawnUnit,
 		std::bind(&Network::handleSpawn, this, placeholders::_1));
 
-	_ROUTE(FireBulletNoti);
+//	_ROUTE(FireBulletNoti);
 	_ROUTE(UseSkillNoti);
 
 	_ROUTE(SyncRotationNoti);

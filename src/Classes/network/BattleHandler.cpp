@@ -21,6 +21,7 @@ void Network::handleUseSkillNoti(
 		pkt->skill_id,
 		Vec2(pkt->x, pkt->y));
 }
+/*
 void Network::handleFireBulletNoti(
 	FireBulletNoti *pkt){
 
@@ -33,3 +34,4 @@ void Network::handleFireBulletNoti(
 		1);
 	stage->addChild(bullet);
 }
+*/
