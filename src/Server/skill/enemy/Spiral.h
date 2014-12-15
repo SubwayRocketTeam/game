@@ -7,9 +7,12 @@ public:
 	virtual void use(
 		Unit *u,
 		Vec2 pos);
+	virtual void update(
+		Unit *u,
+		float dt);
+
 protected:
 	void circleShot(
-		Unit* sender,
 		Unit *u,
 		float angle);
 };

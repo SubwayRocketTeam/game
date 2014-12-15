@@ -26,8 +26,29 @@ void Spiral::use(
 	*/
 }
 
+void Spiral::update(
+	Unit *u,
+	float dt) {
+
+	if (u->skillPhase == 0 && u->skillTimer < 0.25f) {
+		circleShot(u, 0.f);
+		++u->skillPhase;
+	}
+	else if (u->skillPhase == 1 && u->skillTimer < 0.5f) {
+		circleShot(u, 22.5f);
+		++u->skillPhase;
+	}
+	else if (u->skillPhase == 2 && u->skillTimer < 0.75f) {
+		circleShot(u, 45.f);
+		++u->skillPhase;
+	}
+	else if (u->skillPhase == 3 && u->skillTimer < 1.f) {
+		circleShot(u, 67.5f);
+		++u->skillPhase;
+	}
+}
+
 void Spiral::circleShot(
-	Unit* sender,
 	Unit *u,
 	float angle){
 

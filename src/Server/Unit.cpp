@@ -19,7 +19,8 @@ struct Unit::PassiveData{
 Unit::Unit()
 	:stage(nullptr)
 	, id(INVALID_ID), type(UT_NONE), ally(0)
-	, friction(0), radius(0) {
+	, friction(0), radius(0)
+	, usingSkill(nullptr), skillTimer(0), skillPhase(0) {
 	init();
 }
 Unit::~Unit(){
@@ -54,6 +55,7 @@ void Unit::update(float dt) {
 	updateGen(dt);
 	updatePassives(dt);
 	updatePhysics(dt);
+	updateSkill(dt);
 }
 
 void Unit::updateGen(float dt){
@@ -100,6 +102,17 @@ void Unit::updatePhysics(float dt){
 	position += velocity * dt;
 }
 
+void Unit::updateSkill(float dt) {
+	if (!usingSkill)
+		return;
+
+	skillTimer += dt;
+	usingSkill->update(this, dt);
+	if (dt > usingSkill->duration)
+		usingSkill = nullptr;
+}
+
+
 bool Unit::onDamage(const AttackData &attackData){
 	return true;
 }
@@ -127,8 +140,13 @@ bool Unit::useSkill(int id,	Vec2 pos){
 	auto pool = SkillPool::getInstance();
 	auto skill = (ActiveSkill*)pool->get(id);
 
-	if (skill)
+	if (skill) {
 		skill->use(this, pos);
+		usingSkill = skill;
+		skillTimer = 0;
+		skillPhase = 0;
+		skillTarget = pos;
+	}
 
 	return true;
 }

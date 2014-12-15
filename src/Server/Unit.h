@@ -14,6 +14,7 @@
 struct AttackData;
 class GameRoom;
 class Stage;
+class ActiveSkill;
 
 enum UnitType {
 	UT_NONE,
@@ -57,6 +58,7 @@ public:
 	virtual void updateGen(float dt);
 	virtual void updatePassives(float dt);
 	virtual void updatePhysics(float dt);
+	virtual void updateSkill(float dt);
 
 	Attribute &getAttribute(
 		const std::string &name);
@@ -67,7 +69,7 @@ public:
 	id_t id;
 	int type;
 	int ally;
-	
+
 	Vec2 position;
 	Vec2 direction;
 	Vec2 velocity;
@@ -78,4 +80,8 @@ public:
 	std::map<int, PassiveData> passives;
 	std::map<std::string, Attribute> attrs;
 
+	ActiveSkill* usingSkill;
+	Vec2 skillTarget;
+	float skillTimer;
+	int skillPhase;
 };

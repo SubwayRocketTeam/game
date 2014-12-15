@@ -10,6 +10,12 @@ void ActiveSkill::use(
 
 }
 
+void ActiveSkill::update(
+	Unit *u,
+	float dt) {
+
+}
+
 bool ActiveSkill::initExternalData(
 	const string &dataPath){
 

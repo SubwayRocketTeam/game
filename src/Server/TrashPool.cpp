@@ -43,7 +43,7 @@ void TrashPool::spawn(const Vec2 &pos, int count){
 		trash->velocity = Vec2::UNIT_X.getRotated(
 			Vec2::ZERO,
 			DEGREES_TO_RADIANS(rand() % 360))
-			* (20 + rand() % 20) * 60.0f;
+			* (float)(20 + rand() % 20) * 60.0f;
 
 		/* ISSUE : friction도 * 60? */
 		trash->friction = 128 * 60;
