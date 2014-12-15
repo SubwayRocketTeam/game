@@ -1,0 +1,21 @@
+{
+  "name" : "kim",
+  
+  "attrs" : [
+    {"name" : "hp", "value" : 10},
+    {"name" : "hp_gen", "value" : 0},
+    {"name" : "mp", "value" : 400},
+    {"name" : "mp_gen", "value" : 0},
+    {"name" : "speed", "value" : 360},
+    {"name" : "attack", "value" : 50},
+    {"name" : "attack_speed", "value" : 1.0},
+    {"name" : "range", "value" : 120},
+    {"name" : "defence", "value" : 0},
+    {"name" : "radius", "value" : 40}
+  ],
+  
+  "skills" : [
+    10,
+    11, 12, 13, 14, 15
+  ]
+}

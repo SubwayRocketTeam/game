@@ -1,0 +1,11 @@
+{
+  "id" : 11,
+  "name" : "front dash",
+  "tooltip" : "gdgd",
+
+  "duration" : 0.3,
+  "cooltime" : 0.5,
+  "cost" : 0,
+
+  "distance" : 300
+}
