@@ -98,25 +98,6 @@ class UseSkillNoti < Packet
   float "y"
 end
 
-class FireBullet < Packet
-  required
-  int "bullet_type"
-  float "x"
-  float "y"
-  float "direction_x"
-  float "direction_y"
-end
-class FireBulletNoti < Packet
-  required
-  int "id"
-  int "team"
-  int "bullet_type"
-  float "x"
-  float "y"
-  float "velocity_x"
-  float "velocity_y"
-end
-
 # MOVE
 class MoveStart < Packet
   required
