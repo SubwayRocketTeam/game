@@ -1,35 +1,15 @@
-# Robotopia Cleaner
+7주차 릴리즈
+====
 
-패킷 생성 방법
-----
-* gen_packet.bat 파일 실행
-* [PGen](packet_struct/README.md)
+* __패킷__
+  * 패킷 뿐만 아니라 enum도 빌드 할 수 있도록
+  * 패킷 스키마의 체크섬 계산을 통한 패킷 버전 자동 생성
+  * 서버에서 클라이언트와 패킷 버전을 검사하는 로직의 추가
 
-Pull 할 때 주의사항
-----
-* gitshell 열기
-```
-git submodule init
-git submodule update
-```
-
-* cocos2d/download-deps.py를 실행
-
-
-ToDo List
-----
-* UI 작업들
-* 네트워크
-* [ActiveJson](https://github.com/SubwayRocketTeam/ActiveJson)
-
-
-Inner Links
-----
-* [코딩 스타일](https://github.com/SubwayRocketTeam/game/tree/master/doc/style)
-* [구조 및 설계](https://github.com/SubwayRocketTeam/game/tree/master/doc/arch)
-
-Outer Links
-----
-* [팀 wiki](https://github.com/SubwayRocketTeam/documents/wiki)
-* [게임 컨셉 기획](https://github.com/SubwayRocketTeam/documents/wiki/%EA%B2%8C%EC%9E%84-%EC%BB%A8%EC%85%89-%EA%B8%B0%ED%9A%8D)
-* [프로토타입 레포](https://github.com/SubwayRocketTeam/Prototype)
+* __게임__
+  * 로봇 회전 동기화
+  * 적 스폰의 동기화
+    * 1,2,3,4 버튼
+  * 스킬 사용의 동기화
+  * 스킬 사용 상태를 서버에서 관리하는 로직
+  * 여러 프로그램 죽는 버그 수정
