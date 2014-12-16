@@ -13,7 +13,6 @@ void CollisionDetector::update(float dt){
 		Vec2 pos = me->position;
 		// 다른 Unit과의 충돌
 
-		/// 아래쪽 코드 보면 float == float 비교 연산을 하는데.. float는 0이 아닌 이상 동등비교 하지 말 것.. 정밀도 문제로 버그 생긴다..  fabs 사용할 것
 		for (auto itt = it + 1; itt != unitVector.end(); ++itt){
 			Unit* other = *itt;
 			Vec2 other2me = pos - other->position;
@@ -21,7 +20,7 @@ void CollisionDetector::update(float dt){
 			float radius = me->radius + other->radius;
 			if (distance < radius){
 				float deltaSize = radius - distance;
-				if (distance == 0)
+				if (std::abs(distance) <= FLT_EPSILON)
 					other2me = Vec2::UNIT_X;
 				Vec2 delta = other2me.getNormalized() * deltaSize;
 				me->collide(delta, other);

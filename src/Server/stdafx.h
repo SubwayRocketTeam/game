@@ -5,6 +5,7 @@
 
 #include <cstdio>
 #include <cmath>
+#include <cfloat>
 #include <WinSock2.h>
 #include <Windows.h>
 
