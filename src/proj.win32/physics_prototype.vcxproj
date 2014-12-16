@@ -161,6 +161,7 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClCompile Include="..\Classes\objects\Ally.cpp" />
     <ClCompile Include="..\Classes\objects\Bullet.cpp" />
     <ClCompile Include="..\Classes\objects\CollisionDetector.cpp" />
+    <ClCompile Include="..\Classes\objects\ControlablePlayer.cpp" />
     <ClCompile Include="..\Classes\objects\DamageLabel.cpp" />
     <ClCompile Include="..\Classes\objects\Effect.cpp" />
     <ClCompile Include="..\Classes\objects\EffectFactory.cpp" />
@@ -270,6 +271,7 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClInclude Include="..\Classes\objects\AttackData.h" />
     <ClInclude Include="..\Classes\objects\Bullet.h" />
     <ClInclude Include="..\Classes\objects\CollisionDetector.h" />
+    <ClInclude Include="..\Classes\objects\ControlablePlayer.h" />
     <ClInclude Include="..\Classes\objects\DamageLabel.h" />
     <ClInclude Include="..\Classes\objects\Effect.h" />
     <ClInclude Include="..\Classes\objects\EffectFactory.h" />

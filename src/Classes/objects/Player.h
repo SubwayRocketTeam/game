@@ -6,8 +6,6 @@
 #include <string>
 
 #include "Unit.h"
-#include "MouseEventListener.h"
-#include "KeyboardEventListener.h"
 
 class PassiveSkill;
 class ActiveSkill;
@@ -15,26 +13,11 @@ class Cursor;
 class Gauge;
 class UserResources;
 
-class Player : public Unit,
-	public MouseEventListener, public KeyboardEventListener{
-public:
-	enum SKillIndex{
-		skillMouseLeft =0,
-		skillMouseRight,
-		skillKeyboardQ,
-		skillKeyboardW,
-		skillKeyboardE,
-		skillKeyboardR,
-	};
-
+class Player : public Unit {
 public:
 	static Player *create(
 		const std::string &dataPath);
 	static Player *getInstance();
-
-	virtual bool useSkill(
-		SKillIndex id,
-		float x,float y);
 
 protected:
 	virtual bool init(
@@ -54,32 +37,6 @@ protected:
 	void updateRotation(
 		float dt);
 
-	void processRotation(
-		float x,float y);
-	void processEyeline(
-		float x,float y);
-	void processMove(
-		cocos2d::EventKeyboard::KeyCode keycode);
-	void processAttack(
-		int btn, float x,float y);
-
-	virtual void onKeyboardDown(
-		cocos2d::EventKeyboard::KeyCode keycode);
-	virtual void onKeyboardUp(
-		cocos2d::EventKeyboard::KeyCode keycode);
-	virtual void onKeyboardPressed(
-		cocos2d::EventKeyboard::KeyCode keycode);
-
-	virtual void onMouseMove(
-		int btn, float x,float y);
-	virtual void onMouseDown(
-		int btn, float x,float y);
-	virtual void onMouseUp(
-		int btn, float x,float y);
-
-	virtual void onMousePressed(
-		int btn, float x,float y);
-
 protected:
 	Player();
 	virtual ~Player();
@@ -98,5 +55,4 @@ protected:
 	std::vector<float> cooltimes;
 
 	cocos2d::DrawNode *lay;
-	cocos2d::Vec2 cursor;
 };
