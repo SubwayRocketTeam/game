@@ -110,7 +110,7 @@
     <ClCompile Include="skill\enemy\Spiral.cpp">
       <Filter>skill\enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_Explode.cpp" />
+    <ClCompile Include="EnemyExplode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -238,7 +238,7 @@
     <ClInclude Include="skill\enemy\Spiral.h">
       <Filter>skill\enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_Explode.h" />
+    <ClInclude Include="EnemyExplode.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\jsoncpp\src\lib_json\json_internalarray.inl">

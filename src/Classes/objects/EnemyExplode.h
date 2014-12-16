@@ -4,13 +4,13 @@
 
 #include "common/max.h"
 
-class Enemy_Explode : public Enemy{
+class EnemyExplode : public Enemy{
 public:
-	static Enemy_Explode *create();
+	static EnemyExplode *create();
 
 protected:
-	Enemy_Explode();
-	virtual ~Enemy_Explode();
+	EnemyExplode();
+	virtual ~EnemyExplode();
 
 	virtual bool init();
 

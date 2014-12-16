@@ -3,10 +3,10 @@
 #include "Enemy.h"
 
 ///# CamelCase ¾²´Ù°¡ snake_style?
-class Enemy_Explode : public Enemy{
+class EnemyExplode : public Enemy{
 public:
-	Enemy_Explode();
-	virtual ~Enemy_Explode();
+	EnemyExplode();
+	virtual ~EnemyExplode();
 
 	virtual bool init();
 

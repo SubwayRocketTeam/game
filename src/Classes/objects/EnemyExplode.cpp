@@ -1,20 +1,20 @@
 #include "pch.h"
-#include "Enemy_Explode.h"
+#include "EnemyExplode.h"
 
 #include "skill/id.h"
 
 using namespace cocos2d;
 
-Enemy_Explode::Enemy_Explode(){
+EnemyExplode::EnemyExplode(){
 	allyID = Ally::Type::allyEnemy;
 	skill = nullptr;
 	cooltime = 0;
 }
-Enemy_Explode::~Enemy_Explode(){
+EnemyExplode::~EnemyExplode(){
 }
 
-Enemy_Explode *Enemy_Explode::create(){
-	Enemy_Explode *e = new Enemy_Explode();
+EnemyExplode *EnemyExplode::create(){
+	EnemyExplode *e = new EnemyExplode();
 
 	if (e && e->init()){
 		e->autorelease();
@@ -23,14 +23,14 @@ Enemy_Explode *Enemy_Explode::create(){
 	CC_SAFE_DELETE(e);
 	return nullptr;
 }
-bool Enemy_Explode::init(){
+bool EnemyExplode::init(){
 	if (!Enemy::init())
 		return false;
 
 	return true;
 }
 
-bool Enemy_Explode::onDeath(){
+bool EnemyExplode::onDeath(){
 	if (!Enemy::onDeath())
 		return false;
 	useSkill(skillExplosion, getPosition());

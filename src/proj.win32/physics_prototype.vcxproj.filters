@@ -193,9 +193,6 @@
     <ClCompile Include="..\Classes\scene\LobbyScene.cpp">
       <Filter>source\scene</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\objects\Enemy_Explode.cpp">
-      <Filter>source\object</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\ext\uiProgressTo.cpp">
       <Filter>source\ext</Filter>
     </ClCompile>
@@ -231,6 +228,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\network\UnitSender.cpp">
       <Filter>source\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\EnemyExplode.cpp">
+      <Filter>source\object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -453,9 +453,6 @@
     <ClInclude Include="..\Classes\skill\enemy\EnemyShot.h">
       <Filter>source\skill\enemy</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\objects\Enemy_Explode.h">
-      <Filter>source\object</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\scene\LobbyScene.h">
       <Filter>source\scene</Filter>
     </ClInclude>
@@ -500,6 +497,9 @@
     </ClInclude>
     <ClInclude Include="..\shared\end_compat.h">
       <Filter>source\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemyExplode.h">
+      <Filter>source\object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
