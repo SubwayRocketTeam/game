@@ -184,7 +184,7 @@ void Unit::updatePassives(
 void Unit::updatePhysics(
 	float dt){
 
-	tick += dt;
+	// tick += dt;
 	velocity += acceleration * dt;
 	velocity = velocity.getNormalized() * MAX(0, velocity.getLength() - friction * dt);
 
@@ -237,9 +237,7 @@ bool Unit::damage(
 	
 	if (_ATTR(hp) <= 0) {
 		if(onDeath()){
-			instances.erase(id);
-
-			removeFromParentAndCleanup(true);
+			remove();
 			return true;
 		}
 	}
@@ -354,4 +352,9 @@ void Unit::collide(
 	cocos2d::Vec2 delta,
 	Unit* other){
 	setPosition(getPosition() + delta * 0.5f);
+}
+
+void Unit::remove() {
+	instances.erase(id);
+	removeFromParentAndCleanup(true);
 }

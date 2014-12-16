@@ -46,6 +46,8 @@ public:
 		int id,
 		cocos2d::Vec2 pos);
 
+	void remove();
+
 	void addPassive(
 		int id);
 	void removePassive(
