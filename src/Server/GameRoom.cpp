@@ -102,9 +102,10 @@ bool GameRoom::startGame() {
 id_t GameRoom::addUnit(Unit* unit) {
 	if (!unit)
 		return INVALID_ID;
+	if (!addUnits.insert(unit).second)
+		return unit->id;
 	id_t id = dispenser.issue();
 	unit->id = id;
-	addUnits.insert(unit);
 	return id;
 }
 
@@ -115,6 +116,11 @@ void GameRoom::removeUnit(Unit* unit) {
 
 void GameRoom::addUnitImmediate(Unit* unit) {
 	if (!unit) return;
+	
+	auto it = std::find(units.begin(), units.end(), unit);
+	if (it != units.end())
+		return;
+
 	units.push_back(unit);
 	unit->stage->addUnitImmediate(unit);
 }
@@ -122,12 +128,12 @@ void GameRoom::addUnitImmediate(Unit* unit) {
 void GameRoom::removeUnitImmediate(Unit* unit) {
 	if (!unit) return;
 
-	unit->stage->removeUnitImmediate(unit);
-
 	auto it = std::find(units.begin(), units.end(), unit);
-	if (it != units.end())
-		units.erase(it);
+	if (it == units.end())
+		return;
 
+	unit->stage->removeUnitImmediate(unit);
+	units.erase(it);
 	SAFE_DELETE(unit);
 }
 
