@@ -24,7 +24,7 @@ public:
 	void onConnect();
 	void onDisconnect();
 
-	void setGameRoomId(id_t id);
+	void setGameRoomId(id_t room_id);
 	id_t getGameRoomId();
 
 

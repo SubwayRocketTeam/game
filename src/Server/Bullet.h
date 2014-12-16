@@ -13,7 +13,7 @@ public:
 	virtual bool initAttrs();
 	virtual bool initPhysics();
 
-	void fire(const Vec2 &direction, float speed);
+	void fire(const Vec2 &dir, float speed);
 
 	virtual void update(float dt);
 
