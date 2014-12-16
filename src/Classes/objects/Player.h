@@ -17,7 +17,6 @@ class Player : public Unit {
 public:
 	static Player *create(
 		const std::string &dataPath);
-	static Player *getInstance();
 
 protected:
 	virtual bool init(

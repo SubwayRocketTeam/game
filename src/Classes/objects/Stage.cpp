@@ -5,7 +5,7 @@
 
 #include "common/resource.h"
 
-#include "objects/Player.h"
+#include "objects/ControlablePlayer.h"
 #include "objects/EnemySpawner.h"
 #include "objects/CollisionDetector.h"
 
@@ -129,7 +129,7 @@ void Stage::update(
 
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto floorSize = floor->getContentSize();
-	auto player = Player::getInstance();
+	auto player = ControlablePlayer::getInstance();
 
 	auto center =
 		player->getPosition() + (mousePos - visibleSize/2) / 2;

@@ -237,16 +237,6 @@ bool Unit::damage(
 	
 	if (_ATTR(hp) <= 0) {
 		if(onDeath()){
-
-			auto ally = Ally::getInstance(Ally::Type::allyPlayer);
-			if (std::find(ally->begin(), ally->end(), this) != ally->end()) {
-				auto enemy_ally = Ally::getInstance(Ally::Type::allyEnemy);
-				for (auto unit : *enemy_ally) {
-					Enemy* enemy = (Enemy*)unit;
-					enemy->removeAggro(this);
-				}
-			}
-
 			instances.erase(id);
 
 			removeFromParentAndCleanup(true);

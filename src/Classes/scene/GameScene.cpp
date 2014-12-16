@@ -14,7 +14,7 @@
 #include "objects/Ally.h"
 #include "objects/Stage.h"
 #include "objects/StageLayer.h"
-#include "objects/Player.h"
+#include "objects/ControlablePlayer.h"
 #include "objects/Enemy.h"
 #include "objects/EnemySpawner.h"
 #include "objects/EnemyFactory.h"
@@ -100,7 +100,7 @@ bool GameScene::initUI(){
 	stage->addChild(repairArea);
 
 	/* PLAYER */
-	player = Player::getInstance();
+	player = ControlablePlayer::getInstance();
 	player->setPosition(
 		Vec2(0,0));
 	stage->addChild(player, Z::unit);
@@ -183,7 +183,7 @@ void GameScene::onInitGlobalObjects(){
 	PhysicsFactory::create();
 	SkillIconPanel::create();
 	UpgradeBar::create();
-	Player::create("type1.json");
+	ControlablePlayer::create("type1.json");
 	ChatBox::create();
 
 	/* TODO : 커서 전역에서 쓸수 잇도록 */

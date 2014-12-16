@@ -1,7 +1,7 @@
 ﻿#include "pch.h"
 #include "Network.h"
 
-#include "objects/Player.h"
+#include "objects/ControlablePlayer.h"
 #include "objects/Unit.h"
 #include "objects/Bullet.h"
 #include "objects/Stage.h"
@@ -12,7 +12,7 @@ void Network::handleUseSkillNoti(
 	UseSkillNoti *pkt){
 
 	auto unit = Unit::getInstanceByID(pkt->id);
-	auto player = Player::getInstance();
+	auto player = ControlablePlayer::getInstance();
 
 	if (!unit)
 		return;

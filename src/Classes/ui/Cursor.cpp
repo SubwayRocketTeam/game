@@ -1,7 +1,7 @@
 ﻿#include "pch.h"
 #include "Cursor.h"
 
-#include "objects/Player.h"
+#include "objects/ControlablePlayer.h"
 #include "common/resource.h"
 
 using namespace cocos2d;
@@ -55,7 +55,7 @@ void Cursor::onMouseMove(
 void Cursor::processRotation(
 	float x,float y){
 	
-	auto player = Player::getInstance();
+	auto player = ControlablePlayer::getInstance();
 	auto playerWorldPos = player->getParent()->convertToWorldSpace(
 		player->getPosition());
 

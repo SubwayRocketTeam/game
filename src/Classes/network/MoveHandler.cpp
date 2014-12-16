@@ -3,7 +3,7 @@
 
 #include "objects/tags.h"
 #include "objects/Unit.h"
-#include "objects/Player.h"
+#include "objects/ControlablePlayer.h"
 
 using namespace cocos2d;
 
@@ -52,7 +52,7 @@ void Network::handleSyncRotationNoti(
 
 	auto unit = Unit::getInstanceByID(
 		pkt->id);
-	auto player = Player::getInstance();
+	auto player = ControlablePlayer::getInstance();
 
 	if (!unit)
 		return;

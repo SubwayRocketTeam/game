@@ -7,6 +7,7 @@
 #include "objects/Unit.h"
 #include "objects/Enemy.h"
 #include "objects/Player.h"
+#include "objects/ControlablePlayer.h"
 #include "objects/Ally.h"
 #include "objects/CollisionDetector.h"
 #include "objects/EnemyFactory.h"
@@ -27,14 +28,8 @@ void Network::handleSpawn(
 
 	case 0:
 	{
-		auto players = Ally::getInstance(
-			Ally::allyPlayer);
-		unit = Unit::create(R::PlayerBody);
-
-		stage->getCollisionDetector()
-			->addUnit(unit);
-		unit->radius = 40;	// 임시
-		unit->setAllyID(Ally::Type::allyPlayer);
+		auto players = Ally::getInstance(Ally::allyPlayer);
+		unit = Player::create("type1.json");
 		players->push(unit);
 		z = Z::unit;
 		break;
@@ -42,7 +37,7 @@ void Network::handleSpawn(
 
 	case 1:
 	{
-		unit = Player::getInstance();
+		unit = ControlablePlayer::getInstance();
 		unit->setID(pkt->id);
 		unit->setPosition(pkt->x, pkt->y);
 		return;

@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 #include "Player.h"
 
+#include "Enemy.h"
 #include "Trash.h"
 #include "TrashPool.h"
 #include "PlayerGauge.h"
@@ -27,8 +28,6 @@
 using namespace std;
 using namespace cocos2d;
 
-static Player *instance = nullptr;
-
 Player::Player() : 
 	speedFactor(1),
 	immortal(0), stiff(0){
@@ -40,22 +39,14 @@ Player::~Player(){
 
 Player *Player::create(
 	const string &dataPath){
-
-	CC_ASSERT(instance == nullptr);
-
-	instance = new Player();
+	Player* player = new Player();
 	
-	if(instance && instance->init(dataPath)){
-		instance->autorelease();
-		return instance;
+	if(player && player->init(dataPath)){
+		player->autorelease();
+		return player;
 	}
-	CC_SAFE_DELETE(instance);
+	CC_SAFE_DELETE(player);
 	return nullptr;
-}
-Player *Player::getInstance(){
-	CC_ASSERT(instance != nullptr);
-
-	return instance;
 }
 
 bool Player::init(
@@ -201,5 +192,15 @@ bool Player::onDamage(
 	return true;
 }
 bool Player::onDeath(){
+	/*
+	auto ally = Ally::getInstance(Ally::Type::allyPlayer);
+	if (std::find(ally->begin(), ally->end(), this) != ally->end()) {
+		auto enemy_ally = Ally::getInstance(Ally::Type::allyEnemy);
+		for (auto unit : *enemy_ally) {
+			Enemy* enemy = (Enemy*)unit;
+			enemy->removeAggro(this);
+		}
+	}
+	*/
 	return false;
 }
