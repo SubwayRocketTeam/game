@@ -10,6 +10,11 @@
 
 #include "Packet.h"
 
+class NetworkSender{
+};
+class NetworkHandler{
+};
+
 class Network{
 public:
 	typedef std::function<void(int)> OpenHandler;
