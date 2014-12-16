@@ -2,7 +2,7 @@
 #include "EnemyFactory.h"
 
 #include "Enemy.h"
-#include "Enemy_Explode.h"
+#include "EnemyExplode.h"
 #include "Stage.h"
 #include "Ally.h"
 
@@ -43,7 +43,7 @@ Enemy* EnemyFactory::createEnemy(EnemyType type)
 	Enemy* enemy;
 	switch (type) {
 	case enemyExplode:
-		enemy = Enemy_Explode::create();
+		enemy = EnemyExplode::create();
 		break;
 	default:
 		enemy = Enemy::create();
