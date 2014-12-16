@@ -6,12 +6,16 @@ typedef concurrency::concurrent_queue<id_t> ScheduleQueue;
 
 class Scheduler {
 public:
+	static void create();
 	static Scheduler* getInstance();
 
-	~Scheduler();
-	void init();
-
 	void schedule(id_t room_id);
+
+private:
+	Scheduler();
+	~Scheduler();
+
+	void init();
 
 public:
 	static HANDLE hCompletionPort;

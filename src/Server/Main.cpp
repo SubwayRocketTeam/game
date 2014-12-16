@@ -40,8 +40,6 @@ void main()
 		return;
 	}
 
-	Scheduler::getInstance()->init();
-
 	std::thread worker(WorkerThread, hCP);
 
 	SOCKET listenSocket = WSASocketW(AF_INET, SOCK_STREAM, 0, nullptr, 0, WSA_FLAG_OVERLAPPED);
@@ -76,7 +74,10 @@ void main()
 
 	JsonLoader::create();
 	SkillPool::create();
-	EnemyFactory::getInstance()->initExternalData("enemy_list.json");
+	EnemyFactory::create();
+	ClientManager::create();
+	GameRoomManager::create();
+	Scheduler::create();
 
 	while (true) {
 		AcceptContext* context = new AcceptContext;

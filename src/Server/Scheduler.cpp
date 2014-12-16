@@ -17,11 +17,19 @@ void CALLBACK timerCallback(LPVOID lpArgToCompletionRoutine, DWORD dwTimerLowVal
 
 HANDLE Scheduler::hCompletionPort = INVALID_HANDLE_VALUE;
 
-Scheduler instance;
+static Scheduler* instance;
 static std::atomic<bool> scheduleOver = false;
 
+void Scheduler::create() {
+	instance = new Scheduler();
+	instance->init();
+}
+
 Scheduler* Scheduler::getInstance() {
-	return &instance;
+	return instance;
+}
+
+Scheduler::Scheduler() {
 }
 
 Scheduler::~Scheduler() {

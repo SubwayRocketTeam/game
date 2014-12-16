@@ -7,6 +7,7 @@ class GameRoom;
 
 class GameRoomManager {
 public:
+	static void create();
 	static GameRoomManager* getInstance();
 
 	GameRoom* getGameRoom(const id_t id);
@@ -14,9 +15,8 @@ public:
 	id_t createGameRoom();
 	bool removeGameRoom(const id_t id);
 
-	GameRoomManager();
 private:
-	
+	GameRoomManager();
 
 private:
 	std::mutex mutex;

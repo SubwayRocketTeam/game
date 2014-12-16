@@ -3,7 +3,7 @@
 
 #include "Unit.h"
 #include "Enemy.h"
-#include "Enemy_Explode.h"
+#include "EnemyExplode.h"
 #include "Stage.h"
 #include "GameRoom.h"
 #include "Ally.h"
@@ -17,10 +17,18 @@
 #include "shared/JsonLoader.h"
 #include "EnemyInfo.h"
 
-static EnemyFactory instance;
+static EnemyFactory* instance;
+
+void EnemyFactory::create() {
+	instance = new EnemyFactory();
+	instance->init();
+}
+
+EnemyFactory* EnemyFactory::getInstance() {
+	return instance;
+}
 
 EnemyFactory::EnemyFactory() {
-
 }
 
 EnemyFactory::~EnemyFactory() {
@@ -29,16 +37,12 @@ EnemyFactory::~EnemyFactory() {
 	}
 }
 
-EnemyFactory* EnemyFactory::getInstance() {
-	return &instance;
-}
-
 Enemy* EnemyFactory::createEnemy(EnemyType type)
 {
 	Enemy* enemy;
 	switch (type) {
 	case enemyExplode:
-		enemy = new Enemy_Explode();
+		enemy = new EnemyExplode();
 		break;
 	default:
 		enemy = new Enemy();

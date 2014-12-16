@@ -4,13 +4,19 @@
 #include "Client.h"
 
 
-ClientManager instance; ///< 위험하다. 전역 공간에 선언하면, 생성자가 언제 어떤 순서로 호출되지 모름.. 
-/// http://blog.naver.com/spacesun/140200515569
+ClientManager* instance;
 
-ClientManager* ClientManager::getInstance() {
-	return &instance;
+void ClientManager::create() {
+	instance = new ClientManager();
 }
 
+ClientManager* ClientManager::getInstance() {
+	return instance;
+}
+
+ClientManager::ClientManager() {
+
+}
 
 Client* ClientManager::getClient(const id_t id) {
 	auto it = clients.find(id);
