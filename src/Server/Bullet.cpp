@@ -39,7 +39,7 @@ bool Bullet::initPhysics(){
 }
 
 void Bullet::fire(const Vec2 &direction, float speed){
-	velocity = direction.getNormalized() * speed;
+	velocity = direction.getNormalized() * speed; ///< 마찬가지로 Unit멤버 변수 이름과 인자 이름이 direction으로 같은 경우... 지양!
 }
 
 void Bullet::update(

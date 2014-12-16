@@ -7,7 +7,7 @@
 #include "PacketType.h"
 
 /* ISSUE : 이러면 생성자 무조건 public으로 놔야됨 */
-GameRoomManager instance;
+GameRoomManager instance; ///< 이렇게 하지마라.. GameRoomManager안에 있는 객체들의 생성자 호출 순서 고려해봐야 한다.
 
 GameRoomManager::GameRoomManager() :
 	available(INVALID_ID){

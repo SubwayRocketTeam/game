@@ -125,7 +125,8 @@ void Client::onDisconnect() {
 
 
 void Client::setGameRoomId(id_t id) {
-	gameRoomId = id;
+	gameRoomId = id; ///< 멤버 변수로도 id가 있고.. 로컬 변수로도 id가 있는데.. 이런거는 헷갈린다.
+
 }
 
 id_t Client::getGameRoomId() {

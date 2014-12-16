@@ -17,6 +17,7 @@ struct AttackData{
 		:damage(damage){
 	}
 
+	///# 웬만하면 초기화는 습관적으로 좀 해라
 	Unit* user;
 	Unit* object;
 	Unit* target;

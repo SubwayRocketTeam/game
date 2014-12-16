@@ -7,6 +7,8 @@ struct AttackData{
 	AttackData(){}
 	AttackData(float damage):damage(damage){}
 
+	///# 님하.. 초기화..
+
 	Unit* user;
 	Unit* object;
 	Unit* target;
