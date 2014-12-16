@@ -109,9 +109,9 @@ void Stage::removeUnitImmediate(Unit* unit) {
 		collisionDetector->removeUnit(unit);
 		break;
 	case UT_ENEMY:
-		break;
 		ally[Ally::Type::allyEnemy]->remove(unit);
 		collisionDetector->removeUnit(unit);
+		break;
 	case UT_BULLET:
 		collisionDetector->removeUnit(unit);
 		break;
