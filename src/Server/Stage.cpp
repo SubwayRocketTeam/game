@@ -123,8 +123,6 @@ void Stage::removeUnitImmediate(Unit* unit) {
 	}
 
 	units.erase(it);
-
-	gameroom->removeUnit(unit);
 }
 
 
