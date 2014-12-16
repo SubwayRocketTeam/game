@@ -17,17 +17,16 @@ struct AttackData{
 		:damage(damage){
 	}
 
-	///# 웬만하면 초기화는 습관적으로 좀 해라
-	Unit* user;
-	Unit* object;
-	Unit* target;
+	Unit* user = nullptr;
+	Unit* object = nullptr;
+	Unit* target = nullptr;
 
-	AttackType type;
-	float damage;
+	AttackType type = Pan;
+	float damage = 0;
 
 	cocos2d::Vec2 postion;
 
-	float radius;
+	float radius = 0;
 
-	float aggro;
+	float aggro = 0;
 };

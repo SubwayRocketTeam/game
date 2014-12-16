@@ -7,15 +7,13 @@ struct AttackData{
 	AttackData(){}
 	AttackData(float damage):damage(damage){}
 
-	///# 님하.. 초기화..
+	Unit* user = nullptr;
+	Unit* object = nullptr;
+	Unit* target = nullptr;
 
-	Unit* user;
-	Unit* object;
-	Unit* target;
-
-	float damage;
-	float aggro;
+	float damage = 0;
+	float aggro = 0;
 
 	Vec2 postion;
-	float radius;
+	float radius = 0;
 };
