@@ -26,7 +26,7 @@ void Explosion::circleShot(
 		Vec2 direction = Vec2::UNIT_X.getRotated(
 			Vec2::ZERO, DEGREES_TO_RADIANS(angle + 360/32 * i));
 		bullet->position = u->position;
-		bullet->fire(direction, 1.5f);
+		bullet->fire(direction, 1200.f);
 
 		bullet->attackData.user = u;
 		bullet->attackData.radius = 10;

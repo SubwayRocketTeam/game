@@ -115,7 +115,7 @@ void Player::update(
 }
 
 void Player::updatePhysics(float dt){
-	friction = stiff ? 1.f : 0.f;
+	friction = stiff ? 70.f : 0.f;
 	Unit::updatePhysics(dt);
 }
 
@@ -150,7 +150,7 @@ bool Player::onDamage(
 	auto deltaNorm =
 		(position - attackData.object->position).getNormalized();
 
-	velocity = deltaNorm * 10;
+	velocity = deltaNorm * 70;
 
 	return true;
 }

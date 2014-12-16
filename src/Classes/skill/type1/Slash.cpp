@@ -24,7 +24,7 @@ void Slash::use(
 
 	auto bullet = Bullet::create();
 	bullet->setPosition(u->getPosition());
-	bullet->fire(pos.x, pos.y, 1);
+	bullet->fire(pos.x, pos.y, 800);
 
 	bullet->setUser(u);
 	bullet->setRadius(10);

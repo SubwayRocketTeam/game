@@ -139,7 +139,7 @@ void Player::update(
 		}
 	}
 
-	friction = stiff ? 1.f : 0.f;
+	friction = stiff ? 70.f : 0.f;
 }
 void Player::updateConditions(
 	float dt){
@@ -187,7 +187,7 @@ bool Player::onDamage(
 			MoveBy::create(0.2f, deltaNorm * 70)
 		));
 	*/
-	velocity = deltaNorm * 10;
+	velocity = deltaNorm * 70;
 
 	return true;
 }

@@ -13,7 +13,7 @@ void Slash::use(
 
 	auto bullet = new Bullet();
 	bullet->position = u->position;
-	bullet->fire(Vec2(pos.x, pos.y), 1);
+	bullet->fire(Vec2(pos.x, pos.y), 800);
 
 	bullet->attackData.user = u;
 	bullet->attackData.radius = 10;

@@ -59,7 +59,7 @@ void Spiral::circleShot(
 		Vec2 direction = u->direction.getRotated(
 			Vec2::ZERO, DEGREES_TO_RADIANS(angle + 360/4 * i));
 		bullet->position = u->position;
-		bullet->fire(direction, 1.f);
+		bullet->fire(direction, 600.f);
 
 		bullet->attackData.user = u;
 		bullet->attackData.radius = 10;
