@@ -21,8 +21,8 @@ void Ally::processAttack(
 
 	Unit* object = data.object;
 
-	for (auto it = members.begin(); it != members.end();){
-		bool flag = true;
+	for (auto it = members.begin(); it != members.end(); ++it){
+//		bool flag = true;
 		auto& member = *it;
 		auto memberPosition = member->position;
 		float r = member->radius + data.radius;
@@ -31,12 +31,12 @@ void Ally::processAttack(
 		if (data.postion.getDistance(memberPosition) <= r){
 			if (member->damage(data)){
 //				it = members.erase(it);
-				flag = false;
+//				flag = false;
 			}
 			if (data.user != object)
 				object->damage(AttackData(1));
 		}
-		if (flag) ++it;
+//		if (flag) ++it;
 	}
 }
 
