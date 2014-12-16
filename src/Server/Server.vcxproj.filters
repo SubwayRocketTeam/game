@@ -29,6 +29,9 @@
     <Filter Include="skill\enemy">
       <UniqueIdentifier>{6f32ac6d-0922-4370-98f3-d3712a29f946}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sqlite">
+      <UniqueIdentifier>{3b2a44fb-2e7d-4878-bfb4-4fd2d9a6df31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -111,6 +114,9 @@
       <Filter>skill\enemy</Filter>
     </ClCompile>
     <ClCompile Include="EnemyExplode.cpp" />
+    <ClCompile Include="..\sqlite\sqlite3.cpp">
+      <Filter>sqlite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -239,6 +245,9 @@
       <Filter>skill\enemy</Filter>
     </ClInclude>
     <ClInclude Include="EnemyExplode.h" />
+    <ClInclude Include="..\sqlite\sqlite3.h">
+      <Filter>sqlite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\jsoncpp\src\lib_json\json_internalarray.inl">

@@ -95,6 +95,7 @@ xcopy /s $(ProjectDir)..\Resources_Server %bin_path%</Command>
     <ClCompile Include="..\shared\JsonLoader.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\sqlite\sqlite3.cpp" />
     <ClCompile Include="Ally.cpp" />
     <ClCompile Include="..\shared\skill\ActiveSkill.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -171,6 +172,7 @@ xcopy /s $(ProjectDir)..\Resources_Server %bin_path%</Command>
     <ClInclude Include="..\shared\skill\Skill.h" />
     <ClInclude Include="..\shared\skill\SkillPool.h" />
     <ClInclude Include="..\shared\random.h" />
+    <ClInclude Include="..\sqlite\sqlite3.h" />
     <ClInclude Include="AttackData.h" />
     <ClInclude Include="BufferQueue.h" />
     <ClInclude Include="Bullet.h" />
