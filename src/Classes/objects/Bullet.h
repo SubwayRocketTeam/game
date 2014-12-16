@@ -46,5 +46,6 @@ protected:
 
 protected:
 	AttackData attackData;
-	
+	bool fired;
+	cocos2d::Vec2 fireStart;
 };

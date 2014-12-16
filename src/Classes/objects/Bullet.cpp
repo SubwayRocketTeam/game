@@ -8,7 +8,7 @@
 
 using namespace cocos2d;
 
-Bullet::Bullet(){
+Bullet::Bullet():fired(false){
 }
 Bullet::~Bullet(){
 }
@@ -80,14 +80,18 @@ void Bullet::fire(
 }
 void Bullet::fire(
 	const Vec2 &direction, float speed){
-
 	auto norm = direction.getNormalized();
+	fireStart = getPosition();
+	fired = true;
 	setRotation(-CC_RADIANS_TO_DEGREES(norm.getAngle()));
+	velocity = norm * speed;
+	/*
 	runAction(
 		Sequence::create(
 			MoveBy::create(1, norm * 800),
 			RemoveSelf::create(),
 			nullptr));
+	*/
 }
 
 void Bullet::update(
@@ -97,6 +101,10 @@ void Bullet::update(
 
 	Ally::getInstance(_OPPOSITE(allyID))
 		->processAttack(attackData);
+
+	// TODO: 최대 발사 거리 따로 빼기
+	if (fired && getPosition().getDistance(fireStart) >= 800)
+		remove();
 }
 
 void Bullet::setUser(

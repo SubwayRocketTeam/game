@@ -19,5 +19,6 @@ public:
 
 public:
 	AttackData attackData;
-
+	bool fired;
+	Vec2 fireStart;
 };

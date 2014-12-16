@@ -5,7 +5,8 @@
 
 #include "common/resource.h"
 
-Bullet::Bullet(){
+Bullet::Bullet()
+	:fired(false){
 	type = UT_BULLET;
 	init();
 }
@@ -46,4 +47,7 @@ void Bullet::update(
 	float dt){
 	attackData.postion = position;
 	stage->ally[_OPPOSITE(ally)]->processAttack(attackData);
+	// TODO: 최대 발사 거리 따로 빼기
+	if (fired && position.getDistance(fireStart) >= 800)
+		stage->removeUnit(this);
 }
