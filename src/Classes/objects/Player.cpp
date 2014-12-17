@@ -16,6 +16,7 @@
 #include "ui/StatusConsole.h"
 
 #include "common/resource.h"
+#include "common/max.h"
 
 #include "skill/PassiveSkill.h"
 #include "skill/ActiveSkill.h"
@@ -111,6 +112,7 @@ bool Player::initExternalData(
 		float value = attr.get("value", 0).asFloat();
 
 		maxAttrs[name] = value;
+		upgradeTimes[name] = 0;
 	}
 
 	/* skill list */
@@ -212,4 +214,24 @@ bool Player::onDeath(){
 	}
 	*/
 	return false;
+}
+
+
+bool Player::upgrade(
+	const std::string& attr_name) {
+
+	auto it = maxAttrs.find(attr_name);
+	if (it == maxAttrs.end())
+		return false;
+
+	float attr_max = it->second;
+
+	auto itt = attrs.find(attr_name);
+	if (itt == attrs.end() || upgradeTimes[attr_name] >= Max::Upgrade)
+		return false;
+
+	auto attr = itt->second;
+	upgradeTimes[attr_name] += 1;
+	attr.getBonusValue() = (attr_max - attr.getValue()) / Max::Upgrade * upgradeTimes[attr_name];
+	return true;
 }

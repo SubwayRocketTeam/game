@@ -11,6 +11,9 @@ public:
 		float cost);
 	void stopBlink();
 
+	float getCostX(
+		float _cost);
+
 protected:
 	TrashTank();
 	virtual ~TrashTank();

@@ -3,6 +3,9 @@
 #include "TrashTank.h"
 
 #include "common/resource.h"
+#include "objects\GlobalResource.h"
+
+#include "objects\ControlablePlayer.h"
 
 using namespace cocos2d;
 
@@ -27,6 +30,14 @@ UpgradeBar *UpgradeBar::create(){
 }
 UpgradeBar *UpgradeBar::getInstance(){
 	return instance;
+}
+
+UpgradeBar::UpgradeBar() :cost(10) {
+	// TODO: cost 초기값 빼기
+}
+
+UpgradeBar::~UpgradeBar() {
+
 }
 
 bool UpgradeBar::init(){
@@ -61,12 +72,40 @@ void UpgradeBar::slide(
 void UpgradeBar::onKeyboardDown(
 	EventKeyboard::KeyCode key){
 
-	if(key == EventKeyboard::KeyCode::KEY_SHIFT){
-		/* TODO : 업그레이드 비용에 따른 블링크 범위 설정 */
-		auto tank = TrashTank::getInstance();
-		tank->blink(15);
-
+	// 업그레이드 하는 거 서버로 보내기
+	auto tank = TrashTank::getInstance();
+	auto player = ControlablePlayer::getInstance();
+	auto resource = GlobalResource::getInstance();
+	bool upgraded = false;
+	switch (key)
+	{
+	case EventKeyboard::KeyCode::KEY_SHIFT:
+		tank->blink(cost);
 		slide(slideDown);
+		break;
+	case EventKeyboard::KeyCode::KEY_F1:
+		if (resource->trash >= cost)
+			upgraded = player->upgrade(Attr::hp);
+		break;
+	case EventKeyboard::KeyCode::KEY_F2:
+		if (resource->trash >= cost)
+			upgraded = player->upgrade(Attr::attack);
+		break;
+	case EventKeyboard::KeyCode::KEY_F3:
+		if (resource->trash >= cost)
+			upgraded = player->upgrade(Attr::speed);
+		break;
+	case EventKeyboard::KeyCode::KEY_F4:
+		if (resource->trash >= cost)
+			upgraded = player->upgrade(Attr::range);
+		break;
+	}
+
+	if (upgraded) {
+		resource->trash -= cost;
+		// TODO: cost 증가값 빼기
+		cost += 10;
+		tank->blink(cost);
 	}
 }
 void UpgradeBar::onKeyboardUp(

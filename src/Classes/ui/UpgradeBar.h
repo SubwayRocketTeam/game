@@ -14,6 +14,9 @@ public:
 	static UpgradeBar *getInstance();
 
 protected:
+	UpgradeBar();
+	~UpgradeBar();
+
 	virtual bool init();
 	virtual void update(
 		float dt);
@@ -25,4 +28,8 @@ protected:
 		cocos2d::EventKeyboard::KeyCode key);
 	virtual void onKeyboardUp(
 		cocos2d::EventKeyboard::KeyCode key);
+
+protected:
+	float cost;
+
 };

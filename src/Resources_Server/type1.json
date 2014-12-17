@@ -16,7 +16,7 @@
     {"name" : "hp", "value" : 50},
     {"name" : "attack", "value" : 10},
     {"name" : "speed", "value" : 420},
-    {"name" : "range", "value" : 200},
+    {"name" : "range", "value" : 200}
   ],
   
   "skills" : [

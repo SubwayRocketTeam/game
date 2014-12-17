@@ -18,6 +18,9 @@ public:
 	static Player *create(
 		const std::string &dataPath);
 
+	bool upgrade(
+		const std::string& attr_name);
+
 protected:
 	virtual bool init(
 		const std::string &dataPath);
@@ -42,6 +45,7 @@ protected:
 
 protected:
 	std::map<std::string, float> maxAttrs;
+	std::map<std::string, int> upgradeTimes;
 	std::vector<ActiveSkill*> skills;
 
 	int moveCounter;

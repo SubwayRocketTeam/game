@@ -94,3 +94,10 @@ void TrashTank::stopBlink(){
 	overlay->setVisible(false);
 	overlay->stopAllActions();
 }
+
+float TrashTank::getCostX(
+	float _cost) {
+	auto size = gauge->getContentSize();
+	return MAX(0, size.width * _cost / Max::Tank);
+}
+
