@@ -95,7 +95,9 @@ xcopy /s $(ProjectDir)..\Resources_Server %bin_path%</Command>
     <ClCompile Include="..\shared\JsonLoader.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\sqlite\sqlite3.cpp" />
+    <ClCompile Include="..\sqlite\sqlite3.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Ally.cpp" />
     <ClCompile Include="..\shared\skill\ActiveSkill.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>

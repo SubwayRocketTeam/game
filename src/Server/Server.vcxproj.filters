@@ -114,7 +114,7 @@
       <Filter>skill\enemy</Filter>
     </ClCompile>
     <ClCompile Include="EnemyExplode.cpp" />
-    <ClCompile Include="..\sqlite\sqlite3.cpp">
+    <ClCompile Include="..\sqlite\sqlite3.c">
       <Filter>sqlite</Filter>
     </ClCompile>
   </ItemGroup>
