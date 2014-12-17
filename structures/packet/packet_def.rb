@@ -130,6 +130,12 @@ class SyncRotationNoti < Packet
   float "angle"
 end
 
+class Vacuum < Packet
+  required
+  int "trash_id"
+  int "unit_id"
+end
+
 # CHAT
 class ChatMessage < Packet
   required
