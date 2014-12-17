@@ -36,6 +36,6 @@ public:
 	EnemySpawner* spawner;
 
 private:
-
 	std::vector<Unit*> units;
+
 };

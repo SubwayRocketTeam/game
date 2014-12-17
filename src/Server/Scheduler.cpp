@@ -60,7 +60,7 @@ void timerThreadProc(ScheduleQueue* scheduleQueue){
 
 		while (!scheduleQueue->empty()) {
 			HANDLE timer = CreateWaitableTimer(NULL, TRUE, NULL);
-			TimerArg* schedulerArg = new TimerArg(); ///< 이거 콜백안에서 일일이 delete해줘야할텐데.. 그냥 shared_ptr이나 Ref써서 처리하는게 편하지?
+			TimerArg* schedulerArg = new TimerArg();
 			schedulerArg->timer = timer;
 			schedulerArg->ref_count = 1;
 			while (scheduleQueue->try_pop(schedulerArg->room_id));
