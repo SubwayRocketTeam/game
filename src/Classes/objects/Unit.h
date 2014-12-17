@@ -101,7 +101,7 @@ protected:
 		float dt);
 	virtual void updatePassives(
 		float dt);
-	void updatePhysics(
+	virtual void updatePhysics(
 		float dt);
 
 protected:
@@ -111,6 +111,7 @@ protected:
 
 	Gauge* gauge;
 	DamageLabel *damageLabel;
+	cocos2d::LabelTTF* label;
 
 	IterLock passivesLock;
 	std::map<int, PassiveData> passives;
