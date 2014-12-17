@@ -63,8 +63,6 @@ bool Player::init(
 	addChild(gauge, -1);
 
 	schedule(
-		SEL_SCHEDULE(&Player::updateRotation), 0.1f);
-	schedule(
 		SEL_SCHEDULE(&Player::updateConditions), 1.0f / Global::ups);
 	scheduleUpdate();
 
@@ -140,8 +138,6 @@ void Player::update(
 		}
 	}
 	*/
-
-	friction = stiff > 0.f ? 70.f : 0.f;
 }
 void Player::updateConditions(
 	float dt){
@@ -160,12 +156,11 @@ void Player::updateConditions(
 	if(immortal > 0.0f)
 		immortal -= dt;
 }
-void Player::updateRotation(
-	float dt){
 
-	auto network = Network::getInstance();
-	network->sendSyncRotation(
-		getRotation());
+void Player::updatePhysics(
+	float dt) {
+	friction = stiff > 0.f ? 1000.f : 0.f;
+	Unit::updatePhysics(dt);
 }
 
 bool Player::onDamage(
@@ -189,7 +184,7 @@ bool Player::onDamage(
 			MoveBy::create(0.2f, deltaNorm * 70)
 		));
 	*/
-	velocity = deltaNorm * 70;
+	velocity = deltaNorm * 300.f;
 
 	return true;
 }

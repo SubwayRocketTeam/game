@@ -2,9 +2,11 @@
 #include "Unit.h"
 
 #include "Stage.h"
+#include "GameRoom.h"
 #include "CollisionDetector.h"
 
 #include "AttackData.h"
+#include "PacketType.h"
 
 #include "shared/skill/SkillPool.h"
 #include "shared/skill/ActiveSkill.h"
@@ -204,4 +206,14 @@ Attribute &Unit::getAttribute(const std::string &name){
 
 void Unit::collide(Vec2 delta, Unit* other){
 	position += delta * 0.5f;
+
+	/*
+	MoveNoti noti;
+	noti.id = id;
+	noti.start_x = position.x;
+	noti.start_y = position.y;
+	noti.velocity_x = velocity.x;
+	noti.velocity_y = velocity.y;
+	stage->gameroom->sendPacket(noti);
+	*/
 }

@@ -33,7 +33,7 @@ protected:
 		float dt);
 	void updateConditions(
 		float dt);
-	void updateRotation(
+	virtual void updatePhysics(
 		float dt);
 
 protected:

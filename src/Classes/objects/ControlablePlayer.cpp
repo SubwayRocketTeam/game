@@ -63,6 +63,9 @@ bool ControlablePlayer::init(
 	enableMouseInput(this);
 	enableKeyboardInput(this);
 
+	schedule(
+		SEL_SCHEDULE(&ControlablePlayer::updateRotation), 0.1f);
+
 	return true;
 }
 
@@ -95,6 +98,14 @@ bool ControlablePlayer::useSkill(
 		skill->id, x,y);
 
 	return true;
+}
+
+void ControlablePlayer::updateRotation(
+	float dt){
+
+	auto network = Network::getInstance();
+	network->sendSyncRotation(
+		getRotation());
 }
 
 void ControlablePlayer::processRotation(

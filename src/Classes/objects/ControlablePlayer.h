@@ -34,6 +34,9 @@ protected:
 	virtual bool init(
 		const std::string &dataPath);
 
+	void updateRotation(
+		float dt);
+
 	void processRotation(
 		float x,float y);
 	void processMove(
