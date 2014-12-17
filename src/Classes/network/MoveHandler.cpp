@@ -7,8 +7,8 @@
 
 using namespace cocos2d;
 
-void Network::handleMoveStart(
-	MoveStartNoti *pkt){
+void Network::handleMove(
+	MoveNoti *pkt){
 
 	auto unit = Unit::getInstanceByID(
 		pkt->id);
@@ -22,29 +22,16 @@ void Network::handleMoveStart(
 	printf("move %d / %f %f\n",
 		pkt->id,
 		pkt->velocity_x, pkt->velocity_y);
-}
-void Network::handleMoveEnd(
-	MoveEndNoti *pkt){
-
-	auto unit = Unit::getInstanceByID(
-		pkt->id);
-
-	if (!unit)
-		return;
-
-	unit->velocity.set(0,0);
-	unit->stopAllActionsByTag(
-		ActionType::Move);
-
-	printf("adj %f %f TO %f %f\n",
-		unit->getPositionX(), unit->getPositionY(),
-		pkt->end_x, pkt->end_y);
-
+	
+	unit->setPosition(pkt->start_x, pkt->start_y);
+	/*
 	unit->runAction(
+		EaseOut::create(
 		MoveTo::create(
-			1.0f / Global::fps, Vec2(pkt->end_x, pkt->end_y)));
-
-	printf("move end %d\n", pkt->id);
+		1.f, Vec2(pkt->start_x, pkt->start_y))
+		, 1.f)
+		);
+	*/
 }
 
 void Network::handleSyncRotationNoti(

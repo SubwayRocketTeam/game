@@ -33,10 +33,8 @@ public:
 
 	void sendLoginRequest(
 		const char *user_id, const char *user_pw);
-	void sendMoveStart(
+	void sendMove(
 		float direction_x, float direction_y);
-	void sendMoveEnd(
-		float delta);
 	void sendSyncRotation(
 		float angle);
 	void sendEnterRoom();
@@ -91,10 +89,8 @@ protected:
 	void handleUseSkillNoti(
 		UseSkillNoti *pkt);
 
-	void handleMoveStart(
-		MoveStartNoti *pkt);
-	void handleMoveEnd(
-		MoveEndNoti *pkt);
+	void handleMove(
+		MoveNoti *pkt);
 	void handleSyncRotationNoti(
 		SyncRotationNoti *pkt);
 	void handleChatNoti(

@@ -139,7 +139,7 @@ void ControlablePlayer::processMove(
 
 	auto norm = moveBy.getNormalized();
 	Network::getInstance()
-		->sendMoveStart(
+		->sendMove(
 			norm.x, norm.y);
 
 	/*
@@ -187,7 +187,7 @@ void ControlablePlayer::onKeyboardDown(
 	if(moved){
 		auto norm = speed.getNormalized();
 		Network::getInstance()
-			->sendMoveStart(norm.x, norm.y);
+			->sendMove(norm.x, norm.y);
 		
 		velocity = speed * _ATTR(speed);
 		moveCounter ++;
@@ -216,12 +216,12 @@ void ControlablePlayer::onKeyboardUp(
 
 		if(moveCounter == 0){
 			Network::getInstance()
-				->sendMoveEnd(tick);
+				->sendMove(0.f, 0.f);
 		}
 		else{
 			auto norm = speed.getNormalized();
 			Network::getInstance()
-				->sendMoveStart(norm.x, norm.y);
+				->sendMove(norm.x, norm.y);
 		}
 	}
 }

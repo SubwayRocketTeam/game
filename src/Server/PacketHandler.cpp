@@ -17,7 +17,8 @@ static PacketHandler* handlerMap[PT_PacketMax];
 
 PacketHandler* PacketHandlerMap::function(packet_type_t type) {
 	_ASSERT(type < PT_PacketMax);
-	printf("PACKET RECV %d\n", type);
+	if (type != PT_SyncRotation)
+		printf("PACKET RECV %d\n", type);
 	return handlerMap[type];
 }
 
@@ -133,29 +134,18 @@ REGISTER_HANDLER(UseSkill) {
 } END
 
 
-REGISTER_HANDLER(MoveStart) {
+REGISTER_HANDLER(Move) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
 	player->moveDirection = Vec2(packet->direction_x, packet->direction_y).getNormalized();
 
-	MoveStartNoti response;
+	MoveNoti response;
 	response.id = player->id;
+	response.start_x = player->position.x;
+	response.start_y = player->position.y;
 	response.velocity_x = player->moveDirection.x * player->_ATTR(speed);
 	response.velocity_y = player->moveDirection.y * player->_ATTR(speed);
-	printf("START %d (%f %f)\n", response.id, response.velocity_x, response.velocity_y);
-	gameroom->sendPacket(response);
-} END
-
-REGISTER_HANDLER(MoveEnd) {
-	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
-	Player* player = (Player*)gameroom->getClientUnit(client->id);
-	player->moveDirection = Vec2::ZERO;
-
-	MoveEndNoti response;
-	response.id = player->id;
-	response.end_x = player->position.x;
-	response.end_y = player->position.y;
-	printf("END %d (%f %f)\n", response.id, response.end_x, response.end_y);
+	printf("MOVE %d pos:(%f, %f) v:(%f %f)\n", response.id, response.start_x, response.start_y, response.velocity_x, response.velocity_y);
 	gameroom->sendPacket(response);
 } END
 

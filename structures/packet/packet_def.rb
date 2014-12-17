@@ -99,25 +99,18 @@ class UseSkillNoti < Packet
 end
 
 # MOVE
-class MoveStart < Packet
+class Move < Packet
   required
   float "direction_x"
   float "direction_y"
 end
-class MoveEnd < Packet
-  required
-end
-class MoveStartNoti < Packet
+class MoveNoti < Packet
   required
   int "id"
+  float "start_x"
+  float "start_y"
   float "velocity_x"
   float "velocity_y"
-end
-class MoveEndNoti < Packet
-  required
-  int "id"
-  float "end_x"
-  float "end_y"
 end
 
 class SyncRotation < Packet
