@@ -5,6 +5,7 @@
 #include "Client.h"
 #include "CompletionKeyType.h"
 #include "Unit.h"
+#include "Enemy.h"
 #include "Player.h"
 
 typedef std::pair<id_t, id_t> IdPair;
@@ -85,6 +86,8 @@ bool GameRoom::startGame() {
 
 	flush();
 
+	/*
+	*/
 	for (auto id : clientIds) {
 		Unit* player = getUnit(id.second);
 		SpawnUnit noti;
@@ -123,6 +126,19 @@ void GameRoom::addUnitImmediate(Unit* unit) {
 
 	units.push_back(unit);
 	unit->stage->addUnitImmediate(unit);
+
+	/*
+	SpawnUnit noti;
+	noti.id = unit->id;
+	noti.unit_type = unit->type;
+	if (unit->type == UT_ENEMY) {
+		Enemy* enemy = (Enemy*)unit;
+		noti.unit_type = 10 + enemy->getEnemyType();
+	}
+	noti.x = unit->position.x;
+	noti.y = unit->position.y;
+	sendPacket(noti);
+	*/
 }
 
 void GameRoom::removeUnitImmediate(Unit* unit) {
