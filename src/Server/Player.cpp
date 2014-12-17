@@ -181,3 +181,22 @@ int Player::getTrash() const {
 void Player::addTrash(const int amount) {
 	trash = max(0, min(Max::Tank, trash + amount));
 }
+
+bool Player::upgrade(
+	const std::string& attr_name) {
+
+	auto it = maxAttrs.find(attr_name);
+	if (it == maxAttrs.end())
+		return false;
+
+	float attr_max = it->second;
+
+	auto itt = attrs.find(attr_name);
+	if (itt == attrs.end() || upgradeTimes[attr_name] >= Max::Upgrade)
+		return false;
+
+	auto attr = itt->second;
+	upgradeTimes[attr_name] += 1;
+	attr.getBonusValue() = (attr_max - attr.getValue()) / Max::Upgrade * upgradeTimes[attr_name];
+	return true;
+}

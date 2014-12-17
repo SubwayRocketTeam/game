@@ -25,6 +25,9 @@ public:
 	virtual void updatePhysics(float dt);
 	void updateConditions(float dt);
 
+	bool upgrade(
+		const std::string& attr_name);
+
 	virtual bool onDamage(const AttackData& attackData);
 	virtual bool onDeath();
 
@@ -37,6 +40,7 @@ public:
 
 protected:
 	std::map<std::string, float> maxAttrs;
+	std::map<std::string, int> upgradeTimes;
 	std::vector<ActiveSkill*> skills;
 	std::vector<float> cooltimes;
 
