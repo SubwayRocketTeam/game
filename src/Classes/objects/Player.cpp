@@ -141,7 +141,7 @@ void Player::update(
 	}
 	*/
 
-	friction = stiff ? 70.f : 0.f;
+	friction = stiff > 0.f ? 70.f : 0.f;
 }
 void Player::updateConditions(
 	float dt){
@@ -177,7 +177,7 @@ bool Player::onDamage(
 	/* TODO : 무적 기간 상수에 집어넣기 */
 	blink();
 	immortal = 0.5;
-	stiff = MAX(stiff, 0.2);
+	stiff = MAX(stiff, 0.2f);
 
 	auto deltaNorm =
 		(getPosition() -

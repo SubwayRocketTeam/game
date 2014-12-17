@@ -89,7 +89,7 @@ void Player::update(
 	float dt){
 	updateConditions(dt);
 
-	if (!stiff) {
+	if (stiff <= 0.f) {
 		position += moveDirection * _ATTR(speed) * dt;
 	}
 
@@ -115,7 +115,7 @@ void Player::update(
 }
 
 void Player::updatePhysics(float dt){
-	friction = stiff ? 70.f : 0.f;
+	friction = stiff > 0.f ? 70.f : 0.f;
 	Unit::updatePhysics(dt);
 }
 
@@ -129,7 +129,7 @@ void Player::updateConditions(
 	}
 
 	/* stiff */
-	if (stiff > 0.0f)
+	if (stiff > 0.f)
 		stiff -= dt;
 
 	/* IMMORTAL */
@@ -144,7 +144,7 @@ bool Player::onDamage(
 		return false;
 
 	/* TODO : 무적 기간 상수에 집어넣기 */
-	immortal = 0.5;
+	immortal = 0.5f;
 	stiff = max(stiff, 0.2f);
 
 	auto deltaNorm =
