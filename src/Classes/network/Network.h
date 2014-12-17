@@ -48,10 +48,9 @@ public:
 	void sendUseSkill(
 		int skillID,
 		float x,float y);
-	void sendFireBullet(
-		int bulletTYpe,
-		float x, float y,
-		float directionX, float directionY);
+
+	void sendUpgrade(
+		UpgradeType upgradeType);
 
 	void sendChatMessage(
 		const char *msg);
@@ -88,6 +87,8 @@ protected:
 
 	void handleUseSkillNoti(
 		UseSkillNoti *pkt);
+	void handleUpgrade(
+		UpgradeNoti *pkt);
 
 	void handleMove(
 		MoveNoti *pkt);

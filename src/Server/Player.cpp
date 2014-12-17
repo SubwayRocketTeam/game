@@ -24,7 +24,8 @@
 
 
 Player::Player()
-	:speedFactor(1), immortal(0), stiff(0), trash(0){
+	:speedFactor(1), immortal(0), stiff(0)
+	, trash(0), upgradeCost(10){
 	type = UT_PLAYER;
 	ally = Ally::Type::allyPlayer;
 	init("type1.json");
@@ -185,6 +186,9 @@ void Player::addTrash(const int amount) {
 bool Player::upgrade(
 	const std::string& attr_name) {
 
+	if (trash < upgradeCost)
+		return false;
+
 	auto it = maxAttrs.find(attr_name);
 	if (it == maxAttrs.end())
 		return false;
@@ -198,5 +202,9 @@ bool Player::upgrade(
 	auto attr = itt->second;
 	upgradeTimes[attr_name] += 1;
 	attr.getBonusValue() = (attr_max - attr.getValue()) / Max::Upgrade * upgradeTimes[attr_name];
+
+	trash -= upgradeCost;
+	upgradeCost += 10;
+
 	return true;
 }

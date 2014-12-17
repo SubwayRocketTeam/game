@@ -7,6 +7,8 @@
 
 #include "objects\ControlablePlayer.h"
 
+#include "network\Network.h"
+
 using namespace cocos2d;
 
 static UpgradeBar *instance = nullptr;
@@ -32,7 +34,7 @@ UpgradeBar *UpgradeBar::getInstance(){
 	return instance;
 }
 
-UpgradeBar::UpgradeBar() :cost(10) {
+UpgradeBar::UpgradeBar() :cost(10), upgradeTrying(false) {
 	// TODO: cost 초기값 빼기
 }
 
@@ -74,9 +76,10 @@ void UpgradeBar::onKeyboardDown(
 
 	// 업그레이드 하는 거 서버로 보내기
 	auto tank = TrashTank::getInstance();
-	auto player = ControlablePlayer::getInstance();
+//	auto player = ControlablePlayer::getInstance();
 	auto resource = GlobalResource::getInstance();
-	bool upgraded = false;
+	auto network = Network::getInstance();
+	// bool upgraded = false;
 	switch (key)
 	{
 	case EventKeyboard::KeyCode::KEY_SHIFT:
@@ -84,29 +87,46 @@ void UpgradeBar::onKeyboardDown(
 		slide(slideDown);
 		break;
 	case EventKeyboard::KeyCode::KEY_F1:
+		if (upgradeTrying)
+			return;
 		if (resource->trash >= cost)
-			upgraded = player->upgrade(Attr::hp);
+			// upgraded = player->upgrade(Attr::hp);
+			network->sendUpgrade(ATTR_HP);
+		upgradeTrying = true;
 		break;
 	case EventKeyboard::KeyCode::KEY_F2:
+		if (upgradeTrying)
+			return;
 		if (resource->trash >= cost)
-			upgraded = player->upgrade(Attr::attack);
+			// upgraded = player->upgrade(Attr::attack);
+			network->sendUpgrade(ATTR_ATTACK);
+		upgradeTrying = true;
 		break;
 	case EventKeyboard::KeyCode::KEY_F3:
+		if (upgradeTrying)
+			return;
 		if (resource->trash >= cost)
-			upgraded = player->upgrade(Attr::speed);
+			// upgraded = player->upgrade(Attr::speed);
+			network->sendUpgrade(ATTR_SPEED);
+		upgradeTrying = true;
 		break;
 	case EventKeyboard::KeyCode::KEY_F4:
+		if (upgradeTrying)
+			return;
 		if (resource->trash >= cost)
-			upgraded = player->upgrade(Attr::range);
+			// upgraded = player->upgrade(Attr::range);
+			network->sendUpgrade(ATTR_RANGE);
+		upgradeTrying = true;
 		break;
 	}
 
+	/*
 	if (upgraded) {
 		resource->trash -= cost;
-		// TODO: cost 증가값 빼기
 		cost += 10;
-		tank->blink(cost);
 	}
+	*/
+
 }
 void UpgradeBar::onKeyboardUp(
 	EventKeyboard::KeyCode key){
@@ -117,4 +137,11 @@ void UpgradeBar::onKeyboardUp(
 
 		slide(slideUp);
 	}
+}
+void UpgradeBar::upgradeOver() {
+	// TODO: cost 증가값 빼기
+	auto resource = GlobalResource::getInstance();
+	resource->trash -= cost;
+	cost += 10;
+	upgradeTrying = false;
 }

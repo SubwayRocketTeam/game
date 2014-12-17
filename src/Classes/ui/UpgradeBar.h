@@ -13,6 +13,8 @@ public:
 	static UpgradeBar *create();
 	static UpgradeBar *getInstance();
 
+	void upgradeOver();
+
 protected:
 	UpgradeBar();
 	~UpgradeBar();
@@ -31,5 +33,6 @@ protected:
 
 protected:
 	float cost;
+	bool upgradeTrying;
 
 };

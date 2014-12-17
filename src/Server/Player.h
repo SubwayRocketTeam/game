@@ -49,4 +49,5 @@ protected:
 	float speedFactor;
 
 	int trash;
+	int upgradeCost;
 };

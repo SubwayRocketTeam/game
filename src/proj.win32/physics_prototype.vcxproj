@@ -157,6 +157,8 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClCompile Include="..\Classes\network\Routes.cpp" />
     <ClCompile Include="..\Classes\network\UnitHandler.cpp" />
     <ClCompile Include="..\Classes\network\UnitSender.cpp" />
+    <ClCompile Include="..\Classes\network\UpgradeHandler.cpp" />
+    <ClCompile Include="..\Classes\network\UpgradeSender.cpp" />
     <ClCompile Include="..\Classes\objects\Afterimage.cpp" />
     <ClCompile Include="..\Classes\objects\Ally.cpp" />
     <ClCompile Include="..\Classes\objects\Bullet.cpp" />

@@ -17,7 +17,7 @@ struct PacketHeader{
     };
 #define END };
 
-#define PACKET_VERSION 3531677661
+#define PACKET_VERSION 2953284715
 
 enum packet_id{
   PT_PacketNone = 0,
@@ -42,8 +42,10 @@ enum packet_id{
   PT_SyncRotation = 19,
   PT_SyncRotationNoti = 20,
   PT_Vacuum = 21,
-  PT_ChatMessage = 22,
-  PT_ChatNoti = 23,
+  PT_UpgradeRequest = 22,
+  PT_UpgradeNoti = 23,
+  PT_ChatMessage = 24,
+  PT_ChatNoti = 25,
 
   PT_PacketMax
 };
@@ -53,6 +55,14 @@ enum UnitType_{
   
   NONE,
   PLAYER,
+};
+enum UpgradeType{
+  
+  ATTR_NONE,
+  ATTR_HP,
+  ATTR_ATTACK,
+  ATTR_SPEED,
+  ATTR_RANGE,
 };
 
 /* PACKETS */
@@ -159,6 +169,15 @@ END
 PACKET(Vacuum)
   int trash_id;
   int unit_id;
+END
+
+PACKET(UpgradeRequest)
+  int upgrade_type;
+END
+
+PACKET(UpgradeNoti)
+  int id;
+  int upgrade_type;
 END
 
 PACKET(ChatMessage)

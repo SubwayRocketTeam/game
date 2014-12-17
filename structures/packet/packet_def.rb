@@ -129,6 +129,30 @@ class Vacuum < Packet
   int "unit_id"
 end
 
+# UPGRADE
+class UpgradeType < Enum
+  required
+
+  keys [
+    :ATTR_NONE,
+    :ATTR_HP,
+	:ATTR_ATTACK,
+	:ATTR_SPEED,
+	:ATTR_RANGE
+  ]
+end
+
+class UpgradeRequest < Packet
+	required
+	int "upgrade_type"
+end
+
+class UpgradeNoti < Packet
+	required
+	int "id"
+	int "upgrade_type"
+end
+
 # CHAT
 class ChatMessage < Packet
   required

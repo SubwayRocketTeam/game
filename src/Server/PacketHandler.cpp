@@ -163,6 +163,18 @@ REGISTER_HANDLER(SyncRotation) {
 	gameroom->sendPacket(noti);
 } END
 
+REGISTER_HANDLER(UpgradeRequest) {
+	static std::string attrs[] = { "", Attr::hp, Attr::attack, Attr::speed, Attr::range };
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	Player* player = (Player*)gameroom->getClientUnit(client->id);
+	if (player->upgrade(attrs[packet->upgrade_type])) {
+		UpgradeNoti noti;
+		noti.id = player->id;
+		noti.upgrade_type = packet->upgrade_type;
+		gameroom->sendPacket(noti);
+	}
+} END
+
 REGISTER_HANDLER(ChatMessage) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 

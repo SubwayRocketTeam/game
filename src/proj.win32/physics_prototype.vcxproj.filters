@@ -235,6 +235,12 @@
     <ClCompile Include="..\Classes\objects\ControlablePlayer.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\network\UpgradeSender.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\network\UpgradeHandler.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
