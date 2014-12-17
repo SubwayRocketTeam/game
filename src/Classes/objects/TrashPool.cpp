@@ -108,6 +108,8 @@ Vector<Trash*> TrashPool::query(
 void TrashPool::update(
 	float dt){
 
+	/* 서버에서 먹여줌 */
+	/*
 	auto players = Ally::getInstance(
 		Ally::Type::allyPlayer);
 	auto resource = GlobalResource::getInstance();
@@ -118,7 +120,6 @@ void TrashPool::update(
 		for(auto player : *players){
 			auto playerPos = player->getPosition();
 
-			/* TODO : 내가 조종하는 플레이어일 경우에만 이거 처리 */
 			if(resource->trash >= Max::Tank)
 				continue;
 
@@ -134,4 +135,5 @@ void TrashPool::update(
 			}
 		}
 	}
+	*/
 }

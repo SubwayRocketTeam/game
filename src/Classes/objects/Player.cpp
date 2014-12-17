@@ -131,13 +131,15 @@ void Player::update(
 	auto trashes = trashPool->query(
 		Rect(pos.x - 20, pos.y - 20, 40, 40));
 
-	/* */
+	/* 서버에서 먹여줌 */
+	/*
 	if(resource->trash < Max::Tank){
 		for(auto trash : trashes){
 			trash->sweep();
 			resource->trash += 1;
 		}
 	}
+	*/
 
 	friction = stiff ? 70.f : 0.f;
 }
