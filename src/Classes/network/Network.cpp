@@ -116,7 +116,10 @@ void Network::recvLoop(){
 			return;
 		}
 
-		printf("packet %d\n", header.type);
+		// 임시로 rotate관련은 출력 안 함...
+		if (header.type != PT_SyncRotationNoti)
+			printf("packet %d\n", header.type);
+
 		auto pair = handlers.find(header.type);
 		if(pair == handlers.end())
 			cocos2d::log("unhandled packet %d", header.type);

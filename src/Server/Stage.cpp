@@ -81,7 +81,6 @@ id_t Stage::addUnitImmediate(Unit* unit) {
 		collisionDetector->addUnit(unit);
 		break;
 	case UT_BULLET:
-		collisionDetector->addUnit(unit);
 		break;
 	case UT_TRASH:
 		trashPool->push((Trash*)unit);
@@ -113,7 +112,6 @@ void Stage::removeUnitImmediate(Unit* unit) {
 		collisionDetector->removeUnit(unit);
 		break;
 	case UT_BULLET:
-		collisionDetector->removeUnit(unit);
 		break;
 	case UT_TRASH:
 		trashPool->remove((Trash*)unit);

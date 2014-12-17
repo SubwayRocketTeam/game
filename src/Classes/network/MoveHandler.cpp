@@ -19,19 +19,20 @@ void Network::handleMove(
 	unit->velocity.x = pkt->velocity_x;
 	unit->velocity.y = pkt->velocity_y;
 
-	printf("move %d / %f %f\n",
-		pkt->id,
-		pkt->velocity_x, pkt->velocity_y);
+	printf("MOVE %d pos:(%f, %f) v:(%f %f)\n"
+		, pkt->id
+		, pkt->start_x, pkt->start_y
+		, pkt->velocity_x, pkt->velocity_y);
 	
-	unit->setPosition(pkt->start_x, pkt->start_y);
 	/*
+	unit->setPosition(pkt->start_x, pkt->start_y);
+	*/
 	unit->runAction(
 		EaseOut::create(
 		MoveTo::create(
 		1.f, Vec2(pkt->start_x, pkt->start_y))
-		, 1.f)
+		, 10.f)
 		);
-	*/
 }
 
 void Network::handleSyncRotationNoti(
