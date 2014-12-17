@@ -48,7 +48,7 @@ Enemy* EnemyFactory::createEnemy(EnemyType type)
 		enemy = new Enemy();
 		break;
 	}
-	enemy->setInfo(dic[type]);
+	enemy->setInfo(dic[type], type);
 	return enemy;
 }
 

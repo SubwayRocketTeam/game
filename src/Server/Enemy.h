@@ -20,7 +20,7 @@ public:
 	void setSkill(ActiveSkill* skill);
 	ActiveSkill* getSkill();
 
-	void setInfo(EnemyInfo* info);
+	void setInfo(EnemyInfo* info, int enemy_type);
 
 	virtual void update(
 		float dt);
@@ -35,7 +35,11 @@ public:
 		Unit *u, float value);
 	Unit *getTarget();
 
+	int getEnemyType() const;
+
 protected:
+	int enemyType;
+
 	std::map<Unit*, float> aggros;
 	AttackData attackData;
 

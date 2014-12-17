@@ -11,8 +11,9 @@
 #include "shared/skill/ActiveSkill.h"
 
 #include "EnemyInfo.h"
+#include "EnemyType.h"
 
-Enemy::Enemy(){
+Enemy::Enemy() :enemyType(0) {
 	type = UT_ENEMY;
 	ally = Ally::Type::allyEnemy;
 	skill = nullptr;
@@ -144,7 +145,9 @@ ActiveSkill* Enemy::getSkill(){
 	return skill;
 }
 
-void Enemy::setInfo(EnemyInfo* info) {
+void Enemy::setInfo(EnemyInfo* info, int enemy_type) {
+	enemyType = enemy_type;
+
 	std::map<std::string, Attribute>::iterator it = info->attrs.begin();
 	for (; it != info->attrs.end(); it++) {
 		attrs[it->first] = it->second;
