@@ -70,6 +70,18 @@ bool Player::initExternalData(
 
 	radius = _ATTR(radius);
 
+	/* max_attr */
+	attrList = root.get("max_attrs", Json::Value::null);
+	if (attrList.isNull())
+		return false;
+
+	for (auto attr : attrList){
+		auto name = attr.get("name", "").asString();
+		float value = attr.get("value", 0).asFloat();
+
+		maxAttrs[name] = value;
+	}
+
 	/* skill list */
 	auto skillList = root.get("skills", Json::Value::null);
 	if (skillList.isNull())

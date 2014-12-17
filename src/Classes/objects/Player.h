@@ -41,6 +41,7 @@ protected:
 	virtual ~Player();
 
 protected:
+	std::map<std::string, float> maxAttrs;
 	std::vector<ActiveSkill*> skills;
 
 	int moveCounter;

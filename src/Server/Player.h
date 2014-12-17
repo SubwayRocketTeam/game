@@ -36,6 +36,7 @@ public:
 	Vec2 moveDirection;
 
 protected:
+	std::map<std::string, float> maxAttrs;
 	std::vector<ActiveSkill*> skills;
 	std::vector<float> cooltimes;
 
