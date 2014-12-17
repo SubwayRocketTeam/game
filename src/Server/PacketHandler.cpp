@@ -41,27 +41,26 @@ REGISTER_HANDLER(PacketNone)
 END
 
 
-REGISTER_HANDLER(CheckVersionRequest)
+REGISTER_HANDLER(CheckVersionRequest) {
 	CheckVersionResponse response;
-	
-	if(packet->version == PACKET_VERSION)
+
+	if (packet->version == PACKET_VERSION)
 		response.result = 1;
 
 	client->sendPacket(response);
-END
+} END
 
-REGISTER_HANDLER(LoginRequest)
+REGISTER_HANDLER(LoginRequest) {
 	printf("%u: %s %s\n", client->id, packet->id, packet->pw);
 	LoginResponse response;
 	response.result = 1;
 	strcpy_s(response.nickname, "Anz");
 	client->sendPacket(response);
-END
+} END
 
 
-REGISTER_HANDLER(EnterRoom)
+REGISTER_HANDLER(EnterRoom) {
 	EnterNoti noti;
-	SpawnUnit spawnNoti;
 	auto gameroom = GameRoomManager::getInstance()->getAvailableGameRoom();
 	client->setGameRoomId(gameroom->id);
 	gameroom->enter(client->id);
@@ -73,36 +72,38 @@ REGISTER_HANDLER(EnterRoom)
 		ReadyRequest packet;
 		gameroom->sendPacket(packet);
 	}
-END
+} END
 
-REGISTER_HANDLER(Ready)
+REGISTER_HANDLER(Ready) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(
 		client->getGameRoomId());
 
 	gameroom->ready++;
 
-	if(gameroom->ready != 2)
+	if (gameroom->ready != 2)
 		return;
 
 	gameroom->startGame();
-END
+} END
 
 
-REGISTER_HANDLER(LeaveRoom)
+REGISTER_HANDLER(LeaveRoom) {
 	LeaveNoti noti;
 	noti.client_id = client->id;
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	gameroom->sendPacket(noti);
 	gameroom->leave(client->id);
-END
+} END
 
 
-REGISTER_HANDLER(SpawnRequest)
-{
+REGISTER_HANDLER(SpawnRequest) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	Unit* unit = gameroom->getClientUnit(client->id);
 	auto spawner = unit->stage->spawner;
 	Enemy* enemy = spawner->spawn((EnemyType)(packet->unit_type - 10));
+
+	/*
+	*/
 
 	SpawnUnit noti;
 	noti.id = enemy->id;
@@ -112,13 +113,12 @@ REGISTER_HANDLER(SpawnRequest)
 	noti.unit_type = packet->unit_type;
 
 	gameroom->sendPacket(noti);
-}
-END
+} END
 
 
-REGISTER_HANDLER(UseSkill)
+REGISTER_HANDLER(UseSkill) {
 	auto gameroom =
-	GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+		GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
 
 	player->useSkill(packet->skill_id, Vec2(packet->x, packet->y));
@@ -130,10 +130,10 @@ REGISTER_HANDLER(UseSkill)
 	noti.y = packet->y;
 
 	gameroom->sendPacket(noti);
-END
+} END
 
 
-REGISTER_HANDLER(MoveStart)
+REGISTER_HANDLER(MoveStart) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
 	player->moveDirection = Vec2(packet->direction_x, packet->direction_y).getNormalized();
@@ -144,9 +144,9 @@ REGISTER_HANDLER(MoveStart)
 	response.velocity_y = player->moveDirection.y * player->_ATTR(speed);
 	printf("START %d (%f %f)\n", response.id, response.velocity_x, response.velocity_y);
 	gameroom->sendPacket(response);
-END
+} END
 
-REGISTER_HANDLER(MoveEnd)
+REGISTER_HANDLER(MoveEnd) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
 	player->moveDirection = Vec2::ZERO;
@@ -157,9 +157,9 @@ REGISTER_HANDLER(MoveEnd)
 	response.end_y = player->position.y;
 	printf("END %d (%f %f)\n", response.id, response.end_x, response.end_y);
 	gameroom->sendPacket(response);
-END
+} END
 
-REGISTER_HANDLER(SyncRotation)
+REGISTER_HANDLER(SyncRotation) {
 	auto gameroom =
 		GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	Unit* unit = gameroom->getClientUnit(client->id);
@@ -171,13 +171,13 @@ REGISTER_HANDLER(SyncRotation)
 	noti.angle = packet->angle;
 
 	gameroom->sendPacket(noti);
-END
+} END
 
-REGISTER_HANDLER(ChatMessage)
+REGISTER_HANDLER(ChatMessage) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 
 	ChatNoti noti;
 	strcat_s(noti.msg, packet->msg);
 
 	gameroom->sendPacket(noti);
-END
+} END
