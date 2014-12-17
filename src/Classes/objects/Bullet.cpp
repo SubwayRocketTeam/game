@@ -97,14 +97,16 @@ void Bullet::fire(
 void Bullet::update(
 	float dt){
 
-	attackData.postion = getPosition();
-
-	Ally::getInstance(_OPPOSITE(allyID))
-		->processAttack(attackData);
-
 	// TODO: 최대 발사 거리 따로 빼기
-	if (fired && getPosition().getDistance(fireStart) >= 800)
+	if (fired && getPosition().getDistance(fireStart) >= 800.f)
 		remove();
+	else
+	{
+		attackData.postion = getPosition();
+
+		Ally::getInstance(_OPPOSITE(allyID))
+			->processAttack(attackData);
+	}
 }
 
 void Bullet::setUser(
