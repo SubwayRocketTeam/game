@@ -58,6 +58,7 @@ void Stage::removeUnit(Unit* unit) {
 	if (!unit)
 		return;
 	gameroom->removeUnit(unit);
+	unit->removed = true;
 }
 
 id_t Stage::addUnitImmediate(Unit* unit) {

@@ -37,6 +37,7 @@ public:
 		float direction_x, float direction_y);
 	void sendSyncRotation(
 		float angle);
+
 	void sendEnterRoom();
 	void sendLeaveRoom();
 	void sendReady(
@@ -94,6 +95,9 @@ protected:
 		MoveNoti *pkt);
 	void handleSyncRotationNoti(
 		SyncRotationNoti *pkt);
+	void handleVacuum(
+		Vacuum *pkt);
+
 	void handleChatNoti(
 		ChatNoti *pkt);
 

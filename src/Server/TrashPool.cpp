@@ -4,7 +4,10 @@
 #include "Player.h"
 
 #include "Stage.h"
+#include "GameRoom.h"
 #include "Ally.h"
+
+#include "PacketType.h"
 
 TrashPool::TrashPool(Stage* const stage)
 	:stage(stage){
@@ -58,6 +61,9 @@ void TrashPool::update(float dt){
 	auto players = stage->ally[Ally::Type::allyPlayer];
 
 	for (auto trash : trashes){
+		if (trash->removed)
+			continue;
+
 		auto pos = trash->position;
 
 		for (auto unit : *players){
@@ -67,14 +73,24 @@ void TrashPool::update(float dt){
 			if (player->isTankFull())
 				continue;
 
-			if (pos.getDistance(playerPos) <=
-				player->_ATTR(range)){
+			if (pos.getDistance(playerPos) <= player->_ATTR(range)){
 
+				// 범위 안에 들어오면 바로 쓰레기 획득.
+				player->addTrash(1);
+				trash->stage->removeUnit(trash);
+
+				Vacuum noti;
+				noti.unit_id = player->id;
+				noti.trash_id = trash->id;
+				player->stage->gameroom->sendPacket(noti);
+
+				/*
 				auto move =
 					(playerPos - pos).getNormalized() *
 					trash->_ATTR(speed);
 
 				trash->position += move * dt;
+				*/
 			}
 		}
 	}

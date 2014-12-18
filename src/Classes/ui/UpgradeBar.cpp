@@ -74,58 +74,39 @@ void UpgradeBar::slide(
 void UpgradeBar::onKeyboardDown(
 	EventKeyboard::KeyCode key){
 
-	// 업그레이드 하는 거 서버로 보내기
+	// 업그레이드 하는 거 서버로 보냄
+	// 쓰레기 없는데 업그레이드 패킷이 날아가면 그냥 무시하기 때문에...
+	// 서버랑 클라 쓰레기 수가 정확하게 맞아야 함.
 	auto tank = TrashTank::getInstance();
-//	auto player = ControlablePlayer::getInstance();
 	auto resource = GlobalResource::getInstance();
 	auto network = Network::getInstance();
-	// bool upgraded = false;
-	switch (key)
-	{
-	case EventKeyboard::KeyCode::KEY_SHIFT:
+
+	if (key == EventKeyboard::KeyCode::KEY_SHIFT) {
 		tank->blink(cost);
 		slide(slideDown);
-		break;
-	case EventKeyboard::KeyCode::KEY_F1:
-		if (upgradeTrying)
-			return;
-		if (resource->trash >= cost)
-			// upgraded = player->upgrade(Attr::hp);
+	}
+	else if (!upgradeTrying && resource->trash >= cost){
+		switch (key)
+		{
+		case EventKeyboard::KeyCode::KEY_F1:
 			network->sendUpgrade(ATTR_HP);
-		upgradeTrying = true;
-		break;
-	case EventKeyboard::KeyCode::KEY_F2:
-		if (upgradeTrying)
-			return;
-		if (resource->trash >= cost)
-			// upgraded = player->upgrade(Attr::attack);
+			break;
+		case EventKeyboard::KeyCode::KEY_F2:
 			network->sendUpgrade(ATTR_ATTACK);
-		upgradeTrying = true;
-		break;
-	case EventKeyboard::KeyCode::KEY_F3:
-		if (upgradeTrying)
-			return;
-		if (resource->trash >= cost)
-			// upgraded = player->upgrade(Attr::speed);
+			break;
+		case EventKeyboard::KeyCode::KEY_F3:
 			network->sendUpgrade(ATTR_SPEED);
-		upgradeTrying = true;
-		break;
-	case EventKeyboard::KeyCode::KEY_F4:
-		if (upgradeTrying)
-			return;
-		if (resource->trash >= cost)
-			// upgraded = player->upgrade(Attr::range);
+			break;
+		case EventKeyboard::KeyCode::KEY_F4:
 			network->sendUpgrade(ATTR_RANGE);
-		upgradeTrying = true;
-		break;
-	}
+			break;
+		}
 
-	/*
-	if (upgraded) {
-		resource->trash -= cost;
-		cost += 10;
+		upgradeTrying = true;
 	}
-	*/
+	// 디버그용
+	if (key == EventKeyboard::KeyCode::KEY_F5)
+		resource->trash += 100;
 
 }
 void UpgradeBar::onKeyboardUp(

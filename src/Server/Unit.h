@@ -65,6 +65,7 @@ public:
 
 public:
 	Stage* stage;
+	bool removed;
 
 	id_t id;
 	int type;

@@ -12,6 +12,7 @@ class ActiveSkill;
 class Cursor;
 class Gauge;
 class UserResources;
+class Trash;
 
 class Player : public Unit {
 public:
@@ -20,6 +21,8 @@ public:
 
 	bool upgrade(
 		const std::string& attr_name);
+	void Vacuume(
+		Trash* trash);
 
 protected:
 	virtual bool init(
@@ -47,6 +50,8 @@ protected:
 	std::map<std::string, float> maxAttrs;
 	std::map<std::string, int> upgradeTimes;
 	std::vector<ActiveSkill*> skills;
+
+	std::vector<Trash*> vacuumingTrashs;
 
 	int moveCounter;
 	int moveSwitchVertical;

@@ -134,24 +134,27 @@ void Player::update(
 	float dt){
 		
 	/* TODO : 충돌 범위 상수나 이미지 크기 기반으로 하도록 */
-	/* TODO : 빨려들어오는건 쓰레기가 직접 오는데,
-	 *        청소하는건 플레이어가 청소
-	 *        어떻게 할건지 정하기 */
 	auto resource = GlobalResource::getInstance();
 	auto pos = getPosition();
-	auto trashPool = TrashPool::getInstance();
-	auto trashes = trashPool->query(
-		Rect(pos.x - 20, pos.y - 20, 40, 40));
 
-	/* 서버에서 먹여줌 */
-	/*
 	if(resource->trash < Max::Tank){
-		for(auto trash : trashes){
-			trash->sweep();
-			resource->trash += 1;
+		for (auto it = vacuumingTrashs.begin(); it != vacuumingTrashs.end();) {
+			auto trash = *it;
+			if (pos.getDistanceSq(trash->getPosition()) < 200) {
+				resource->trash += 1;
+				trash->sweep();
+				it = vacuumingTrashs.erase(it);
+			}
+			else {
+				auto move =
+					(pos - trash->getPosition()).getNormalized() *
+					trash->_ATTR(speed);
+				trash->runAction(
+					MoveBy::create(dt, move));
+				++it;
+			}
 		}
 	}
-	*/
 }
 void Player::updateConditions(
 	float dt){
@@ -234,4 +237,16 @@ bool Player::upgrade(
 	upgradeTimes[attr_name] += 1;
 	attr.getBonusValue() = (attr_max - attr.getValue()) / Max::Upgrade * upgradeTimes[attr_name];
 	return true;
+}
+
+void Player::Vacuume(
+	Trash* trash) {
+	if (!trash)
+		return;
+
+	auto it = std::find(vacuumingTrashs.begin(), vacuumingTrashs.end(), trash);
+	if (it != vacuumingTrashs.end())
+		return;
+
+	vacuumingTrashs.push_back(trash);
 }

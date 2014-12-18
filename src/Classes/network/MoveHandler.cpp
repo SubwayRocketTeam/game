@@ -52,3 +52,16 @@ void Network::handleSyncRotationNoti(
 	unit->runAction(
 		RotateTo::create(0.1, pkt->angle));
 }
+
+void Network::handleVacuum(
+	Vacuum *pkt) {
+
+	auto unit = (Player*)Unit::getInstanceByID(
+		pkt->unit_id);
+	auto player = ControlablePlayer::getInstance();
+
+	if (!unit)
+		return;
+
+	player->Vacuume((Trash*)Unit::getInstanceByID(pkt->trash_id));
+}

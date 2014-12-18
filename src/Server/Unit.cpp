@@ -19,7 +19,7 @@ struct Unit::PassiveData{
 };
 
 Unit::Unit()
-	:stage(nullptr)
+	:stage(nullptr), removed(false)
 	, id(INVALID_ID), type(UT_NONE), ally(0)
 	, friction(0), radius(0)
 	, usingSkill(nullptr), skillTimer(0), skillPhase(0) {
