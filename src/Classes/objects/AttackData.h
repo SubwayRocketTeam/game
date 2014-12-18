@@ -11,22 +11,27 @@ enum AttackType {
 };
 
 struct AttackData{
-	AttackData(){}
+	AttackData() :
+		user(nullptr), object(nullptr), target(nullptr),
+		type(AttackType::Pan),
+		damage(0), radius(0.0f), aggro(0.0f)
+	{
+	}
 	AttackData(
 		float damage)
 		:damage(damage){
 	}
 
-	Unit* user = nullptr;
-	Unit* object = nullptr;
-	Unit* target = nullptr;
+	Unit* user;
+	Unit* object;
+	Unit* target;
 
-	AttackType type = Pan;
-	float damage = 0;
+	AttackType type;
+	float damage;
 
 	cocos2d::Vec2 postion;
 
-	float radius = 0;
+	float radius;
 
-	float aggro = 0;
+	float aggro;
 };
