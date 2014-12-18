@@ -21,7 +21,7 @@ public:
 
 	bool upgrade(
 		const std::string& attr_name);
-	void Vacuume(
+	void vacuume(
 		Trash* trash);
 
 protected:

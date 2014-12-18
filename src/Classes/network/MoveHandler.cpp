@@ -63,5 +63,5 @@ void Network::handleVacuum(
 	if (!unit)
 		return;
 
-	player->Vacuume((Trash*)Unit::getInstanceByID(pkt->trash_id));
+	player->vacuume((Trash*)Unit::getInstanceByID(pkt->trash_id));
 }

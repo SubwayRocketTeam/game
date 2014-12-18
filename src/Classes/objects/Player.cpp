@@ -239,7 +239,7 @@ bool Player::upgrade(
 	return true;
 }
 
-void Player::Vacuume(
+void Player::vacuume(
 	Trash* trash) {
 	if (!trash)
 		return;
