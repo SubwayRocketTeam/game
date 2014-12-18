@@ -22,16 +22,16 @@ struct AttackData{
 		:damage(damage){
 	}
 
-	Unit* user;
-	Unit* object;
-	Unit* target;
+	Unit* user;		/* 공격자 */
+	Unit* object;	/* 공격 오브젝트 (총알) */
+	Unit* target;	/* 타게팅 공격일경우 타겟 오브젝트 */
 
-	AttackType type;
+	AttackType type;	/* 공격 타입 */
 	float damage;
 
 	cocos2d::Vec2 postion;
 
-	float radius;
+	float radius;	/* 공격 범위 반지름 */
 
-	float aggro;
+	float aggro;	/* 공격이 적중할 경우 상승시킬 어그로 수치 */
 };
