@@ -58,10 +58,9 @@ void Network::handleVacuum(
 
 	auto unit = (Player*)Unit::getInstanceByID(
 		pkt->unit_id);
-	auto player = ControlablePlayer::getInstance();
 
 	if (!unit)
 		return;
 
-	player->vacuume((Trash*)Unit::getInstanceByID(pkt->trash_id));
+	unit->vacuume((Trash*)Unit::getInstanceByID(pkt->trash_id));
 }

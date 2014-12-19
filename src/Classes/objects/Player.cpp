@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 #include "Player.h"
 
+#include "ControlablePlayer.h"
 #include "Enemy.h"
 #include "Trash.h"
 #include "PlayerGauge.h"
@@ -135,23 +136,23 @@ void Player::update(
 	/* TODO : 충돌 범위 상수나 이미지 크기 기반으로 하도록 */
 	auto resource = GlobalResource::getInstance();
 	auto pos = getPosition();
+	auto player = ControlablePlayer::getInstance();
 
-	if(resource->trash < Max::Tank){
-		for (auto it = vacuumingTrashs.begin(); it != vacuumingTrashs.end();) {
-			auto trash = *it;
-			if (pos.getDistanceSq(trash->getPosition()) < 200) {
+	for (auto it = vacuumingTrashs.begin(); it != vacuumingTrashs.end();) {
+		auto trash = *it;
+		if (pos.getDistanceSq(trash->getPosition()) < 200) {
+			if (this == player)
 				resource->trash += 1;
-				// trash->sweep();
-				it = vacuumingTrashs.erase(it);
-			}
-			else {
-				auto move =
-					(pos - trash->getPosition()).getNormalized() *
-					trash->_ATTR(speed);
-				trash->runAction(
-					MoveBy::create(dt, move));
-				++it;
-			}
+			trash->sweep();
+			it = vacuumingTrashs.erase(it);
+		}
+		else {
+			auto move =
+				(pos - trash->getPosition()).getNormalized() *
+				trash->_ATTR(speed);
+			trash->runAction(
+				MoveBy::create(dt, move));
+			++it;
 		}
 	}
 }

@@ -32,8 +32,10 @@ bool Trash::init(){
 }
 
 void Trash::sweep(){
+	/*
 	auto trashPool = TrashPool::getInstance();
 	trashPool->remove(this);
+	*/
 
 	runAction(
 		Sequence::create(
