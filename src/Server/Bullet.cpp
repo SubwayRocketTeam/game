@@ -40,12 +40,15 @@ bool Bullet::initPhysics(){
 }
 
 void Bullet::fire(const Vec2 &dir, float speed){
+	fireStart = position;
 	velocity = dir.getNormalized() * speed;
+	fired = true;
 }
 
 void Bullet::update(
 	float dt){
-	attackData.postion = position;
+	Unit::update(dt);
+	attackData.position = position;
 	stage->ally[_OPPOSITE(ally)]->processAttack(attackData);
 	// TODO: 최대 발사 거리 따로 빼기
 	if (fired && position.getDistance(fireStart) >= 800)
