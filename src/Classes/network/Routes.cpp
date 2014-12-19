@@ -26,8 +26,14 @@ void Network::initHandlers(){
 
 	route<RemoveUnit>(PT_RemoveUnit,
 		std::bind(&Network::handleRemoveUnit, this, placeholders::_1));
+	route<SetPhysics>(PT_SetPhysics,
+		std::bind(&Network::handleSetPhysics, this, placeholders::_1));
+	route<Vacuum>(PT_Vacuum,
+		std::bind(&Network::handleVacuum, this, placeholders::_1));
 	route<MoveNoti>(PT_MoveNoti,
 		std::bind(&Network::handleMove, this, placeholders::_1));
 	route<ChatNoti>(PT_ChatNoti,
 		std::bind(&Network::handleChatNoti, this, placeholders::_1));
+	route<UpgradeNoti>(PT_UpgradeNoti,
+		std::bind(&Network::handleUpgrade, this, placeholders::_1));
 }
