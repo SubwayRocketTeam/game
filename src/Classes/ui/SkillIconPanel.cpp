@@ -64,16 +64,16 @@ void SkillIconPanel::processSpawn(
 	/* TODO : 키<->몹ID 어딘가에 저장 */
 	switch(code){
 	case EventKeyboard::KeyCode::KEY_1:
-		type = 10;
+		type = UNIT_ENEMY_BASIC;
 		break;
 	case EventKeyboard::KeyCode::KEY_2:
-		type = 11;
+		type = UNIT_ENEMY_FOLLOW;
 		break;
 	case EventKeyboard::KeyCode::KEY_3:
-		type = 12;
+		type = UNIT_ENEMY_SPIRAL;
 		break;
 	case EventKeyboard::KeyCode::KEY_4:
-		type = 13;
+		type = UNIT_ENEMY_EXPLODE;
 		break;
 	}
 
