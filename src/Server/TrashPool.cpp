@@ -60,7 +60,7 @@ void TrashPool::spawn(const Vec2 &pos, int count){
 		trash->friction = 128 * 60;
 		stage->addUnit(trash);
 
-		push(trash);
+		// push(trash);
 
 		SpawnUnit noti;
 		noti.id = trash->id;
