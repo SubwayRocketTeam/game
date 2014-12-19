@@ -35,7 +35,7 @@ public:
 
 	virtual ~Unit();
 
-	virtual bool useSkill(int id, Vec2 dest);
+	virtual bool useSkill(int skill_id, Vec2 dest);
 
 	void addPassive(int id);
 	void removePassive(int id);

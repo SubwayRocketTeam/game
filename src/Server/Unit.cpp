@@ -137,10 +137,10 @@ bool Unit::damage(const AttackData& attackData){
 	return false;
 }
 
-bool Unit::useSkill(int id, Vec2 pos){
+bool Unit::useSkill(int skill_id, Vec2 pos){
 
 	auto pool = SkillPool::getInstance();
-	auto skill = (ActiveSkill*)pool->get(id);
+	auto skill = (ActiveSkill*)pool->get(skill_id);
 
 	if (!skill)
 		return false;
@@ -153,7 +153,7 @@ bool Unit::useSkill(int id, Vec2 pos){
 
 	UseSkillNoti noti;
 	noti.id = id;
-	noti.skill_id = id;
+	noti.skill_id = skill_id;
 	noti.x = pos.x;
 	noti.y = pos.y;
 
