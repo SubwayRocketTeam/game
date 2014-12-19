@@ -9,6 +9,8 @@
 #include "Player.h"
 #include "TrashPool.h"
 
+#include "Ally.h"
+
 typedef std::pair<id_t, id_t> IdPair;
 
 GameRoom::GameRoom(const id_t id)
@@ -22,6 +24,9 @@ GameRoom::~GameRoom() {
 		SAFE_DELETE(u);
 	}
 	units.clear();
+
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(window);
 }
 
 void GameRoom::update() {
@@ -33,6 +38,31 @@ void GameRoom::update() {
 	flush();
 
 	tick = now_tick;
+
+	SDL_SetRenderDrawColor(renderer, 255,2552,255,255);
+	SDL_RenderClear(renderer);
+
+	for(auto player : *stage[0]->ally[0]){
+		SDL_Rect rect = {
+			(400+player->position.x/2)-12, 600-(300+player->position.y/2)-12,
+			24,24};
+		SDL_SetRenderDrawColor(renderer, 0,255,0,255);
+		SDL_RenderFillRect(
+			renderer, &rect);
+	}
+	for(auto enemy : *stage[0]->ally[1]){
+		SDL_Rect rect = {
+			(400+enemy->position.x/2)-12, 600-(300+enemy->position.y/2)-12,
+			24,24};
+		SDL_SetRenderDrawColor(renderer, 255,0,0,255);
+		SDL_RenderFillRect(
+			renderer, &rect);
+	}
+
+	SDL_RenderPresent(renderer);
+
+	SDL_Event event;
+	SDL_PollEvent(&event);
 }
 
 
@@ -101,6 +131,14 @@ bool GameRoom::startGame() {
 
 	for (int i = 0; i < Max::Teams; ++i)
 		stage[i]->trashPool->spawn(1);
+
+	/* CREATE DEBUG WINDOW */
+	window = SDL_CreateWindow(
+		"dbgwindow",
+		SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+		800, 600, 0);
+	renderer = SDL_CreateRenderer(
+		window, -1, 0);
 
 	return true;
 }

@@ -5,6 +5,8 @@
 #include "Stage.h"
 #include "common\max.h"
 
+#include <SDL.h>
+
 class GameRoomManager;
 class Unit;
 
@@ -65,4 +67,7 @@ private:
 	std::vector<Unit*> units;
 	std::set<Unit*> addUnits;
 	std::set<Unit*> removeUnits;
+
+	SDL_Window *window;
+	SDL_Renderer *renderer;
 };

@@ -16,10 +16,16 @@
 #include "shared/JsonLoader.h"
 #include "shared/skill/SkillPool.h"
 
+#include <SDL.h>
+#pragma comment (lib, "sdl2")
+
 void WorkerThread(HANDLE hCP);
 
+#undef main
 void main()
 {
+	SDL_Init(SDL_INIT_VIDEO);
+
 	WSAData wsadata = { 0, };
 	if (WSAStartup(MAKEWORD(2, 2), &wsadata)) {
 		ErrorLog(WSAGetLastError());

@@ -117,6 +117,7 @@
     <ClCompile Include="..\sqlite\sqlite3.c">
       <Filter>sqlite</Filter>
     </ClCompile>
+    <ClCompile Include="DBContext.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -248,6 +249,7 @@
     <ClInclude Include="..\sqlite\sqlite3.h">
       <Filter>sqlite</Filter>
     </ClInclude>
+    <ClInclude Include="DBContext.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\jsoncpp\src\lib_json\json_internalarray.inl">
