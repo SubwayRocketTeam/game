@@ -11,6 +11,7 @@
 #include "objects/Ally.h"
 #include "objects/CollisionDetector.h"
 #include "objects/EnemyFactory.h"
+#include "objects/Trash.h"
 
 void Network::handleSpawn(
 	SpawnUnit *pkt){
@@ -26,7 +27,7 @@ void Network::handleSpawn(
 
 	switch (pkt->unit_type) {
 
-	case 0:
+	case UNIT_PLAYER:
 	{
 		auto players = Ally::getInstance(Ally::allyPlayer);
 		unit = Player::create("type1.json");
@@ -34,8 +35,7 @@ void Network::handleSpawn(
 		z = Z::unit;
 		break;
 	}
-
-	case 1:
+	case UNIT_PLAYER_ME:
 	{
 		unit = ControlablePlayer::getInstance();
 		unit->setID(pkt->id);
@@ -43,14 +43,25 @@ void Network::handleSpawn(
 		return;
 	}
 
-	case 10:
-	case 11:
-	case 12:
-	case 13:
+	case UNIT_TRASH:
+	{
+		// auto pool = TrashPool::getInstance();
+		auto trash = Trash::create();
+		unit = trash;
+		z = Z::trash;
+		break;
+	}
+
+	case UNIT_ENEMY_BASIC:
+	case UNIT_ENEMY_FOLLOW:
+	case UNIT_ENEMY_SPIRAL:
+	case UNIT_ENEMY_EXPLODE:
+	case UNIT_ENEMY_5:
+	case UNIT_ENEMY_6:
 	{
 		auto factory = EnemyFactory::getInstance();
 		auto ally = Ally::getInstance(Ally::Type::allyEnemy);
-		auto e = factory->createEnemy((EnemyType)(pkt->unit_type - 10));
+		auto e = factory->createEnemy((EnemyType)(pkt->unit_type - UNIT_ENEMY_BASIC));
 		e->resetAggro();
 		ally->push(e);
 		unit = e;
@@ -79,5 +90,15 @@ void Network::handleRemoveUnit(
 		players->remove(unit);
 		unit->setOpacity(128);
 		//stage->removeChild(unit);
+	}
+}
+void Network::handleSetPhysics(
+	SetPhysics *pkt) {
+	auto unit = Unit::getInstanceByID(pkt->id);
+
+	if (unit != nullptr){
+		unit->velocity.set(pkt->velocity_x, pkt->velocity_y);
+		unit->acceleration.set(pkt->acceleration_x, pkt->acceleration_y);
+		unit->friction = pkt->friction;
 	}
 }

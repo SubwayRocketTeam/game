@@ -7,6 +7,7 @@
 #include "Unit.h"
 #include "Enemy.h"
 #include "Player.h"
+#include "TrashPool.h"
 
 typedef std::pair<id_t, id_t> IdPair;
 
@@ -78,7 +79,8 @@ bool GameRoom::startGame() {
 
 		SpawnUnit noti;
 		noti.id = id.second;
-		noti.unit_type = 1;
+		noti.stage = player->stage->id;
+		noti.unit_type = UNIT_PLAYER_ME;
 		noti.x = player->position.x;
 		noti.y = player->position.y;
 		client->sendPacket(noti);
@@ -92,11 +94,15 @@ bool GameRoom::startGame() {
 		Unit* player = getUnit(id.second);
 		SpawnUnit noti;
 		noti.id = id.second;
-		noti.unit_type = 0;
+		noti.stage = player->stage->id;
+		noti.unit_type = UNIT_PLAYER;
 		noti.x = player->position.x;
 		noti.y = player->position.y;
 		sendPacket(noti);
 	}
+
+	for (int i = 0; i < Max::Teams; ++i)
+		stage[i]->trashPool->spawn(100);
 
 	return true;
 }

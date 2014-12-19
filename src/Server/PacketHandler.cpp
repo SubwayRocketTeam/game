@@ -101,11 +101,9 @@ REGISTER_HANDLER(SpawnRequest) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	Unit* unit = gameroom->getClientUnit(client->id);
 	auto spawner = unit->stage->spawner;
-	Enemy* enemy = spawner->spawn((EnemyType)(packet->unit_type - 10));
+	Enemy* enemy = spawner->spawn((EnemyType)(packet->unit_type - UNIT_ENEMY_BASIC));
 
 	/*
-	*/
-
 	SpawnUnit noti;
 	noti.id = enemy->id;
 	noti.stage = enemy->stage->id;
@@ -114,6 +112,7 @@ REGISTER_HANDLER(SpawnRequest) {
 	noti.unit_type = packet->unit_type;
 
 	gameroom->sendPacket(noti);
+	*/
 } END
 
 
@@ -124,6 +123,7 @@ REGISTER_HANDLER(UseSkill) {
 
 	player->useSkill(packet->skill_id, Vec2(packet->x, packet->y));
 
+	/*
 	UseSkillNoti noti;
 	noti.id = gameroom->getClientUnitId(client->id);
 	noti.skill_id = packet->skill_id;
@@ -131,6 +131,7 @@ REGISTER_HANDLER(UseSkill) {
 	noti.y = packet->y;
 
 	gameroom->sendPacket(noti);
+	*/
 } END
 
 

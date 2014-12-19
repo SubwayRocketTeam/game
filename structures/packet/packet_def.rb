@@ -59,8 +59,24 @@ class UnitType_ < Enum
   required
 
   keys [
-    :NONE,
-    :PLAYER
+    :UNIT_NONE,
+
+	:UNIT_PLAYER,
+	:UNIT_PLAYER_ME,
+	
+	:UNIT_TRASH,
+	
+	:UNIT_BULLET_PLAYER,
+	:UNIT_BULLET_ENEMY,
+	
+	:UNIT_ENEMY_BASIC,
+	:UNIT_ENEMY_FOLLOW,
+	:UNIT_ENEMY_SPIRAL,
+	:UNIT_ENEMY_EXPLODE,
+	:UNIT_ENEMY_5,
+	:UNIT_ENEMY_6,
+
+	:UNIT_MAX
   ]
 end
 
@@ -75,6 +91,16 @@ end
 class RemoveUnit < Packet
   required
   int "id"
+end
+
+class SetPhysics < Packet
+  required
+  int "id"
+  float "velocity_x"
+  float "velocity_y"
+  float "acceleration_x"
+  float "acceleration_y"
+  float "friction"
 end
 
 # 쓰레기 이용해서 적 생성 요청

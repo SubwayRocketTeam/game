@@ -17,7 +17,7 @@ struct PacketHeader{
     };
 #define END };
 
-#define PACKET_VERSION 2953284715
+#define PACKET_VERSION 4057289473
 
 enum packet_id{
   PT_PacketNone = 0,
@@ -34,18 +34,19 @@ enum packet_id{
   PT_StartGame = 11,
   PT_SpawnUnit = 12,
   PT_RemoveUnit = 13,
-  PT_SpawnRequest = 14,
-  PT_UseSkill = 15,
-  PT_UseSkillNoti = 16,
-  PT_Move = 17,
-  PT_MoveNoti = 18,
-  PT_SyncRotation = 19,
-  PT_SyncRotationNoti = 20,
-  PT_Vacuum = 21,
-  PT_UpgradeRequest = 22,
-  PT_UpgradeNoti = 23,
-  PT_ChatMessage = 24,
-  PT_ChatNoti = 25,
+  PT_SetPhysics = 14,
+  PT_SpawnRequest = 15,
+  PT_UseSkill = 16,
+  PT_UseSkillNoti = 17,
+  PT_Move = 18,
+  PT_MoveNoti = 19,
+  PT_SyncRotation = 20,
+  PT_SyncRotationNoti = 21,
+  PT_Vacuum = 22,
+  PT_UpgradeRequest = 23,
+  PT_UpgradeNoti = 24,
+  PT_ChatMessage = 25,
+  PT_ChatNoti = 26,
 
   PT_PacketMax
 };
@@ -53,8 +54,19 @@ enum packet_id{
 /* ENUMS */
 enum UnitType_{
   
-  NONE,
-  PLAYER,
+  UNIT_NONE,
+  UNIT_PLAYER,
+  UNIT_PLAYER_ME,
+  UNIT_TRASH,
+  UNIT_BULLET_PLAYER,
+  UNIT_BULLET_ENEMY,
+  UNIT_ENEMY_BASIC,
+  UNIT_ENEMY_FOLLOW,
+  UNIT_ENEMY_SPIRAL,
+  UNIT_ENEMY_EXPLODE,
+  UNIT_ENEMY_5,
+  UNIT_ENEMY_6,
+  UNIT_MAX,
 };
 enum UpgradeType{
   
@@ -125,6 +137,15 @@ END
 
 PACKET(RemoveUnit)
   int id;
+END
+
+PACKET(SetPhysics)
+  int id;
+  float velocity_x;
+  float velocity_y;
+  float acceleration_x;
+  float acceleration_y;
+  float friction;
 END
 
 PACKET(SpawnRequest)

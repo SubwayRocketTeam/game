@@ -107,24 +107,6 @@ void Player::update(
 	}
 
 	Unit::update(dt);
-
-	/* TODO : 충돌 범위 상수나 이미지 크기 기반으로 하도록 */
-	/* TODO : 빨려들어오는건 쓰레기가 직접 오는데,
-	*        청소하는건 플레이어가 청소
-	*        어떻게 할건지 정하기 */
-	auto pos = position;
-	auto trashPool = stage->trashPool;
-	auto trashes = trashPool->query(
-		pos.x - 20, pos.y - 20, 40, 40);
-
-	/* */
-	for (auto trash : trashes){
-		if (isTankFull())
-			break;
-		stage->removeUnit(trash);
-		trash += 1;
-	}
-
 }
 
 void Player::updatePhysics(float dt){

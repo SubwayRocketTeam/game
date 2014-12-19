@@ -85,6 +85,8 @@ protected:
 		SpawnUnit *pkt);
 	void handleRemoveUnit(
 		RemoveUnit *pkt);
+	void handleSetPhysics(
+		SetPhysics *pkt);
 
 	void handleUseSkillNoti(
 		UseSkillNoti *pkt);

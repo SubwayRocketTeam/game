@@ -3,6 +3,8 @@
 
 void Network::sendMove(
 	float direction_x, float direction_y){
+	
+	puts("move");
 
 	Move pkt;
 	pkt.direction_x = direction_x;
@@ -12,6 +14,8 @@ void Network::sendMove(
 
 void Network::sendSyncRotation(
 	float angle){
+	
+	puts("rotate");
 
 	SyncRotation pkt;
 	pkt.angle = angle;

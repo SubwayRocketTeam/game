@@ -3,7 +3,6 @@
 
 #include "Enemy.h"
 #include "Trash.h"
-#include "TrashPool.h"
 #include "PlayerGauge.h"
 #include "GlobalResource.h"
 
@@ -142,7 +141,7 @@ void Player::update(
 			auto trash = *it;
 			if (pos.getDistanceSq(trash->getPosition()) < 200) {
 				resource->trash += 1;
-				trash->sweep();
+				// trash->sweep();
 				it = vacuumingTrashs.erase(it);
 			}
 			else {

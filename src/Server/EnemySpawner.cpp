@@ -5,7 +5,10 @@
 #include "Unit.h"
 #include "Enemy.h"
 #include "Stage.h"
+#include "GameRoom.h"
 #include "Ally.h"
+
+#include "PacketType.h"
 
 #include "Vec2.h"
 
@@ -31,5 +34,15 @@ Enemy* EnemySpawner::spawn(
 	stage->addUnit(e);
 
 	e->resetAggro();
+
+	SpawnUnit noti;
+	noti.id = e->id;
+	noti.stage = stage->id;
+	noti.x = e->position.x;
+	noti.y = e->position.y;
+	noti.unit_type = UNIT_ENEMY_BASIC + type;
+
+	stage->gameroom->sendPacket(noti);
+
 	return e;
 }

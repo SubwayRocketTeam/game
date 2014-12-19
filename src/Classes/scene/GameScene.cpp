@@ -105,9 +105,9 @@ bool GameScene::initUI(){
 		Vec2(0,0));
 	stage->addChild(player, Z::unit);
 
-	auto trashPool = TrashPool::getInstance();
-	trashPool->spawn(100);
-	addChild(trashPool);
+	// auto trashPool = TrashPool::getInstance();
+	// trashPool->spawn(100);
+	// addChild(trashPool);
 
 	/* UI OBJECTS */
 	auto console = StatusConsole::create();

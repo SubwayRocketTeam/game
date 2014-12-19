@@ -36,6 +36,14 @@ void TrashPool::spawn(int count){
 		stage->addUnit(trash);
 
 		push(trash);
+
+		SpawnUnit noti;
+		noti.id = trash->id;
+		noti.stage = stage->id;
+		noti.unit_type = UNIT_TRASH;
+		noti.x = trash->position.x;
+		noti.y = trash->position.y;
+		stage->gameroom->sendPacket(noti);
 	}
 }
 void TrashPool::spawn(const Vec2 &pos, int count){
@@ -53,6 +61,21 @@ void TrashPool::spawn(const Vec2 &pos, int count){
 		stage->addUnit(trash);
 
 		push(trash);
+
+		SpawnUnit noti;
+		noti.id = trash->id;
+		noti.stage = stage->id;
+		noti.unit_type = UNIT_TRASH;
+		noti.x = trash->position.x;
+		noti.y = trash->position.y;
+		stage->gameroom->sendPacket(noti);
+
+		SetPhysics physics_noti;
+		physics_noti.id = trash->id;
+		physics_noti.velocity_x = trash->velocity.x;
+		physics_noti.velocity_y = trash->velocity.y;
+		physics_noti.friction = trash->friction;
+		stage->gameroom->sendPacket(physics_noti);
 	}
 }
 

@@ -137,18 +137,27 @@ bool Unit::damage(const AttackData& attackData){
 	return false;
 }
 
-bool Unit::useSkill(int id,	Vec2 pos){
+bool Unit::useSkill(int id, Vec2 pos){
 
 	auto pool = SkillPool::getInstance();
 	auto skill = (ActiveSkill*)pool->get(id);
 
-	if (skill) {
-		skill->use(this, pos);
-		usingSkill = skill;
-		skillTimer = 0;
-		skillPhase = 0;
-		skillTarget = pos;
-	}
+	if (!skill)
+		return false;
+
+	skill->use(this, pos);
+	usingSkill = skill;
+	skillTimer = 0;
+	skillPhase = 0;
+	skillTarget = pos;
+
+	UseSkillNoti noti;
+	noti.id = id;
+	noti.skill_id = id;
+	noti.x = pos.x;
+	noti.y = pos.y;
+
+	stage->gameroom->sendPacket(noti);
 
 	return true;
 }
