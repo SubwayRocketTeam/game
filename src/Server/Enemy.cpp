@@ -63,7 +63,7 @@ void Enemy::update(float dt){
 		position += move;
 	}
 
-	attackData.postion = position;
+	attackData.position = position;
 	stage->ally[_OPPOSITE(ally)]->processAttack(attackData);
 
 	if (skill)
@@ -90,6 +90,7 @@ bool Enemy::onDamage(
 }
 
 bool Enemy::onDeath(){
+	puts("EnemyDead");
 	stage->trashPool->spawn(
 		position, (int)_ATTR(drops));
 	return true;

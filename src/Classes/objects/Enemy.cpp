@@ -43,7 +43,6 @@ bool Enemy::init(){
 	attackData.object = this;
 	attackData.target = nullptr;
 	attackData.radius = 30;
-	attackData.type = AttackType::Pan;
 	attackData.aggro = 0;
 	attackData.damage = 1;
 
@@ -90,7 +89,7 @@ void Enemy::update(
 			MoveBy::create(dt, -move));
 	}
 
-	attackData.postion = getPosition();
+	attackData.position = getPosition();
 	Ally::getInstance(_OPPOSITE(allyID))->processAttack(attackData);
 
 	if (skill)
@@ -117,8 +116,10 @@ bool Enemy::onDamage(
 }
 
 bool Enemy::onDeath(){
+	/*
 	TrashPool::getInstance()->spawn(
 		getPosition(), _ATTR(drops));
+	*/
 	return Unit::onDeath();
 }
 

@@ -124,6 +124,16 @@ class UseSkillNoti < Packet
   float "y"
 end
 
+class Attack < Packet
+  required
+  int "attacker_id"
+  int "target_id"
+  float "attack_position_x"
+  float "attack_position_y"
+  float "damage"
+  float "aggro"
+end
+
 # MOVE
 class Move < Packet
   required
@@ -169,14 +179,14 @@ class UpgradeType < Enum
 end
 
 class UpgradeRequest < Packet
-	required
-	int "upgrade_type"
+  required
+  int "upgrade_type"
 end
 
 class UpgradeNoti < Packet
-	required
-	int "id"
-	int "upgrade_type"
+  required
+  int "id"
+  int "upgrade_type"
 end
 
 # CHAT

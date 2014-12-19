@@ -4,16 +4,9 @@
 
 class Unit;
 
-enum AttackType {
-	Pan,
-	Line,
-	Target
-};
-
 struct AttackData{
 	AttackData() :
 		user(nullptr), object(nullptr), target(nullptr),
-		type(AttackType::Pan),
 		damage(0), radius(0.0f), aggro(0.0f)
 	{
 	}
@@ -26,10 +19,9 @@ struct AttackData{
 	Unit* object;	/* 공격 오브젝트 (총알) */
 	Unit* target;	/* 타게팅 공격일경우 타겟 오브젝트 */
 
-	AttackType type;	/* 공격 타입 */
-	float damage;
+	float damage;	/* 데미지 */
 
-	cocos2d::Vec2 postion;
+	cocos2d::Vec2 position; /* 공격 중심 */
 
 	float radius;	/* 공격 범위 반지름 */
 

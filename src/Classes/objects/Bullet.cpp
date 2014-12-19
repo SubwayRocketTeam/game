@@ -36,7 +36,6 @@ bool Bullet::init(
 	attackData.user = nullptr;
 	attackData.target = nullptr;
 	attackData.radius = 0;
-	attackData.type = AttackType::Pan;
 	attackData.aggro = 0;
 	attackData.damage = 0;
 	attackData.object = this;
@@ -102,7 +101,7 @@ void Bullet::update(
 		remove();
 	else
 	{
-		attackData.postion = getPosition();
+		attackData.position = getPosition();
 
 		Ally::getInstance(_OPPOSITE(allyID))
 			->processAttack(attackData);

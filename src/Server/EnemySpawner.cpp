@@ -30,7 +30,7 @@ Enemy* EnemySpawner::spawn(
 	Enemy *e = factory->createEnemy(type);
 	e->position = Vec2(rand()%1600-800, rand()%1200-600);
 
-	ally->push(e);
+	// ally->push(e);
 	stage->addUnit(e);
 
 	e->resetAggro();

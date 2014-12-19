@@ -24,7 +24,7 @@ bool Suction::update(
 	attackData.user = user;
 	attackData.object = user;
 	attackData.damage = 0;
-	attackData.postion = user->getPosition();
+	attackData.position = user->getPosition();
 	attackData.radius = user->getAttribute(Attr::range).get();
 	attackData.aggro = 1;
 

@@ -100,7 +100,7 @@ bool GameRoom::startGame() {
 	}
 
 	for (int i = 0; i < Max::Teams; ++i)
-		stage[i]->trashPool->spawn(100);
+		stage[i]->trashPool->spawn(1);
 
 	return true;
 }
