@@ -110,7 +110,7 @@ void Player::update(
 }
 
 void Player::updatePhysics(float dt){
-	friction = stiff > 0.f ? 1000.f : 0.f;
+	friction = stiff > 0.f ? 128.f * 60.f : 0.f;
 	Unit::updatePhysics(dt);
 }
 
@@ -140,12 +140,12 @@ bool Player::onDamage(
 
 	/* TODO : 무적 기간 상수에 집어넣기 */
 	immortal = 0.5f;
-	stiff = max(stiff, 0.2f);
+	stiff = max(stiff, 0.5f);
 
 	auto deltaNorm =
-		(position - attackData.object->position).getNormalized();
+		(position - attackData.position).getNormalized();
 
-	velocity = deltaNorm * 300.f;
+	velocity = deltaNorm * 40.f * 60.f;
 
 	return true;
 }
