@@ -188,7 +188,7 @@ bool Player::onDamage(
 
 	/* TODO : 무적 기간 상수에 집어넣기 */
 	blink();
-	immortal = 0.5;
+	immortal = 1.f;
 	stiff = MAX(stiff, 0.5f);
 
 	auto deltaNorm =
@@ -201,7 +201,7 @@ bool Player::onDamage(
 			MoveBy::create(0.2f, deltaNorm * 70)
 		));
 	*/
-	velocity = deltaNorm * 40.f * 60.f;
+	velocity = deltaNorm * 30.f * 60.f;
 
 	return true;
 }

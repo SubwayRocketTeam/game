@@ -139,13 +139,13 @@ bool Player::onDamage(
 		return false;
 
 	/* TODO : 무적 기간 상수에 집어넣기 */
-	immortal = 0.5f;
+	immortal = 1.f;
 	stiff = max(stiff, 0.5f);
 
 	auto deltaNorm =
 		(position - attackData.position).getNormalized();
 
-	velocity = deltaNorm * 40.f * 60.f;
+	velocity = deltaNorm * 30.f * 60.f;
 
 	return true;
 }

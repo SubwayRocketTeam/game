@@ -208,7 +208,7 @@ void Unit::blink(){
 				FadeTo::create(0.125, 100),
 				FadeTo::create(0.125, 255),
 				nullptr),
-			2))
+			4))
 		->setTag(ActionType::Blink);
 }
 
