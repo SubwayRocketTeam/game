@@ -35,7 +35,7 @@ void TrashPool::spawn(int count){
 			Vec2(rand() % 1600 - 800.f, rand() % 1200 - 600.f);
 		stage->addUnit(trash);
 
-		push(trash);
+		// push(trash);
 
 		SpawnUnit noti;
 		noti.id = trash->id;
@@ -84,8 +84,6 @@ void TrashPool::update(float dt){
 	auto players = stage->ally[Ally::Type::allyPlayer];
 
 	for (auto trash : trashes){
-		if (trash->removed)
-			continue;
 
 		auto pos = trash->position;
 
@@ -114,6 +112,8 @@ void TrashPool::update(float dt){
 
 				trash->position += move * dt;
 				*/
+
+				break;
 			}
 		}
 	}
