@@ -88,8 +88,6 @@ bool GameRoom::startGame() {
 
 	flush();
 
-	/*
-	*/
 	for (auto id : clientIds) {
 		Unit* player = getUnit(id.second);
 		SpawnUnit noti;

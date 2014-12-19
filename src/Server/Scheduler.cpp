@@ -80,6 +80,12 @@ void CALLBACK timerCallback(LPVOID lpArgToCompletionRoutine, DWORD dwTimerLowVal
 	TimerContext* context = new TimerContext();
 	context->gameRoomId = schedulerArg->room_id;
 
+	/*
+	for (int i = 0; i < schedulerArg->ref_count; ++i)
+		printf("@");
+	puts("");
+	*/
+
 	if (GameRoomManager::getInstance()->getGameRoom(schedulerArg->room_id)) {
 		PostQueuedCompletionStatus(Scheduler::hCompletionPort, 0, CKT_TIMER, (LPOVERLAPPED)context);
 		// schedulerArg->tick = timeGetTime();

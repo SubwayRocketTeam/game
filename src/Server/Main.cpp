@@ -139,6 +139,7 @@ void WorkerThread(HANDLE hCP) {
 		{
 			TimerContext* context = (TimerContext*)iocontext;
 			GameRoom* room = GameRoomManager::getInstance()->getGameRoom(context->gameRoomId);
+			// printf("TIMERTIMERTIMERTIMERITMER\n");
 			if (room)
 				room->update();
 			break;
@@ -148,6 +149,7 @@ void WorkerThread(HANDLE hCP) {
 		{
 			SocketContext* context = (SocketContext*)iocontext;
 			if (context->recv) {
+				// printf("RECV\n");
 				Client* client = ClientManager::getInstance()->getClient(context->clientId);
 				if (transferred == 0) {
 					ClientManager::getInstance()->removeClient(context->clientId);

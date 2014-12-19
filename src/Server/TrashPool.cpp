@@ -83,16 +83,16 @@ void TrashPool::update(float dt){
 
 	auto players = stage->ally[Ally::Type::allyPlayer];
 
-	for (auto trash : trashes){
+	for (auto unit : *players){
 
-		auto pos = trash->position;
+		Player* player = (Player*)unit;
+		auto playerPos = player->position;
 
-		for (auto unit : *players){
-			Player* player = (Player*)unit;
-			auto playerPos = player->position;
+		if (player->isTankFull())
+			continue;
 
-			if (player->isTankFull())
-				continue;
+		for (auto trash : trashes){
+			auto pos = trash->position;
 
 			if (pos.getDistance(playerPos) <= player->_ATTR(range)){
 
@@ -104,14 +104,6 @@ void TrashPool::update(float dt){
 				noti.unit_id = player->id;
 				noti.trash_id = trash->id;
 				player->stage->gameroom->sendPacket(noti);
-
-				/*
-				auto move =
-					(playerPos - pos).getNormalized() *
-					trash->_ATTR(speed);
-
-				trash->position += move * dt;
-				*/
 
 				break;
 			}
