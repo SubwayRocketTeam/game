@@ -20,7 +20,7 @@ MouseEventListener::~MouseEventListener(){
 }
 
 void MouseEventListener::enableMouseInput(
-	Node *target){
+	Node *_target){
 
 	mouseListener = EventListenerMouse::create();
 	mouseListener->onMouseMove = [this](Event *event){
@@ -56,11 +56,11 @@ void MouseEventListener::enableMouseInput(
 			e->getCursorX(), e->getCursorY());
 	};
 
+	target = _target;
 	auto director = Director::getInstance();
 	director->getScheduler()->schedule(
 		SEL_SCHEDULE(&MouseEventListener::processMouseTurbo), (Ref*)this,
 		1.0f / Global::fps, false);
-
 	target->getEventDispatcher()->
 		addEventListenerWithSceneGraphPriority(mouseListener, target);
 }
@@ -68,7 +68,12 @@ void MouseEventListener::disableMouseInput(){
 	if(mouseListener){
 		target->getEventDispatcher()->
 			removeEventListener(mouseListener);
+		mouseListener = nullptr;
 	}
+
+	auto director = Director::getInstance();
+	director->getScheduler()->unschedule(
+		SEL_SCHEDULE(&MouseEventListener::processMouseTurbo), (Ref*)this);
 }
 
 void MouseEventListener::processMouseTurbo(float dt){
