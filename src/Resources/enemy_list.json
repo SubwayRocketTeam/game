@@ -67,6 +67,22 @@
 			"skills" : [],
 			
 			"pay" : 10
+		},
+		{
+			"name" : "enemyDup",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 10},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 5},
+				{"name" : "attack", "value" : 50},
+				{"name" : "defence", "value" : 0},
+				{"name" : "radius", "value" : 30}
+			],
+			
+			"skills" : [],
+			
+			"pay" : 10
 		}
 	]
 }

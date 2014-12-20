@@ -10,6 +10,7 @@ enum SkillID{
 	skillSpiral = 200,
 	skillExplosion,
 	skillEnemyShot,
+	skillDuplication,
 
 	skillRepair = 10000
 };

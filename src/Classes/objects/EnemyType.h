@@ -5,6 +5,7 @@ enum EnemyType{
 	enemyFollow,
 	enemySpiral,
 	enemyExplode,
+	enemyDup,
 	enemyMax
 };
 

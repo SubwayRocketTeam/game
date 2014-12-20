@@ -241,6 +241,12 @@
     <ClCompile Include="..\Classes\objects\EnemySpawner.cpp">
       <Filter>source\object\enemy\base</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\objects\EnemyDup.cpp">
+      <Filter>source\object\enemy\types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\enemy\Duplication.cpp">
+      <Filter>source\skill\enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -512,6 +518,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\objects\EnemyType.h">
       <Filter>source\object\enemy\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemyDup.h">
+      <Filter>source\object\enemy\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\enemy\Duplication.h">
+      <Filter>source\skill\enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
