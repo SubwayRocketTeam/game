@@ -13,12 +13,6 @@
     <ClCompile Include="..\Classes\common\resource.cpp">
       <Filter>source\common</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\objects\Enemy.cpp">
-      <Filter>source\object</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\objects\EnemySpawner.cpp">
-      <Filter>source\object</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\objects\Bullet.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
@@ -99,9 +93,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\skill\general\Suction.cpp">
       <Filter>source\skill\general</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\objects\EnemyFactory.cpp">
-      <Filter>source\object</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\objects\PlayerGauge.cpp">
       <Filter>source\object</Filter>
@@ -229,9 +220,6 @@
     <ClCompile Include="..\Classes\network\UnitSender.cpp">
       <Filter>source\network</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\objects\EnemyExplode.cpp">
-      <Filter>source\object</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\objects\ControlablePlayer.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
@@ -240,6 +228,18 @@
     </ClCompile>
     <ClCompile Include="..\Classes\network\UpgradeHandler.cpp">
       <Filter>source\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Enemy.cpp">
+      <Filter>source\object\enemy\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\EnemyExplode.cpp">
+      <Filter>source\object\enemy\types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\EnemyFactory.cpp">
+      <Filter>source\object\enemy\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\EnemySpawner.cpp">
+      <Filter>source\object\enemy\base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -254,12 +254,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\common\resource.h">
       <Filter>source\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\objects\Enemy.h">
-      <Filter>source\object</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\objects\EnemySpawner.h">
-      <Filter>source\object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\Bullet.h">
       <Filter>source\object</Filter>
@@ -378,9 +372,6 @@
     <ClInclude Include="..\Classes\ui\UpgradeBar.h">
       <Filter>source\ui</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\objects\EnemyFactory.h">
-      <Filter>source\object</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\common\zorder.h">
       <Filter>source\common</Filter>
     </ClInclude>
@@ -408,9 +399,6 @@
     <ClInclude Include="..\Classes\objects\tags.h">
       <Filter>source\object\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\objects\EnemyInfo.h">
-      <Filter>source\object</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\skill\type1\Adrenaline.h">
       <Filter>source\skill\type1</Filter>
     </ClInclude>
@@ -424,9 +412,6 @@
       <Filter>source\object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\objects\CollisionDetector.h">
-      <Filter>source\object</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\objects\EnemyType.h">
       <Filter>source\object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\skill\general\Suction.h">
@@ -507,11 +492,26 @@
     <ClInclude Include="..\shared\end_compat.h">
       <Filter>source\shared</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\objects\EnemyExplode.h">
-      <Filter>source\object</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\objects\ControlablePlayer.h">
       <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Enemy.h">
+      <Filter>source\object\enemy\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemyExplode.h">
+      <Filter>source\object\enemy\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemyFactory.h">
+      <Filter>source\object\enemy\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemyInfo.h">
+      <Filter>source\object\enemy\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemySpawner.h">
+      <Filter>source\object\enemy\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\EnemyType.h">
+      <Filter>source\object\enemy\base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -574,6 +574,15 @@
     </Filter>
     <Filter Include="source\shared\skill_base">
       <UniqueIdentifier>{8eac7edf-c50a-4c06-a948-66ecf14325f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\object\enemy">
+      <UniqueIdentifier>{89b69493-6e74-4208-a041-ed3bb8111e74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\object\enemy\base">
+      <UniqueIdentifier>{f4097f44-fcca-447a-89b2-656d8ea6de1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\object\enemy\types">
+      <UniqueIdentifier>{8e9230e5-a23d-4deb-bd59-06ec299997c7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
