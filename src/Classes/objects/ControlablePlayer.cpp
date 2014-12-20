@@ -184,6 +184,9 @@ void ControlablePlayer::onKeyboardDown(
 	if (keycode == EventKeyboard::KeyCode::KEY_SPACE)
 		addPassive(12);
 
+	if (keycode == EventKeyboard::KeyCode::KEY_2)
+		Player::useSkill(13, getPosition());
+
 	bool moved = false;
 
 	if(keycode == EventKeyboard::KeyCode::KEY_W)

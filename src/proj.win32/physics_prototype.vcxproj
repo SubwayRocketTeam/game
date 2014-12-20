@@ -174,6 +174,7 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClCompile Include="..\Classes\objects\GlobalResource.cpp" />
     <ClCompile Include="..\Classes\objects\PlayerGauge.cpp" />
     <ClCompile Include="..\Classes\objects\RepairArea.cpp" />
+    <ClCompile Include="..\Classes\objects\Replica.cpp" />
     <ClCompile Include="..\Classes\objects\Stage.cpp" />
     <ClCompile Include="..\Classes\objects\Enemy.cpp" />
     <ClCompile Include="..\Classes\objects\EnemySpawner.cpp" />
@@ -201,6 +202,7 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClCompile Include="..\Classes\skill\general\Suction.cpp" />
     <ClCompile Include="..\Classes\skill\type1\Adrenaline.cpp" />
     <ClCompile Include="..\Classes\skill\type1\FrontDash.cpp" />
+    <ClCompile Include="..\Classes\skill\type1\Replication.cpp" />
     <ClCompile Include="..\Classes\skill\type1\Slash.cpp" />
     <ClCompile Include="..\Classes\ui\ChatBox.cpp" />
     <ClCompile Include="..\Classes\ui\Gauge.cpp" />
@@ -287,6 +289,7 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClInclude Include="..\Classes\objects\GlobalResource.h" />
     <ClInclude Include="..\Classes\objects\PlayerGauge.h" />
     <ClInclude Include="..\Classes\objects\RepairArea.h" />
+    <ClInclude Include="..\Classes\objects\Replica.h" />
     <ClInclude Include="..\Classes\objects\Stage.h" />
     <ClInclude Include="..\Classes\objects\Enemy.h" />
     <ClInclude Include="..\Classes\objects\EnemySpawner.h" />
@@ -312,6 +315,7 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClInclude Include="..\Classes\skill\general\Suction.h" />
     <ClInclude Include="..\Classes\skill\type1\Adrenaline.h" />
     <ClInclude Include="..\Classes\skill\type1\FrontDash.h" />
+    <ClInclude Include="..\Classes\skill\type1\Replication.h" />
     <ClInclude Include="..\Classes\skill\type1\Slash.h" />
     <ClInclude Include="..\Classes\ui\ChatBox.h" />
     <ClInclude Include="..\Classes\ui\Gauge.h" />

@@ -4,6 +4,7 @@ enum SkillID{
 	skillSlash = 10,
 	skillFrontDash,
 	skillSuction,
+	skillReplication,
 
 	skillAdrenaline = 100,
 

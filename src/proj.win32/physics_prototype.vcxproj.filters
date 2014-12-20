@@ -247,6 +247,12 @@
     <ClCompile Include="..\Classes\skill\enemy\Duplication.cpp">
       <Filter>source\skill\enemy</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\skill\type1\Replication.cpp">
+      <Filter>source\skill\type1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\objects\Replica.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -524,6 +530,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\skill\enemy\Duplication.h">
       <Filter>source\skill\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\type1\Replication.h">
+      <Filter>source\skill\type1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\objects\Replica.h">
+      <Filter>source\object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
