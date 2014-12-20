@@ -122,8 +122,8 @@ bool EnemyFactory::initExternalData(const std::string &dataPath) {
 			skeleton->skills.push_back((ActiveSkill*)pool->get(skillId.asInt()));
 		}
 
-		auto pay = info.get("pay", 0).asInt();
-		skeleton->pay = pay;
+		auto cost = info.get("cost", 0).asInt();
+		skeleton->cost = cost;
 		dic.push_back(skeleton);
 	}
 

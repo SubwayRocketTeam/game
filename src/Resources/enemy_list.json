@@ -16,7 +16,7 @@
 			
 			"skills" : [],
 			
-			"pay" : 10
+			"cost" : 10
 		},
 		{
 			"name" : "enemyFollow",
@@ -32,7 +32,7 @@
 			
 			"skills" : [202],
 			
-			"pay" : 10
+			"cost" : 10
 		},
 		{
 			"name" : "enemySpiral",
@@ -50,7 +50,7 @@
 				200
 			],
 			
-			"pay" : 10
+			"cost" : 10
 		},
 		{
 			"name" : "enemyExplosion",
@@ -66,7 +66,7 @@
 			
 			"skills" : [],
 			
-			"pay" : 10
+			"cost" : 10
 		},
 		{
 			"name" : "enemyDup",
@@ -82,7 +82,7 @@
 			
 			"skills" : [],
 			
-			"pay" : 10
+			"cost" : 10
 		}
 	]
 }
