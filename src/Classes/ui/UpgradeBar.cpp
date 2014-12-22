@@ -100,6 +100,8 @@ void UpgradeBar::onKeyboardDown(
 		case EventKeyboard::KeyCode::KEY_F4:
 			network->sendUpgrade(ATTR_RANGE);
 			break;
+		default:
+			return;
 		}
 
 		upgradeTrying = true;
