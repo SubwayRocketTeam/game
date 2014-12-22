@@ -12,5 +12,7 @@ void _ErrorLog(const char* const file, const int line, const int errorCode)
 		0,
 		nullptr);
 	fprintf(stderr, "%s(%d): %s (%d)\n", file, line, buf, errorCode);
+#ifdef _DEBUG
 	__debugbreak();
+#endif
 }
