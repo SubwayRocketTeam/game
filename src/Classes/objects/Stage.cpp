@@ -24,7 +24,7 @@ bool Stage::create(){
 	for(int i=0;i<_countof(instances);i++){
 		instances[i] = new Stage();
 
-		if(instances[i] && instances[i]->init()){
+		if(instances[i] && instances[i]->init(i)){
 			instances[i]->autorelease();
 		}
 		else{
@@ -54,13 +54,16 @@ CollisionDetector* Stage::getCollisionDetector(){
 }
 
 
-bool Stage::init(){
+bool Stage::init(
+	int _id){
+
 	if (!Node::init())
 		return false;
 
 	if(!initExternalData())
 		return false;
 
+	id = _id;
 
 	floor = Sprite::create(R::StageFloor);
 	addChild(floor, -1);
@@ -130,6 +133,10 @@ void Stage::update(
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto floorSize = floor->getContentSize();
 	auto player = ControlablePlayer::getInstance();
+	
+	/* 자기가 속한 스테이지만 카메라 이동 */
+	if(player->getStageID() != id)
+		return;
 
 	auto center =
 		player->getPosition() + (mousePos - visibleSize/2) / 2;

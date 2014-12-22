@@ -17,7 +17,8 @@ public:
 	CollisionDetector* getCollisionDetector();
 
 protected:
-	virtual bool init();
+	virtual bool init(
+		int id);
 	virtual bool initExternalData();
 	virtual bool initObject(
 		const std::string &name,
