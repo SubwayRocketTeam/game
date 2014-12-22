@@ -1,0 +1,9 @@
+{
+  "id" : 10,
+  "name" : "slash",
+  "tooltip" : "gdgd",
+
+  "duration" : 0,
+  "cooltime" : 0.3,
+  "cost" : 0
+}

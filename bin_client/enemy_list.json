@@ -1,0 +1,88 @@
+{	
+	"enemyList" : [
+		{
+			"name" : "enemyBasic",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 3},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 300},
+				{"name" : "attack", "value" : 50},
+				{"name" : "attack_speed", "value" : 3.0},
+				{"name" : "range", "value" : 120},
+				{"name" : "defence", "value" : 0},
+				{"name" : "radius", "value" : 30}
+			],
+			
+			"skills" : [],
+			
+			"cost" : 10
+		},
+		{
+			"name" : "enemyFollow",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 3},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 200},
+				{"name" : "attack", "value" : 50},
+				{"name" : "defence", "value" : 0},
+				{"name" : "radius", "value" : 30}
+			],
+			
+			"skills" : [202],
+			
+			"cost" : 10
+		},
+		{
+			"name" : "enemySpiral",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 20},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 0},
+				{"name" : "attack", "value" : 50},
+				{"name" : "defence", "value" : 0},
+				{"name" : "radius", "value" : 30}
+			],
+			
+			"skills" : [
+				200
+			],
+			
+			"cost" : 10
+		},
+		{
+			"name" : "enemyExplosion",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 3},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 500},
+				{"name" : "attack", "value" : 50},
+				{"name" : "defence", "value" : 0},
+				{"name" : "radius", "value" : 30}
+			],
+			
+			"skills" : [],
+			
+			"cost" : 10
+		},
+		{
+			"name" : "enemyDup",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 10},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 500},
+				{"name" : "attack", "value" : 50},
+				{"name" : "defence", "value" : 0},
+				{"name" : "radius", "value" : 30}
+			],
+			
+			"skills" : [],
+			
+			"cost" : 10
+		}
+	]
+}

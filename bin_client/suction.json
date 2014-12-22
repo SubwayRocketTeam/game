@@ -1,0 +1,15 @@
+{
+  "id" : 12,
+  "name" : "suction",
+  "tooltip" : "suction",
+  "duration": 9999999999,
+  "interval" : 0.016,
+	
+  "bonus" : [
+    {
+      "target" : "range",
+      "value" : 0,
+      "rate" : 3
+    }
+  ]
+}
