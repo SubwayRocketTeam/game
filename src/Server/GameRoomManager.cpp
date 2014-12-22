@@ -29,15 +29,12 @@ GameRoom* GameRoomManager::getGameRoom(const id_t id) {
 	return it->second;
 }
 GameRoom *GameRoomManager::getAvailableGameRoom(){
-	/* TODO : 4 교체 */
 	auto room = getGameRoom(available);
-	if (!room || room->clientIds.size() >= 2) {
+	if (!room || room->isPlaying()) {
 		available = INVALID_ID;
 	}
 
 	if (available == INVALID_ID){
-		/* ISSUE : id로 관리하면 매번 map::find가 실행됨 */ 
-		/* SOLUTION : createGameRoom이 GameRoom*을 반환하게 */
 		available = createGameRoom();
 	}
 
@@ -59,8 +56,9 @@ bool GameRoomManager::removeGameRoom(const id_t id) {
 	auto it = rooms.find(id);
 	if (it == rooms.end())
 		return false;
+	auto room = it->second;
 	rooms.erase(it);
 	printf("Room %d Exploded.\n", id);
-	SAFE_DELETE(it->second);
+	SAFE_DELETE(room);
 	return true;
 }

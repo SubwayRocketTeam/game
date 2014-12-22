@@ -265,3 +265,7 @@ bool GameRoom::empty() const {
 size_t GameRoom::size() const {
 	return clientIds.size();
 }
+
+bool GameRoom::isPlaying() {
+	return gameRunning;
+}
