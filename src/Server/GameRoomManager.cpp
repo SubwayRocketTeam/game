@@ -61,5 +61,6 @@ bool GameRoomManager::removeGameRoom(const id_t id) {
 		return false;
 	rooms.erase(it);
 	printf("Room %d Exploded.\n", id);
+	SAFE_DELETE(it->second);
 	return true;
 }
