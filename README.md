@@ -1,28 +1,35 @@
-8주차 릴리즈
-====
+# Robotopia Cleaner
 
-사용법
+패킷 생성 방법
 ----
-1. (넥스트 내부망에서) 원격 데스크톱으로 10.73.45.142를 띄운다. (아이디 비번은 안 바꿨음)
-2. 서버가 떠 있는 것을 확인하다.
-  3. 안 떠있으면 Resources_Server\Server.exe를 실행
-4. 클라를 켠다.
+* gen_packet.bat 파일 실행
+* [PGen](packet_struct/README.md)
 
-추가된 조작
+Pull 할 때 주의사항
 ----
-* F1, F2, F3, F4
-  * 쓰레기 소모하여 능력치 업그레이드.
-* Shift
-  * 능력치 업그레이드로 소모되는 자원 표시
+* gitshell 열기
+```
+git submodule init
+git submodule update
+```
 
-업데이트 노트
+* cocos2d/download-deps.py를 실행
+
+
+ToDo List
 ----
-* 피격 동기화
-  * 때리고, 맞고, 넉백되는 것들 모두 동기화. (완벽하지는 않음)
-* 쓰레기 동기화
-  * 쓰레기 생성, 쓰레기 먹기 모두 동기화.
-* 플레이어 업그레이드
-  * 업그레이드는 되는데 게임상에서 체감은 안 됨(...)
-* 서버에서 unit들 위치 보기위한 디버그 윈도우
-  * 이것 때문에 원격 데스크톱을 안 띄우면 죽음...()
-* 원격 서버에 올림.
+* UI 작업들
+* 네트워크
+* [ActiveJson](https://github.com/SubwayRocketTeam/ActiveJson)
+
+
+Inner Links
+----
+* [코딩 스타일](https://github.com/SubwayRocketTeam/game/tree/master/doc/style)
+* [구조 및 설계](https://github.com/SubwayRocketTeam/game/tree/master/doc/arch)
+
+Outer Links
+----
+* [팀 wiki](https://github.com/SubwayRocketTeam/documents/wiki)
+* [게임 컨셉 기획](https://github.com/SubwayRocketTeam/documents/wiki/%EA%B2%8C%EC%9E%84-%EC%BB%A8%EC%85%89-%EA%B8%B0%ED%9A%8D)
+* [프로토타입 레포](https://github.com/SubwayRocketTeam/Prototype)
