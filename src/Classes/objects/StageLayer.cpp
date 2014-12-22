@@ -2,6 +2,7 @@
 #include "StageLayer.h"
 
 #include "Stage.h"
+#include "ControlablePlayer.h"
 
 using namespace cocos2d;
 
@@ -49,15 +50,21 @@ bool StageLayer::init(){
 }
 
 void StageLayer::switchStage(){
+	auto size =
+		Director::getInstance()->getWinSize();
+	auto player = ControlablePlayer::getInstance();
 	Stage *stage;
-	
+
 	/* 이전 스테이지 FadeOut */
 	stage = Stage::getInstance(activeStageID);
 	stage->stopAllActionsByTag(
 		actionSwitchStage);
 	stage->runAction(
 		Sequence::create(
-			FadeTo::create(0.2, 0),
+			Spawn::create(
+				FadeTo::create(0.2, 0),
+				ScaleTo::create(0.2, 1,1),
+				nullptr),
 			Hide::create(),
 			nullptr
 		))
@@ -66,6 +73,17 @@ void StageLayer::switchStage(){
 	/* 기본적으로 2팀임을 가정 */
 	activeStageID ^= 1;
 
+	auto stageSize = stage->getContentSize();
+	Size ratio; 
+	
+	if(player->getStageID() == activeStageID)
+		ratio.setSize(1,1);
+	else{
+		ratio.setSize(
+			size.width / stageSize.width,
+			size.height / stageSize.height);
+	}
+
 	/* 새 스테이지 FadeIn */
 	stage = Stage::getInstance(activeStageID);
 	stage->stopAllActionsByTag(
@@ -73,7 +91,10 @@ void StageLayer::switchStage(){
 	stage->runAction(
 		Sequence::create(
 			Show::create(),
-			FadeTo::create(0.1, 255),
+			Spawn::create(
+				FadeTo::create(0.1, 255),
+				ScaleTo::create(0.1, ratio.width,ratio.height),
+				nullptr),
 			nullptr
 		))
 		->setTag(actionSwitchStage);
@@ -87,8 +108,6 @@ void StageLayer::onKeyboardDown(
 		switchStage();
 	}
 }
-
-/// 아래 위 함수 똑같은거 같은데...
 void StageLayer::onKeyboardUp(
 	cocos2d::EventKeyboard::KeyCode keycode){
 
