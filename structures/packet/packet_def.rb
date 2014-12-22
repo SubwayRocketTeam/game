@@ -34,6 +34,7 @@ end
 class EnterNoti < Packet
   required
   int "client_id"
+  string "nickname", 32
 end
 class LeaveNoti < Packet
   required

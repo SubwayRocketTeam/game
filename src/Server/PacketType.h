@@ -17,7 +17,7 @@ struct PacketHeader{
     };
 #define END };
 
-#define PACKET_VERSION 2352098534
+#define PACKET_VERSION 2747141662
 
 enum packet_id{
   PT_PacketNone = 0,
@@ -110,6 +110,7 @@ END
 
 PACKET(EnterNoti)
   int client_id;
+  char nickname[33];
 END
 
 PACKET(LeaveNoti)
