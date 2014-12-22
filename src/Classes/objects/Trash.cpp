@@ -43,7 +43,8 @@ void Trash::sweep(){
 				FadeOut::create(0.3),
 				ScaleTo::create(0.3, 2.5),
 				nullptr),
-			RemoveSelf::create(),
+			// RemoveSelf::create(),
+			CallFunc::create(CC_CALLBACK_0(Unit::remove, this)),
 			nullptr
 		));
 }
