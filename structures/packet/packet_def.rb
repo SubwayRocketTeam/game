@@ -129,6 +129,8 @@ class Attack < Packet
   required
   int "attacker_id"
   int "target_id"
+  float "target_position_x"
+  float "target_position_y"
   float "attack_position_x"
   float "attack_position_y"
   float "damage"

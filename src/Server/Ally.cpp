@@ -39,6 +39,8 @@ void Ally::processAttack(
 			Attack noti;
 			noti.attacker_id = data.user->id;
 			noti.target_id = member->id;
+			noti.target_position_x = member->position.x;
+			noti.target_position_y = member->position.y;
 			noti.attack_position_x = data.position.x;
 			noti.attack_position_y = data.position.y;
 			noti.damage = data.damage;

@@ -30,6 +30,8 @@ void Network::handleAttack(
 	auto attacker = Unit::getInstanceByID(pkt->attacker_id);
 	auto target = Unit::getInstanceByID(pkt->target_id);
 
+	target->setPosition(pkt->target_position_x, pkt->target_position_y);
+
 	AttackData attack_data;
 	attack_data.position.set(pkt->attack_position_x, pkt->attack_position_y);
 	attack_data.user = attacker;
