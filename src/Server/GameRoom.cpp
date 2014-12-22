@@ -42,6 +42,16 @@ void GameRoom::update() {
 	SDL_SetRenderDrawColor(renderer, 255,2552,255,255);
 	SDL_RenderClear(renderer);
 
+	for (auto unit : units){
+		if (unit->stage->id != 0)
+			continue;
+		SDL_Rect rect = {
+			(200 + unit->position.x / 4) - 5, 300 - (150 + unit->position.y / 4) - 5,
+			10, 10 };
+		SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
+		SDL_RenderFillRect(
+			renderer, &rect);
+	}
 	for(auto player : *stage[0]->ally[0]){
 		SDL_Rect rect = {
 			(200+player->position.x/4)-6, 300-(150+player->position.y/4)-6,
