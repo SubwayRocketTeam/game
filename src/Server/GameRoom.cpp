@@ -44,16 +44,16 @@ void GameRoom::update() {
 
 	for(auto player : *stage[0]->ally[0]){
 		SDL_Rect rect = {
-			(400+player->position.x/2)-12, 600-(300+player->position.y/2)-12,
-			24,24};
+			(200+player->position.x/4)-6, 300-(150+player->position.y/4)-6,
+			12,12};
 		SDL_SetRenderDrawColor(renderer, 0,255,0,255);
 		SDL_RenderFillRect(
 			renderer, &rect);
 	}
 	for(auto enemy : *stage[0]->ally[1]){
 		SDL_Rect rect = {
-			(400+enemy->position.x/2)-12, 600-(300+enemy->position.y/2)-12,
-			24,24};
+			(200+enemy->position.x/4)-6, 300-(150+enemy->position.y/4)-6,
+			12,12};
 		SDL_SetRenderDrawColor(renderer, 255,0,0,255);
 		SDL_RenderFillRect(
 			renderer, &rect);
@@ -136,7 +136,7 @@ bool GameRoom::startGame() {
 	window = SDL_CreateWindow(
 		"dbgwindow",
 		SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-		800, 600, 0);
+		400, 300, 0);
 	renderer = SDL_CreateRenderer(
 		window, -1, 0);
 
