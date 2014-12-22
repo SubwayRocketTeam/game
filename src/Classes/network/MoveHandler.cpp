@@ -62,5 +62,7 @@ void Network::handleVacuum(
 	if (!unit)
 		return;
 
+	printf("VACUUM %d TRASH_ID : %d\n", pkt->unit_id, pkt->trash_id);
+
 	unit->vacuume((Trash*)Unit::getInstanceByID(pkt->trash_id));
 }
