@@ -22,7 +22,6 @@ public:
 		const std::string &dataPath);
 
 	virtual void update(float dt);
-	virtual void updatePhysics(float dt);
 	void updateConditions(float dt);
 
 	bool upgrade(

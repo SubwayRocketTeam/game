@@ -109,11 +109,6 @@ void Player::update(
 	Unit::update(dt);
 }
 
-void Player::updatePhysics(float dt){
-	friction = stiff > 0.f ? 128.f * 60.f : 0.f;
-	Unit::updatePhysics(dt);
-}
-
 void Player::updateConditions(
 	float dt){
 
@@ -145,7 +140,9 @@ bool Player::onDamage(
 	auto deltaNorm =
 		(position - attackData.position).getNormalized();
 
-	velocity = deltaNorm * 30.f * 60.f;
+	// 중간과정 없이 바로 위치 변경
+//	velocity = deltaNorm * 30.f * 60.f;
+	position += deltaNorm * 100.f;
 
 	return true;
 }

@@ -174,12 +174,6 @@ void Player::updateConditions(
 		immortal -= dt;
 }
 
-void Player::updatePhysics(
-	float dt) {
-	friction = stiff > 0.f ? 128.f * 60.f : 0.f;
-	Unit::updatePhysics(dt);
-}
-
 bool Player::onDamage(
 	const AttackData& attackData){
 
@@ -195,13 +189,13 @@ bool Player::onDamage(
 		(getPosition() -
 		attackData.position)
 		.getNormalized();
-	/*
+	
 	runAction(
 		EaseExponentialOut::create(
-			MoveBy::create(0.2f, deltaNorm * 70)
+			MoveBy::create(0.25f, deltaNorm * 100.f)
 		));
-	*/
-	velocity = deltaNorm * 30.f * 60.f;
+	
+	// velocity = deltaNorm * 30.f * 60.f;
 
 	return true;
 }
