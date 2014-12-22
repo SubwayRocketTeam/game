@@ -145,11 +145,11 @@ bool Unit::useSkill(int skill_id, Vec2 pos){
 	if (!skill)
 		return false;
 
-	skill->use(this, pos);
 	usingSkill = skill;
 	skillTimer = 0;
 	skillPhase = 0;
 	skillTarget = pos;
+	skill->use(this, pos);
 
 	UseSkillNoti noti;
 	noti.id = id;

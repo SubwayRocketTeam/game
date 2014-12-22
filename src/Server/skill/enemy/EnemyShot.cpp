@@ -16,7 +16,7 @@ void EnemyShot::use(
 
 	auto bullet = new Bullet();
 	bullet->position = u->position;
-	bullet->fire(Vec2(pos.x, pos.y), 600.f);
+	bullet->fire(pos - u->position, 600.f);
 
 	bullet->attackData.user = u;
 	bullet->attackData.radius = 10;

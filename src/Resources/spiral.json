@@ -3,7 +3,7 @@
   "name" : "spiral",
   "tooltip" : "gdgd",
 
-  "duration" : 0,
+  "duration" : 1.0,
   "cooltime" : 1.0,
   "cost" : 0
 }

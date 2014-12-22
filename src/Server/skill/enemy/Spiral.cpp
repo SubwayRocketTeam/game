@@ -30,21 +30,21 @@ void Spiral::update(
 	Unit *u,
 	float dt) {
 
-	if (u->skillPhase == 0 && u->skillTimer < 0.25f) {
+	if (u->skillPhase == 0) {
 		circleShot(u, 0.f);
-		++u->skillPhase;
+		u->skillPhase = 1;
 	}
-	else if (u->skillPhase == 1 && u->skillTimer < 0.5f) {
+	else if (u->skillPhase == 1 && u->skillTimer > 0.25f) {
 		circleShot(u, 22.5f);
-		++u->skillPhase;
+		u->skillPhase = 2;
 	}
-	else if (u->skillPhase == 2 && u->skillTimer < 0.75f) {
+	else if (u->skillPhase == 2 && u->skillTimer > 0.5f) {
 		circleShot(u, 45.f);
-		++u->skillPhase;
+		u->skillPhase = 3;
 	}
-	else if (u->skillPhase == 3 && u->skillTimer < 1.f) {
+	else if (u->skillPhase == 3 && u->skillTimer > 0.75f) {
 		circleShot(u, 67.5f);
-		++u->skillPhase;
+		u->skillPhase = 4;
 	}
 }
 
@@ -56,7 +56,7 @@ void Spiral::circleShot(
 
 	for (int i = 0; i < 4; ++i){
 		auto bullet = new Bullet();
-		Vec2 direction = u->direction.getRotated(
+		Vec2 direction = Vec2::UNIT_X.getRotated(
 			Vec2::ZERO, DEGREES_TO_RADIANS(angle + 360/4 * i));
 		bullet->position = u->position;
 		bullet->fire(direction, 600.f);

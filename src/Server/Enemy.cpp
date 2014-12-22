@@ -73,7 +73,7 @@ void Enemy::update(float dt){
 
 	if (skill)
 	{
-		if (cooltime <= 0.f)
+		if (target && cooltime <= 0.f)
 		{
 			useSkill(skill->id, target->position);
 			// skill->use(this, target->position);
