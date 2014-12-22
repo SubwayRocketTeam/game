@@ -6,7 +6,7 @@
 			"attrs" : [
 				{"name" : "hp", "value" : 3},
 				{"name" : "hp_gen", "value" : 0},
-				{"name" : "speed", "value" : 3},
+				{"name" : "speed", "value" : 300},
 				{"name" : "attack", "value" : 50},
 				{"name" : "attack_speed", "value" : 3.0},
 				{"name" : "range", "value" : 120},
@@ -24,7 +24,7 @@
 			"attrs" : [
 				{"name" : "hp", "value" : 3},
 				{"name" : "hp_gen", "value" : 0},
-				{"name" : "speed", "value" : 2},
+				{"name" : "speed", "value" : 200},
 				{"name" : "attack", "value" : 50},
 				{"name" : "defence", "value" : 0},
 				{"name" : "radius", "value" : 30}
@@ -58,7 +58,7 @@
 			"attrs" : [
 				{"name" : "hp", "value" : 3},
 				{"name" : "hp_gen", "value" : 0},
-				{"name" : "speed", "value" : 5},
+				{"name" : "speed", "value" : 500},
 				{"name" : "attack", "value" : 50},
 				{"name" : "defence", "value" : 0},
 				{"name" : "radius", "value" : 30}
@@ -74,7 +74,7 @@
 			"attrs" : [
 				{"name" : "hp", "value" : 10},
 				{"name" : "hp_gen", "value" : 0},
-				{"name" : "speed", "value" : 5},
+				{"name" : "speed", "value" : 500},
 				{"name" : "attack", "value" : 50},
 				{"name" : "defence", "value" : 0},
 				{"name" : "radius", "value" : 30}

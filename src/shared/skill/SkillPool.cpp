@@ -16,8 +16,8 @@
 #include "skill/enemy/Spiral.h"
 #include "skill/enemy/Explosion.h"
 #include "skill/enemy/EnemyShot.h"
-#include "skill/enemy/Duplication.h"
-#include "skill/type1/Replication.h"
+//#include "skill/enemy/Duplication.h"
+//#include "skill/type1/Replication.h"
 
 #define REGISTER_SKILL(name) skills[skill##name] = new name()
 
@@ -50,8 +50,8 @@ bool SkillPool::init(){
 	REGISTER_SKILL(Explosion);
 	REGISTER_SKILL(EnemyShot);
 	REGISTER_SKILL(Repair);
-	REGISTER_SKILL(Replication);
-	REGISTER_SKILL(Duplication);
+//	REGISTER_SKILL(Replication);
+//	REGISTER_SKILL(Duplication);
 
 	for(auto skill : root){
 		int id = skill.get("id",0).asInt();

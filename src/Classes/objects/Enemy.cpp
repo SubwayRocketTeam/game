@@ -76,6 +76,8 @@ bool Enemy::initPhysics(){
 void Enemy::update(
 	float dt){
 
+	// 이동, 공격, 스킬 전부 다 서버에서 처리
+	/*
 	auto target = getTarget();
 	auto speed = _ATTR(speed);
 
@@ -102,6 +104,7 @@ void Enemy::update(
 		else
 			cooltime -= dt;
 	}
+	*/
 
 	label->setString(_MAKE_PATH("%f", aggros.begin()->second));
 }

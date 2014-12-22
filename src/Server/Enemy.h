@@ -33,6 +33,9 @@ public:
 		Unit *u, float value);
 	void decreaseAggro(
 		Unit *u, float value);
+
+	void updateMovement();
+
 	Unit *getTarget();
 
 	int getEnemyType() const;
@@ -45,4 +48,7 @@ protected:
 
 	ActiveSkill* skill;
 	float cooltime;
+
+	float followTimer;
+	Vec2 followPosition;
 };

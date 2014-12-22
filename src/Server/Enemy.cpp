@@ -6,6 +6,7 @@
 #include "TrashPool.h"
 
 #include "Stage.h"
+#include "GameRoom.h"
 #include "CollisionDetector.h"
 
 #include "shared/skill/ActiveSkill.h"
@@ -13,11 +14,14 @@
 #include "EnemyInfo.h"
 #include "EnemyType.h"
 
+#include "PacketType.h"
+
 Enemy::Enemy() :enemyType(0) {
 	type = UT_ENEMY;
 	ally = Ally::Type::allyEnemy;
 	skill = nullptr;
 	cooltime = 0;
+	followTimer = 0;
 	init();
 }
 Enemy::~Enemy(){
@@ -54,14 +58,15 @@ bool Enemy::initPhysics(){
 }
 
 void Enemy::update(float dt){
-	auto target = getTarget();
-	auto speed = _ATTR(speed);
 
-	if (speed && target){
-		auto delta = target->position - position;
-		auto move = delta.getNormalized() * speed;
-		position += move;
+	followTimer -= dt;
+	if (followTimer <= 0) {
+		updateMovement();
+		// TODO: Targt update하는 주기 상수
+		followTimer = 0.2f;
 	}
+
+	auto target = getTarget();
 
 	attackData.position = position;
 	stage->ally[_OPPOSITE(ally)]->processAttack(attackData);
@@ -70,7 +75,8 @@ void Enemy::update(float dt){
 	{
 		if (cooltime <= 0.f)
 		{
-			skill->use(this, target->position);
+			useSkill(skill->id, target->position);
+			// skill->use(this, target->position);
 			cooltime = skill->cooltime;
 		}
 		else
@@ -78,6 +84,23 @@ void Enemy::update(float dt){
 	}
 
 	Unit::update(dt);
+}
+
+void Enemy::updateMovement(){
+	auto target = getTarget();
+	if (!target)
+		followPosition = position;
+	followPosition = target->position;
+	auto delta = target->position - position;
+	velocity = delta.getNormalized() * _ATTR(speed);
+
+	MoveNoti noti;
+	noti.id = id;
+	noti.start_x = position.x;
+	noti.start_y = position.y;
+	noti.velocity_x = velocity.x;
+	noti.velocity_y = velocity.y;
+	stage->gameroom->sendPacket(noti);
 }
 
 bool Enemy::onDamage(
@@ -105,6 +128,8 @@ void Enemy::resetAggro(){
 
 		aggros[player] = pos.getDistance(playerPos);
 	}
+
+	updateMovement();
 }
 void Enemy::increaseAggro(
 	Unit *u, float value){
