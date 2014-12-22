@@ -30,7 +30,11 @@ void Network::handleAttack(
 	auto attacker = Unit::getInstanceByID(pkt->attacker_id);
 	auto target = Unit::getInstanceByID(pkt->target_id);
 
-	target->setPosition(pkt->target_position_x, pkt->target_position_y);
+//	target->setPosition(pkt->target_position_x, pkt->target_position_y);
+	target->runAction(
+		EaseOut::create(
+		MoveTo::create(0.25f, Vec2(pkt->knockback_x, pkt->knockback_y))
+		, 10.f));
 
 	AttackData attack_data;
 	attack_data.position.set(pkt->attack_position_x, pkt->attack_position_y);

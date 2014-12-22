@@ -4,7 +4,6 @@
 #include "Stage.h"
 #include "GameRoom.h"
 #include "AttackData.h"
-#include "PacketType.h"
 
 void Ally::init(){
 }
@@ -25,7 +24,6 @@ void Ally::processAttack(
 	Unit* object = data.object;
 
 	for (auto it = members.begin(); it != members.end(); ++it){
-//		bool flag = true;
 		auto member = *it;
 		auto memberPosition = member->position;
 		float r = member->radius + data.radius;
@@ -35,19 +33,7 @@ void Ally::processAttack(
 			member->damage(data);
 			if (data.user != object)
 				object->damage(AttackData(1));
-
-			Attack noti;
-			noti.attacker_id = data.user->id;
-			noti.target_id = member->id;
-			noti.target_position_x = member->position.x;
-			noti.target_position_y = member->position.y;
-			noti.attack_position_x = data.position.x;
-			noti.attack_position_y = data.position.y;
-			noti.damage = data.damage;
-			noti.aggro = data.aggro;
-			member->stage->gameroom->sendPacket(noti);
 		}
-//		if (flag) ++it;
 	}
 }
 

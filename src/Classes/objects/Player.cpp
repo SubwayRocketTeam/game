@@ -174,6 +174,13 @@ void Player::updateConditions(
 		immortal -= dt;
 }
 
+void Player::updatePhysics(
+	float dt) {
+	if (stiff > 0.f)
+		return;
+	Unit::updatePhysics(dt);
+}
+
 bool Player::onDamage(
 	const AttackData& attackData){
 
@@ -185,15 +192,16 @@ bool Player::onDamage(
 	immortal = 1.f;
 	stiff = MAX(stiff, 0.5f);
 
+	/*
 	auto deltaNorm =
 		(getPosition() -
 		attackData.position)
 		.getNormalized();
-	
 	runAction(
 		EaseExponentialOut::create(
 			MoveBy::create(0.25f, deltaNorm * 100.f)
 		));
+	*/
 	
 	// velocity = deltaNorm * 30.f * 60.f;
 

@@ -39,6 +39,8 @@ protected:
 		float dt);
 	void updateConditions(
 		float dt);
+	void updatePhysics(
+		float dt);
 
 protected:
 	Player();

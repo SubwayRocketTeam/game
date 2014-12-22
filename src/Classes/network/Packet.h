@@ -17,7 +17,7 @@ struct PacketHeader{
     };
 #define END };
 
-#define PACKET_VERSION 2650831630
+#define PACKET_VERSION 1244552499
 
 enum packet_id{
   PT_PacketNone = 0,
@@ -170,8 +170,8 @@ END
 PACKET(Attack)
   int attacker_id;
   int target_id;
-  float target_position_x;
-  float target_position_y;
+  float knockback_x;
+  float knockback_y;
   float attack_position_x;
   float attack_position_y;
   float damage;

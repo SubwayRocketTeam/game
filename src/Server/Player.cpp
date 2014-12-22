@@ -9,7 +9,10 @@
 #include "AttackData.h"
 
 #include "Stage.h"
+#include "GameRoom.h"
 #include "CollisionDetector.h"
+
+#include "PacketType.h"
 
 #include "shared/JsonLoader.h"
 
@@ -143,6 +146,18 @@ bool Player::onDamage(
 	// 중간과정 없이 바로 위치 변경
 //	velocity = deltaNorm * 30.f * 60.f;
 	position += deltaNorm * 100.f;
+
+	Attack noti;
+	noti.attacker_id = attackData.user->id;
+	noti.target_id = id;
+	noti.knockback_x = position.x;
+	noti.knockback_y = position.y;
+	noti.attack_position_x = attackData.position.x;
+	noti.attack_position_y = attackData.position.y;
+	noti.damage = attackData.damage;
+	noti.aggro = attackData.aggro;
+	
+	stage->gameroom->sendPacket(noti);
 
 	return true;
 }
