@@ -37,6 +37,7 @@ void Trash::sweep(){
 	trashPool->remove(this);
 	*/
 
+	/*
 	runAction(
 		Sequence::create(
 			Spawn::create(
@@ -47,4 +48,7 @@ void Trash::sweep(){
 			CallFunc::create(CC_CALLBACK_0(Unit::remove, this)),
 			nullptr
 		));
+	*/
+
+	remove();
 }
