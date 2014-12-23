@@ -41,16 +41,16 @@ AppDelegate::~AppDelegate() {
 void AppDelegate::initGLContextAttrs(){
 	GLContextAttrs glContextAttrs = {8, 8, 8, 8, 24, 8};
 
-    GLView::setGLContextAttrs(glContextAttrs);
+	GLView::setGLContextAttrs(glContextAttrs);
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
-    auto director = Director::getInstance();
-    auto glview = director->getOpenGLView();
-    if(!glview) {
-        glview = GLViewImpl::create("Robotopia500");
-        director->setOpenGLView(glview);
-    }
+	auto director = Director::getInstance();
+	auto glview = director->getOpenGLView();
+	if(!glview) {
+		glview = GLViewImpl::create("Robotopia500");
+		director->setOpenGLView(glview);
+	}
 
 	auto cache = SpriteFrameCache::getInstance();
 
