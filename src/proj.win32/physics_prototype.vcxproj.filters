@@ -49,9 +49,6 @@
     <ClCompile Include="..\Classes\ui\Cursor.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ui\Gauge.cpp">
-      <Filter>source\ui</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\ui\StatusConsole.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
@@ -334,9 +331,6 @@
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ui\Cursor.h">
-      <Filter>source\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\Gauge.h">
       <Filter>source\ui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ui\StatusConsole.h">

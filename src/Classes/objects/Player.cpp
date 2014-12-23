@@ -12,7 +12,6 @@
 
 #include "shared/JsonLoader.h"
 
-#include "ui/gauge.h"
 #include "ui/StatusConsole.h"
 
 #include "common/resource.h"

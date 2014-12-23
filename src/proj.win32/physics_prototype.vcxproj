@@ -205,7 +205,6 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClCompile Include="..\Classes\skill\type1\Replication.cpp" />
     <ClCompile Include="..\Classes\skill\type1\Slash.cpp" />
     <ClCompile Include="..\Classes\ui\ChatBox.cpp" />
-    <ClCompile Include="..\Classes\ui\Gauge.cpp" />
     <ClCompile Include="..\Classes\ui\InputBox.cpp" />
     <ClCompile Include="..\Classes\ui\Minimap.cpp" />
     <ClCompile Include="..\Classes\ui\SpawnIcon.cpp" />
@@ -318,7 +317,6 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClInclude Include="..\Classes\skill\type1\Replication.h" />
     <ClInclude Include="..\Classes\skill\type1\Slash.h" />
     <ClInclude Include="..\Classes\ui\ChatBox.h" />
-    <ClInclude Include="..\Classes\ui\Gauge.h" />
     <ClInclude Include="..\Classes\ui\InputBox.h" />
     <ClInclude Include="..\Classes\ui\Minimap.h" />
     <ClInclude Include="..\Classes\ui\SpawnIcon.h" />

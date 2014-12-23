@@ -20,7 +20,6 @@
 #include "skill/PassiveSkill.h"
 
 #include "ui/StatusConsole.h"
-#include "ui/gauge.h"
 
 #include <map>
 
