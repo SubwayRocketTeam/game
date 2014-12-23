@@ -65,6 +65,6 @@ protected:
 	ControlablePlayer();
 	virtual ~ControlablePlayer();
 
-private:
+protected:
 	cocos2d::Vec2 cursor;
 };
