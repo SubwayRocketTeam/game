@@ -7,16 +7,16 @@
 
 #include <map>
 
-class SkillIcon;
+class SpawnIcon;
 
-class SkillIconPanel : public cocos2d::Sprite,
+class SpawnIconPanel : public cocos2d::Node,
 	public KeyboardEventListener{
 public:
-	static SkillIconPanel *create();
-	static SkillIconPanel *getInstance();
+	static SpawnIconPanel *create();
+	static SpawnIconPanel *getInstance();
 
-	void setSkillList(
-		int id[Max::Skills]);
+	void setIconList(
+		int id[Max::Enemies]);
 
 	void use(
 		int id);
@@ -29,6 +29,10 @@ protected:
 	virtual void onKeyboardDown(
 		cocos2d::EventKeyboard::KeyCode code);
 
+	void updateCooltime(
+		float dt);
+
 private:
-	std::map<int, SkillIcon *> icons;
+	std::map<int, SpawnIcon *> icons;
+	std::map<int, float> cooltimes;
 };

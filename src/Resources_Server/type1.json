@@ -8,6 +8,7 @@
     {"name" : "attack", "value" : 3},
     {"name" : "attack_speed", "value" : 1.0},
     {"name" : "range", "value" : 600},
+    {"name" : "vacuum_range", "value" : 80},
     {"name" : "radius", "value" : 40}
   ],
 

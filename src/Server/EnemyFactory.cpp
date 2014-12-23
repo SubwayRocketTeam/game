@@ -100,10 +100,15 @@ bool EnemyFactory::initExternalData(const std::string &dataPath) {
 			skeleton->skills.push_back((ActiveSkill*)pool->get(skillId.asInt()));
 		}
 
-		auto pay = info.get("pay", 0).asInt();
-		skeleton->pay = pay;
+		skeleton->cost = info.get("cost", 0).asInt();
+		skeleton->cooltime = info.get("cooltime", 0).asFloat();
+
 		dic.push_back(skeleton);
 	}
 
 	return true;
+}
+
+EnemyInfo* EnemyFactory::getEenmyInfo(EnemyType type) {
+	return dic[type];
 }

@@ -7,5 +7,6 @@ struct EnemyInfo {
 	std::string name;
 	std::map<std::string, Attribute> attrs;
 	std::vector<ActiveSkill*> skills;
-	int pay;
+	int cost;
+	float cooltime;
 };

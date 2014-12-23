@@ -9,7 +9,6 @@
 #include "shared/JsonLoader.h"
 
 #include "ui/cursor.h"
-#include "ui/SkillIconPanel.h"
 
 #include "common/resource.h"
 
@@ -80,18 +79,12 @@ bool ControlablePlayer::useSkill(
 		return false;
 	if (skill->cost > _ATTR(mp))
 		return false;
-	if(index == skillMouseLeft)
-		cooltime *= _ATTR(attackSpeed);
 
 	skill->use(this, Vec2(x,y));
 
 	cooltimes[index] = cooltime;
 	_ATTR_VALUE(mp) -= skill->cost;
 	stiff = skill->duration;
-
-	/* ui 쿨타임 업데이트 */
-	auto panel = SkillIconPanel::getInstance();
-	panel->use(skill->id);
 
 	auto network = Network::getInstance();
 	network->sendUseSkill(

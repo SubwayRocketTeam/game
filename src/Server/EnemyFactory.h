@@ -11,6 +11,7 @@ public:
 	static EnemyFactory* getInstance();
 
 	Enemy* createEnemy(EnemyType type);
+	EnemyInfo* getEenmyInfo(EnemyType type);
 
 private:
 	EnemyFactory();

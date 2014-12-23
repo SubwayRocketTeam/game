@@ -64,12 +64,6 @@
     <ClCompile Include="..\Classes\ui\Minimap.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ui\SkillIconPanel.cpp">
-      <Filter>source\ui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\SkillIcon.cpp">
-      <Filter>source\ui</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\network\Network.cpp">
       <Filter>source\network</Filter>
     </ClCompile>
@@ -253,6 +247,12 @@
     <ClCompile Include="..\Classes\objects\Replica.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ui\SpawnIcon.cpp">
+      <Filter>source\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ui\SpawnIconPanel.cpp">
+      <Filter>source\ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -356,12 +356,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\common\global.h">
       <Filter>source\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\SkillIcon.h">
-      <Filter>source\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\SkillIconPanel.h">
-      <Filter>source\ui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\network\Network.h">
       <Filter>source\network</Filter>
@@ -536,6 +530,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\objects\Replica.h">
       <Filter>source\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\SpawnIcon.h">
+      <Filter>source\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\SpawnIconPanel.h">
+      <Filter>source\ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

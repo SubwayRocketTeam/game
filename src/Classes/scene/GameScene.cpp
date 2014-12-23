@@ -28,7 +28,7 @@
 #include "ui/cursor.h"
 #include "ui/StatusConsole.h"
 #include "ui/Minimap.h"
-#include "ui/SkillIconPanel.h"
+#include "ui/SpawnIconPanel.h"
 #include "ui/UpgradeBar.h"
 #include "ui/TrashTank.h"
 #include "ui/ChatBox.h"
@@ -121,12 +121,6 @@ bool GameScene::initUI(){
 	auto cursor = Cursor::getInstance();
 	addChild(cursor);
 
-	int skills[] = {10,11,12,12};
-	auto skillPanel = SkillIconPanel::getInstance();
-	skillPanel->setSkillList(skills);
-	skillPanel->setPosition(500,100);
-	addChild(skillPanel);
-
 	auto upgradeBar = UpgradeBar::getInstance();
 	upgradeBar->setAnchorPoint(Vec2(0.5,0));
 	upgradeBar->setPosition(visibleSize.width/2, visibleSize.height);
@@ -136,6 +130,12 @@ bool GameScene::initUI(){
 	trashTank->setAnchorPoint(Vec2(0.5,0));
 	trashTank->setPosition(visibleSize.width/2, 0);
 	addChild(trashTank);
+
+	int enemies[Max::Enemies] = { enemyBasic, enemyFollow, enemySpiral, enemyExplode };
+	auto spawnPanel = SpawnIconPanel::getInstance();
+	spawnPanel->setIconList(enemies);
+	spawnPanel->setPosition(visibleSize.width / 2, 10.f);
+	addChild(spawnPanel);
 
 	auto chatBox = ChatBox::getInstance();
 	chatBox->setAnchorPoint(Vec2(0,0));
@@ -181,7 +181,7 @@ void GameScene::onInitGlobalObjects(){
 	SkillPool::create();
 	EnemyFactory::create();
 	PhysicsFactory::create();
-	SkillIconPanel::create();
+	SpawnIconPanel::create();
 	UpgradeBar::create();
 	ControlablePlayer::create("type1.json");
 	ChatBox::create();

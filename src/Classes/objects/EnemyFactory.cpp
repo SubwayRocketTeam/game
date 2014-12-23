@@ -53,7 +53,7 @@ Enemy* EnemyFactory::createEnemy(EnemyType type)
 		enemy = Enemy::create();
 		break;
 	}
-	enemy->setInfo(instance->dic[type]);
+	enemy->setInfo(dic[type]);
 	return enemy;
 }
 
@@ -122,10 +122,16 @@ bool EnemyFactory::initExternalData(const std::string &dataPath) {
 			skeleton->skills.push_back((ActiveSkill*)pool->get(skillId.asInt()));
 		}
 
-		auto cost = info.get("cost", 0).asInt();
-		skeleton->cost = cost;
+		skeleton->cost = info.get("cost", 0).asInt();
+		skeleton->cooltime = info.get("cooltime", 0).asFloat();
+
 		dic.push_back(skeleton);
 	}
 
 	return true;
+}
+
+EnemyInfo* EnemyFactory::getEenmyInfo(
+	EnemyType type) {
+	return dic[type];
 }

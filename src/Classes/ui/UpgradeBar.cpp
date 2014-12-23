@@ -125,6 +125,6 @@ void UpgradeBar::upgradeOver() {
 	// TODO: cost 증가값 빼기
 	auto resource = GlobalResource::getInstance();
 	resource->trash -= cost;
-	cost += 10;
+	cost = MIN(Max::Tank, cost+10);
 	upgradeTrying = false;
 }

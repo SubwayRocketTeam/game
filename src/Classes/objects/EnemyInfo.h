@@ -11,4 +11,5 @@ struct EnemyInfo {
 	std::map<std::string, Attribute> attrs;
 	std::vector<ActiveSkill*> skills;
 	int cost;
+	float cooltime;
 };

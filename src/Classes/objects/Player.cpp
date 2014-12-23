@@ -239,8 +239,6 @@ bool Player::upgrade(
 	upgradeTimes[attr_name] += 1;
 	attr.getBonusValue() = (attr_max - attr.getValue()) / Max::Upgrade * upgradeTimes[attr_name];
 
-	printf("UPGRADE %d ATTR %s to %.1f\n", id, attr_name.c_str(), attr.get());
-
 	return true;
 }
 

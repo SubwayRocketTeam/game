@@ -98,6 +98,6 @@ void TrashTank::stopBlink(){
 float TrashTank::getCostX(
 	float _cost) {
 	auto size = gauge->getContentSize();
-	return MAX(0, size.width * _cost / Max::Tank);
+	return MAX(0, size.width * _cost / Max::Tank) - size.width / 2;
 }
 

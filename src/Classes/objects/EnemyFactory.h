@@ -11,18 +11,23 @@ struct EnemyInfo;
 
 class EnemyFactory {
 public:
-	static Enemy* createEnemy(EnemyType type);
-
-	static void spawn(EnemyType type);
-
 	static EnemyFactory* create();
 	static EnemyFactory* getInstance();
+
+	Enemy* createEnemy(
+		EnemyType type);
+	void spawn(
+		EnemyType type);
+	EnemyInfo* getEenmyInfo(
+		EnemyType type);
+
 protected:
 	EnemyFactory();
 	~EnemyFactory();
 
 	bool init();
 	bool initExternalData(const std::string &dataPath);
+
 private:
 	std::vector<EnemyInfo*> dic;
 };

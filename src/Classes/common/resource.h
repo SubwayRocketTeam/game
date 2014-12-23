@@ -13,9 +13,6 @@ namespace R{
 	_RESL(UnitsPlist);
 	_RESL(BulletsPlist);
 
-	_RESL(SkillPanel);
-	_RESL(SkillIconOverlay);
-
 	_RESL(Bullet);
 
 	_RESL(Hit1);

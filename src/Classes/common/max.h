@@ -7,8 +7,8 @@ namespace Max{
 	/* 팀 수 */
 	const int Teams = 2;
 
-	/* 스킬 갯수 */
-	const int Skills = 4;
+	/* 소환하는 몹 종류 수 */
+	const int Enemies = 6;
 
 	/* 탱크 최대치 */
 	const int Tank = 100;

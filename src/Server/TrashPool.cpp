@@ -97,7 +97,7 @@ void TrashPool::update(float dt){
 
 			auto pos = trash->position;
 
-			if (pos.getDistance(playerPos) <= player->_ATTR(range)){
+			if (pos.getDistance(playerPos) <= player->_ATTR(vacuum_range)){
 
 				// 범위 안에 들어오면 바로 쓰레기 획득.
 				player->addTrash(1);

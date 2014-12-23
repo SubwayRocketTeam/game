@@ -24,7 +24,7 @@
 #include "ui/Cursor.h"
 #include "ui/StatusConsole.h"
 #include "ui/Minimap.h"
-#include "ui/SkillIconPanel.h"
+#include "ui/SpawnIconPanel.h"
 #include "ui/UpgradeBar.h"
 #include "ui/TrashTank.h"
 
