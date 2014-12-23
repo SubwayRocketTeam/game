@@ -65,11 +65,6 @@ protected:
 	ControlablePlayer();
 	virtual ~ControlablePlayer();
 
-protected:
-	int moveCounter;
-	int moveSwitchVertical;
-	int moveSwitchHorizontal;
-	cocos2d::Vec2 speed;
-
+private:
 	cocos2d::Vec2 cursor;
 };

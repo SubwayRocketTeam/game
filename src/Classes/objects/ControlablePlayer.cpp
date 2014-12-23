@@ -26,8 +26,7 @@ using namespace cocos2d;
 
 static ControlablePlayer *instance = nullptr;
 
-ControlablePlayer::ControlablePlayer() : 
-	moveCounter(0), moveSwitchVertical(0), moveSwitchHorizontal(0) {
+ControlablePlayer::ControlablePlayer(){
 
 	allyID = Ally::Type::allyPlayer;
 }
