@@ -92,6 +92,9 @@ void TrashPool::update(float dt){
 			continue;
 
 		for (auto trash : trashes){
+			if (trash->removed)
+				continue;
+
 			auto pos = trash->position;
 
 			if (pos.getDistance(playerPos) <= player->_ATTR(range)){
@@ -104,8 +107,6 @@ void TrashPool::update(float dt){
 				noti.unit_id = player->id;
 				noti.trash_id = trash->id;
 				player->stage->gameroom->sendPacket(noti);
-
-				break;
 			}
 		}
 	}
