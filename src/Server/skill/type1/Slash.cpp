@@ -18,6 +18,7 @@ void Slash::use(
 	bullet->attackData.user = u;
 	bullet->attackData.radius = 10;
 	bullet->attackData.damage = u->_ATTR(attack);
+	bullet->range = u->_ATTR(range);
 	bullet->ally = u->ally;
 
 	stage->addUnit(bullet);

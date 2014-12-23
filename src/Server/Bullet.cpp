@@ -6,7 +6,7 @@
 #include "common/resource.h"
 
 Bullet::Bullet()
-	:fired(false){
+	:fired(false), range(100){
 	type = UT_BULLET;
 	init();
 }
@@ -50,7 +50,6 @@ void Bullet::update(
 	Unit::update(dt);
 	attackData.position = position;
 	stage->ally[_OPPOSITE(ally)]->processAttack(attackData);
-	// TODO: 최대 발사 거리 따로 빼기
-	if (fired && position.getDistance(fireStart) >= 800)
+	if (fired && position.getDistance(fireStart) >= range)
 		stage->removeUnit(this);
 }

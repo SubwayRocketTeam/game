@@ -28,7 +28,8 @@ void Slash::use(
 
 	bullet->setUser(u);
 	bullet->setRadius(10);
-	bullet->setDamage(1);
+	bullet->setDamage(u->_ATTR(attack));
+	bullet->setRange(u->_ATTR(range));
 	bullet->setAllyID(u->getAllyID());
 	bullet->setOpacity(0);
 	bullet->runAction(

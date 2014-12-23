@@ -47,7 +47,8 @@ void Spiral::circleShot(
 
 		bullet->setUser(u);
 		bullet->setRadius(10);
-		bullet->setDamage(1);
+		bullet->setDamage(u->_ATTR(attack));
+		bullet->setRange(u->_ATTR(range));
 		bullet->setAllyID(u->getAllyID());
 
 		stage->addChild(bullet, Z::bullet);

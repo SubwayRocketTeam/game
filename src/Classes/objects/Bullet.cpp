@@ -8,7 +8,7 @@
 
 using namespace cocos2d;
 
-Bullet::Bullet():fired(false){
+Bullet::Bullet():fired(false), range(100){
 }
 Bullet::~Bullet(){
 }
@@ -96,8 +96,7 @@ void Bullet::fire(
 void Bullet::update(
 	float dt){
 
-	// TODO: 최대 발사 거리 따로 빼기
-	if (fired && getPosition().getDistance(fireStart) >= 800.f)
+	if (fired && getPosition().getDistance(fireStart) >= range)
 		remove();
 	else
 	{
@@ -132,6 +131,14 @@ void Bullet::setDamage(
 float Bullet::getDamage(){
 	return attackData.damage;
 }
+void Bullet::setRange(
+	float range_) {
+	range = range_;
+}
+float Bullet::getRange() {
+	return range;
+}
+
 void Bullet::setAllyID(
 	Ally::Type id)
 {

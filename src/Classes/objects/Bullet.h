@@ -28,6 +28,10 @@ public:
 		float damage);
 	float getDamage();
 
+	void setRange(
+		float range_);
+	float getRange();
+
 	void setAllyID(
 		Ally::Type id);
 
@@ -48,4 +52,5 @@ protected:
 	AttackData attackData;
 	bool fired;
 	cocos2d::Vec2 fireStart;
+	float range;
 };
