@@ -125,6 +125,12 @@ class UseSkillNoti < Packet
   float "y"
 end
 
+class AddPassiveNoti < Packet
+  required
+  int "id"
+  int "skill_id"
+end
+
 class Attack < Packet
   required
   int "attacker_id"

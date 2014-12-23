@@ -17,7 +17,7 @@ struct PacketHeader{
     };
 #define END };
 
-#define PACKET_VERSION 1244552499
+#define PACKET_VERSION 1692818566
 
 enum packet_id{
   PT_PacketNone = 0,
@@ -38,16 +38,17 @@ enum packet_id{
   PT_SpawnRequest = 15,
   PT_UseSkill = 16,
   PT_UseSkillNoti = 17,
-  PT_Attack = 18,
-  PT_Move = 19,
-  PT_MoveNoti = 20,
-  PT_SyncRotation = 21,
-  PT_SyncRotationNoti = 22,
-  PT_Vacuum = 23,
-  PT_UpgradeRequest = 24,
-  PT_UpgradeNoti = 25,
-  PT_ChatMessage = 26,
-  PT_ChatNoti = 27,
+  PT_AddPassiveNoti = 18,
+  PT_Attack = 19,
+  PT_Move = 20,
+  PT_MoveNoti = 21,
+  PT_SyncRotation = 22,
+  PT_SyncRotationNoti = 23,
+  PT_Vacuum = 24,
+  PT_UpgradeRequest = 25,
+  PT_UpgradeNoti = 26,
+  PT_ChatMessage = 27,
+  PT_ChatNoti = 28,
 
   PT_PacketMax
 };
@@ -165,6 +166,11 @@ PACKET(UseSkillNoti)
   int skill_id;
   float x;
   float y;
+END
+
+PACKET(AddPassiveNoti)
+  int id;
+  int skill_id;
 END
 
 PACKET(Attack)
