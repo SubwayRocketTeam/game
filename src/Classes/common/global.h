@@ -12,4 +12,7 @@ namespace Global{
 
 	/* TODO : 첫글자 대문자로 통일 */
 	const std::string Font = "arial";
+
+	/* 서버 주소 */
+	const std::string Host = "localhost";
 };
