@@ -6,7 +6,8 @@ using namespace cocos2d;
 
 InputBox::InputBox() :
 	maxLength(255),
-	editbox(nullptr), lastConv(IME_CMODE_NATIVE){
+	editbox(nullptr), lastConv(IME_CMODE_NATIVE),
+	inputEnabled(false){
 }
 InputBox::~InputBox(){
 }
@@ -78,9 +79,12 @@ void InputBox::refreshContent(){
 	char *cmsg = new char[maxLength * 3];
 
 	GetWindowText(editbox, msg, maxLength);
+	if(wcslen(msg) == 0)
+		return;
+
 	WideCharToMultiByte(CP_UTF8, 0, msg, -1, cmsg, maxLength*3, 0,0);
 
-	setString(cmsg);
+	setString(string(">>") + cmsg);
 
 	delete[] msg;
 	delete[] cmsg;
@@ -100,6 +104,10 @@ void InputBox::restoreConvMode(){
 void InputBox::beginInput(){
 	SetFocus(editbox);
 	restoreConvMode();
+
+	inputEnabled = true;
+
+	setString(">>");
 }
 void InputBox::endInput(){
 	HWND hWnd =
@@ -112,6 +120,8 @@ void InputBox::endInput(){
 	HIMC ime = ImmGetContext(hWnd);
 	ImmSetConversionStatus(ime, IME_CMODE_NOCONVERSION, 0);
 	ImmReleaseContext(hWnd, ime);
+
+	inputEnabled = false;
 }
 
 void InputBox::clear(){
