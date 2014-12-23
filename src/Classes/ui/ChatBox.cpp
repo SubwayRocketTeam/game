@@ -34,13 +34,14 @@ bool ChatBox::init(){
 	if(!ClippingRectangleNode::init())
 		return false;
 
-	auto bgi = Sprite::create("how_to_play.png");
+	auto bgi = Sprite::create("chatbox.png");
 	bgi->setAnchorPoint(Vec2(0,0));
+	bgi->setOpacity(200);
 	addChild(bgi);
 
 	input = InputBox::create(
 		"", Global::Font, 20);
-	input->setColor(Color3B::BLACK);
+	input->setColor(Color3B::GREEN);
 	input->setAnchorPoint(Vec2(0,0));
 	addChild(input);
 
