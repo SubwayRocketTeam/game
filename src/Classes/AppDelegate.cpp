@@ -64,7 +64,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	JsonLoader::create();
 
 	auto network = Network::getInstance();
-	network->open("10.73.45.142", 4321,
+//	network->open("10.73.45.142", 4321,
+	network->open("127.0.0.1", 4321,
 		[=](int result){
 			if(result){
 				
