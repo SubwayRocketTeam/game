@@ -189,11 +189,7 @@ bool Player::upgrade(
 
 	float attr_max = it->second;
 
-	auto itt = attrs.find(attr_name);
-	if (itt == attrs.end() || upgradeTimes[attr_name] >= Max::Upgrade)
-		return false;
-
-	auto attr = itt->second;
+	auto& attr = getAttribute(attr_name);
 	upgradeTimes[attr_name] += 1;
 	attr.getBonusValue() = (attr_max - attr.getValue()) / Max::Upgrade * upgradeTimes[attr_name];
 

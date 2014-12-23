@@ -4,10 +4,10 @@
   "attrs" : [
     {"name" : "hp", "value" : 20},
     {"name" : "hp_gen", "value" : 0},
-    {"name" : "speed", "value" : 360},
-    {"name" : "attack", "value" : 5},
+    {"name" : "speed", "value" : 350},
+    {"name" : "attack", "value" : 3},
     {"name" : "attack_speed", "value" : 1.0},
-    {"name" : "range", "value" : 120},
+    {"name" : "range", "value" : 300},
     {"name" : "defence", "value" : 0},
     {"name" : "radius", "value" : 40}
   ],
@@ -15,8 +15,8 @@
   "max_attrs" : [
     {"name" : "hp", "value" : 50},
     {"name" : "attack", "value" : 10},
-    {"name" : "speed", "value" : 420},
-    {"name" : "range", "value" : 200}
+    {"name" : "speed", "value" : 450},
+    {"name" : "range", "value" : 800}
   ],
   
   "skills" : [
