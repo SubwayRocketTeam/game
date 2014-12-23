@@ -34,9 +34,9 @@ bool ChatBox::init(){
 	if(!ClippingRectangleNode::init())
 		return false;
 
-	auto bgi = Sprite::create("chatbox.png");
+	bgi = Sprite::create("chatbox.png");
 	bgi->setAnchorPoint(Vec2(0,0));
-	bgi->setOpacity(200);
+	bgi->setOpacity(32);
 	addChild(bgi);
 
 	input = InputBox::create(
@@ -98,8 +98,10 @@ void ChatBox::addLine(
 void ChatBox::onKeyboardDown(
 	EventKeyboard::KeyCode key){
 
-	if(key == EventKeyboard::KeyCode::KEY_KP_ENTER)
+	if(key == EventKeyboard::KeyCode::KEY_KP_ENTER){
 		input->beginInput();
+		bgi->setOpacity(200);
+	}
 }
 void ChatBox::onKeyboardUp(
 	EventKeyboard::KeyCode key){
@@ -108,5 +110,6 @@ void ChatBox::onKeyboardUp(
 		Network::getInstance()
 			->sendChatMessage(input->getString().c_str());
 		input->clear();
+		bgi->setOpacity(32);
 	}
 }

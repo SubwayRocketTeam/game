@@ -37,5 +37,6 @@ protected:
 private:
 	std::list<cocos2d::LabelTTF*> lines;
 
+	cocos2d::Sprite *bgi;
 	InputBox *input;
 };
