@@ -7,6 +7,7 @@ namespace Attr{
 	const std::string hp = "hp";
 	const std::string mp = "mp";
 	const std::string attack = "attack";
+	const std::string melee_attack = "melee_attack";
 	const std::string range = "range";
 	const std::string defence = "defence";
 	const std::string hpRegen = "hp_regen";

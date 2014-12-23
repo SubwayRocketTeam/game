@@ -7,8 +7,7 @@
     {"name" : "speed", "value" : 350},
     {"name" : "attack", "value" : 3},
     {"name" : "attack_speed", "value" : 1.0},
-    {"name" : "range", "value" : 300},
-    {"name" : "defence", "value" : 0},
+    {"name" : "range", "value" : 600},
     {"name" : "radius", "value" : 40}
   ],
 
@@ -16,7 +15,7 @@
     {"name" : "hp", "value" : 50},
     {"name" : "attack", "value" : 10},
     {"name" : "speed", "value" : 450},
-    {"name" : "range", "value" : 800}
+    {"name" : "range", "value" : 1200}
   ],
   
   "skills" : [

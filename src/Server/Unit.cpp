@@ -125,7 +125,7 @@ bool Unit::onDeath(){
 
 bool Unit::damage(const AttackData& attackData){
 	if (onDamage(attackData)){
-		__ATTR(hp).increase(-max(0, attackData.damage - _ATTR(defence)));
+		__ATTR(hp).increase(-attackData.damage);
 	}
 
 	if (_ATTR(hp) <= 0) {

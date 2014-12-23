@@ -236,7 +236,7 @@ bool Unit::damage(
 	const AttackData& attackData){
 
 	if (onDamage(attackData)){
-		__ATTR(hp).increase(-MAX(0, attackData.damage - _ATTR(defence)));
+		__ATTR(hp).increase(-attackData.damage);
 
 		damageLabel->active();
 	}

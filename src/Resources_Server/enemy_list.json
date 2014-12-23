@@ -4,45 +4,44 @@
 			"name" : "enemyBasic",
 			
 			"attrs" : [
-				{"name" : "hp", "value" : 3},
+				{"name" : "hp", "value" : 8},
 				{"name" : "hp_gen", "value" : 0},
-				{"name" : "speed", "value" : 300},
-				{"name" : "attack", "value" : 50},
-				{"name" : "attack_speed", "value" : 3.0},
-				{"name" : "range", "value" : 120},
-				{"name" : "defence", "value" : 0},
+				{"name" : "speed", "value" : 360},
+				{"name" : "melee_attack", "value" : 1},
+				{"name" : "range", "value" : 0},
 				{"name" : "radius", "value" : 30}
 			],
 			
 			"skills" : [],
 			
-			"cost" : 10
+			"cost" : 3
 		},
 		{
 			"name" : "enemyFollow",
 			
 			"attrs" : [
-				{"name" : "hp", "value" : 3},
+				{"name" : "hp", "value" : 12},
 				{"name" : "hp_gen", "value" : 0},
-				{"name" : "speed", "value" : 200},
-				{"name" : "attack", "value" : 50},
-				{"name" : "defence", "value" : 0},
+				{"name" : "speed", "value" : 300},
+				{"name" : "attack", "value" : 2},
+				{"name" : "melee_attack", "value" : 2},
+				{"name" : "range", "value" : 800},
 				{"name" : "radius", "value" : 30}
 			],
 			
 			"skills" : [202],
 			
-			"cost" : 10
+			"cost" : 6
 		},
 		{
 			"name" : "enemySpiral",
 			
 			"attrs" : [
-				{"name" : "hp", "value" : 20},
-				{"name" : "hp_gen", "value" : 0},
+				{"name" : "hp", "value" : 35},
+				{"name" : "hp_gen", "value" : 0.1},
 				{"name" : "speed", "value" : 0},
-				{"name" : "attack", "value" : 50},
-				{"name" : "defence", "value" : 0},
+				{"name" : "melee_attack", "value" : 10},
+				{"name" : "range", "value" : 1000},
 				{"name" : "radius", "value" : 30}
 			],
 			
@@ -50,33 +49,33 @@
 				200
 			],
 			
-			"cost" : 10
+			"cost" : 20
 		},
 		{
 			"name" : "enemyExplosion",
 			
 			"attrs" : [
-				{"name" : "hp", "value" : 3},
+				{"name" : "hp", "value" : 5},
 				{"name" : "hp_gen", "value" : 0},
 				{"name" : "speed", "value" : 500},
-				{"name" : "attack", "value" : 50},
-				{"name" : "defence", "value" : 0},
+				{"name" : "melee_attack", "value" : 5},
+				{"name" : "range", "value" : 2000},
 				{"name" : "radius", "value" : 30}
 			],
 			
 			"skills" : [],
 			
-			"cost" : 10
+			"cost" : 30
 		},
 		{
 			"name" : "enemyDup",
 			
 			"attrs" : [
-				{"name" : "hp", "value" : 10},
-				{"name" : "hp_gen", "value" : 0},
+				{"name" : "hp", "value" : 20},
+				{"name" : "hp_gen", "value" : 1},
 				{"name" : "speed", "value" : 500},
-				{"name" : "attack", "value" : 50},
-				{"name" : "defence", "value" : 0},
+				{"name" : "melee_attack", "value" : 10},
+				{"name" : "range", "value" : 800},
 				{"name" : "radius", "value" : 30}
 			],
 			
