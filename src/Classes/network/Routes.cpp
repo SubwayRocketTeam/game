@@ -21,6 +21,7 @@ void Network::initHandlers(){
 		std::bind(&Network::handleSpawn, this, placeholders::_1));
 
 	_ROUTE(UseSkillNoti);
+	_ROUTE(AddPassiveNoti);
 	_ROUTE(Attack);
 
 	_ROUTE(SyncRotationNoti);

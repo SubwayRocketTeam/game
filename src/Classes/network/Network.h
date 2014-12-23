@@ -92,6 +92,8 @@ protected:
 		UseSkillNoti *pkt);
 	void handleUpgrade(
 		UpgradeNoti *pkt);
+	void handleAddPassiveNoti(
+		AddPassiveNoti *pkt);
 	void handleAttack(
 		Attack *pkt);
 

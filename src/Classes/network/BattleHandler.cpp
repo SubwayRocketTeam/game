@@ -24,7 +24,13 @@ void Network::handleUseSkillNoti(
 		pkt->skill_id,
 		Vec2(pkt->x, pkt->y));
 }
+void Network::handleAddPassiveNoti(
+	AddPassiveNoti *pkt){
 
+	auto unit = Unit::getInstanceByID(pkt->id);
+
+	unit->addPassive(pkt->skill_id);
+}
 void Network::handleAttack(
 	Attack *pkt){
 	auto attacker = Unit::getInstanceByID(pkt->attacker_id);
