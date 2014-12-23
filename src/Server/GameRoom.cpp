@@ -11,6 +11,8 @@
 
 #include "Ally.h"
 
+#include "config.h"
+
 typedef std::pair<id_t, id_t> IdPair;
 
 GameRoom::GameRoom(const id_t id)
@@ -25,8 +27,10 @@ GameRoom::~GameRoom() {
 	}
 	units.clear();
 
-	SDL_DestroyRenderer(renderer);
-	SDL_DestroyWindow(window);
+	if (config::gui) {
+		SDL_DestroyRenderer(renderer);
+		SDL_DestroyWindow(window);
+	}
 }
 
 void GameRoom::update() {
@@ -39,40 +43,42 @@ void GameRoom::update() {
 
 	tick = now_tick;
 
-	SDL_SetRenderDrawColor(renderer, 255,2552,255,255);
-	SDL_RenderClear(renderer);
+	if (config::gui) {
+		SDL_SetRenderDrawColor(renderer, 255, 2552, 255, 255);
+		SDL_RenderClear(renderer);
 
-	for (auto unit : units){
-		if (unit->stage->id != 0)
-			continue;
-		SDL_Rect rect = {
-			(200 + unit->position.x / 4) - 5, 300 - (150 + unit->position.y / 4) - 5,
-			10, 10 };
-		SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
-		SDL_RenderFillRect(
-			renderer, &rect);
-	}
-	for(auto player : *stage[0]->ally[0]){
-		SDL_Rect rect = {
-			(200+player->position.x/4)-6, 300-(150+player->position.y/4)-6,
-			12,12};
-		SDL_SetRenderDrawColor(renderer, 0,255,0,255);
-		SDL_RenderFillRect(
-			renderer, &rect);
-	}
-	for(auto enemy : *stage[0]->ally[1]){
-		SDL_Rect rect = {
-			(200+enemy->position.x/4)-6, 300-(150+enemy->position.y/4)-6,
-			12,12};
-		SDL_SetRenderDrawColor(renderer, 255,0,0,255);
-		SDL_RenderFillRect(
-			renderer, &rect);
-	}
+		for (auto unit : units){
+			if (unit->stage->id != 0)
+				continue;
+			SDL_Rect rect = {
+				(200 + unit->position.x / 4) - 5, 300 - (150 + unit->position.y / 4) - 5,
+				10, 10 };
+			SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
+			SDL_RenderFillRect(
+				renderer, &rect);
+		}
+		for (auto player : *stage[0]->ally[0]){
+			SDL_Rect rect = {
+				(200 + player->position.x / 4) - 6, 300 - (150 + player->position.y / 4) - 6,
+				12, 12 };
+			SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+			SDL_RenderFillRect(
+				renderer, &rect);
+		}
+		for (auto enemy : *stage[0]->ally[1]){
+			SDL_Rect rect = {
+				(200 + enemy->position.x / 4) - 6, 300 - (150 + enemy->position.y / 4) - 6,
+				12, 12 };
+			SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+			SDL_RenderFillRect(
+				renderer, &rect);
+		}
 
-	SDL_RenderPresent(renderer);
+		SDL_RenderPresent(renderer);
 
-	SDL_Event event;
-	SDL_PollEvent(&event);
+		SDL_Event event;
+		SDL_PollEvent(&event);
+	}
 }
 
 
@@ -140,15 +146,16 @@ bool GameRoom::startGame() {
 	}
 
 	for (int i = 0; i < Max::Teams; ++i)
-		stage[i]->trashPool->spawn(1);
+		stage[i]->trashPool->spawn(clientIds.size() * config::start_trash);
 
-	/* CREATE DEBUG WINDOW */
-	window = SDL_CreateWindow(
-		"dbgwindow",
-		SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-		400, 300, 0);
-	renderer = SDL_CreateRenderer(
-		window, -1, 0);
+	if (config::gui) {
+		window = SDL_CreateWindow(
+			"dbgwindow",
+			SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+			400, 300, 0);
+		renderer = SDL_CreateRenderer(
+			window, -1, 0);
+	}
 
 	return true;
 }

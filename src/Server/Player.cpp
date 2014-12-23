@@ -25,10 +25,11 @@
 #include "shared/skill/id.h"
 #include "shared/skill/AttributeName.h"
 
+#include "config.h"
 
 Player::Player()
 	:speedFactor(1), immortal(0), stiff(0)
-	, trash(0), upgradeCost(10){
+	, trash(0), upgradeCost(config::upgrade_cost_start){
 	type = UT_PLAYER;
 	ally = Ally::Type::allyPlayer;
 	init("type1.json");
@@ -194,7 +195,7 @@ bool Player::upgrade(
 	attr.getBonusValue() = (attr_max - attr.getValue()) / Max::Upgrade * upgradeTimes[attr_name];
 
 	trash -= upgradeCost;
-	upgradeCost = min(Max::Tank, upgradeCost + 10);
+	upgradeCost = min(Max::Tank, upgradeCost + config::upgrade_cost_delta);
 
 	return true;
 }
