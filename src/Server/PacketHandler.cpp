@@ -63,6 +63,8 @@ REGISTER_HANDLER(LoginRequest) {
 REGISTER_HANDLER(EnterRoom) {
 	EnterNoti noti;
 	auto gameroom = GameRoomManager::getInstance()->getAvailableGameRoom();
+	NULLCHECK(gameroom);
+
 	client->setGameRoomId(gameroom->id);
 	gameroom->enter(client->id);
 
@@ -78,6 +80,7 @@ REGISTER_HANDLER(EnterRoom) {
 REGISTER_HANDLER(Ready) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(
 		client->getGameRoomId());
+	NULLCHECK(gameroom);
 
 	gameroom->ready++;
 
@@ -92,6 +95,7 @@ REGISTER_HANDLER(LeaveRoom) {
 	LeaveNoti noti;
 	noti.client_id = client->id;
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	NULLCHECK(gameroom);
 	gameroom->sendPacket(noti);
 	gameroom->leave(client->id);
 } END
@@ -100,6 +104,8 @@ REGISTER_HANDLER(LeaveRoom) {
 REGISTER_HANDLER(SpawnRequest) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
 	Unit* unit = gameroom->getClientUnit(client->id);
+	NULLCHECK(gameroom);
+	NULLCHECK(unit);
 	auto spawner = unit->stage->spawner;
 	Enemy* enemy = spawner->spawn((EnemyType)(packet->unit_type - UNIT_ENEMY_BASIC));
 
@@ -119,7 +125,9 @@ REGISTER_HANDLER(SpawnRequest) {
 REGISTER_HANDLER(UseSkill) {
 	auto gameroom =
 		GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	NULLCHECK(gameroom);
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
+	NULLCHECK(player);
 
 	player->useSkill(packet->skill_id, Vec2(packet->x, packet->y));
 
@@ -137,7 +145,9 @@ REGISTER_HANDLER(UseSkill) {
 
 REGISTER_HANDLER(Move) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	NULLCHECK(gameroom);
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
+	NULLCHECK(player);
 	player->moveDirection = Vec2(packet->direction_x, packet->direction_y).getNormalized();
 
 	MoveNoti response;
@@ -153,7 +163,9 @@ REGISTER_HANDLER(Move) {
 REGISTER_HANDLER(SyncRotation) {
 	auto gameroom =
 		GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	NULLCHECK(gameroom);
 	Unit* unit = gameroom->getClientUnit(client->id);
+	NULLCHECK(unit);
 
 	unit->direction = Vec2::UNIT_X.getRotated(Vec2::ZERO, packet->angle);
 
@@ -167,7 +179,10 @@ REGISTER_HANDLER(SyncRotation) {
 REGISTER_HANDLER(UpgradeRequest) {
 	static std::string attrs[] = { "", Attr::hp, Attr::attack, Attr::speed, Attr::range };
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	NULLCHECK(gameroom);
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
+	NULLCHECK(player);
+
 	if (player->upgrade(attrs[packet->upgrade_type])) {
 		UpgradeNoti noti;
 		noti.id = player->id;
@@ -178,6 +193,7 @@ REGISTER_HANDLER(UpgradeRequest) {
 
 REGISTER_HANDLER(ChatMessage) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	NULLCHECK(gameroom);
 
 	ChatNoti noti;
 	strcat_s(noti.msg, packet->msg);

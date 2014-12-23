@@ -32,4 +32,9 @@
 
 #define ErrorLog(error) _ErrorLog(__FILE__, __LINE__, error)
 
+#define NULLCHECK(val) if(val == nullptr){ \
+		printf(#val ##" is nullptr\n"); \
+		return; \
+	}
+
 void _ErrorLog(const char* const file, const int line, const int errorCode);
