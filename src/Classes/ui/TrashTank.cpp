@@ -31,17 +31,16 @@ TrashTank *TrashTank::getInstance(){
 }
 
 bool TrashTank::init(){
-	if(!Sprite::initWithFile(R::TankFrame))
+	if(!Sprite::initWithFile(R::TankBack))
 		return false;
 
 	gauge = ProgressTimer::create(
 		Sprite::create(R::TankGauge));
 	gauge->setType(ProgressTimer::Type::BAR);
-	gauge->setOpacity(255);
 	gauge->setPercentage(0);
-	gauge->setBarChangeRate(Vec2(1,0));
-	gauge->setAnchorPoint(Vec2(0,0));
-	gauge->setMidpoint(Vec2(0,0));
+	gauge->setBarChangeRate(Vec2(1, 0));
+	gauge->setAnchorPoint(Vec2(0, 0));
+	gauge->setMidpoint(Vec2(0, 0));
 	addChild(gauge);
 
 	BlendFunc blend;
@@ -49,10 +48,14 @@ bool TrashTank::init(){
 	blend.dst = GL_SRC_ALPHA;
 
 	overlay = Sprite::create(R::TankGauge);
-	overlay->setAnchorPoint(Vec2(0,0));
+	overlay->setAnchorPoint(Vec2(0, 0));
 	overlay->setBlendFunc(blend);
 	overlay->setVisible(false);
 	addChild(overlay);
+
+	frame = Sprite::create(R::TankFrame);
+	frame->setAnchorPoint(Vec2(0, 0));
+	addChild(frame);
 
 	scheduleUpdate();
 

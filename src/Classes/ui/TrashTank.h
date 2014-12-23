@@ -23,6 +23,7 @@ protected:
 		float dt);
 
 private:
+	cocos2d::Sprite *frame;
 	cocos2d::ProgressTimer *gauge;
 	cocos2d::Sprite *overlay;
 
