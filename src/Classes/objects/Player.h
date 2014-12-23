@@ -53,9 +53,11 @@ protected:
 
 	std::vector<Trash*> vacuumingTrashs;
 
-	int moveCounter;
+	///# 부모의 멤버 덮어쓰기?
+	int moveCounter; 
 	int moveSwitchVertical;
 	int moveSwitchHorizontal;
+
 	cocos2d::Vec2 speed;
 
 	float immortal;
