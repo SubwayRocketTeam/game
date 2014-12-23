@@ -192,6 +192,7 @@ void Enemy::setInfo(EnemyInfo* info, int enemy_type) {
 
 	radius = _ATTR(radius);
 	attackData.damage = _ATTR(melee_attack);
+	_INIT_ATTR(drops, info->cost * 2);
 
 	if (info->skills.size() > 0)
 		skill = info->skills[0];
