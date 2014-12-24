@@ -10,7 +10,9 @@
 #include "GameRoom.h"
 #include "GameRoomManager.h"
 #include "EnemySpawner.h"
+#include "EnemyFactory.h"
 #include "EnemyType.h"
+#include "EnemyInfo.h"
 
 static PacketHandler* handlerMap[PT_PacketMax];
 
@@ -103,11 +105,18 @@ REGISTER_HANDLER(LeaveRoom) {
 
 REGISTER_HANDLER(SpawnRequest) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
-	Unit* unit = gameroom->getClientUnit(client->id);
+	Player* player = (Player*)gameroom->getClientUnit(client->id);
 	NULLCHECK(gameroom);
-	NULLCHECK(unit);
-	auto spawner = unit->stage->spawner;
-	Enemy* enemy = spawner->spawn((EnemyType)(packet->unit_type - UNIT_ENEMY_BASIC));
+	NULLCHECK(player);
+	auto type = (EnemyType)(packet->unit_type - UNIT_ENEMY_BASIC);
+	auto spawner = player->stage->spawner;
+	auto info = EnemyFactory::getInstance()->getEenmyInfo(type);
+
+	if (player->getTrash() < info->cost)
+		return;
+
+	player->addTrash(-info->cost);
+	Enemy* enemy = spawner->spawn(type);
 
 	/*
 	SpawnUnit noti;
