@@ -40,6 +40,7 @@ bool TrashTank::init(){
 	gauge->setPercentage(0);
 	gauge->setBarChangeRate(Vec2(1, 0));
 	gauge->setAnchorPoint(Vec2(0, 0));
+	gauge->setPositionX((getContentSize().width - gauge->getContentSize().width) / 2);
 	gauge->setMidpoint(Vec2(0, 0));
 	addChild(gauge);
 
@@ -67,7 +68,8 @@ void TrashTank::update(
 	/* 블링크 영역 업데이트 */
 	auto size = gauge->getContentSize();
 	float x =
-		MAX(0, size.width * ((resource->trash-cost) / Max::Tank));
+		MAX(0, size.width * ((resource->trash-cost) / Max::Tank))
+		+ gauge->getPositionX();
 	float width = 
 		size.width * MIN((float)resource->trash / Max::Tank, cost / Max::Tank);
 	overlay->setTextureRect(
