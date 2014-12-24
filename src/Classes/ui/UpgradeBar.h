@@ -4,7 +4,9 @@
 
 #include "objects/KeyboardEventListener.h"
 
-class UpgradeBar : public cocos2d::Sprite,
+class UpgradeItem;
+
+class UpgradeBar : public cocos2d::Node,
 	public KeyboardEventListener{
 private:
 	enum SlideDirection;
@@ -32,6 +34,9 @@ protected:
 		cocos2d::EventKeyboard::KeyCode key);
 
 protected:
+	std::map<int, UpgradeItem*> items;
+	float itemHeight;
+
 	float cost;
 	bool upgradeTrying;
 

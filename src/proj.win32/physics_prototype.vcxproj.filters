@@ -250,6 +250,7 @@
     <ClCompile Include="..\Classes\ui\SpawnIconPanel.cpp">
       <Filter>source\ui</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ui\UpgradeItem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -531,6 +532,7 @@
     <ClInclude Include="..\Classes\ui\SpawnIconPanel.h">
       <Filter>source\ui</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\ui\UpgradeItem.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">
