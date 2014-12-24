@@ -43,7 +43,6 @@ namespace R{
 	_RESL(PlayerGauge);
 
 	_RESL(TankBack);
-	_RESL(TankFrame);
 	_RESL(TankGauge);
 	_RESL(TankIndicator);
 	_RESL(TankOverlay);

@@ -37,7 +37,6 @@ namespace R{
 	_RESD(PlayerGauge, "hpgauge.png");
 
 	_RESD(TankBack, "tank_back.png");
-	_RESD(TankFrame, "tank_frame.png");
 	_RESD(TankGauge, "tank_gauge.png");
 	_RESD(TankIndicator, "tank_indicator.png");
 	_RESD(TankOverlay, "tankui_back.png");

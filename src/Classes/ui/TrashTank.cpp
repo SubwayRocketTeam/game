@@ -53,10 +53,6 @@ bool TrashTank::init(){
 	overlay->setVisible(false);
 	addChild(overlay);
 
-	frame = Sprite::create(R::TankFrame);
-	frame->setAnchorPoint(Vec2(0, 0));
-	addChild(frame);
-
 	scheduleUpdate();
 
 	return true;
