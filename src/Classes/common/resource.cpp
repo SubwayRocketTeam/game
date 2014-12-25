@@ -15,8 +15,8 @@ namespace R{
 
 	_RESD(UpgradeBar, "upgrade_bar.png");
 
-	_RESD(PlayerBody, "robot1");
-	_RESD(EnemyBody, "enemy");
+//	_RESD(PlayerBody, "robot1");
+//	_RESD(EnemyBody, "enemy");
 
 	_RESD(StageFloor, "Floor.png");
 	_RESD(StageJson, "stage.json");

@@ -52,8 +52,6 @@ Player *Player::create(
 bool Player::init(
 	const string &dataPath){
 
-	if (!Unit::init(R::PlayerBody))
-		return false;
 	if(!initExternalData(dataPath))
 		return false;
 
@@ -86,6 +84,12 @@ bool Player::initExternalData(
 	Json::Value root;
 	if(!JsonLoader::load(dataPath,root))
 		return false;
+
+	/* image */
+	auto image = root.get("image", Json::Value::null).asCString();
+	if (!Unit::init(_MAKE_PATH("%s.png", image)))
+		return false;
+	shadow = Sprite::create(_MAKE_PATH("%s_shadow.png", image));
 
 	/* attr */
 	auto attrList = root.get("attrs", Json::Value::null);

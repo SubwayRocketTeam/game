@@ -11,7 +11,7 @@
   "designWidth": 1024,
   "textures": [],
   "texturesPng": [
-    "login_background.jpg",
+    "title.png",
     "button.png"
   ],
   "version": "1.6.0.0",
@@ -19,53 +19,6 @@
     "classname": "Panel",
     "name": null,
     "children": [
-      {
-        "classname": "LabelBMFont",
-        "name": null,
-        "children": [],
-        "options": {
-          "__type": "LabelBMFontSurrogate:#EditorCommon.JsonModel.Component.GUI",
-          "classname": "LabelBMFont",
-          "name": "BitmapLabel_8",
-          "ZOrder": 2,
-          "actiontag": 32913028,
-          "anchorPointX": 0.5,
-          "anchorPointY": 0.5,
-          "classType": "CocoStudio.EngineAdapterWrap.CSLabelBMFont",
-          "colorB": 255,
-          "colorG": 255,
-          "colorR": 255,
-          "customProperty": "",
-          "flipX": false,
-          "flipY": false,
-          "height": 37,
-          "ignoreSize": true,
-          "layoutParameter": null,
-          "opacity": 255,
-          "positionPercentX": 0.23046875,
-          "positionPercentY": 0.8880208,
-          "positionType": 0,
-          "rotation": 0,
-          "scaleX": 1,
-          "scaleY": 1,
-          "sizePercentX": 0.373046875,
-          "sizePercentY": 0.0481770821,
-          "sizeType": 0,
-          "tag": 11,
-          "touchAble": false,
-          "useMergedTexture": false,
-          "visible": true,
-          "width": 382,
-          "x": 236,
-          "y": 682,
-          "fileNameData": {
-            "path": "GUI/missing-font.fnt",
-            "plistFile": "",
-            "resourceType": 0
-          },
-          "text": "RobotopiaCleaner"
-        }
-      },
       {
         "classname": "Button",
         "name": null,
@@ -493,7 +446,7 @@
       "adaptScreen": false,
       "backGroundImage": null,
       "backGroundImageData": {
-        "path": "login_background.jpg",
+        "path": "title.png",
         "plistFile": "",
         "resourceType": 0
       },

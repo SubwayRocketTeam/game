@@ -53,7 +53,6 @@ protected:
 
 	std::vector<Trash*> vacuumingTrashs;
 
-	///# 부모의 멤버 덮어쓰기?
 	int moveCounter; 
 	int moveSwitchVertical;
 	int moveSwitchHorizontal;
@@ -65,5 +64,6 @@ protected:
 	float speedFactor;
 	std::vector<float> cooltimes;
 
-	cocos2d::DrawNode *lay;
+
+	cocos2d::Sprite *shadow;
 };

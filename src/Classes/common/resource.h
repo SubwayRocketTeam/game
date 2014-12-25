@@ -21,8 +21,8 @@ namespace R{
 
 	_RESL(UpgradeBar);
 
-	_RESL(PlayerBody);
-	_RESL(EnemyBody);
+//	_RESL(PlayerBody);
+//	_RESL(EnemyBody);
 
 	_RESL(StageFloor);
 	_RESL(StageJson);
