@@ -163,6 +163,10 @@ bool Player::onDamage(
 	return true;
 }
 bool Player::onDeath(){
+	stage->trashPool->spawn(
+		position, trash);
+	trash = 0;
+
 	return false;
 }
 
