@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "EnemyExplode.h"
+#include "EnemyType.h"
 
 #include "skill/id.h"
 
@@ -24,7 +25,7 @@ EnemyExplode *EnemyExplode::create(){
 	return nullptr;
 }
 bool EnemyExplode::init(){
-	if (!Enemy::init())
+	if (!Enemy::init(enemyExplode))
 		return false;
 
 	return true;

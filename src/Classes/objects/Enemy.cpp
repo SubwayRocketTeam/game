@@ -25,19 +25,25 @@ Enemy::Enemy(){
 Enemy::~Enemy(){
 }
 
-Enemy *Enemy::create(){
+Enemy *Enemy::create(
+	int enemyType){
 	Enemy *e = new Enemy();
 
-	if(e && e->init()){
+	if(e && e->init(enemyType)){
 		e->autorelease();
 		return e;
 	}
 	CC_SAFE_DELETE(e);
 	return nullptr;
 }
-bool Enemy::init(){
-	if (!Unit::init(R::EnemyBody))
+bool Enemy::init(
+	int enemyType){
+	if (!Unit::init(_MAKE_PATH("enemy%d.png", enemyType+1)))
 		return false;
+
+	shadow = Sprite::create(
+		_MAKE_PATH("enemy%d_shadow.png", enemyType));
+	addChild(shadow, Z::shadow);
 
 	attackData.user = this;
 	attackData.object = this;

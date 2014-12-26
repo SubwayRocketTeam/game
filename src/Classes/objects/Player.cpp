@@ -90,6 +90,7 @@ bool Player::initExternalData(
 	if (!Unit::init(_MAKE_PATH("%s.png", image)))
 		return false;
 	shadow = Sprite::create(_MAKE_PATH("%s_shadow.png", image));
+	addChild(shadow, Z::shadow);
 
 	/* attr */
 	auto attrList = root.get("attrs", Json::Value::null);

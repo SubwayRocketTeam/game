@@ -50,7 +50,7 @@ Enemy* EnemyFactory::createEnemy(EnemyType type)
 		enemy = EnemyDup::create();
 		break;
 	default:
-		enemy = Enemy::create();
+		enemy = Enemy::create(type);
 		break;
 	}
 	enemy->setInfo(dic[type]);

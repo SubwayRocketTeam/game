@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "EnemyDup.h"
+#include "EnemyType.h"
 
 #include "skill/id.h"
 
@@ -24,7 +25,7 @@ EnemyDup *EnemyDup::create(){
 	return nullptr;
 }
 bool EnemyDup::init(){
-	if (!Enemy::init())
+	if (!Enemy::init(enemyDup))
 		return false;
 
 	return true;
