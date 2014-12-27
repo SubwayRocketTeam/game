@@ -88,9 +88,15 @@ void Enemy::update(float dt){
 
 void Enemy::updateMovement(){
 	auto target = getTarget();
-	followPosition = target? target->position : position;
-	auto delta = followPosition - position;
-	velocity = delta.getNormalized() * _ATTR(speed);
+	if (!target) {
+		if (velocity.getLengthSq() != 0.f)
+			return;
+		velocity = Vec2::ZERO;
+	}
+	else {
+		auto delta = target->position - position;
+		velocity = delta.getNormalized() * _ATTR(speed);
+	}
 
 	MoveNoti noti;
 	noti.id = id;
