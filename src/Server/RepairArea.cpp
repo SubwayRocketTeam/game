@@ -13,8 +13,7 @@
 #include "shared/skill/id.h"
 
 
-RepairArea::RepairArea(Stage* const stage)
-	:stage(stage) {
+RepairArea::RepairArea() {
 }
 RepairArea::~RepairArea(){
 }
@@ -22,20 +21,6 @@ RepairArea::~RepairArea(){
 bool RepairArea::init(){
 	if (!Unit::init())
 		return false;
-
-	// 위치 선정
-	position = Vec2(200, 200);
-
-	// 전송
-	SpawnUnit noti;
-	noti.id = id;
-	noti.stage = stage->id;
-	noti.unit_type = UNIT_REPAIR_AREA;
-	noti.x = position.x;
-	noti.y = position.y;
-	stage->gameroom->sendPacket(noti);
-
-
 	return true;
 }
 

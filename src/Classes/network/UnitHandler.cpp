@@ -70,6 +70,7 @@ void Network::handleSpawn(
 	case UNIT_REPAIR_AREA:
 	{
 		unit = RepairArea::create();
+		z = Z::repairArea;
 		break;
 	}
 

@@ -8,6 +8,7 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "TrashPool.h"
+#include "RepairArea.h"
 
 #include "Ally.h"
 
@@ -147,8 +148,19 @@ bool GameRoom::startGame() {
 		sendPacket(noti);
 	}
 
-	for (int i = 0; i < Max::Teams; ++i)
+	for (int i = 0; i < Max::Teams; ++i) {
+		// Repair Area 스폰
+		SpawnUnit noti;
+		noti.id = id;
+		noti.stage = i;
+		noti.unit_type = UNIT_REPAIR_AREA;
+		noti.x = stage[i]->repairArea->position.x;
+		noti.y = stage[i]->repairArea->position.y;
+		sendPacket(noti);
+
+		// 쓰레기 뿌리기
 		stage[i]->trashPool->spawn(clientIds.size() * config::start_trash);
+	}
 
 	if (config::gui) {
 		window = SDL_CreateWindow(

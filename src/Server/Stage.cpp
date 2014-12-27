@@ -15,9 +15,11 @@ Stage::Stage(GameRoom* gameroom, const int id)
 	collisionDetector = new CollisionDetector();
 	trashPool = new TrashPool(this);
 	spawner = new EnemySpawner(this);
-	repairArea = new RepairArea(this);
+	repairArea = new RepairArea();
 	for (int i = 0; i < ALLY_MAX; ++i)
 		ally[i] = new Ally();
+
+	addUnit(repairArea);
 
 	init();
 }

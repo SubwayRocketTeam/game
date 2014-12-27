@@ -6,13 +6,9 @@ class Stage;
 
 class RepairArea : public Unit{
 public:
-	RepairArea(Stage* const stage);
+	RepairArea();
 	virtual ~RepairArea();
 
 	virtual bool init();
 	virtual void update(float dt);
-
-public:
-	Stage* const stage;
-
 };
