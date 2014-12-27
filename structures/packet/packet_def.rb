@@ -15,26 +15,37 @@ end
 # LOGIN
 class LoginRequest < Packet
   required
-  string "id", 32
-  string "pw", 32
+  string "nickname", 32
 end
 class LoginResponse < Packet
   required
-  int "result"
-  string "nickname", 32
+  int "client_id"  # 0이면 실패
 end
 
 # ROOM
+class RoomRequest < Packet
+	required
+end
+class RoomResponse < Packet
+  required
+  int "room_num"
+  string "room_list", 32  # 배열이 없어서 string으로 함
+end
 class EnterRoom < Packet
   required
+  int "room_id"
 end
-class LeaveRoom < Packet
+class EnterResponse < Packet
   required
+  int "result"
 end
 class EnterNoti < Packet
   required
   int "client_id"
   string "nickname", 32
+end
+class LeaveRoom < Packet
+  required
 end
 class LeaveNoti < Packet
   required
@@ -42,12 +53,15 @@ class LeaveNoti < Packet
 end
 
 # GAME
+class SelectRobot < Packet
+	required
+end
 class ReadyRequest < Packet
   required
 end
-class Ready < Packet
+class ReadyNoti < Packet
   required
-  int "robot_id"
+  int "client_id"
 end
 class StartGame < Packet
   required

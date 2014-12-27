@@ -10,7 +10,22 @@
   "designHeight": 768,
   "designWidth": 1024,
   "textures": [],
-  "texturesPng": [],
+  "texturesPng": [
+    "title_background.png",
+    "panel.png",
+    "lobby_background.png",
+    "panel.png",
+    "select_background.png",
+    "panel.png",
+    "robot1.png",
+    "robot2.png",
+    "robot3.png",
+    "status_hp.png",
+    "status_attack.png",
+    "status_speed.png",
+    "status_range.png",
+    "GUI/image.png"
+  ],
   "version": "1.6.0.0",
   "widgetTree": {
     "classname": "Panel",
@@ -1175,9 +1190,9 @@
                   "capInsetsY": 0,
                   "fileName": null,
                   "fileNameData": {
-                    "path": "C:\\Program Files (x86)\\Cocos Studio\\EditorDefaultRes\\GUI/image.png",
+                    "path": "GUI/image.png",
                     "plistFile": "",
-                    "resourceType": 2
+                    "resourceType": 0
                   },
                   "scale9Enable": false,
                   "scale9Height": 80,
@@ -1348,9 +1363,9 @@
                   "capInsetsY": 0,
                   "fileName": null,
                   "fileNameData": {
-                    "path": "C:\\Program Files (x86)\\Cocos Studio\\EditorDefaultRes\\GUI/image.png",
+                    "path": "GUI/image.png",
                     "plistFile": "",
-                    "resourceType": 2
+                    "resourceType": 0
                   },
                   "scale9Enable": false,
                   "scale9Height": 80,
@@ -1590,9 +1605,9 @@
                   "capInsetsY": 0,
                   "fileName": null,
                   "fileNameData": {
-                    "path": "C:\\Program Files (x86)\\Cocos Studio\\EditorDefaultRes\\GUI/image.png",
+                    "path": "GUI/image.png",
                     "plistFile": "",
-                    "resourceType": 2
+                    "resourceType": 0
                   },
                   "scale9Enable": false,
                   "scale9Height": 80,
@@ -1763,9 +1778,9 @@
                   "capInsetsY": 0,
                   "fileName": null,
                   "fileNameData": {
-                    "path": "C:\\Program Files (x86)\\Cocos Studio\\EditorDefaultRes\\GUI/image.png",
+                    "path": "GUI/image.png",
                     "plistFile": "",
-                    "resourceType": 2
+                    "resourceType": 0
                   },
                   "scale9Enable": false,
                   "scale9Height": 80,

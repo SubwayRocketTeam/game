@@ -17,7 +17,7 @@
     <GuidesList />
   </GuidesProject>
   <GuidesProject>
-    <Project>login_scene_2</Project>
+    <Project>room_item</Project>
     <GuidesList />
   </GuidesProject>
 </ArrayOfGuidesProject>

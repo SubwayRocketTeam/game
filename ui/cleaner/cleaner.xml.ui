@@ -11,7 +11,7 @@
     <string>pause_menu.json</string>
     <string>lobby_scene.json</string>
     <string>select_scene.json</string>
-    <string>login_scene_2.json</string>
+    <string>room_item.json</string>
   </JsonList>
   <CanvasSize>
     <Width>1024</Width>
@@ -23,8 +23,21 @@
   <imageFileList />
   <imagePngList>
     <string>title_background.png</string>
-    <string>button.png</string>
+    <string>panel.png</string>
+    <string>lobby_background.png</string>
+    <string>panel.png</string>
+    <string>select_background.png</string>
+    <string>panel.png</string>
+    <string>robot1.png</string>
+    <string>robot2.png</string>
+    <string>robot3.png</string>
+    <string>status_hp.png</string>
+    <string>status_attack.png</string>
+    <string>status_speed.png</string>
+    <string>status_range.png</string>
+    <string>GUI/image.png</string>
+    <string>panel.png</string>
   </imagePngList>
   <JsonSuffix>.json</JsonSuffix>
-  <CurrentUIJson>select_scene.json</CurrentUIJson>
+  <CurrentUIJson>room_item.json</CurrentUIJson>
 </UIProject>

@@ -33,7 +33,6 @@ Player::Player()
 	, trash(0), upgradeCost(config::upgrade_cost_start){
 	type = UT_PLAYER;
 	ally = Ally::Type::allyPlayer;
-	init("type1.json");
 }
 Player::~Player(){
 }
