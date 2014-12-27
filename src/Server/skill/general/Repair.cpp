@@ -12,12 +12,11 @@ bool Repair::update(
 	float remaining){
 
 	auto stage = user->stage;
-	auto repairArea =
-		stage->repairArea;
+	auto repairArea = stage->repairArea;
 	auto delta = repairArea->position - user->position;
 
 	if(std::abs(delta.x) < config::repair_area_size
 		&& std::abs(delta.y) < config::repair_area_size)
 		return true;
-	return true;
+	return false;
 }
