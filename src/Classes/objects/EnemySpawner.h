@@ -7,7 +7,7 @@
 
 class Enemy;
 
-class EnemySpawner : public Unit{
+class EnemySpawner : public cocos2d::Node{
 public:
 	static EnemySpawner *create();
 

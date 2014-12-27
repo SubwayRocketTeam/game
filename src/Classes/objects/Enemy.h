@@ -55,7 +55,4 @@ protected:
 	float cooltime;
 
 	cocos2d::LabelTTF* label;
-
-	cocos2d::Sprite *shadow;
-
 };

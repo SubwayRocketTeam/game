@@ -63,6 +63,4 @@ protected:
 	float stiff;
 	float speedFactor;
 	std::vector<float> cooltimes;
-
-	cocos2d::Sprite *shadow;
 };

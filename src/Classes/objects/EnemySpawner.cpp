@@ -26,7 +26,7 @@ EnemySpawner *EnemySpawner::create(){
 	return nullptr;
 }
 bool EnemySpawner::init(){
-	if(!Unit::init(R::EnemySpawner))
+	if(!Node::init())
 		return false;
 
 	scheduleUpdate();

@@ -86,11 +86,9 @@ bool Player::initExternalData(
 		return false;
 
 	/* image */
-	auto image = root.get("image", Json::Value::null).asCString();
-	if (!Unit::init(_MAKE_PATH("%s.png", image)))
+	auto image = root.get("image", Json::Value::null).asString();
+	if (!Unit::init(_MAKE_PATH("%s", image.c_str())))
 		return false;
-	shadow = Sprite::create(_MAKE_PATH("%s_shadow.png", image));
-	addChild(shadow, Z::shadow);
 
 	/* attr */
 	auto attrList = root.get("attrs", Json::Value::null);

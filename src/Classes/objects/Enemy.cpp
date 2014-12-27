@@ -38,12 +38,8 @@ Enemy *Enemy::create(
 }
 bool Enemy::init(
 	int enemyType){
-	if (!Unit::init(_MAKE_PATH("enemy%d.png", enemyType+1)))
+	if (!Unit::init(_MAKE_PATH("enemy%d", enemyType+1)))
 		return false;
-
-	shadow = Sprite::create(
-		_MAKE_PATH("enemy%d_shadow.png", enemyType));
-	addChild(shadow, Z::shadow);
 
 	attackData.user = this;
 	attackData.object = this;
