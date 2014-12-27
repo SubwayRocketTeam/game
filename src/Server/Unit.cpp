@@ -199,6 +199,11 @@ void Unit::removePassive(int skill_id){
 
 	_ASSERT(passives.find(skill_id) != passives.end());
 
+	RemovePassiveNoti noti;
+	noti.id = id;
+	noti.skill_id = skill_id;
+	stage->gameroom->sendPacket(noti);
+
 	passives.erase(skill_id);
 
 	for (auto pair : skill->bonusList){

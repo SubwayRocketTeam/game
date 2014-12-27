@@ -94,6 +94,8 @@ protected:
 		UpgradeNoti *pkt);
 	void handleAddPassiveNoti(
 		AddPassiveNoti *pkt);
+	void handleRemovePassiveNoti(
+		RemovePassiveNoti *pkt);
 	void handleAttack(
 		Attack *pkt);
 

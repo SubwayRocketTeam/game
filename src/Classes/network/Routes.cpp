@@ -22,6 +22,7 @@ void Network::initHandlers(){
 
 	_ROUTE(UseSkillNoti);
 	_ROUTE(AddPassiveNoti);
+	_ROUTE(RemovePassiveNoti);
 	_ROUTE(Attack);
 
 	_ROUTE(SyncRotationNoti);

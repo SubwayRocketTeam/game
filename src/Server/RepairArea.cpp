@@ -2,7 +2,10 @@
 #include "RepairArea.h"
 
 #include "Stage.h"
+#include "GameRoom.h"
 #include "Ally.h"
+
+#include "PacketType.h"
 
 #include "common/resource.h"
 #include "config.h"
@@ -19,6 +22,20 @@ RepairArea::~RepairArea(){
 bool RepairArea::init(){
 	if (!Unit::init())
 		return false;
+
+	// 위치 선정
+	position = Vec2(200, 200);
+
+	// 전송
+	SpawnUnit noti;
+	noti.id = id;
+	noti.stage = stage->id;
+	noti.unit_type = UNIT_REPAIR_AREA;
+	noti.x = position.x;
+	noti.y = position.y;
+	stage->gameroom->sendPacket(noti);
+
+
 	return true;
 }
 

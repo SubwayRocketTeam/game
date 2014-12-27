@@ -5,6 +5,6 @@ void Network::sendSpawnRequest(
 	int unitType){
 
 	SpawnRequest pkt;
-	pkt.unit_type = unitType;
+	pkt.enemy_type = unitType;
 	send(pkt);
 }

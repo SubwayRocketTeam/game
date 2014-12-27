@@ -127,6 +127,7 @@ bool GameRoom::startGame() {
 		noti.id = id.second;
 		noti.stage = player->stage->id;
 		noti.unit_type = UNIT_PLAYER_ME;
+		noti.sub_type = PLAYER_TYPE1;
 		noti.x = player->position.x;
 		noti.y = player->position.y;
 		client->sendPacket(noti);
@@ -140,6 +141,7 @@ bool GameRoom::startGame() {
 		noti.id = id.second;
 		noti.stage = player->stage->id;
 		noti.unit_type = UNIT_PLAYER;
+		noti.sub_type = PLAYER_TYPE1;
 		noti.x = player->position.x;
 		noti.y = player->position.y;
 		sendPacket(noti);

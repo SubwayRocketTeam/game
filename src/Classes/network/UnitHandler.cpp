@@ -12,6 +12,7 @@
 #include "objects/CollisionDetector.h"
 #include "objects/EnemyFactory.h"
 #include "objects/Trash.h"
+#include "objects/RepairArea.h"
 
 void Network::handleSpawn(
 	SpawnUnit *pkt){
@@ -29,6 +30,7 @@ void Network::handleSpawn(
 
 	case UNIT_PLAYER:
 	{
+		// sub_type으로 플레이어 종류 선택
 		unit = Player::create("type1.json");
 		auto players = Ally::getInstance(Ally::allyPlayer);
 		players->push(unit);
@@ -37,6 +39,7 @@ void Network::handleSpawn(
 	}
 	case UNIT_PLAYER_ME:
 	{
+		// sub_type으로 플레이어 종류 선택
 		unit = ControlablePlayer::create("type1.json");
 		auto players = Ally::getInstance(Ally::allyPlayer);
 		players->push(unit);
@@ -52,20 +55,21 @@ void Network::handleSpawn(
 		break;
 	}
 
-	case UNIT_ENEMY_BASIC:
-	case UNIT_ENEMY_FOLLOW:
-	case UNIT_ENEMY_SPIRAL:
-	case UNIT_ENEMY_EXPLODE:
-	case UNIT_ENEMY_5:
-	case UNIT_ENEMY_6:
+	case UNIT_ENEMY:
 	{
 		auto factory = EnemyFactory::getInstance();
 		auto ally = Ally::getInstance(Ally::Type::allyEnemy);
-		auto e = factory->createEnemy((EnemyType)(pkt->unit_type - UNIT_ENEMY_BASIC));
+		auto e = factory->createEnemy((EnemyType)(pkt->sub_type - ENEMY_BASIC));
 		e->resetAggro();
 		ally->push(e);
 		unit = e;
 		z = Z::unit;
+		break;
+	}
+
+	case UNIT_REPAIR_AREA:
+	{
+		unit = RepairArea::create();
 		break;
 	}
 

@@ -66,18 +66,42 @@ class UnitType_ < Enum
 	:UNIT_PLAYER_ME,
 	
 	:UNIT_TRASH,
-	
-	:UNIT_BULLET_PLAYER,
-	:UNIT_BULLET_ENEMY,
-	
-	:UNIT_ENEMY_BASIC,
-	:UNIT_ENEMY_FOLLOW,
-	:UNIT_ENEMY_SPIRAL,
-	:UNIT_ENEMY_EXPLODE,
-	:UNIT_ENEMY_5,
-	:UNIT_ENEMY_6,
+
+	:UNIT_ENEMY,
+	:UNIT_REPAIR_AREA,
 
 	:UNIT_MAX
+  ]
+end
+
+class PlayerType_ < Enum
+  required
+
+  keys [
+    :PLAYER_NONE,
+
+	:PLAYER_TYPE1,
+	:PLAYER_TYPE2,
+	:PLAYER_TYPE3,
+
+	:PLAYER_MAX
+  ]
+end
+
+class EnemyType_ < Enum
+  required
+
+  keys [
+    :ENEMY_NONE,
+
+	:ENEMY_BASIC,
+	:ENEMY_FOLLOW,
+	:ENEMY_SPIRAL,
+	:ENEMY_EXPLODE,
+	:ENEMY_5,
+	:ENEMY_6,
+
+	:ENEMY_MAX
   ]
 end
 
@@ -85,6 +109,7 @@ class SpawnUnit < Packet
   required
   int "id"
   int "unit_type"
+  int "sub_type"
   int "stage"
   float "x"
   float "y"
@@ -107,7 +132,7 @@ end
 # 쓰레기 이용해서 적 생성 요청
 class SpawnRequest < Packet
   required
-  int "unit_type"
+  int "enemy_type"
 end
 
 # BATTLE
@@ -126,6 +151,12 @@ class UseSkillNoti < Packet
 end
 
 class AddPassiveNoti < Packet
+  required
+  int "id"
+  int "skill_id"
+end
+
+class RemovePassiveNoti < Packet
   required
   int "id"
   int "skill_id"

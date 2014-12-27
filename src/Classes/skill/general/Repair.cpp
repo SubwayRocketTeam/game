@@ -12,6 +12,7 @@ bool Repair::update(
 	Unit *user,
 	float remaining){
 
+	/*
 	auto stage = Stage::getInstance(0);
 	auto repairArea =
 		stage->getChildByTag(UnitType::RepairArea);
@@ -20,4 +21,6 @@ bool Repair::update(
 		user->getPosition()))
 		return true;
 	return false;
+	*/
+	return true;
 }

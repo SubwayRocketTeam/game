@@ -95,9 +95,11 @@ bool GameScene::initUI(){
 	addChild(stageLayer);
 
 	/* REPAIR AREA */
+	/*
 	auto repairArea = RepairArea::create();
 	repairArea->setPosition(200,200);
 	stage->addChild(repairArea);
+	*/
 
 	/* PLAYER */
 	/*

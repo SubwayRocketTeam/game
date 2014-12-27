@@ -31,6 +31,13 @@ void Network::handleAddPassiveNoti(
 
 	unit->addPassive(pkt->skill_id);
 }
+void Network::handleRemovePassiveNoti(
+	RemovePassiveNoti *pkt){
+
+	auto unit = Unit::getInstanceByID(pkt->id);
+
+	unit->removePassive(pkt->skill_id);
+}
 void Network::handleAttack(
 	Attack *pkt){
 	auto attacker = Unit::getInstanceByID(pkt->attacker_id);

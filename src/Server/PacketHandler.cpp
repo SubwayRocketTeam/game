@@ -108,7 +108,7 @@ REGISTER_HANDLER(SpawnRequest) {
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
 	NULLCHECK(gameroom);
 	NULLCHECK(player);
-	auto type = (EnemyType)(packet->unit_type - UNIT_ENEMY_BASIC);
+	auto type = (EnemyType)(packet->enemy_type - ENEMY_BASIC);
 	auto spawner = player->stage->spawner;
 	auto info = EnemyFactory::getInstance()->getEenmyInfo(type);
 

@@ -40,7 +40,8 @@ Enemy* EnemySpawner::spawn(
 	noti.stage = stage->id;
 	noti.x = e->position.x;
 	noti.y = e->position.y;
-	noti.unit_type = UNIT_ENEMY_BASIC + type;
+	noti.unit_type = UNIT_ENEMY;
+	noti.sub_type = type + ENEMY_BASIC;
 
 	stage->gameroom->sendPacket(noti);
 

@@ -17,7 +17,7 @@ struct PacketHeader{
     };
 #define END };
 
-#define PACKET_VERSION 1692818566
+#define PACKET_VERSION 727443075
 
 enum packet_id{
   PT_PacketNone = 0,
@@ -39,16 +39,17 @@ enum packet_id{
   PT_UseSkill = 16,
   PT_UseSkillNoti = 17,
   PT_AddPassiveNoti = 18,
-  PT_Attack = 19,
-  PT_Move = 20,
-  PT_MoveNoti = 21,
-  PT_SyncRotation = 22,
-  PT_SyncRotationNoti = 23,
-  PT_Vacuum = 24,
-  PT_UpgradeRequest = 25,
-  PT_UpgradeNoti = 26,
-  PT_ChatMessage = 27,
-  PT_ChatNoti = 28,
+  PT_RemovePassiveNoti = 19,
+  PT_Attack = 20,
+  PT_Move = 21,
+  PT_MoveNoti = 22,
+  PT_SyncRotation = 23,
+  PT_SyncRotationNoti = 24,
+  PT_Vacuum = 25,
+  PT_UpgradeRequest = 26,
+  PT_UpgradeNoti = 27,
+  PT_ChatMessage = 28,
+  PT_ChatNoti = 29,
 
   PT_PacketMax
 };
@@ -60,15 +61,28 @@ enum UnitType_{
   UNIT_PLAYER,
   UNIT_PLAYER_ME,
   UNIT_TRASH,
-  UNIT_BULLET_PLAYER,
-  UNIT_BULLET_ENEMY,
-  UNIT_ENEMY_BASIC,
-  UNIT_ENEMY_FOLLOW,
-  UNIT_ENEMY_SPIRAL,
-  UNIT_ENEMY_EXPLODE,
-  UNIT_ENEMY_5,
-  UNIT_ENEMY_6,
+  UNIT_ENEMY,
+  UNIT_REPAIR_AREA,
   UNIT_MAX,
+};
+enum PlayerType_{
+  
+  PLAYER_NONE,
+  PLAYER_TYPE1,
+  PLAYER_TYPE2,
+  PLAYER_TYPE3,
+  PLAYER_MAX,
+};
+enum EnemyType_{
+  
+  ENEMY_NONE,
+  ENEMY_BASIC,
+  ENEMY_FOLLOW,
+  ENEMY_SPIRAL,
+  ENEMY_EXPLODE,
+  ENEMY_5,
+  ENEMY_6,
+  ENEMY_MAX,
 };
 enum UpgradeType{
   
@@ -133,6 +147,7 @@ END
 PACKET(SpawnUnit)
   int id;
   int unit_type;
+  int sub_type;
   int stage;
   float x;
   float y;
@@ -152,7 +167,7 @@ PACKET(SetPhysics)
 END
 
 PACKET(SpawnRequest)
-  int unit_type;
+  int enemy_type;
 END
 
 PACKET(UseSkill)
@@ -169,6 +184,11 @@ PACKET(UseSkillNoti)
 END
 
 PACKET(AddPassiveNoti)
+  int id;
+  int skill_id;
+END
+
+PACKET(RemovePassiveNoti)
   int id;
   int skill_id;
 END

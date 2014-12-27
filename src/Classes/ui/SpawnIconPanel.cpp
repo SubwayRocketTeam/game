@@ -69,7 +69,7 @@ void SpawnIconPanel::use(
 	icons[id]->use();
 
 	auto network = Network::getInstance();
-	auto type = id + UNIT_ENEMY_BASIC;
+	auto type = id + ENEMY_BASIC;
 	network->sendSpawnRequest(type);
 }
 
