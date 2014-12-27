@@ -186,12 +186,13 @@ void Player::updatePhysics(
 bool Player::onDamage(
 	const AttackData& attackData){
 
-	if(immortal > 0.0f)
-		return false;
+	// 무적시간은 이제 서버에서 관리
+	//if(immortal > 0.0f)
+	//	return false;
 
 	/* TODO : 무적 기간 상수에 집어넣기 */
 	blink();
-	immortal = 1.f;
+	//immortal = 1.f;
 	stiff = MAX(stiff, 0.5f);
 
 	/*
