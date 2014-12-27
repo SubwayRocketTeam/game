@@ -127,13 +127,28 @@ bool Stage::initObject(
 	return true;
 }
 
+void Stage::setObserverMode(){
+	auto windowSize = Director::getInstance()->getVisibleSize();
+	auto size = getContentSize();
+
+	runAction(
+		Sequence::create(
+			DelayTime::create(0.5f),
+			Spawn::create(
+				MoveTo::create(0.5, size/2),
+				ScaleTo::create(0.5, windowSize.width / size.width, windowSize.height / size.height),
+				nullptr),
+			nullptr
+		));
+}
+
 void Stage::update(
 	float dt){
 
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto floorSize = floor->getContentSize();
 	auto player = ControlablePlayer::getInstance();
-
+	
 	if (player) {
 		/* 자기가 속한 스테이지만 카메라 이동 */
 		if(player->getStageID() != id)

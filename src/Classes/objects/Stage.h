@@ -14,6 +14,7 @@ public:
 	static Stage *getInstance(
 		int id);
 
+	void setObserverMode();
 	CollisionDetector* getCollisionDetector();
 
 protected:
