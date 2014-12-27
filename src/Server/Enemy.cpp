@@ -88,9 +88,7 @@ void Enemy::update(float dt){
 
 void Enemy::updateMovement(){
 	auto target = getTarget();
-	if (!target)
-		followPosition = position;
-	followPosition = target->position;
+	followPosition = target? target->position : position;
 	auto delta = followPosition - position;
 	velocity = delta.getNormalized() * _ATTR(speed);
 

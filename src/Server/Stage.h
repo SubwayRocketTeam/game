@@ -10,6 +10,7 @@ class CollisionDetector;
 class TrashPool;
 class Ally;
 class EnemySpawner;
+class RepairArea;
 
 class Stage {
 public:
@@ -34,6 +35,7 @@ public:
 	TrashPool* trashPool;
 	Ally* ally[ALLY_MAX];
 	EnemySpawner* spawner;
+	RepairArea* repairArea;
 
 private:
 	std::vector<Unit*> units;

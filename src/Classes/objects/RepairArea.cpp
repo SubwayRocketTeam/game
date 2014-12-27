@@ -11,8 +11,7 @@
 using namespace cocos2d;
 
 /* TODO : json에서 리젠률 설정 */
-RepairArea::RepairArea() :
-	regen(4){
+RepairArea::RepairArea(){
 }
 RepairArea::~RepairArea(){
 }
@@ -32,7 +31,7 @@ bool RepairArea::init(){
 		return false;
 
 	setTag(UnitType::RepairArea);
-	scheduleUpdate();
+//	scheduleUpdate();
 
 	return true;
 }

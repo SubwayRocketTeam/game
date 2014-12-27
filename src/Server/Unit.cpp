@@ -161,21 +161,26 @@ bool Unit::useSkill(int skill_id, Vec2 pos){
 
 	return true;
 }
-void Unit::addPassive(int id){
+void Unit::addPassive(int skill_id){
 
 	auto pool = SkillPool::getInstance();
-	auto skill = (PassiveSkill*)pool->get(id);
+	auto skill = (PassiveSkill*)pool->get(skill_id);
 
 	/* 이미 가지고 있는 패시브 */
-	if (passives.find(id) != passives.end())
+	if (passives.find(skill_id) != passives.end())
 		return;
+
+	AddPassiveNoti noti;
+	noti.id = id;
+	noti.skill_id = skill_id;
+	stage->gameroom->sendPacket(noti);
 
 	/* TODO : 패시브 중복 적용이면
 	남은 시간 더하기 or 초기화할건지 */
 	PassiveData data;
 	data.update = data.interval = skill->interval;
 	data.remaining = skill->duration;
-	passives[id] = data;
+	passives[skill_id] = data;
 
 	for (auto pair : skill->bonusList){
 		std::string name = pair.first;
@@ -187,14 +192,14 @@ void Unit::addPassive(int id){
 	}
 }
 
-void Unit::removePassive(int id){
+void Unit::removePassive(int skill_id){
 
 	auto pool = SkillPool::getInstance();
-	auto skill = (PassiveSkill*)pool->get(id);
+	auto skill = (PassiveSkill*)pool->get(skill_id);
 
-	_ASSERT(passives.find(id) != passives.end());
+	_ASSERT(passives.find(skill_id) != passives.end());
 
-	passives.erase(id);
+	passives.erase(skill_id);
 
 	for (auto pair : skill->bonusList){
 		std::string name = pair.first;

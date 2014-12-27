@@ -118,6 +118,7 @@
       <Filter>sqlite</Filter>
     </ClCompile>
     <ClCompile Include="DBContext.cpp" />
+    <ClCompile Include="RepairArea.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -250,6 +251,7 @@
       <Filter>sqlite</Filter>
     </ClInclude>
     <ClInclude Include="DBContext.h" />
+    <ClInclude Include="RepairArea.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\jsoncpp\src\lib_json\json_internalarray.inl">

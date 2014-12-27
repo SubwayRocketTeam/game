@@ -136,6 +136,7 @@ xcopy /s $(ProjectDir)..\Resources_Server %bin_path%</Command>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PacketHandler.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RepairArea.cpp" />
     <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="skill\enemy\EnemyShot.cpp" />
     <ClCompile Include="skill\enemy\Explosion.cpp" />
@@ -205,6 +206,7 @@ xcopy /s $(ProjectDir)..\Resources_Server %bin_path%</Command>
     <ClInclude Include="PacketType.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Ref.h" />
+    <ClInclude Include="RepairArea.h" />
     <ClInclude Include="Scheduler.h" />
     <ClInclude Include="Sendable.h" />
     <ClInclude Include="skill\enemy\EnemyShot.h" />

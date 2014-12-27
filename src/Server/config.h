@@ -10,6 +10,9 @@ namespace config {
 	// 죽었을 때 업그레이드 횟수에 곱해져서 뿌려지는 trash
 	const int death_upgrade_trash = 10;
 
+	// Repair Area 범위
+	const float repair_area_size = 100;
+
 	// 업그레이드 시작 가격
 	const int upgrade_cost_start = 10;
 	// 업그레이드 가격 증가량

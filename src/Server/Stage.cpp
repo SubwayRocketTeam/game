@@ -7,6 +7,7 @@
 #include "TrashPool.h"
 #include "Ally.h"
 #include "EnemySpawner.h"
+#include "RepairArea.h"
 
 Stage::Stage(GameRoom* gameroom, const int id)
 	:gameroom(gameroom), id(id) {
@@ -14,6 +15,7 @@ Stage::Stage(GameRoom* gameroom, const int id)
 	collisionDetector = new CollisionDetector();
 	trashPool = new TrashPool(this);
 	spawner = new EnemySpawner(this);
+	repairArea = new RepairArea(this);
 	for (int i = 0; i < ALLY_MAX; ++i)
 		ally[i] = new Ally();
 
@@ -33,6 +35,7 @@ void Stage::init() {
 	collisionDetector->init();
 	trashPool->init();
 	spawner->init();
+	repairArea->init();
 	for (int i = 0; i < ALLY_MAX; ++i)
 		ally[i]->init();
 }
@@ -44,6 +47,7 @@ void Stage::update(const float dt) {
 	}
 	collisionDetector->update(dt);
 	trashPool->update(dt);
+	repairArea->update(dt);
 }
 
 

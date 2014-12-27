@@ -16,6 +16,4 @@ protected:
 	virtual void update(
 		float dt);
 
-private:
-	float regen;
 };
