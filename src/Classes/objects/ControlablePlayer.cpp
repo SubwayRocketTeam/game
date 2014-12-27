@@ -68,9 +68,28 @@ bool ControlablePlayer::init(
 }
 
 bool ControlablePlayer::onDeath(){
+	// 이것들은 onExit으로 옮겨야 할지...
 	disableMouseInput();
 	disableKeyboardInput();
 	instance = nullptr;
+
+	auto size = Director::getInstance()->getVisibleSize();
+	auto stage = Stage::getInstance(stageID);
+	auto stageSize = stage->getContentSize();
+	/*
+	stage->stopAllActionsByTag(
+		actionSwitchStage);
+	*/
+	stage->runAction(
+		Sequence::create(
+		DelayTime::create(0.5f),
+		Spawn::create(
+		MoveTo::create(0.5, size/2),
+		ScaleTo::create(0.5, size.width / stageSize.width, size.height / stageSize.height),
+		nullptr),
+		nullptr
+		));
+//		->setTag(actionSwitchStage);
 	return true;
 }
 
