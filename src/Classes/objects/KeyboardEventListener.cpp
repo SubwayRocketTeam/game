@@ -10,7 +10,7 @@ KeyboardEventListener::~KeyboardEventListener(){
 }
 
 void KeyboardEventListener::enableKeyboardInput(
-	Node *target){
+	Node *_target){
 
 	keyboardListener = EventListenerKeyboard::create();
 	keyboardListener->onKeyPressed =
@@ -29,6 +29,7 @@ void KeyboardEventListener::enableKeyboardInput(
 		SEL_SCHEDULE(&KeyboardEventListener::processKeyTurbo), (Ref*)this,
 		1.0f / Global::fps, false);
 	
+	target = _target;
 	target->getEventDispatcher()->
 		addEventListenerWithSceneGraphPriority(keyboardListener, target);
 }
@@ -36,6 +37,8 @@ void KeyboardEventListener::disableKeyboardInput(){
 	if(keyboardListener){
 		target->getEventDispatcher()->
 			removeEventListener(keyboardListener);
+		Director::getInstance()->getScheduler()->unschedule(
+			SEL_SCHEDULE(&KeyboardEventListener::processKeyTurbo), (Ref*)this);
 	}
 }
 void KeyboardEventListener::processKeyTurbo(float dt){

@@ -68,6 +68,8 @@ void MouseEventListener::disableMouseInput(){
 	if(mouseListener){
 		target->getEventDispatcher()->
 			removeEventListener(mouseListener);
+		Director::getInstance()->getScheduler()->unschedule(
+			SEL_SCHEDULE(&MouseEventListener::processMouseTurbo), (Ref*)this);
 		mouseListener = nullptr;
 	}
 

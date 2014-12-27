@@ -220,7 +220,7 @@ bool Player::onDeath(){
 		}
 	}
 	*/
-	return false;
+	return true;
 }
 
 

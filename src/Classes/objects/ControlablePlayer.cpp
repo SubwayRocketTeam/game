@@ -47,7 +47,7 @@ ControlablePlayer *ControlablePlayer::create(
 	return nullptr;
 }
 ControlablePlayer *ControlablePlayer::getInstance(){
-	CC_ASSERT(instance != nullptr);
+//	CC_ASSERT(instance != nullptr);
 
 	return instance;
 }
@@ -64,6 +64,13 @@ bool ControlablePlayer::init(
 	schedule(
 		SEL_SCHEDULE(&ControlablePlayer::updateRotation), 0.1f);
 
+	return true;
+}
+
+bool ControlablePlayer::onDeath(){
+	disableMouseInput();
+	disableKeyboardInput();
+	instance = nullptr;
 	return true;
 }
 

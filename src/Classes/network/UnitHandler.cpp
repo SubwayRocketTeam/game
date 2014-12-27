@@ -29,23 +29,23 @@ void Network::handleSpawn(
 
 	case UNIT_PLAYER:
 	{
-		auto players = Ally::getInstance(Ally::allyPlayer);
 		unit = Player::create("type1.json");
+		auto players = Ally::getInstance(Ally::allyPlayer);
 		players->push(unit);
 		z = Z::unit;
 		break;
 	}
 	case UNIT_PLAYER_ME:
 	{
-		unit = ControlablePlayer::getInstance();
-		unit->setID(pkt->id);
-		unit->setPosition(pkt->x, pkt->y);
-		return;
+		unit = ControlablePlayer::create("type1.json");
+		auto players = Ally::getInstance(Ally::allyPlayer);
+		players->push(unit);
+		z = Z::unit;
+		break;
 	}
 
 	case UNIT_TRASH:
 	{
-		// auto pool = TrashPool::getInstance();
 		auto trash = Trash::create();
 		unit = trash;
 		z = Z::trash;

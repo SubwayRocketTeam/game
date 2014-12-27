@@ -42,8 +42,7 @@ using namespace cocos2d;
 using namespace cocostudio;
 using namespace CocosDenshion;
 
-GameScene::GameScene() :
-	player(nullptr){
+GameScene::GameScene() {
 }
 GameScene::~GameScene(){
 }
@@ -69,10 +68,11 @@ bool GameScene::init(){
 		return false;
 	if(!initUI())
 		return false;
-
+	/*
 	auto players = Ally::getInstance(
 		Ally::Type::allyPlayer);
 	players->push(player);
+	*/
 
 	enableKeyboardInput(this);
 	scheduleUpdate();
@@ -100,10 +100,12 @@ bool GameScene::initUI(){
 	stage->addChild(repairArea);
 
 	/* PLAYER */
+	/*
 	player = ControlablePlayer::getInstance();
 	player->setPosition(
 		Vec2(0,0));
 	stage->addChild(player, Z::unit);
+	*/
 
 	// auto trashPool = TrashPool::getInstance();
 	// trashPool->spawn(100);
@@ -183,7 +185,7 @@ void GameScene::onInitGlobalObjects(){
 	PhysicsFactory::create();
 	SpawnIconPanel::create();
 	UpgradeBar::create();
-	ControlablePlayer::create("type1.json");
+	// ControlablePlayer::create("type1.json");
 	ChatBox::create();
 
 	/* TODO : 커서 전역에서 쓸수 잇도록 */

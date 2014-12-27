@@ -2,6 +2,7 @@
 #include "Player.h"
 
 #include "Bullet.h"
+#include "Enemy.h"
 #include "Trash.h"
 #include "TrashPool.h"
 #include "EnemyFactory.h"
@@ -163,11 +164,24 @@ bool Player::onDamage(
 	return true;
 }
 bool Player::onDeath(){
+	auto ally = stage->ally[Ally::Type::allyPlayer];
+	if (std::find(ally->begin(), ally->end(), this) != ally->end()) {
+		auto enemy_ally = stage->ally[Ally::Type::allyEnemy];
+		for (auto unit : *enemy_ally) {
+			Enemy* enemy = (Enemy*)unit;
+			enemy->removeAggro(this);
+		}
+	}
+
+	int upgrade_times = 0;
+	for (auto& pair : upgradeTimes)
+		upgrade_times += pair.second;
+
 	stage->trashPool->spawn(
-		position, trash);
+		position, trash + upgrade_times * config::death_upgrade_trash);
 	trash = 0;
 
-	return false;
+	return true;
 }
 
 bool Player::isTankFull() const {

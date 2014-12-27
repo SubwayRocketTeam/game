@@ -46,7 +46,7 @@ void Network::handleSyncRotationNoti(
 		return;
 
 	/* 자신 플레이어 회전 패킷은 무시 */
-	if(pkt->id == player->getID())
+	if(unit == player)
 		return;
 
 	unit->runAction(

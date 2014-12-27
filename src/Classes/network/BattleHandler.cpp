@@ -17,7 +17,7 @@ void Network::handleUseSkillNoti(
 	if (!unit)
 		return;
 
-	if(pkt->id == player->getID())
+	if(unit == player)
 		return;
 
 	unit->useSkill(

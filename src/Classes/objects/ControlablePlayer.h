@@ -34,6 +34,8 @@ protected:
 	virtual bool init(
 		const std::string &dataPath);
 
+	virtual bool onDeath();
+
 	void updateRotation(
 		float dt);
 

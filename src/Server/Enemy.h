@@ -33,6 +33,8 @@ public:
 		Unit *u, float value);
 	void decreaseAggro(
 		Unit *u, float value);
+	void removeAggro(
+		Unit* u);
 
 	void updateMovement();
 

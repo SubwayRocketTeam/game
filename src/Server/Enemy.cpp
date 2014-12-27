@@ -91,7 +91,7 @@ void Enemy::updateMovement(){
 	if (!target)
 		followPosition = position;
 	followPosition = target->position;
-	auto delta = target->position - position;
+	auto delta = followPosition - position;
 	velocity = delta.getNormalized() * _ATTR(speed);
 
 	MoveNoti noti;
@@ -156,6 +156,12 @@ void Enemy::decreaseAggro(
 
 	aggros[u] -= value;
 }
+void Enemy::removeAggro(
+	Unit* u) {
+	_ASSERT(aggros.find(u) != aggros.end());
+	aggros.erase(u);
+}
+
 Unit *Enemy::getTarget(){
 
 	if (aggros.empty())

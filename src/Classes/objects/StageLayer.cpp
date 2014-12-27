@@ -63,7 +63,7 @@ void StageLayer::switchStage(){
 		Sequence::create(
 			Spawn::create(
 				FadeTo::create(0.2, 0),
-				ScaleTo::create(0.2, 1,1),
+				// ScaleTo::create(0.2, 1,1),
 				nullptr),
 			Hide::create(),
 			nullptr
@@ -72,11 +72,12 @@ void StageLayer::switchStage(){
 
 	/* 기본적으로 2팀임을 가정 */
 	activeStageID ^= 1;
+	stage = Stage::getInstance(activeStageID);
 
 	auto stageSize = stage->getContentSize();
 	Size ratio; 
 	
-	if(player->getStageID() == activeStageID)
+	if(player && player->getStageID() == activeStageID)
 		ratio.setSize(1,1);
 	else{
 		ratio.setSize(
@@ -84,8 +85,9 @@ void StageLayer::switchStage(){
 			size.height / stageSize.height);
 	}
 
+	stage->setScale(ratio.width, ratio.height);
+
 	/* 새 스테이지 FadeIn */
-	stage = Stage::getInstance(activeStageID);
 	stage->stopAllActionsByTag(
 		actionSwitchStage);
 	stage->runAction(
@@ -93,7 +95,7 @@ void StageLayer::switchStage(){
 			Show::create(),
 			Spawn::create(
 				FadeTo::create(0.1, 255),
-				ScaleTo::create(0.1, ratio.width,ratio.height),
+				// ScaleTo::create(0.1, ratio.width,ratio.height),
 				nullptr),
 			nullptr
 		))

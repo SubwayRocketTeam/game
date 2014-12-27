@@ -51,6 +51,8 @@ void Cursor::processRotation(
 	float x,float y){
 	
 	auto player = ControlablePlayer::getInstance();
+	if (!player)
+		return;
 	auto playerWorldPos = player->getParent()->convertToWorldSpace(
 		player->getPosition());
 

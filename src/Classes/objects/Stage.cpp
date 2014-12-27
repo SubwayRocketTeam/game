@@ -133,22 +133,24 @@ void Stage::update(
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto floorSize = floor->getContentSize();
 	auto player = ControlablePlayer::getInstance();
-	
-	/* 자기가 속한 스테이지만 카메라 이동 */
-	if(player->getStageID() != id)
-		return;
 
-	auto center =
-		player->getPosition() + (mousePos - visibleSize/2) / 2;
+	if (player) {
+		/* 자기가 속한 스테이지만 카메라 이동 */
+		if(player->getStageID() != id)
+			return;
 
-	center.x =
-		MIN(floorSize.width - visibleSize.width/2,
-			MAX(visibleSize.width/2, center.x + floorSize.width / 2)) - floorSize.width / 2;
-	center.y =
-		MIN(floorSize.height - visibleSize.height/2,
-			MAX(visibleSize.height/2, center.y + floorSize.height / 2)) - floorSize.height / 2;
+		auto center =
+			player->getPosition() + (mousePos - visibleSize/2) / 2;
 
-	setPosition((Vec2)visibleSize/2 - center);
+		center.x =
+			MIN(floorSize.width - visibleSize.width/2,
+				MAX(visibleSize.width/2, center.x + floorSize.width / 2)) - floorSize.width / 2;
+		center.y =
+			MIN(floorSize.height - visibleSize.height/2,
+				MAX(visibleSize.height/2, center.y + floorSize.height / 2)) - floorSize.height / 2;
+
+		setPosition((Vec2)visibleSize/2 - center);
+	}
 }
 
 void Stage::onMouseMove(

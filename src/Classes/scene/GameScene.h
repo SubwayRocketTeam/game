@@ -13,7 +13,7 @@ class GameScene : public cocos2d::Layer,
 public:
 	CREATE_FUNC(GameScene);
 
-    static cocos2d::Scene* scene();
+	static cocos2d::Scene* scene();
 
 protected:
 	GameScene();
@@ -34,6 +34,4 @@ protected:
 	virtual void onKeyboardDown(
 		cocos2d::EventKeyboard::KeyCode key);
 
-private:
-	Player *player;
 };
