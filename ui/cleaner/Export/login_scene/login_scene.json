@@ -11,7 +11,7 @@
   "designWidth": 1024,
   "textures": [],
   "texturesPng": [
-    "title.png",
+    "title_background.png",
     "button.png"
   ],
   "version": "1.6.0.0",
@@ -446,7 +446,7 @@
       "adaptScreen": false,
       "backGroundImage": null,
       "backGroundImageData": {
-        "path": "title.png",
+        "path": "title_background.png",
         "plistFile": "",
         "resourceType": 0
       },

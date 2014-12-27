@@ -31,16 +31,15 @@ bool SelectScene::init(){
 
 	addChild(layout);
 
-	auto background = layout->getChildByName("background");
-	((ui::Widget*)background->getChildByName("btn_start"))
+	((ui::Widget*)layout->getChildByName("btn_start"))
 		->addClickEventListener(CC_CALLBACK_1(SelectScene::onStart, this));
 
-	auto infos = background->getChildByName("pn_info");
+	auto infos = layout->getChildByName("pn_info");
 	auto pbAttack = (ui::LoadingBar*)infos->getChildByName("pb_attack");
 	auto pbSpeed = (ui::LoadingBar*)infos->getChildByName("pb_speed");
 	auto pbRange = (ui::LoadingBar*)infos->getChildByName("pb_range");
 
-	auto robots = background->getChildByName("pn_robot");
+	auto robots = layout->getChildByName("pn_robot");
 
 	/* TODO : 개판 수정 */
 	for(auto robot : robots->getChildren()){

@@ -22,9 +22,9 @@
   <ResRelativePath />
   <imageFileList />
   <imagePngList>
-    <string>title.png</string>
+    <string>title_background.png</string>
     <string>button.png</string>
   </imagePngList>
   <JsonSuffix>.json</JsonSuffix>
-  <CurrentUIJson>login_scene.json</CurrentUIJson>
+  <CurrentUIJson>select_scene.json</CurrentUIJson>
 </UIProject>
