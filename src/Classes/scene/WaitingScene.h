@@ -16,6 +16,8 @@ protected:
 
 	virtual bool init();
 
+	virtual void onEnter();
+
 	virtual void onInitGlobalObjects();
 	virtual void onReleaseGlobalObjects();
 };

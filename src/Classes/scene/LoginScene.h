@@ -10,11 +10,14 @@ public:
 
 	static cocos2d::Scene* scene();
 
+
 protected:
 	LoginScene();
 	virtual ~LoginScene();
 
 	virtual bool init();
+
+	virtual void onEnter();
 
 	void onLogin(
 		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type);

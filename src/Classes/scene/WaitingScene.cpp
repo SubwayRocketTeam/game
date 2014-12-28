@@ -3,9 +3,12 @@
 
 #include "network/Network.h"
 
+#include "audio/include/SimpleAudioEngine.h"
+
 using namespace std;
 using namespace cocos2d;
 using namespace cocostudio;
+using namespace CocosDenshion;
 
 WaitingScene::WaitingScene(){
 }
@@ -34,6 +37,12 @@ bool WaitingScene::init(){
 	network->sendEnterRoom(0);
 
 	return true;
+}
+
+void WaitingScene::onEnter() {
+	Layer::onEnter();
+	auto audio = SimpleAudioEngine::getInstance();
+	audio->stopBackgroundMusic();
 }
 
 void WaitingScene::onInitGlobalObjects(){

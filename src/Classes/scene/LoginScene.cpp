@@ -6,6 +6,8 @@
 
 #include "network/Network.h"
 
+#include "common\resource.h"
+
 #include "audio/include/SimpleAudioEngine.h"
 
 #include "ui/UITextField.h"
@@ -44,6 +46,12 @@ bool LoginScene::init(){
 	addChild(layout, 0, tagLayout);
 
 	return true;
+}
+
+void LoginScene::onEnter() {
+	Layer::onEnter();
+	auto audio = SimpleAudioEngine::getInstance();
+	audio->playBackgroundMusic(R::TitleBGM.c_str(), true);
 }
 
 void LoginScene::onLogin(

@@ -152,7 +152,7 @@ void GameScene::onEnter(){
 	Layer::onEnter();
 
 	auto audio = SimpleAudioEngine::getInstance();
-	audio->playBackgroundMusic(R::BGM.c_str(), true);
+	audio->playBackgroundMusic(R::GameBGM.c_str(), true);
 
 	ShowCursor(false);
 }

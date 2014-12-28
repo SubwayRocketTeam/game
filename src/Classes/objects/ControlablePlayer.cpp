@@ -76,6 +76,7 @@ void ControlablePlayer::onExit() {
 	stage->setObserverMode();
 
 	GlobalResource::getInstance()->trash = 0;
+	ShowCursor(true);
 }
 
 
