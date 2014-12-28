@@ -153,21 +153,23 @@ void Enemy::resetAggro(){
 void Enemy::increaseAggro(
 	Unit *u, float value){
 
-	_ASSERT(aggros.find(u) != aggros.end());
-
-	aggros[u] += value;
+	// _ASSERT(aggros.find(u) != aggros.end());
+	if (aggros.find(u) != aggros.end())
+		aggros[u] += value;
 }
 void Enemy::decreaseAggro(
 	Unit *u, float value){
 
-	_ASSERT(aggros.find(u) != aggros.end());
+	// _ASSERT(aggros.find(u) != aggros.end());
 
-	aggros[u] -= value;
+	if (aggros.find(u) != aggros.end())
+		aggros[u] -= value;
 }
 void Enemy::removeAggro(
 	Unit* u) {
-	_ASSERT(aggros.find(u) != aggros.end());
-	aggros.erase(u);
+	// _ASSERT(aggros.find(u) != aggros.end());
+	if (aggros.find(u) != aggros.end())
+		aggros.erase(u);
 }
 
 Unit *Enemy::getTarget(){
