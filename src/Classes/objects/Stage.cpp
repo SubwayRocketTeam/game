@@ -133,10 +133,10 @@ void Stage::setObserverMode(){
 
 	runAction(
 		Sequence::create(
-			DelayTime::create(0.5f),
+			DelayTime::create(1.f),
 			Spawn::create(
-				MoveTo::create(0.5, size/2),
-				ScaleTo::create(0.5, windowSize.width / size.width, windowSize.height / size.height),
+				MoveTo::create(1.f, windowSize / 2),
+				ScaleTo::create(1.f, windowSize.width / size.width, windowSize.height / size.height),
 				nullptr),
 			nullptr
 		));
