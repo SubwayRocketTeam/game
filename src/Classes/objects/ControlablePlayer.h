@@ -30,11 +30,11 @@ public:
 		SKillIndex id,
 		float x,float y);
 
+	virtual void onExit();
+
 protected:
 	virtual bool init(
 		const std::string &dataPath);
-
-	virtual bool onDeath();
 
 	void updateRotation(
 		float dt);

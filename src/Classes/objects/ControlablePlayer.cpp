@@ -67,17 +67,15 @@ bool ControlablePlayer::init(
 	return true;
 }
 
-bool ControlablePlayer::onDeath(){
-	// 이것들은 onExit으로 옮겨야 할지...
+void ControlablePlayer::onExit() {
 	disableMouseInput();
 	disableKeyboardInput();
 	instance = nullptr;
 
 	auto stage = Stage::getInstance(stageID);
 	stage->setObserverMode();
-
-	return true;
 }
+
 
 bool ControlablePlayer::useSkill(
 	SKillIndex index,
