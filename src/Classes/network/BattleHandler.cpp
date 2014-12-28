@@ -28,6 +28,8 @@ void Network::handleAddPassiveNoti(
 	AddPassiveNoti *pkt){
 
 	auto unit = Unit::getInstanceByID(pkt->id);
+	if (!unit)
+		return;
 
 	unit->addPassive(pkt->skill_id);
 }
@@ -35,6 +37,8 @@ void Network::handleRemovePassiveNoti(
 	RemovePassiveNoti *pkt){
 
 	auto unit = Unit::getInstanceByID(pkt->id);
+	if (!unit)
+		return;
 
 	unit->removePassive(pkt->skill_id);
 }
