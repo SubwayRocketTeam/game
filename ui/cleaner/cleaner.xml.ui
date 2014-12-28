@@ -12,6 +12,8 @@
     <string>lobby_scene.json</string>
     <string>select_scene.json</string>
     <string>room_item.json</string>
+    <string>result_scene.json</string>
+    <string>waiting_scene.json</string>
   </JsonList>
   <CanvasSize>
     <Width>1024</Width>
@@ -37,6 +39,10 @@
     <string>status_range.png</string>
     <string>GUI/image.png</string>
     <string>panel.png</string>
+    <string>result_background.png</string>
+    <string>panel.png</string>
+    <string>GUI/image.png</string>
+    <string>waiting_background.png</string>
   </imagePngList>
   <JsonSuffix>.json</JsonSuffix>
   <CurrentUIJson>room_item.json</CurrentUIJson>

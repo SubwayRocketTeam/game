@@ -2,11 +2,10 @@
 #include "Network.h"
 
 void Network::sendLoginRequest(
-	const char *user_id, const char *user_pw){
+	const char *nickname){
 
 	LoginRequest pkt;
-	strcpy_s(pkt.id, user_id);
-	strcpy_s(pkt.pw, user_pw);
+	strcpy_s(pkt.nickname, nickname);
 
 	send(pkt);
 }

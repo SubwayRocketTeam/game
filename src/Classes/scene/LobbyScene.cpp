@@ -59,11 +59,6 @@ bool LobbyScene::init(){
 
 	addChild(layout);
 
-	//onInitGlobalObjects();
-
-	auto network = Network::getInstance();
-	network->sendEnterRoom();
-
 	return true;
 }
 

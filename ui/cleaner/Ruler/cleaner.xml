@@ -20,4 +20,12 @@
     <Project>room_item</Project>
     <GuidesList />
   </GuidesProject>
+  <GuidesProject>
+    <Project>result_scene</Project>
+    <GuidesList />
+  </GuidesProject>
+  <GuidesProject>
+    <Project>waiting_scene</Project>
+    <GuidesList />
+  </GuidesProject>
 </ArrayOfGuidesProject>

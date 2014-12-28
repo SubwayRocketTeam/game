@@ -54,57 +54,86 @@ REGISTER_HANDLER(CheckVersionRequest) {
 } END
 
 REGISTER_HANDLER(LoginRequest) {
-	printf("%u: %s %s\n", client->id, packet->id, packet->pw);
+	printf("%u: %s %s\n", client->id, packet->nickname);
 	LoginResponse response;
-	response.result = 1;
-	strcpy_s(response.nickname, "Anz");
+	response.client_id = client->id;
+	client->sendPacket(response);
+} END
+
+
+REGISTER_HANDLER(RoomRequest) {
+	RoomResponse response;
+	response.room_num = 1;
+	response.room_list[0] = GameRoomManager::getInstance()->getAvailableGameRoom()->id;
 	client->sendPacket(response);
 } END
 
 
 REGISTER_HANDLER(EnterRoom) {
-	EnterNoti noti;
+//	auto gameroom = GameRoomManager::getInstance()->getGameRoom(packet->room_id);
 	auto gameroom = GameRoomManager::getInstance()->getAvailableGameRoom();
 	NULLCHECK(gameroom);
 
-	client->setGameRoomId(gameroom->id);
+	EnterResponse response;
+	if (!gameroom || gameroom->getClientNum() >= 4) {
+		response.room_id = 0;
+		client->sendPacket(response);
+		return;
+	}
+	response.room_id = gameroom->id;
+	client->sendPacket(response);
+
 	gameroom->enter(client->id);
 
-	noti.client_id = client->id;
-	gameroom->sendPacket(noti);
-
-	if (gameroom->size() >= 2) {
-		ReadyRequest packet;
-		gameroom->sendPacket(packet);
-	}
 } END
-
-REGISTER_HANDLER(Ready) {
-	auto gameroom = GameRoomManager::getInstance()->getGameRoom(
-		client->getGameRoomId());
-	NULLCHECK(gameroom);
-
-	gameroom->ready++;
-
-	if (gameroom->ready != 2)
-		return;
-
-	gameroom->startGame();
-} END
-
 
 REGISTER_HANDLER(LeaveRoom) {
-	LeaveNoti noti;
-	noti.client_id = client->id;
-	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->gameRoomId);
 	NULLCHECK(gameroom);
-	gameroom->sendPacket(noti);
 	gameroom->leave(client->id);
+} END
+
+REGISTER_HANDLER(SelectRobot) {
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->gameRoomId);
+	NULLCHECK(gameroom);
+	
+	client->robotType = packet->robot_id;
+
+	SelectRobotNoti noti;
+	noti.client_id = client->id;
+	noti.robot_id = packet->robot_id;
+	gameroom->sendPacket(noti);
+} END
+
+REGISTER_HANDLER(SelectTeam) {
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->gameRoomId);
+	NULLCHECK(gameroom);
+
+	gameroom->setTeam(client->id, packet->team_id);
+} END
+
+REGISTER_HANDLER(ReadyRequest) {
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(
+		client->gameRoomId);
+	NULLCHECK(gameroom);
+
+	ReadyNoti noti;
+	noti.client_id = client->id;
+	noti.ready = packet->ready;
+	gameroom->sendPacket(noti);
+
+	if (packet->ready)
+		gameroom->ready++;
+	else
+		gameroom->ready--;
+
+	if (gameroom->ready >= gameroom->getClientNum())
+		gameroom->startGame();
 } END
 
 
 REGISTER_HANDLER(SpawnRequest) {
-	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->gameRoomId);
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
 	NULLCHECK(gameroom);
 	NULLCHECK(player);
@@ -133,7 +162,7 @@ REGISTER_HANDLER(SpawnRequest) {
 
 REGISTER_HANDLER(UseSkill) {
 	auto gameroom =
-		GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+		GameRoomManager::getInstance()->getGameRoom(client->gameRoomId);
 	NULLCHECK(gameroom);
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
 	NULLCHECK(player);
@@ -153,7 +182,7 @@ REGISTER_HANDLER(UseSkill) {
 
 
 REGISTER_HANDLER(Move) {
-	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->gameRoomId);
 	NULLCHECK(gameroom);
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
 	NULLCHECK(player);
@@ -171,7 +200,7 @@ REGISTER_HANDLER(Move) {
 
 REGISTER_HANDLER(SyncRotation) {
 	auto gameroom =
-		GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+		GameRoomManager::getInstance()->getGameRoom(client->gameRoomId);
 	NULLCHECK(gameroom);
 	Unit* unit = gameroom->getClientUnit(client->id);
 	NULLCHECK(unit);
@@ -187,7 +216,7 @@ REGISTER_HANDLER(SyncRotation) {
 
 REGISTER_HANDLER(UpgradeRequest) {
 	static std::string attrs[] = { "", Attr::hp, Attr::attack, Attr::speed, Attr::range };
-	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->gameRoomId);
 	NULLCHECK(gameroom);
 	Player* player = (Player*)gameroom->getClientUnit(client->id);
 	NULLCHECK(player);
@@ -201,7 +230,7 @@ REGISTER_HANDLER(UpgradeRequest) {
 } END
 
 REGISTER_HANDLER(ChatMessage) {
-	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->getGameRoomId());
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(client->gameRoomId);
 	NULLCHECK(gameroom);
 
 	ChatNoti noti;

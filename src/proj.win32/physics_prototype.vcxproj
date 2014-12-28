@@ -193,7 +193,9 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClCompile Include="..\Classes\scene\GameScene.cpp" />
     <ClCompile Include="..\Classes\scene\LobbyScene.cpp" />
     <ClCompile Include="..\Classes\scene\LoginScene.cpp" />
+    <ClCompile Include="..\Classes\scene\ResultScene.cpp" />
     <ClCompile Include="..\Classes\scene\SelectScene.cpp" />
+    <ClCompile Include="..\Classes\scene\WaitingScene.cpp" />
     <ClCompile Include="..\Classes\skill\enemy\Duplication.cpp" />
     <ClCompile Include="..\Classes\skill\enemy\EnemyShot.cpp" />
     <ClCompile Include="..\Classes\skill\enemy\Explosion.cpp" />
@@ -306,7 +308,9 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClInclude Include="..\Classes\scene\GameScene.h" />
     <ClInclude Include="..\Classes\scene\LobbyScene.h" />
     <ClInclude Include="..\Classes\scene\LoginScene.h" />
+    <ClInclude Include="..\Classes\scene\ResultScene.h" />
     <ClInclude Include="..\Classes\scene\SelectScene.h" />
+    <ClInclude Include="..\Classes\scene\WaitingScene.h" />
     <ClInclude Include="..\Classes\skill\enemy\Duplication.h" />
     <ClInclude Include="..\Classes\skill\enemy\EnemyShot.h" />
     <ClInclude Include="..\Classes\skill\enemy\Spiral.h" />

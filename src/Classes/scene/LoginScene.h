@@ -8,7 +8,7 @@ class LoginScene : public cocos2d::Layer{
 public:
 	CREATE_FUNC(LoginScene);
 
-    static cocos2d::Scene* scene();
+	static cocos2d::Scene* scene();
 
 protected:
 	LoginScene();
@@ -17,9 +17,5 @@ protected:
 	virtual bool init();
 
 	void onLogin(
-		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type);
-	void onDescription(
-		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type);
-	void onValley(
 		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 };

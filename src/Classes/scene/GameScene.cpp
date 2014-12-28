@@ -78,7 +78,7 @@ bool GameScene::init(){
 	scheduleUpdate();
 
 	auto network = Network::getInstance();
-	network->sendReady(1);
+	network->sendReadyRequest();
 	printf("ready\n");
 
 	return true;

@@ -24,7 +24,7 @@ end
 
 # ROOM
 class RoomRequest < Packet
-	required
+  required
 end
 class RoomResponse < Packet
   required
@@ -37,12 +37,13 @@ class EnterRoom < Packet
 end
 class EnterResponse < Packet
   required
-  int "result"
+  int "room_id"  # 실패하면 0
 end
 class EnterNoti < Packet
   required
   int "client_id"
   string "nickname", 32
+  int "team_id"
 end
 class LeaveRoom < Packet
   required
@@ -54,19 +55,38 @@ end
 
 # GAME
 class SelectRobot < Packet
-	required
+  required
+  int "robot_id"
+end
+class SelectRobotNoti < Packet
+  required
+  int "client_id"
+  int "robot_id"
+end
+class SelectTeam < Packet
+  required
+  int "team_id"
+end
+class SelectTeamNoti < Packet
+  required
+  int "client_id"
+  int "team_id"
 end
 class ReadyRequest < Packet
   required
+  int "ready"
 end
 class ReadyNoti < Packet
   required
   int "client_id"
+  int "ready"
 end
 class StartGame < Packet
   required
-  int "seed" # 랜덤 시드
-  int "team" # 팀 넘버 0~1
+end
+class GameOver < Packet
+  required
+  int "win_team"
 end
 
 # UNIT
@@ -76,15 +96,15 @@ class UnitType_ < Enum
   keys [
     :UNIT_NONE,
 
-	:UNIT_PLAYER,
-	:UNIT_PLAYER_ME,
-	
-	:UNIT_TRASH,
+  :UNIT_PLAYER,
+  :UNIT_PLAYER_ME,
+  
+  :UNIT_TRASH,
 
-	:UNIT_ENEMY,
-	:UNIT_REPAIR_AREA,
+  :UNIT_ENEMY,
+  :UNIT_REPAIR_AREA,
 
-	:UNIT_MAX
+  :UNIT_MAX
   ]
 end
 
@@ -94,11 +114,11 @@ class PlayerType_ < Enum
   keys [
     :PLAYER_NONE,
 
-	:PLAYER_TYPE1,
-	:PLAYER_TYPE2,
-	:PLAYER_TYPE3,
+  :PLAYER_TYPE1,
+  :PLAYER_TYPE2,
+  :PLAYER_TYPE3,
 
-	:PLAYER_MAX
+  :PLAYER_MAX
   ]
 end
 
@@ -108,14 +128,14 @@ class EnemyType_ < Enum
   keys [
     :ENEMY_NONE,
 
-	:ENEMY_BASIC,
-	:ENEMY_FOLLOW,
-	:ENEMY_SPIRAL,
-	:ENEMY_EXPLODE,
-	:ENEMY_5,
-	:ENEMY_6,
+  :ENEMY_BASIC,
+  :ENEMY_FOLLOW,
+  :ENEMY_SPIRAL,
+  :ENEMY_EXPLODE,
+  :ENEMY_5,
+  :ENEMY_6,
 
-	:ENEMY_MAX
+  :ENEMY_MAX
   ]
 end
 
@@ -226,9 +246,9 @@ class UpgradeType < Enum
   keys [
     :ATTR_NONE,
     :ATTR_HP,
-	:ATTR_ATTACK,
-	:ATTR_SPEED,
-	:ATTR_RANGE
+  :ATTR_ATTACK,
+  :ATTR_SPEED,
+  :ATTR_RANGE
   ]
 end
 

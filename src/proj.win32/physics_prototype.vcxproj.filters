@@ -251,6 +251,12 @@
       <Filter>source\ui</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\ui\UpgradeItem.cpp" />
+    <ClCompile Include="..\Classes\scene\WaitingScene.cpp">
+      <Filter>source\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\ResultScene.cpp">
+      <Filter>source\scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -533,6 +539,12 @@
       <Filter>source\ui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ui\UpgradeItem.h" />
+    <ClInclude Include="..\Classes\scene\WaitingScene.h">
+      <Filter>source\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\ResultScene.h">
+      <Filter>source\scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">

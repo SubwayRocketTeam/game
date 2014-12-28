@@ -9,14 +9,16 @@ using namespace std;
 
 void Network::initHandlers(){
 
-	route<EnterNoti>(PT_EnterNoti, 
-		std::bind(&Network::handleEnterRoomNoti, this, placeholders::_1));
-	route<LeaveNoti>(PT_LeaveNoti,
-		std::bind(&Network::handleLeaveRoomNoti, this, placeholders::_1));
-	route<ReadyRequest>(PT_ReadyRequest,
-		std::bind(&Network::handleReadyRequest, this, placeholders::_1));
-	route<StartGame>(PT_StartGame,
-		std::bind(&Network::handleStartGame, this, placeholders::_1));
+	_ROUTE(RoomResponse);
+	_ROUTE(EnterResponse);
+	_ROUTE(EnterNoti);
+	_ROUTE(LeaveNoti);
+	_ROUTE(SelectRobotNoti);
+	_ROUTE(SelectTeamNoti);
+	_ROUTE(ReadyNoti);
+	_ROUTE(StartGame);
+	_ROUTE(GameOver);
+	
 	route<SpawnUnit>(PT_SpawnUnit,
 		std::bind(&Network::handleSpawn, this, placeholders::_1));
 
@@ -27,16 +29,15 @@ void Network::initHandlers(){
 
 	_ROUTE(SyncRotationNoti);
 
-	route<RemoveUnit>(PT_RemoveUnit,
-		std::bind(&Network::handleRemoveUnit, this, placeholders::_1));
-	route<SetPhysics>(PT_SetPhysics,
-		std::bind(&Network::handleSetPhysics, this, placeholders::_1));
-	route<Vacuum>(PT_Vacuum,
-		std::bind(&Network::handleVacuum, this, placeholders::_1));
+	_ROUTE(RemoveUnit);
+	_ROUTE(SetPhysics);
+	_ROUTE(Vacuum);
+
 	route<MoveNoti>(PT_MoveNoti,
 		std::bind(&Network::handleMove, this, placeholders::_1));
-	route<ChatNoti>(PT_ChatNoti,
-		std::bind(&Network::handleChatNoti, this, placeholders::_1));
+
+	_ROUTE(ChatNoti);
+
 	route<UpgradeNoti>(PT_UpgradeNoti,
 		std::bind(&Network::handleUpgrade, this, placeholders::_1));
 }

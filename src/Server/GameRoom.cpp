@@ -85,9 +85,30 @@ void GameRoom::update() {
 
 bool GameRoom::enter(const id_t client_id) {
 	if (client_id == INVALID_ID) return false;
+	if (clientIds.size() >= 4) return false;
 	if (!clientIds.insert(IdPair(client_id, INVALID_ID)).second)
 		return false;
-	ClientManager::getInstance()->getClient(client_id)->setGameRoomId(id);
+	auto client = ClientManager::getInstance()->getClient(client_id);
+	client->gameRoomId = id;
+	int team = getTeamNum(0) < 2 ? 0 : 1;
+	teams[client_id] = team;
+
+	EnterNoti noti;
+
+	for (auto pair : clientIds) {
+		if (pair.first == client_id)
+			continue;
+		noti.client_id = pair.first;
+		strcpy_s(noti.nickname, ClientManager::getInstance()->getClient(pair.first)->nickname.c_str());
+		noti.team_id = getTeam(pair.first);
+		client->sendPacket(noti);
+	}
+
+	noti.client_id = client_id;
+	strcpy_s(noti.nickname, client->nickname.c_str());
+	noti.team_id = team;
+	sendPacket(noti);
+
 	return true;
 }
 
@@ -97,7 +118,12 @@ bool GameRoom::leave(const id_t client_id) {
 	if (it == clientIds.end())
 		return false;
 	clientIds.erase(it);
-	ClientManager::getInstance()->getClient(client_id)->setGameRoomId(INVALID_ID);
+	teams.erase(client_id);
+	ClientManager::getInstance()->getClient(client_id)->gameRoomId = INVALID_ID;
+
+	LeaveNoti noti;
+	noti.client_id = client_id;
+	sendPacket(noti);
 
 	// 모두 나가면 방폭
 	if (clientIds.size() == 0)
@@ -111,8 +137,6 @@ bool GameRoom::startGame() {
 	gameRunning = true;
 
 	StartGame packet;
-	packet.team = 0;
-	packet.seed = rand();
 	sendPacket(packet);
 
 	for (auto& id : clientIds) {
@@ -253,6 +277,36 @@ id_t GameRoom::getClientUnitId(const id_t client_id) {
 	if (it == clientIds.end())
 		return INVALID_ID;
 	return it->second;
+}
+
+void GameRoom::setTeam(const id_t client_id, int team) {
+	auto it = teams.find(client_id);
+	if (it == teams.end())
+		return;
+	it->second = team;
+
+	SelectTeamNoti noti;
+	noti.client_id = client_id;
+	noti.team_id = team;
+	sendPacket(noti);
+}
+
+
+int GameRoom::getTeam(const id_t client_id) {
+	auto it = teams.find(client_id);
+	if (it == teams.end())
+		return -1;
+	return it->second;
+}
+
+int GameRoom::getTeamNum(const int team_id) {
+	return teams.count(team_id);
+}
+
+
+
+size_t GameRoom::getClientNum() const {
+	return clientIds.size();
 }
 
 

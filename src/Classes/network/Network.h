@@ -32,16 +32,22 @@ public:
 	bool isConnected();
 
 	void sendLoginRequest(
-		const char *user_id, const char *user_pw);
+		const char *nickname);
 	void sendMove(
 		float direction_x, float direction_y);
 	void sendSyncRotation(
 		float angle);
 
-	void sendEnterRoom();
+	void sendRoomRequest();
+	void sendEnterRoom(
+		int room_id);
 	void sendLeaveRoom();
-	void sendReady(
+
+	void sendSelectRobot(
 		int robot_id);
+	void sendSelectTeam(
+		int team_id);
+	void sendReadyRequest();
 
 	void sendSpawnRequest(
 		int unitType);
@@ -73,14 +79,24 @@ protected:
 
 	void initHandlers();
 
-	void handleEnterRoomNoti(
+	void handleRoomResponse(
+		RoomResponse *pkt);
+	void handleEnterResponse(
+		EnterResponse *pkt);
+	void handleEnterNoti(
 		EnterNoti *pkt);
-	void handleLeaveRoomNoti(
+	void handleLeaveNoti(
 		LeaveNoti *pkt);
-	void handleReadyRequest(
-		ReadyRequest *pkt);
+	void handleSelectRobotNoti(
+		SelectRobotNoti *pkt);
+	void handleSelectTeamNoti(
+		SelectTeamNoti *pkt);
+	void handleReadyNoti(
+		ReadyNoti *pkt);
 	void handleStartGame(
 		StartGame *pkt);
+	void handleGameOver(
+		GameOver *pkt);
 	void handleSpawn(
 		SpawnUnit *pkt);
 	void handleRemoveUnit(

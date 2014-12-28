@@ -26,6 +26,11 @@ public:
 	Unit* getUnit(const id_t id);
 	Unit* getClientUnit(const id_t client_id);
 	id_t getClientUnitId(const id_t client_id);
+	void setTeam(const id_t client_id, int team);
+	int getTeam(const id_t client_id);
+	int getTeamNum(const int team_id);
+
+	size_t getClientNum() const;
 
 	virtual int send(void* const buf, const size_t size);
 
@@ -59,6 +64,8 @@ private:
 	// first: client id
 	// second : unit id
 	IdPairMap clientIds;
+
+	std::map<id_t, int> teams;
 
 	DWORD tick;
 

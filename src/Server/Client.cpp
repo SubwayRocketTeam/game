@@ -123,12 +123,3 @@ void Client::onDisconnect() {
 		gameroom->leave(id);
 	}
 }
-
-
-void Client::setGameRoomId(id_t room_id) {
-	gameRoomId = room_id;
-}
-
-id_t Client::getGameRoomId() {
-	return gameRoomId;
-}

@@ -24,16 +24,15 @@ public:
 	void onConnect();
 	void onDisconnect();
 
-	void setGameRoomId(id_t room_id);
-	id_t getGameRoomId();
-
-
 public:
 	const id_t id;
+
+	id_t gameRoomId;
+	std::string nickname;
+	int robotType;
 
 private:
 	BufferQueue<BUF_SIZE> bufferQueue;
 	SOCKET socket;
 
-	id_t gameRoomId;
 };
