@@ -9,7 +9,7 @@
 #include "PacketHandler.h"
 
 Client::Client(const id_t id, const SOCKET sock)
-:id(id), socket(sock), gameRoomId(INVALID_ID) {
+:id(id), socket(sock), gameRoomId(INVALID_ID), robotType(PLAYER_TYPE1) {
 
 }
 

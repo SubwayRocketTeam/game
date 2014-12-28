@@ -21,8 +21,12 @@ void Network::handleEnterResponse(
 	EnterResponse *pkt) {
 	if (pkt->room_id == 0)
 		printf("enter room failed\n");
-	else
+	else {
 		printf("enter success : %d\n", pkt->room_id);
+		auto scene = GameScene::scene();
+		Director::getInstance()
+			->replaceScene(scene);
+	}
 }
 
 /* TODO : 수정, 스테이지 id, 유닛 id 등 */
@@ -50,9 +54,6 @@ void Network::handleSelectTeamNoti(
 void Network::handleReadyNoti(
 	ReadyNoti *pkt){
 
-	auto scene = GameScene::scene();
-	Director::getInstance()
-		->replaceScene(scene);
 }
 void Network::handleStartGame(
 	StartGame *pkt){

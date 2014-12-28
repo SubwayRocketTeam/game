@@ -15,11 +15,11 @@ public:
 	virtual ~Player();
 
 	virtual bool init(
-		const std::string &dataPath);
+		const int player_type);
 	virtual bool initAttrs();
 	virtual bool initPhysics();
 	virtual bool initExternalData(
-		const std::string &dataPath);
+		const int player_type);
 
 	virtual void update(float dt);
 	void updateConditions(float dt);

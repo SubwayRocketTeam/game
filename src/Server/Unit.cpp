@@ -37,14 +37,12 @@ bool Unit::init(){
 }
 
 bool Unit::initAttrs(){
-	_INIT_ATTR(hp, 3);
-	_INIT_ATTR(mp, 0);
-	_INIT_ATTR(speed, 8);
-	_INIT_ATTR(hpRegen, 0.0f);
-	_INIT_ATTR(mpRegen, 0.0f);
-	_INIT_ATTR(defence, 0.0f);
-	_INIT_ATTR(range, 120);
-	_INIT_ATTR(attack, 50);
+	_INIT_ATTR(hp, 1);
+	_INIT_ATTR(speed, 0);
+	_INIT_ATTR(hpRegen, 0);
+	_INIT_ATTR(range, 0);
+	_INIT_ATTR(attack, 0);
+	_INIT_ATTR(radius, 1);
 
 	return true;
 }
@@ -62,7 +60,6 @@ void Unit::update(float dt) {
 
 void Unit::updateGen(float dt){
 	__ATTR(hp).increase(_ATTR(hpRegen) * dt);
-	__ATTR(mp).increase(_ATTR(mpRegen) * dt);
 }
 void Unit::updatePassives(float dt){
 

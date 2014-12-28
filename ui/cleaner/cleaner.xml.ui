@@ -45,5 +45,5 @@
     <string>waiting_background.png</string>
   </imagePngList>
   <JsonSuffix>.json</JsonSuffix>
-  <CurrentUIJson>room_item.json</CurrentUIJson>
+  <CurrentUIJson>select_scene.json</CurrentUIJson>
 </UIProject>

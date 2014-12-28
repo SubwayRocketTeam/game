@@ -38,11 +38,11 @@ Player::~Player(){
 }
 
 bool Player::init(
-	const std::string &dataPath){
+	const int player_type){
 
 	if (!Unit::init())
 		return false;
-	if (!initExternalData(dataPath))
+	if (!initExternalData(player_type))
 		return false;
 
 	return true;
@@ -55,10 +55,13 @@ bool Player::initPhysics(){
 	return true;
 }
 bool Player::initExternalData(
-	const std::string &dataPath){
+	const int player_type){
+
+	char buf[32];
+	sprintf_s(buf, "type%d.json", player_type);
 
 	Json::Value root;
-	if (!JsonLoader::load(dataPath, root))
+	if (!JsonLoader::load(buf, root))
 		return false;
 
 	/* attr */

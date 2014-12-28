@@ -30,5 +30,6 @@ void Network::sendSelectTeam(
 void Network::sendReadyRequest(){
 
 	ReadyRequest pkt;
+	pkt.ready = 1;
 	send(pkt);
 }

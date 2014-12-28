@@ -142,6 +142,7 @@ bool GameRoom::startGame() {
 	for (auto& id : clientIds) {
 		Client* client = ClientManager::getInstance()->getClient(id.first);
 		Player* player = new Player();
+		player->init(client->robotType);
 		id.second = stage[0]->addUnit(player);
 
 		// TODO: 위치 지정
