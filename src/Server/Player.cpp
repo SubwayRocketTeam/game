@@ -183,6 +183,10 @@ bool Player::onDeath(){
 		position, trash + upgrade_times * config::death_upgrade_trash);
 	trash = 0;
 
+	RemoveUnit noti;
+	noti.id = id;
+	stage->gameroom->sendPacket(noti);
+
 	return true;
 }
 

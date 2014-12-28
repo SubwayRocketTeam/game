@@ -128,9 +128,13 @@ bool Enemy::onDamage(
 }
 
 bool Enemy::onDeath(){
-	puts("EnemyDead");
 	stage->trashPool->spawn(
 		position, (int)_ATTR(drops));
+
+	RemoveUnit noti;
+	noti.id = id;
+	stage->gameroom->sendPacket(noti);
+
 	return true;
 }
 
