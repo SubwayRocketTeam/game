@@ -77,10 +77,6 @@ bool GameScene::init(){
 	enableKeyboardInput(this);
 	scheduleUpdate();
 
-	auto network = Network::getInstance();
-	network->sendReadyRequest();
-	printf("ready\n");
-
 	return true;
 }
 bool GameScene::initUI(){

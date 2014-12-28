@@ -23,9 +23,11 @@ void Network::handleEnterResponse(
 		printf("enter room failed\n");
 	else {
 		printf("enter success : %d\n", pkt->room_id);
-		auto scene = GameScene::scene();
-		Director::getInstance()
-			->replaceScene(scene);
+
+		auto network = Network::getInstance();
+		network->sendReadyRequest();
+		printf("ready\n");
+
 	}
 }
 
@@ -59,6 +61,9 @@ void Network::handleStartGame(
 	StartGame *pkt){
 
 	printf("start game\n");
+	auto scene = GameScene::scene();
+	Director::getInstance()
+		->replaceScene(scene);
 }
 
 void Network::handleGameOver(
