@@ -87,15 +87,12 @@ void Network::handleRemoveUnit(
 
 	auto unit = Unit::getInstanceByID(pkt->id);
 
-	if(unit != nullptr){
-		auto stage = Stage::getInstance(0);
-		auto players = Ally::getInstance(
-			Ally::Type::allyPlayer);
+	if (!unit)
+		return;
 
-		players->remove(unit);
-		unit->setOpacity(128);
-		//stage->removeChild(unit);
-	}
+	auto ally = Ally::getInstance(unit->getAllyID());
+	ally->remove(unit);
+	unit->remove();
 }
 void Network::handleSetPhysics(
 	SetPhysics *pkt) {
