@@ -74,6 +74,8 @@ void ControlablePlayer::onExit() {
 
 	auto stage = Stage::getInstance(stageID);
 	stage->setObserverMode();
+
+	GlobalResource::getInstance()->trash = 0;
 }
 
 
