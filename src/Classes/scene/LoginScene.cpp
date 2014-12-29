@@ -38,11 +38,34 @@ bool LoginScene::init(){
 	auto reader = GUIReader::getInstance();
 	auto layout = reader->widgetFromJsonFile("login_scene.json");
 
+	auto nicknamePanel = 
+		(ui::Widget*)layout->getChildByName("nickname");
 	auto btnLogin = 
 		(ui::Widget*)layout->getChildByName("btn_login");
 	btnLogin->addTouchEventListener(
 		CC_CALLBACK_2(LoginScene::onLogin, this));
-		
+
+	
+	nicknamePanel->setCascadeOpacityEnabled(true);
+	nicknamePanel->setScaleY(0);
+	nicknamePanel->setOpacity(0);
+	nicknamePanel->runAction(
+		Spawn::create(
+			ScaleTo::create(0.6, 1),
+			FadeIn::create(0.6),
+			nullptr));
+	
+	btnLogin->setScaleY(0);
+	btnLogin->setOpacity(0);
+	btnLogin->runAction(
+		Sequence::create(
+			DelayTime::create(0.6),
+			Spawn::create(
+				ScaleTo::create(0.4, 1),
+				FadeIn::create(0.4),
+				nullptr),
+			nullptr));
+
 	addChild(layout, 0, tagLayout);
 
 	return true;
