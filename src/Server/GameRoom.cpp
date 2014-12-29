@@ -146,7 +146,7 @@ bool GameRoom::startGame() {
 		Client* client = ClientManager::getInstance()->getClient(id.first);
 		Player* player = new Player();
 		player->init(client->robotType);
-		id.second = stage[0]->addUnit(player);
+		id.second = stage[teams[id.first]]->addUnit(player);
 
 		// TODO: 위치 지정
 		player->position.x = (float)(rand() % 1600 - 800);
@@ -304,7 +304,7 @@ int GameRoom::getTeam(const id_t client_id) {
 }
 
 int GameRoom::getTeamNum(const int team_id) {
-	return teams.count(team_id);
+	return std::count_if(teams.begin(), teams.end(), [team_id](const std::pair<id_t, int>& pair){return pair.second == team_id; });
 }
 
 
