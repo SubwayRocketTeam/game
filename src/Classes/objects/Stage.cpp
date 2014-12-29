@@ -9,6 +9,8 @@
 #include "objects/EnemySpawner.h"
 #include "objects/CollisionDetector.h"
 
+#include "scene/ResultScene.h"
+
 using namespace std;
 using namespace cocos2d;
 
@@ -140,6 +142,20 @@ void Stage::setObserverMode(){
 				nullptr),
 			nullptr
 		));
+}
+
+void Stage::gameOver() {
+	auto size = Director::getInstance()->getVisibleSize();
+	auto sprite = Sprite::create(R::GameOver);
+	sprite->setPosition(size / 2);
+	getParent()->addChild(sprite, Z::Popup);
+	runAction(
+		Sequence::create(
+		DelayTime::create(5.f),
+		CallFunc::create([]{Director::getInstance()->replaceScene(ResultScene::scene());}),
+		nullptr
+		)
+		);
 }
 
 void Stage::update(

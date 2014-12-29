@@ -15,6 +15,7 @@ public:
 		int id);
 
 	void setObserverMode();
+	void gameOver();
 	CollisionDetector* getCollisionDetector();
 
 protected:
