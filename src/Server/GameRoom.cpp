@@ -93,7 +93,7 @@ bool GameRoom::enter(const id_t client_id) {
 		return false;
 	auto client = ClientManager::getInstance()->getClient(client_id);
 	client->gameRoomId = id;
-	int team = getTeamNum(0) < 2 ? 0 : 1;
+	int team = getTeamNum(0) <= getTeamNum(1) ? 0 : 1;
 	teams[client_id] = team;
 
 	EnterNoti noti;

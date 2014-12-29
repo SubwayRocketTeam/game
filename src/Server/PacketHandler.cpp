@@ -126,12 +126,8 @@ REGISTER_HANDLER(ReadyRequest) {
 	else
 		gameroom->ready--;
 
-	/*
 	if (gameroom->ready >= gameroom->getClientNum()
 		&& gameroom->getTeamNum(0) == gameroom->getTeamNum(1))
-	*/
-
-	if (gameroom->ready >= 2)
 		gameroom->startGame();
 } END
 
