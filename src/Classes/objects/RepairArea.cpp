@@ -39,6 +39,8 @@ bool RepairArea::init(){
 void RepairArea::update(
 	float dt){
 
+	// 서버에서 처리
+	/*
 	auto players = Ally::getInstance(
 		Ally::Type::allyPlayer);
 
@@ -49,4 +51,5 @@ void RepairArea::update(
 		if(rect.containsPoint(pos))
 			player->addPassive(skillRepair);
 	}
+	*/
 }
