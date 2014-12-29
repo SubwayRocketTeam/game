@@ -54,5 +54,5 @@ protected:
 	ActiveSkill* skill;
 	float cooltime;
 
-	cocos2d::LabelTTF* label;
+	cocos2d::LabelTTF* label; ///< Unit::label도 있고.. 자식 객체에도 있고.. 부모의 그것을 덮어버리는 문제..
 };

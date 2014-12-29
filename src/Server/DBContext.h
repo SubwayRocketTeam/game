@@ -2,6 +2,7 @@
 
 #include <string>
 
+///# 실제로는 안쓰는거? 구현이 어디있는겨... 안쓰는거는 주석 또는 삭tothe제하는 습관을..
 class DBContext{
 public:
 	bool connect(

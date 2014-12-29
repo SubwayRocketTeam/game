@@ -11,7 +11,7 @@ class GameRoom;
 class Client : public Sendable {
 public:
 	Client(const id_t id = INVALID_ID, const SOCKET sock = INVALID_SOCKET);
-	~Client();
+	virtual ~Client();
 
 	virtual int send(void* const buf, const size_t size);
 	int sendAllocatedData(void* const buf, const size_t size);

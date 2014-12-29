@@ -54,7 +54,7 @@ REGISTER_HANDLER(CheckVersionRequest) {
 } END
 
 REGISTER_HANDLER(LoginRequest) {
-	printf("%u: %s %s\n", client->id, packet->nickname);
+	printf("%u: %s %s\n", client->id, packet->nickname); ///< ㅋㅋㅋㅋㅋㅋㅋ 이건 exploit 당하기 딱 좋은 상태..
 	LoginResponse response;
 	response.client_id = client->id;
 	client->sendPacket(response);
@@ -75,7 +75,7 @@ REGISTER_HANDLER(EnterRoom) {
 	NULLCHECK(gameroom);
 
 	EnterResponse response;
-	if (!gameroom || gameroom->getClientNum() >= 4) {
+	if (!gameroom || gameroom->getClientNum() >= 4) { ///< 위에서 널 체크 했는데??  널 체크 안했더라도.. 조건문 자체가 이상함..
 		response.room_id = 0;
 		client->sendPacket(response);
 		return;

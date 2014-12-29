@@ -77,6 +77,6 @@ private:
 	std::set<Unit*> addUnits;
 	std::set<Unit*> removeUnits;
 
-	SDL_Window *window;
+	SDL_Window *window;			///< 으잉? 서버에서 왠 SDL??
 	SDL_Renderer *renderer;
 };

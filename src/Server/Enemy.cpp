@@ -108,7 +108,7 @@ void Enemy::updateMovement(){
 }
 
 bool Enemy::onDamage(
-	const AttackData &attackData){
+	const AttackData &attackData){ ///< attackData요놈은 파라미터 이름이랑 Enemy의 멤버 이름이랑 같다.. 전에 이야기 했던 것 같은데..
 
 	increaseAggro(
 		attackData.user, attackData.aggro);
