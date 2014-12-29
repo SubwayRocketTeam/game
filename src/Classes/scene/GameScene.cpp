@@ -126,8 +126,9 @@ bool GameScene::initUI(){
 	int enemies[Max::Enemies] = { enemyBasic, enemyFollow, enemySpiral, enemyExplode };
 	auto spawnPanel = SpawnIconPanel::getInstance();
 	spawnPanel->setIconList(enemies);
-	spawnPanel->setPosition(visibleSize.width / 2, 10.f);
-	addChild(spawnPanel);
+	spawnPanel->setAnchorPoint(Vec2(0.5,1));
+	spawnPanel->setPosition(visibleSize.width/2, 25.f);
+	trashTank->addChild(spawnPanel);
 
 	auto chatBox = ChatBox::getInstance();
 	chatBox->setAnchorPoint(Vec2(0,0));
