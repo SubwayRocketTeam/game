@@ -60,6 +60,15 @@ bool GameRoom::init() {
 	return true;
 }
 
+std::map<int, GameRoom::Client>::const_iterator GameRoom::begin() const {
+	return clients.begin();
+}
+
+std::map<int, GameRoom::Client>::const_iterator GameRoom::end() const {
+	return clients.end();
+}
+
+
 void GameRoom::clear() {
 	roomId = 0;
 	clients.clear();

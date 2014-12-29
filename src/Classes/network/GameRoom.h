@@ -26,8 +26,8 @@ public:
 	void removeClient(int id);
 	Client& getClient(int id);
 
-	std::map<int, Client>::iterator begin() const;
-	std::map<int, Client>::iterator end() const;
+	std::map<int, Client>::const_iterator begin() const;
+	std::map<int, Client>::const_iterator end() const;
 
 	void clear();
 
