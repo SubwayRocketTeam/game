@@ -35,14 +35,17 @@ GameRoom::~GameRoom() {
 }
 
 void GameRoom::update() {
-	DWORD now_tick = timeGetTime();
 
-	for (int i = 0; i < Max::Teams; ++i)
-		stage[i]->update((now_tick - tick) * 0.001f);
+	if (gameRunning) {
+		DWORD now_tick = timeGetTime();
 
-	flush();
+		for (int i = 0; i < Max::Teams; ++i)
+			stage[i]->update((now_tick - tick) * 0.001f);
 
-	tick = now_tick;
+		flush();
+
+		tick = now_tick;
+	}
 
 	if (config::gui) {
 		SDL_SetRenderDrawColor(renderer, 255, 2552, 255, 255);
