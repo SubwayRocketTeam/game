@@ -20,6 +20,9 @@ GameRoom::GameRoom(const id_t id)
 	:id(id), ready(0), gameRunning(false) {
 	for (int i = 0; i < Max::Teams; ++i)
 		stage[i] = new Stage(this, i);
+	
+	stage[0]->oppositStage = stage[1];
+	stage[1]->oppositStage = stage[0];
 }
 
 GameRoom::~GameRoom() {

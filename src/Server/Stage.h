@@ -29,6 +29,7 @@ public:
 
 public:
 	GameRoom* const gameroom;
+	Stage* oppositStage;
 	const int id;
 
 	CollisionDetector* collisionDetector;

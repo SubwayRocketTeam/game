@@ -12,7 +12,7 @@
 #include "config.h"
 
 Stage::Stage(GameRoom* gameroom, const int id)
-	:gameroom(gameroom), id(id),
+	:gameroom(gameroom), oppositStage(nullptr), id(id),
 	enemyNum(0), bonusTimer(config::bonus_time_wait){
 
 	collisionDetector = new CollisionDetector();

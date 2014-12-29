@@ -138,7 +138,7 @@ REGISTER_HANDLER(SpawnRequest) {
 	NULLCHECK(gameroom);
 	NULLCHECK(player);
 	auto type = (EnemyType)(packet->enemy_type - ENEMY_BASIC);
-	auto spawner = player->stage->spawner;
+	auto spawner = player->stage->oppositStage->spawner;
 	auto info = EnemyFactory::getInstance()->getEenmyInfo(type);
 
 	if (player->getTrash() < info->cost)
