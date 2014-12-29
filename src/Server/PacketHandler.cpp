@@ -62,10 +62,13 @@ REGISTER_HANDLER(LoginRequest) {
 
 
 REGISTER_HANDLER(RoomRequest) {
+	GameRoomManager::getInstance()->notifyAvailableGameRooms(client->id);
+	/*
 	RoomResponse response;
 	response.room_num = 1;
 	response.room_list[0] = GameRoomManager::getInstance()->getAvailableGameRoom()->id;
 	client->sendPacket(response);
+	*/
 } END
 
 

@@ -41,6 +41,28 @@ GameRoom *GameRoomManager::getAvailableGameRoom(){
 	return getGameRoom(available);
 }
 
+void GameRoomManager::notifyAvailableGameRooms(const id_t client_id) {
+	auto client = ClientManager::getInstance()->getClient(client_id);
+	if (!client)
+		return;
+
+	int room_num = 0;
+	char room_arr[32];
+	for (auto& pair : rooms) {
+		auto gameroom = pair.second;
+		if (gameroom->isFull() || gameroom->isPlaying())
+			continue;
+		room_arr[room_num++] = pair.first;
+		if (room_num >= 32)
+			break;
+	}
+
+	RoomResponse noti;
+	noti.room_num = room_num;
+	strcpy_s(noti.room_list, room_arr);
+	client->sendPacket(noti);
+}
+
 id_t GameRoomManager::createGameRoom() {
 	std::lock_guard<std::mutex> lock(mutex);
 	id_t id = dispenser.issue();

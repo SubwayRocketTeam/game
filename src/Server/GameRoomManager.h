@@ -12,6 +12,9 @@ public:
 
 	GameRoom* getGameRoom(const id_t id);
 	GameRoom* getAvailableGameRoom();
+
+	void notifyAvailableGameRooms(const id_t client_id);
+	
 	id_t createGameRoom();
 	bool removeGameRoom(const id_t id);
 
