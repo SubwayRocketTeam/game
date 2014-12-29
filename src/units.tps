@@ -121,7 +121,7 @@
                 <key>sortBy</key>
                 <enum type="AlgorithmBasicSettings::SortBy">Best</enum>
                 <key>order</key>
-                <enum type="AlgorithmBasicSettings::Order">Descending</enum>
+                <enum type="AlgorithmBasicSettings::Order">Ascending</enum>
             </struct>
         </struct>
         <key>andEngine</key>
@@ -188,20 +188,23 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>Resources/trashs1.png</filename>
-            <filename>Resources/trashs2.png</filename>
-            <filename>Resources/trashs3.png</filename>
-            <filename>Resources/trashs4.png</filename>
-            <filename>Resources/trashs5.png</filename>
-            <filename>Resources/trashs6.png</filename>
-            <filename>Resources/enemy1.png</filename>
-            <filename>Resources/enemy2.png</filename>
-            <filename>Resources/enemy3.png</filename>
-            <filename>Resources/enemy4.png</filename>
             <filename>Resources/robot1.png</filename>
             <filename>Resources/robot2.png</filename>
             <filename>Resources/robot3.png</filename>
             <filename>Resources/repair_area.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/enemy1.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/enemy2.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/enemy3.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/enemy4.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/enemy5.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/enemy6.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/enemy7.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/trashs1.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/trashs2.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/trashs3.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/trashs4.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/trashs5.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/trashs6.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
