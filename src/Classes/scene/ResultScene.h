@@ -19,5 +19,5 @@ protected:
 	virtual void onInitGlobalObjects();
 	virtual void onReleaseGlobalObjects();
 
-	void onExitRoom(Ref *sender, ui::Widget::TouchEventType type);
+	void onExitRoom(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 };
