@@ -46,16 +46,24 @@ void GameRoomManager::notifyAvailableGameRooms(const id_t client_id) {
 	if (!client)
 		return;
 
+	bool new_room_flag = true;
 	int room_num = 0;
-	char room_arr[32];
+	char room_arr[33];
 	for (auto& pair : rooms) {
 		auto gameroom = pair.second;
 		if (gameroom->isFull() || gameroom->isPlaying())
 			continue;
 		room_arr[room_num++] = pair.first;
+		
+		if (gameroom->getClientNum() == 0)
+			new_room_flag = false;
+
 		if (room_num >= 32)
 			break;
 	}
+
+	if (new_room_flag)
+		room_arr[room_num++] = createGameRoom();
 
 	RoomResponse noti;
 	noti.room_num = room_num;

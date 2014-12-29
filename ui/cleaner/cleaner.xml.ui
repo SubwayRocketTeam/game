@@ -25,5 +25,5 @@
   <imageFileList />
   <imagePngList />
   <JsonSuffix>.json</JsonSuffix>
-  <CurrentUIJson>select_scene.json</CurrentUIJson>
+  <CurrentUIJson>lobby_scene.json</CurrentUIJson>
 </UIProject>
