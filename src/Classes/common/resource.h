@@ -50,4 +50,6 @@ namespace R{
 	_RESL(TitleBGM);
 	_RESL(GameBGM);
 	_RESL(Fire);
+
+	_RESL(GameOver);
 };

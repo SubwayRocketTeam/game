@@ -44,4 +44,7 @@ namespace R{
 	_RESD(TitleBGM, "titlebgm.mp3");
 	_RESD(GameBGM, "bgm.mid");
 	_RESD(Fire, "fire.wav");
+
+	_RESD(GameOver, "gameover.png");
+
 }
