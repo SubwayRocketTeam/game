@@ -201,9 +201,6 @@ int Player::getTrash() const {
 void Player::addTrash(const int amount) {
 	trash = max(0, min(Max::Tank, trash + amount));
 }
-void Player::consumeTrash(const int value) {
-	trash = max(0, trash-value);
-}
 
 bool Player::upgrade(
 	const std::string& attr_name) {

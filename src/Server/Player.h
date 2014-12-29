@@ -33,7 +33,6 @@ public:
 	bool isTankFull() const;
 	int getTrash() const;
 	void addTrash(const int amount);
-	void consumeTrash(const int value);
 
 public:
 	Vec2 moveDirection;
