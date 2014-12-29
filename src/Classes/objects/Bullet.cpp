@@ -62,11 +62,9 @@ bool Bullet::onDamage(
 	const AttackData& attack){
 
 	auto factory = EffectFactory::getInstance();
-	auto worldPos = 
-		getParent()->convertToWorldSpace(getPosition());
 
 	factory->add(
-		stageID, worldPos, R::Hit1, false);
+		stageID, getPosition(), R::Hit1, false);
 
 	return true;
 }
