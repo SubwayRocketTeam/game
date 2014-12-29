@@ -55,6 +55,7 @@ REGISTER_HANDLER(CheckVersionRequest) {
 
 REGISTER_HANDLER(LoginRequest) {
 	printf("%u: %s\n", client->id, packet->nickname);
+	client->nickname = packet->nickname;
 	LoginResponse response;
 	response.client_id = client->id;
 	client->sendPacket(response);
