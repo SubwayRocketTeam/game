@@ -105,15 +105,12 @@ bool GameScene::initUI(){
 	stage->addChild(player, Z::unit);
 	*/
 
-	// auto trashPool = TrashPool::getInstance();
-	// trashPool->spawn(100);
-	// addChild(trashPool);
-
 	/* UI OBJECTS */
 	auto console = StatusConsole::create();
 	console->setPosition(Vec2(50,300));
+	console->setVisible(false);
 	addChild(console);
-
+	
 	auto minimap = Minimap::getInstance();
 	minimap->setPosition(860,655);
 	addChild(minimap);
