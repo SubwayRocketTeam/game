@@ -1,0 +1,32 @@
+1. 팀명 : SubwayRocket
+
+2. 구성원 : 박 민수, 박 준철
+
+3. 게임 제목 : Vacuum Cleaner
+
+4. 게임에 대한 간단한 소개 : 
+팀 단위로 로봇 청소기를 조종하여 적 로봇을 부수고 쓰레기를 빨아들입니다.
+빨아들인 쓰레기로 상대팀에 더 강한 로봇을 보내서 상대 팀의 로봇청소기를 모두 부수는것이 목표입니다.
+
+5. 게임 플레이 장면
+
+6. GitHub 링크 : 
+
+7. 
+(1) 팀 관련 문서 : https://github.com/SubwayRocketTeam/documents/wiki/SubwayRocketTeam
+(2) 스터디 문서 : https://github.com/SubwayRocketTeam/documents/wiki/Study
+(3) 게임 컨셉 기획서 : https://github.com/SubwayRocketTeam/documents/wiki/%EA%B2%8C%EC%9E%84-%EC%BB%A8%EC%85%89-%EA%B8%B0%ED%9A%8D
+(4) 프로토타입 : https://github.com/SubwayRocketTeam/prototype__2
+(5) 주차별 배포 :
+https://github.com/SubwayRocketTeam/game/tree/Release01
+https://github.com/SubwayRocketTeam/game/tree/Release02
+https://github.com/SubwayRocketTeam/game/tree/Release03
+https://github.com/SubwayRocketTeam/game/tree/Release04
+https://github.com/SubwayRocketTeam/game/tree/Release05
+https://github.com/SubwayRocketTeam/game/tree/Release06
+https://github.com/SubwayRocketTeam/game/tree/Release07
+https://github.com/SubwayRocketTeam/game/tree/Release08
+
+8. 포스트 모템 정리
+
+9. 데모 동영상
