@@ -28,5 +28,6 @@ https://github.com/SubwayRocketTeam/game/tree/Release07
 https://github.com/SubwayRocketTeam/game/tree/Release08
 
 8. 포스트 모템 정리
+https://github.com/SubwayRocketTeam/game/blob/master/doc/PostMortem.md
 
 9. 데모 동영상
