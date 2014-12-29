@@ -21,13 +21,13 @@ protected:
 	virtual void onReleaseGlobalObjects();
 
 	void onSelectRobot(
-		Ref *sender, ui::Widget::TouchEventType type, int robot);
+		Ref *sender, cocos2d::ui::Widget::TouchEventType type, int robot);
 	void onSelectTeam(
-		Ref *sender, ui::Widget::TouchEventType type, int team);
+		Ref *sender, cocos2d::ui::Widget::TouchEventType type, int team);
 	void onReady(
-		Ref *sender, ui::Widget::TouchEventType type);
+		Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void onExitRoom(
-		Ref *sender, ui::Widget::TouchEventType type);
+		Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 
 protected:
 	int selectedRobot;
