@@ -1248,9 +1248,9 @@
                   "capInsetsY": 0,
                   "fileName": null,
                   "fileNameData": {
-                    "path": "C:\\Program Files (x86)\\Cocos Studio\\EditorDefaultRes\\GUI/image.png",
+                    "path": "ui_robot1.png",
                     "plistFile": "",
-                    "resourceType": 2
+                    "resourceType": 0
                   },
                   "scale9Enable": false,
                   "scale9Height": 80,
@@ -1421,9 +1421,9 @@
                   "capInsetsY": 0,
                   "fileName": null,
                   "fileNameData": {
-                    "path": "C:\\Program Files (x86)\\Cocos Studio\\EditorDefaultRes\\GUI/image.png",
+                    "path": "ui_robot1.png",
                     "plistFile": "",
-                    "resourceType": 2
+                    "resourceType": 0
                   },
                   "scale9Enable": false,
                   "scale9Height": 80,
@@ -1663,9 +1663,9 @@
                   "capInsetsY": 0,
                   "fileName": null,
                   "fileNameData": {
-                    "path": "C:\\Program Files (x86)\\Cocos Studio\\EditorDefaultRes\\GUI/image.png",
+                    "path": "ui_robot1.png",
                     "plistFile": "",
-                    "resourceType": 2
+                    "resourceType": 0
                   },
                   "scale9Enable": false,
                   "scale9Height": 80,
@@ -1836,9 +1836,9 @@
                   "capInsetsY": 0,
                   "fileName": null,
                   "fileNameData": {
-                    "path": "C:\\Program Files (x86)\\Cocos Studio\\EditorDefaultRes\\GUI/image.png",
+                    "path": "ui_robot1.png",
                     "plistFile": "",
-                    "resourceType": 2
+                    "resourceType": 0
                   },
                   "scale9Enable": false,
                   "scale9Height": 80,
