@@ -77,6 +77,8 @@ void ControlablePlayer::onExit() {
 
 	GlobalResource::getInstance()->trash = 0;
 	ShowCursor(true);
+
+	Player::onExit();
 }
 
 
