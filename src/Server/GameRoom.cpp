@@ -347,5 +347,5 @@ bool GameRoom::isPlaying() {
 }
 
 bool GameRoom::isFull() {
-	return clientIds.size >= 4;
+	return clientIds.size() >= 4;
 }

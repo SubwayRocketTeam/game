@@ -15,7 +15,7 @@
 			"skills" : [],
 			
 			"cost" : 3,
-			"cooltime" : 1
+			"cooltime" : 0.2
 		},
 		{
 			"name" : "enemyFollow",
@@ -33,7 +33,7 @@
 			"skills" : [202],
 			
 			"cost" : 6,
-			"cooltime" : 1
+			"cooltime" : 0.5
 		},
 		{
 			"name" : "enemySpiral",
@@ -71,7 +71,7 @@
 			"skills" : [],
 			
 			"cost" : 30,
-			"cooltime" : 1
+			"cooltime" : 1.5
 		},
 		{
 			"name" : "enemyDup",
@@ -88,26 +88,26 @@
 			
 			"skills" : [],
 			
-			"cost" : 10,
-			"cooltime" : 1
+			"cost" : 40,
+			"cooltime" : 2
 		},
 				{
-			"name" : "enemy???",
+			"name" : "enemyBoss",
 			
 			"attrs" : [
-				{"name" : "hp", "value" : 20},
-				{"name" : "hp_gen", "value" : 0},
-				{"name" : "speed", "value" : 500},
+				{"name" : "hp", "value" : 100},
+				{"name" : "hp_gen", "value" : 2},
+				{"name" : "speed", "value" : 100},
 				{"name" : "attack", "value" : 10},
-				{"name" : "melee_attack", "value" : 10},
-				{"name" : "range", "value" : 800},
+				{"name" : "melee_attack", "value" : 20},
+				{"name" : "range", "value" : 2000},
 				{"name" : "radius", "value" : 30}
 			],
 			
 			"skills" : [],
 			
-			"cost" : 10,
-			"cooltime" : 1
+			"cost" : 75,
+			"cooltime" : 5
 		},
 				{
 			"name" : "enemyBonus",

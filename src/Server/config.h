@@ -17,4 +17,7 @@ namespace config {
 	const int upgrade_cost_start = 10;
 	// 업그레이드 가격 증가량
 	const int upgrade_cost_delta = 10;
+
+	// 보너스 몹 스폰까지 걸리는 시간
+	const float bonus_time_wait = 5.f;
 }

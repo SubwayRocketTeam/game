@@ -40,4 +40,7 @@ public:
 private:
 	std::vector<Unit*> units;
 
+	int enemyNum;
+	float bonusTimer;
+
 };

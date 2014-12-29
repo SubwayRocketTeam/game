@@ -9,8 +9,11 @@
 #include "EnemySpawner.h"
 #include "RepairArea.h"
 
+#include "config.h"
+
 Stage::Stage(GameRoom* gameroom, const int id)
-	:gameroom(gameroom), id(id) {
+	:gameroom(gameroom), id(id),
+	enemyNum(0), bonusTimer(config::bonus_time_wait){
 
 	collisionDetector = new CollisionDetector();
 	trashPool = new TrashPool(this);
@@ -50,6 +53,13 @@ void Stage::update(const float dt) {
 	collisionDetector->update(dt);
 	trashPool->update(dt);
 	repairArea->update(dt);
+
+	if (enemyNum == 0) {
+		bonusTimer -= dt;
+		if (bonusTimer <= 0) {
+			spawner->spawn(enemyBonus);
+		}
+	}
 }
 
 
@@ -86,6 +96,7 @@ id_t Stage::addUnitImmediate(Unit* unit) {
 	case UT_ENEMY:
 		ally[Ally::Type::allyEnemy]->push(unit);
 		collisionDetector->addUnit(unit);
+		enemyNum += 1;
 		break;
 	case UT_BULLET:
 		break;
@@ -117,6 +128,9 @@ void Stage::removeUnitImmediate(Unit* unit) {
 	case UT_ENEMY:
 		ally[Ally::Type::allyEnemy]->remove(unit);
 		collisionDetector->removeUnit(unit);
+		enemyNum -= 1;
+		if (enemyNum == 0)
+			bonusTimer = config::bonus_time_wait;
 		break;
 	case UT_BULLET:
 		break;
