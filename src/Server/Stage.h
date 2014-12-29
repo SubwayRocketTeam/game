@@ -27,6 +27,8 @@ public:
 
 	Unit* getUnit(const id_t id);
 
+	bool isExterminated();
+
 public:
 	GameRoom* const gameroom;
 	Stage* oppositStage;
@@ -41,6 +43,7 @@ public:
 private:
 	std::vector<Unit*> units;
 
+	int playerNum;
 	int enemyNum;
 	float bonusTimer;
 

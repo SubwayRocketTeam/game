@@ -13,7 +13,7 @@
 
 Stage::Stage(GameRoom* gameroom, const int id)
 	:gameroom(gameroom), oppositStage(nullptr), id(id),
-	enemyNum(0), bonusTimer(config::bonus_time_wait){
+	playerNum(0), enemyNum(0), bonusTimer(config::bonus_time_wait){
 
 	collisionDetector = new CollisionDetector();
 	trashPool = new TrashPool(this);
@@ -92,6 +92,7 @@ id_t Stage::addUnitImmediate(Unit* unit) {
 	case UT_PLAYER:
 		ally[Ally::Type::allyPlayer]->push(unit);
 		collisionDetector->addUnit(unit);
+		playerNum += 1;
 		break;
 	case UT_ENEMY:
 		ally[Ally::Type::allyEnemy]->push(unit);
@@ -124,6 +125,7 @@ void Stage::removeUnitImmediate(Unit* unit) {
 	case UT_PLAYER:
 		ally[Ally::Type::allyPlayer]->remove(unit);
 		collisionDetector->removeUnit(unit);
+		playerNum -= 1;
 		break;
 	case UT_ENEMY:
 		ally[Ally::Type::allyEnemy]->remove(unit);
@@ -151,3 +153,9 @@ Unit* Stage::getUnit(const id_t id) {
 		return nullptr;
 	return *it;
 }
+
+
+bool Stage::isExterminated() {
+	return playerNum == 0;
+}
+

@@ -17,7 +17,7 @@
 typedef std::pair<id_t, id_t> IdPair;
 
 GameRoom::GameRoom(const id_t id)
-	:id(id), ready(0), gameRunning(false) {
+	:id(id), ready(0), gameRunning(false), gameOver(false) {
 	for (int i = 0; i < Max::Teams; ++i)
 		stage[i] = new Stage(this, i);
 	
@@ -48,6 +48,19 @@ void GameRoom::update() {
 		flush();
 
 		tick = now_tick;
+
+		if (!gameOver) {
+			for (int i = 0; i < Max::Teams; ++i) {
+				if (stage[i]->isExterminated()) {
+					GameOver noti;
+					noti.win_team = _OPPOSITE(i);
+					sendPacket(noti);
+					gameOver = true;
+					return;
+				}
+			}
+		}
+
 	}
 
 	if (config::gui) {

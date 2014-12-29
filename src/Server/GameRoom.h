@@ -73,6 +73,7 @@ private:
 	Stage* stage[Max::Teams];
 
 	bool gameRunning;
+	bool gameOver;
 
 	std::vector<Unit*> units;
 	std::set<Unit*> addUnits;
