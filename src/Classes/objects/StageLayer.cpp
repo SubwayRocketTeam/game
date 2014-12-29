@@ -4,6 +4,8 @@
 #include "Stage.h"
 #include "ControlablePlayer.h"
 
+#include "network/GameRoom.h"
+
 using namespace cocos2d;
 
 static const int actionSwitchStage = 1;
@@ -27,6 +29,9 @@ StageLayer *StageLayer::create(){
 bool StageLayer::init(){
 	if(!Layer::init())
 		return false;
+
+	auto gameroom = GameRoom::getInstance();
+	activeStageID = gameroom->getClient(gameroom->getMyId()).team;
 
 	auto director = Director::getInstance();
 	auto visibleSize = director->getVisibleSize();
