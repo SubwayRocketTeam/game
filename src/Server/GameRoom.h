@@ -47,6 +47,7 @@ public:
 	void removeUnit(Unit* unit);	// Stage에서만 불러야 한다.
 
 	bool isPlaying();
+	bool isFull();
 
 private:
 	void addUnitImmediate(Unit* unit);

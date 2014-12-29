@@ -46,7 +46,7 @@ protected:
 	int enemyType;
 
 	std::map<Unit*, float> aggros;
-	AttackData attackData;
+	AttackData enemyAttackData;
 
 	ActiveSkill* skill;
 	float cooltime;

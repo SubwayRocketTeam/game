@@ -41,15 +41,14 @@ bool Enemy::init(
 	if (!Unit::init(_MAKE_PATH("enemy%d", enemyType+1)))
 		return false;
 
-	attackData.user = this;
-	attackData.object = this;
-	attackData.target = nullptr;
-	attackData.radius = 30;
-	attackData.aggro = 0;
-	attackData.damage = 1;
-
-	label = LabelTTF::create("", Global::Font, 20);
-	addChild(label);
+	/*
+	enemyAttackData.user = this;
+	enemyAttackData.object = this;
+	enemyAttackData.target = nullptr;
+	enemyAttackData.radius = 30;
+	enemyAttackData.aggro = 0;
+	enemyAttackData.damage = 1;
+	*/
 
 	scheduleUpdate();
 
@@ -107,8 +106,6 @@ void Enemy::update(
 			cooltime -= dt;
 	}
 	*/
-
-	label->setString(_MAKE_PATH("%f", aggros.begin()->second));
 }
 
 bool Enemy::onDamage(

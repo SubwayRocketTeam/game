@@ -31,12 +31,12 @@ bool Enemy::init(){
 	if (!Unit::init())
 		return false;
 
-	attackData.user = this;
-	attackData.object = this;
-	attackData.target = nullptr;
-	attackData.radius = 30;
-	attackData.aggro = 0;
-	attackData.damage = 1;
+	enemyAttackData.user = this;
+	enemyAttackData.object = this;
+	enemyAttackData.target = nullptr;
+	enemyAttackData.radius = 30;
+	enemyAttackData.aggro = 0;
+	enemyAttackData.damage = 1;
 
 	return true;
 }
@@ -68,8 +68,8 @@ void Enemy::update(float dt){
 
 	auto target = getTarget();
 
-	attackData.position = position;
-	stage->ally[_OPPOSITE(ally)]->processAttack(attackData);
+	enemyAttackData.position = position;
+	stage->ally[_OPPOSITE(ally)]->processAttack(enemyAttackData);
 
 	if (skill)
 	{
@@ -108,7 +108,7 @@ void Enemy::updateMovement(){
 }
 
 bool Enemy::onDamage(
-	const AttackData &attackData){ ///< attackData요놈은 파라미터 이름이랑 Enemy의 멤버 이름이랑 같다.. 전에 이야기 했던 것 같은데..
+	const AttackData &attackData){
 
 	increaseAggro(
 		attackData.user, attackData.aggro);
@@ -207,7 +207,7 @@ void Enemy::setInfo(EnemyInfo* info, int enemy_type) {
 	}
 
 	radius = _ATTR(radius);
-	attackData.damage = _ATTR(melee_attack);
+	enemyAttackData.damage = _ATTR(melee_attack);
 	_INIT_ATTR(drops, info->cost * 2);
 
 	if (info->skills.size() > 0)

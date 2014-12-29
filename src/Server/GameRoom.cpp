@@ -345,3 +345,7 @@ size_t GameRoom::size() const {
 bool GameRoom::isPlaying() {
 	return gameRunning;
 }
+
+bool GameRoom::isFull() {
+	return clientIds.size >= 4;
+}
