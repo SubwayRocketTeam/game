@@ -109,12 +109,13 @@ bool Unit::init(
 	damageLabel->setPositionX(getContentSize().width/2);
 	damageLabel->setAnchorPoint(Vec2(0.5,0));
 	addChild(damageLabel);
-
+	/*
 	label = LabelTTF::create(_MAKE_PATH("%d", id), "Arial", 20.f);
 	label->setColor(Color3B(255, 255, 255));
 	label->setPositionX(getContentSize().width / 2);
 	label->setPositionY(getContentSize().height / 2);
 	addChild(label);
+	*/
 
 	schedule(
 		SEL_SCHEDULE(&Unit::updateGen), 1.f / Global::ups);
@@ -325,7 +326,7 @@ void Unit::setID(
 	id = _id;
 
 	instances[id] = this;
-	label->setString(_MAKE_PATH("%d", id));
+//	label->setString(_MAKE_PATH("%d", id));
 }
 int Unit::getID(){
 	return id;
