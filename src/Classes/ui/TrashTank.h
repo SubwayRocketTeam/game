@@ -7,6 +7,9 @@ public:
 	static TrashTank *create();
 	static TrashTank *getInstance();
 
+	void show();
+	void hide();
+
 	void blink(
 		float cost);
 	void stopBlink();

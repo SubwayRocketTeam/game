@@ -77,6 +77,24 @@ void TrashTank::update(
 	overlay->setPositionX(x);
 }
 
+void TrashTank::show(){
+	auto visibleSize =
+		Director::getInstance()->getVisibleSize();
+
+	stopActionByTag(1);
+	runAction(
+		MoveTo::create(0.15, Vec2(visibleSize.width/2, 0.0f)))
+		->setTag(1);;
+}
+void TrashTank::hide(){
+	auto visibleSize =
+		Director::getInstance()->getVisibleSize();
+
+	stopActionByTag(1);
+	runAction(
+		MoveTo::create(0.15, Vec2(visibleSize.width/2, -100.0f)))
+		->setTag(1);;
+}
 void TrashTank::blink(
 	float _cost){
 		

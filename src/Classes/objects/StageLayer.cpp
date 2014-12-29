@@ -4,6 +4,9 @@
 #include "Stage.h"
 #include "ControlablePlayer.h"
 
+#include "ui/Minimap.h"
+#include "ui/TrashTank.h"
+
 #include "network/GameRoom.h"
 
 using namespace cocos2d;
@@ -82,12 +85,17 @@ void StageLayer::switchStage(){
 	auto stageSize = stage->getContentSize();
 	Size ratio; 
 	
-	if(player && player->getStageID() == activeStageID)
+	if(player && player->getStageID() == activeStageID){
 		ratio.setSize(1,1);
+
+		TrashTank::getInstance()->show();
+	}
 	else{
 		ratio.setSize(
 			size.width / stageSize.width,
 			size.height / stageSize.height);
+
+		TrashTank::getInstance()->hide();
 	}
 
 	stage->setScale(ratio.width, ratio.height);
