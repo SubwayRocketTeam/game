@@ -65,7 +65,7 @@
               "capInsetsY": 0,
               "disabled": null,
               "disabledData": {
-                "path": "robot1.png",
+                "path": "ui_robot1.png",
                 "plistFile": "",
                 "resourceType": 0
               },
@@ -74,13 +74,13 @@
               "fontType": 0,
               "normal": null,
               "normalData": {
-                "path": "robot1.png",
+                "path": "ui_robot1.png",
                 "plistFile": "",
                 "resourceType": 0
               },
               "pressed": null,
               "pressedData": {
-                "path": "robot1.png",
+                "path": "ui_robot1.png",
                 "plistFile": "",
                 "resourceType": 0
               },
@@ -138,7 +138,7 @@
               "capInsetsY": 0,
               "disabled": null,
               "disabledData": {
-                "path": "robot2.png",
+                "path": "ui_robot2.png",
                 "plistFile": "",
                 "resourceType": 0
               },
@@ -147,13 +147,13 @@
               "fontType": 0,
               "normal": null,
               "normalData": {
-                "path": "robot2.png",
+                "path": "ui_robot2.png",
                 "plistFile": "",
                 "resourceType": 0
               },
               "pressed": null,
               "pressedData": {
-                "path": "robot2.png",
+                "path": "ui_robot2.png",
                 "plistFile": "",
                 "resourceType": 0
               },
@@ -211,7 +211,7 @@
               "capInsetsY": 0,
               "disabled": null,
               "disabledData": {
-                "path": "robot3.png",
+                "path": "ui_robot3.png",
                 "plistFile": "",
                 "resourceType": 0
               },
@@ -220,13 +220,13 @@
               "fontType": 0,
               "normal": null,
               "normalData": {
-                "path": "robot3.png",
+                "path": "ui_robot3.png",
                 "plistFile": "",
                 "resourceType": 0
               },
               "pressed": null,
               "pressedData": {
-                "path": "robot3.png",
+                "path": "ui_robot3.png",
                 "plistFile": "",
                 "resourceType": 0
               },

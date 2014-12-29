@@ -50,7 +50,7 @@ bool ResultScene::init(){
 		auto robot_image = (ui::ImageView*)panel->getChildByName("robot");
 		auto nickname_text = (ui::Text*)panel->getChildByName("nickname");
 
-		robot_image->loadTexture(_MAKE_PATH("robot%d.png", client.robot));
+		robot_image->loadTexture(_MAKE_PATH("ui_robot%d.png", client.robot));
 		nickname_text->setString(client.nickname);
 	}
 
