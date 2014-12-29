@@ -86,7 +86,7 @@ bool GameScene::initUI(){
 
 	/* STAGE */
 	auto stageLayer = StageLayer::create();
-	auto stage = Stage::getInstance(0);
+	// auto stage = Stage::getInstance(0);
 
 	addChild(stageLayer);
 

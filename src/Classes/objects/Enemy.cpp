@@ -50,6 +50,11 @@ bool Enemy::init(
 	enemyAttackData.damage = 1;
 	*/
 
+	runAction(
+		RepeatForever::create(
+		RotateBy::create(0.5f, 180)
+		));
+
 	scheduleUpdate();
 
 	return true;
@@ -67,7 +72,7 @@ bool Enemy::initAttrs(){
 
 
 bool Enemy::initPhysics(){
-	Stage::getInstance(0)->getCollisionDetector()
+	Stage::getInstance(stageID)->getCollisionDetector()
 		->addUnit(this);
 	// radius = 30;
 

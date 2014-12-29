@@ -36,7 +36,7 @@ void Spiral::circleShot(
 	Unit *u,
 	float angle){
 
-	auto stage = Stage::getInstance(0);
+	auto stage = Stage::getInstance(u->getStageID());
 
 	for (int i = 0; i < 4; ++i){
 		auto bullet = Bullet::create(2);

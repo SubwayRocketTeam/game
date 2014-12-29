@@ -20,7 +20,7 @@ void EnemyShot::use(
 	Unit *u,
 	cocos2d::Vec2 pos){
 
-	auto stage = Stage::getInstance(0);
+	auto stage = Stage::getInstance(u->getStageID());
 
 	auto bullet = Bullet::create(2);
 	bullet->setPosition(u->getPosition());

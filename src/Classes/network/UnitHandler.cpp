@@ -1,6 +1,8 @@
 ﻿#include "pch.h"
 #include "Network.h"
 
+#include "GameRoom.h"
+
 #include "common/resource.h"
 
 #include "objects/Stage.h"
@@ -79,6 +81,7 @@ void Network::handleSpawn(
 	if (unit) {
 		unit->setID(pkt->id);
 		unit->setPosition(pkt->x, pkt->y);
+		unit->setStageID(pkt->stage);
 		stage->addChild(unit, z);
 	}
 }

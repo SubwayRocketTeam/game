@@ -72,7 +72,7 @@ bool Player::initAttrs(){
 	return true;
 }
 bool Player::initPhysics(){
-	Stage::getInstance(0)->getCollisionDetector()
+	Stage::getInstance(stageID)->getCollisionDetector()
 		->addUnit(this);
 //	radius = 30;
 
