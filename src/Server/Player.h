@@ -34,10 +34,14 @@ public:
 	int getTrash() const;
 	void addTrash(const int amount);
 
+	int getPlayerType();
+
 public:
 	Vec2 moveDirection;
 
 protected:
+	int playerType;
+
 	std::map<std::string, float> maxAttrs;
 	std::map<std::string, int> upgradeTimes;
 	std::vector<ActiveSkill*> skills;
@@ -45,7 +49,6 @@ protected:
 
 	float immortal;
 	float stiff;
-	float speedFactor;
 
 	int trash;
 	int upgradeCost;

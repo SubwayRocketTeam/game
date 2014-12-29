@@ -3,7 +3,7 @@
 namespace config {
 	const unsigned short port = 4321;
 
-	const bool gui = true;
+	const bool gui = false;
 
 	// 게임 시작 시 맵에 뿌려지는 trash 수
 	const int start_trash = 10;

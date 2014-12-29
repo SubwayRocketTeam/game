@@ -29,7 +29,8 @@
 #include "config.h"
 
 Player::Player()
-	:speedFactor(1), immortal(0), stiff(0)
+	:playerType(PLAYER_NONE)
+	, immortal(0), stiff(0)
 	, trash(0), upgradeCost(config::upgrade_cost_start){
 	type = UT_PLAYER;
 	ally = Ally::Type::allyPlayer;
@@ -39,6 +40,8 @@ Player::~Player(){
 
 bool Player::init(
 	const int player_type){
+
+	playerType = player_type;
 
 	if (!Unit::init())
 		return false;
@@ -222,4 +225,8 @@ bool Player::upgrade(
 	upgradeCost = min(Max::Tank, upgradeCost + config::upgrade_cost_delta);
 
 	return true;
+}
+
+int Player::getPlayerType() {
+	return playerType;
 }

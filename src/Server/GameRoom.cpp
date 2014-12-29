@@ -172,7 +172,7 @@ bool GameRoom::startGame() {
 		noti.id = id.second;
 		noti.stage = player->stage->id;
 		noti.unit_type = UNIT_PLAYER_ME;
-		noti.sub_type = PLAYER_TYPE1;
+		noti.sub_type = client->robotType;
 		noti.x = player->position.x;
 		noti.y = player->position.y;
 		client->sendPacket(noti);
@@ -181,12 +181,12 @@ bool GameRoom::startGame() {
 	flush();
 
 	for (auto id : clientIds) {
-		Unit* player = getUnit(id.second);
+		Player* player = (Player*)getUnit(id.second);
 		SpawnUnit noti;
 		noti.id = id.second;
 		noti.stage = player->stage->id;
 		noti.unit_type = UNIT_PLAYER;
-		noti.sub_type = PLAYER_TYPE1;
+		noti.sub_type = player->getPlayerType();
 		noti.x = player->position.x;
 		noti.y = player->position.y;
 		sendPacket(noti);
