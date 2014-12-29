@@ -63,9 +63,6 @@ void Minimap::update(
 		size.height / stageSize.height);
 
 	for(auto player : *players){
-		if (player->getStageID() != stageID)
-			continue;
-
 		auto pos = player->getPosition();
 		pos.set(pos.x * ratio.x,
 			pos.y * ratio.y);
@@ -74,9 +71,6 @@ void Minimap::update(
 			pos, 10, Color4F::GREEN);
 	}
 	for(auto enemy : *enemies){
-		if (enemy->getStageID() != stageID)
-			continue;
-
 		auto pos = enemy->getPosition();
 		pos.set(pos.x * ratio.x,
 			pos.y * ratio.y);

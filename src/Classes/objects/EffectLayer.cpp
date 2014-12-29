@@ -1,18 +1,22 @@
 ﻿#include "pch.h"
 #include "EffectLayer.h"
 
-static EffectLayer *instance = nullptr;
+static EffectLayer *instance[2] = {nullptr, };
 
-EffectLayer *EffectLayer::create(){
-	instance = new EffectLayer();
+bool EffectLayer::create(){
+	for (int i = 0; i < 2; ++i) {
+		instance[i] = new EffectLayer();
 
-	if(instance && instance->init()){
-		instance->autorelease();
-		return instance;
+		if(instance[i] && instance[i]->init()){
+			instance[i]->autorelease();
+			continue;
+		}
+		CC_SAFE_DELETE(instance[i]);
+		return false;
 	}
-	CC_SAFE_DELETE(instance);
-	return nullptr;
+	return true;
 }
-EffectLayer *EffectLayer::getInstance(){
-	return instance;
+EffectLayer *EffectLayer::getInstance(
+	int stage){
+	return instance[stage];
 }

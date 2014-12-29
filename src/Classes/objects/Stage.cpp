@@ -9,6 +9,7 @@
 #include "objects/ControlablePlayer.h"
 #include "objects/EnemySpawner.h"
 #include "objects/CollisionDetector.h"
+#include "objects\EffectLayer.h"
 
 #include "scene/ResultScene.h"
 
@@ -90,6 +91,8 @@ bool Stage::init(
 		ally[i] = Ally::create();
 		ally[i]->retain();
 	}
+
+	addChild(EffectLayer::getInstance(id));
 
 	return true;
 }

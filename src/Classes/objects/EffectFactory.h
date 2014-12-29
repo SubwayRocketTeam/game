@@ -18,6 +18,7 @@ public:
 		const std::string &name,
 		bool repeat);
 	Effect *add(
+		int stage,
 		cocos2d::Vec2 pos,
 		const std::string &name,
 		bool repeat);

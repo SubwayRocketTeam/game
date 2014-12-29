@@ -46,12 +46,13 @@ Effect *EffectFactory::make(
 	return effect;
 }
 Effect *EffectFactory::add(
+	int stage,
 	Vec2 pos,
 	const string &name,
 	bool repeat){
 
 	auto effect = make(name, repeat);
-	auto layer = EffectLayer::getInstance();
+	auto layer = EffectLayer::getInstance(stage);
 
 	effect->setPosition(pos);
 	layer->addChild(effect);

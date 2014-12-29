@@ -135,7 +135,7 @@ bool GameScene::initUI(){
 	addChild(chatBox);
 
 	/* LAYERS */
-	addChild(EffectLayer::getInstance());
+//	addChild(EffectLayer::getInstance());
 
 	return true;
 }

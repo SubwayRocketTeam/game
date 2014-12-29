@@ -66,7 +66,7 @@ bool Bullet::onDamage(
 		getParent()->convertToWorldSpace(getPosition());
 
 	factory->add(
-		worldPos, R::Hit1, false);
+		stageID, worldPos, R::Hit1, false);
 
 	return true;
 }

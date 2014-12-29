@@ -4,6 +4,7 @@
 
 class EffectLayer : public cocos2d::Layer{
 public:
-	static EffectLayer *create();
-	static EffectLayer *getInstance();
+	static bool create();
+	static EffectLayer *getInstance(
+		int stage);
 };
