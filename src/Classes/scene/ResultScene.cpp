@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "ResultScene.h"
 
 #include "network/Network.h"
@@ -52,6 +52,16 @@ bool ResultScene::init(){
 
 		robot_image->loadTexture(_MAKE_PATH("ui_robot%d.png", client.robot));
 		nickname_text->setString(client.nickname);
+	}
+
+	// 빈 자리를 지우는 역할
+	while (win_team_index < 2) {
+		auto panel = winTeam->getChildByTag(win_team_index++);
+		panel->setVisible(false);
+	}
+	while (lose_team_index < 2) {
+		auto panel = loseTeam->getChildByTag(lose_team_index++);
+		panel->setVisible(false);
 	}
 
 	auto btnExit =
