@@ -9,6 +9,8 @@ using namespace std;
 
 void Network::initHandlers(){
 
+	_ROUTE(LoginResponse);
+
 	_ROUTE(RoomResponse);
 	_ROUTE(EnterResponse);
 	_ROUTE(EnterNoti);

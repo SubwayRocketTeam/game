@@ -44,6 +44,8 @@ class EnterNoti < Packet
   int "client_id"
   string "nickname", 32
   int "team_id"
+  int "robot_id"
+  int "ready"
 end
 class LeaveRoom < Packet
   required

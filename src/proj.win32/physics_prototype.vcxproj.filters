@@ -257,6 +257,10 @@
     <ClCompile Include="..\Classes\scene\ResultScene.cpp">
       <Filter>source\scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\network\GameRoom.cpp">
+      <Filter>source\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\network\LoginHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\scene\GameScene.h">
@@ -544,6 +548,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\scene\ResultScene.h">
       <Filter>source\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\network\GameRoom.h">
+      <Filter>source\network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

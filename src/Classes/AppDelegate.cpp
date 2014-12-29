@@ -29,6 +29,7 @@
 #include "ui/TrashTank.h"
 
 #include "network/Network.h"
+#include "network/GameRoom.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -61,6 +62,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	/* 전역적으로 계속 쓰이는 오브젝트 */
 	Network::create();
+	GameRoom::create();
 	JsonLoader::create();
 
 	auto network = Network::getInstance();

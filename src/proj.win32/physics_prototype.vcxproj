@@ -148,6 +148,8 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClCompile Include="..\Classes\network\BattleHandler.cpp" />
     <ClCompile Include="..\Classes\network\ChatHandler.cpp" />
     <ClCompile Include="..\Classes\network\ChatSender.cpp" />
+    <ClCompile Include="..\Classes\network\GameRoom.cpp" />
+    <ClCompile Include="..\Classes\network\LoginHandler.cpp" />
     <ClCompile Include="..\Classes\Network\LoginSender.cpp" />
     <ClCompile Include="..\Classes\network\MoveHandler.cpp" />
     <ClCompile Include="..\Classes\network\MoveSender.cpp" />
@@ -271,6 +273,7 @@ echo start $(TargetFileName) &gt;&gt; $(SolutionDir)..\..\start_game.bat</Comman
     <ClInclude Include="..\Classes\common\zorder.h" />
     <ClInclude Include="..\Classes\Compat.h" />
     <ClInclude Include="..\Classes\ext\uiProgressTo.h" />
+    <ClInclude Include="..\Classes\network\GameRoom.h" />
     <ClInclude Include="..\Classes\network\Network.h" />
     <ClInclude Include="..\Classes\network\Packet.h" />
     <ClInclude Include="..\Classes\network\PacketMacro.h" />

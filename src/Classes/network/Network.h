@@ -79,6 +79,9 @@ protected:
 
 	void initHandlers();
 
+	void handleLoginResponse(
+		LoginResponse *pkt);
+
 	void handleRoomResponse(
 		RoomResponse *pkt);
 	void handleEnterResponse(
