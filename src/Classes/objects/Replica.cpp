@@ -23,7 +23,7 @@ Replica *Replica::create(){
 }
 
 bool Replica::init(){
-	if (!ControlablePlayer::init("type1.json"))
+	if (!ControlablePlayer::init(0, "type1.json"))
 		return false;
 
 	runAction(

@@ -15,6 +15,7 @@ public:
 	static EnemyFactory* getInstance();
 
 	Enemy* createEnemy(
+		int stage,
 		EnemyType type);
 	void spawn(
 		EnemyType type);

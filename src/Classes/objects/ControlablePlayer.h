@@ -23,6 +23,7 @@ public:
 
 public:
 	static ControlablePlayer *create(
+		int stage,
 		const std::string &dataPath);
 	static ControlablePlayer *getInstance();
 
@@ -34,6 +35,7 @@ public:
 
 protected:
 	virtual bool init(
+		int stage,
 		const std::string &dataPath);
 
 	void updateRotation(

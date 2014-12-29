@@ -14,18 +14,20 @@ EnemyDup::EnemyDup(){
 EnemyDup::~EnemyDup(){
 }
 
-EnemyDup *EnemyDup::create(){
+EnemyDup *EnemyDup::create(
+	int stage){
 	EnemyDup *e = new EnemyDup();
 
-	if (e && e->init()){
+	if (e && e->init(stage)){
 		e->autorelease();
 		return e;
 	}
 	CC_SAFE_DELETE(e);
 	return nullptr;
 }
-bool EnemyDup::init(){
-	if (!Enemy::init(enemyDup))
+bool EnemyDup::init(
+	int stage){
+	if (!Enemy::init(stage, enemyDup))
 		return false;
 
 	return true;

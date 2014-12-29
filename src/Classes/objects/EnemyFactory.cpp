@@ -39,18 +39,18 @@ EnemyFactory* EnemyFactory::getInstance() {
 	return instance;
 }
 
-Enemy* EnemyFactory::createEnemy(EnemyType type)
+Enemy* EnemyFactory::createEnemy(int stage, EnemyType type)
 {
 	Enemy* enemy;
 	switch (type) {
 	case enemyExplode:
-		enemy = EnemyExplode::create();
+		enemy = EnemyExplode::create(stage);
 		break;
 	case enemyDup:
-		enemy = EnemyDup::create();
+		enemy = EnemyDup::create(stage);
 		break;
 	default:
-		enemy = Enemy::create(type);
+		enemy = Enemy::create(stage, type);
 		break;
 	}
 	enemy->setInfo(dic[type]);
@@ -64,7 +64,7 @@ void EnemyFactory::spawn(EnemyType type) {
 		Ally::Type::allyEnemy);
 	auto factory = EnemyFactory::getInstance();
 
-	Enemy *e = factory->createEnemy(type);
+	Enemy *e = factory->createEnemy(0, type);
 	e->setPosition(
 		rand()%(int)stageSize.width - stageSize.width/2,
 		rand()%(int)stageSize.height - stageSize.height/2);

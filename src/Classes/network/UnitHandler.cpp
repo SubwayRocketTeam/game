@@ -33,7 +33,7 @@ void Network::handleSpawn(
 	case UNIT_PLAYER:
 	{
 		// sub_type으로 플레이어 종류 선택
-		unit = Player::create("type1.json");
+		unit = Player::create(pkt->stage, "type1.json");
 		auto players = Stage::getInstance(pkt->stage)->getAlly(Ally::allyPlayer);
 		players->push(unit);
 		z = Z::unit;
@@ -42,7 +42,7 @@ void Network::handleSpawn(
 	case UNIT_PLAYER_ME:
 	{
 		// sub_type으로 플레이어 종류 선택
-		unit = ControlablePlayer::create("type1.json");
+		unit = ControlablePlayer::create(pkt->stage, "type1.json");
 		auto players = Stage::getInstance(pkt->stage)->getAlly(Ally::allyPlayer);
 		players->push(unit);
 		z = Z::unit;
@@ -61,7 +61,7 @@ void Network::handleSpawn(
 	{
 		auto factory = EnemyFactory::getInstance();
 		auto ally = Stage::getInstance(pkt->stage)->getAlly(Ally::Type::allyEnemy);
-		auto e = factory->createEnemy((EnemyType)(pkt->sub_type - ENEMY_BASIC));
+		auto e = factory->createEnemy(pkt->stage, (EnemyType)(pkt->sub_type - ENEMY_BASIC));
 		e->resetAggro();
 		ally->push(e);
 		unit = e;

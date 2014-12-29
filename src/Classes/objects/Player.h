@@ -17,6 +17,7 @@ class Trash;
 class Player : public Unit {
 public:
 	static Player *create(
+		int stage,
 		const std::string &dataPath);
 
 	bool upgrade(
@@ -26,6 +27,7 @@ public:
 
 protected:
 	virtual bool init(
+		int stage,
 		const std::string &dataPath);
 	virtual bool initAttrs();
 	virtual bool initPhysics();

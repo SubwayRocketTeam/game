@@ -33,13 +33,14 @@ ControlablePlayer::~ControlablePlayer(){
 }
 
 ControlablePlayer *ControlablePlayer::create(
+	int stage,
 	const string &dataPath){
 
 	CC_ASSERT(instance == nullptr);
 
 	instance = new ControlablePlayer();
 	
-	if(instance && instance->init(dataPath)){
+	if(instance && instance->init(stage, dataPath)){
 		instance->autorelease();
 		return instance;
 	}
@@ -53,9 +54,10 @@ ControlablePlayer *ControlablePlayer::getInstance(){
 }
 
 bool ControlablePlayer::init(
+	int stage,
 	const string &dataPath){
 
-	if (!Player::init(dataPath))
+	if (!Player::init(stage, dataPath))
 		return false;
 
 	enableMouseInput(this);

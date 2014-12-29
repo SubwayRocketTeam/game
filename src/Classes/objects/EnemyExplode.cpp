@@ -14,18 +14,20 @@ EnemyExplode::EnemyExplode(){
 EnemyExplode::~EnemyExplode(){
 }
 
-EnemyExplode *EnemyExplode::create(){
+EnemyExplode *EnemyExplode::create(
+	int stage){
 	EnemyExplode *e = new EnemyExplode();
 
-	if (e && e->init()){
+	if (e && e->init(stage)){
 		e->autorelease();
 		return e;
 	}
 	CC_SAFE_DELETE(e);
 	return nullptr;
 }
-bool EnemyExplode::init(){
-	if (!Enemy::init(enemyExplode))
+bool EnemyExplode::init(
+	int stage){
+	if (!Enemy::init(stage, enemyExplode))
 		return false;
 
 	return true;

@@ -14,7 +14,7 @@ using namespace cocos2d;
 void Duplication::use(
 	Unit *u,
 	cocos2d::Vec2 pos){
-
+	/*
 	auto factory = EnemyFactory::getInstance();
 	auto stage = Stage::getInstance(u->getStageID());
 
@@ -24,4 +24,5 @@ void Duplication::use(
 		e->setPosition(pos);
 		stage->addChild(e);
 	}
+	*/
 }

@@ -51,7 +51,7 @@ void EnemySpawner::spawn(
 		Ally::Type::allyEnemy);
 	auto factory = EnemyFactory::getInstance();
 
-	Enemy *e = factory->createEnemy(type);
+	Enemy *e = factory->createEnemy(0, type);
 	e->setPosition(
 		getPosition());
 	e->resetAggro();

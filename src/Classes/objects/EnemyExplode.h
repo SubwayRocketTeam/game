@@ -6,13 +6,15 @@
 
 class EnemyExplode : public Enemy{
 public:
-	static EnemyExplode *create();
+	static EnemyExplode *create(
+		int stage);
 
 protected:
 	EnemyExplode();
 	virtual ~EnemyExplode();
 
-	virtual bool init();
+	virtual bool init(
+		int stage);
 
 	virtual bool onDeath();
 

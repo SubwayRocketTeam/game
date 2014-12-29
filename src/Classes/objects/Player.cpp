@@ -38,10 +38,11 @@ Player::~Player(){
 }
 
 Player *Player::create(
+	int stage,
 	const string &dataPath){
 	Player* player = new Player();
 	
-	if(player && player->init(dataPath)){
+	if(player && player->init(stage, dataPath)){
 		player->autorelease();
 		return player;
 	}
@@ -50,7 +51,10 @@ Player *Player::create(
 }
 
 bool Player::init(
+	int stage,
 	const string &dataPath){
+
+	stageID = stage;
 
 	if(!initExternalData(dataPath))
 		return false;

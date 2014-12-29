@@ -26,10 +26,11 @@ Enemy::~Enemy(){
 }
 
 Enemy *Enemy::create(
+	int stage,
 	int enemyType){
 	Enemy *e = new Enemy();
 
-	if(e && e->init(enemyType)){
+	if(e && e->init(stage, enemyType)){
 		e->autorelease();
 		return e;
 	}
@@ -37,9 +38,14 @@ Enemy *Enemy::create(
 	return nullptr;
 }
 bool Enemy::init(
+	int stage,
 	int enemyType){
+
+	stageID = stage;
+	
 	if (!Unit::init(_MAKE_PATH("enemy%d", enemyType+1)))
 		return false;
+
 
 	/*
 	enemyAttackData.user = this;
