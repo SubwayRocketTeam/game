@@ -18,4 +18,6 @@ protected:
 
 	virtual void onInitGlobalObjects();
 	virtual void onReleaseGlobalObjects();
+
+	void onExitRoom(Ref *sender, ui::Widget::TouchEventType type);
 };

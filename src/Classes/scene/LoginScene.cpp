@@ -68,7 +68,6 @@ void LoginScene::onLogin(
 		return;
 	std::string nickname = textNickname->getString();
 
-	/* TODO : 입력받은 아이디로 로그인 & 리스폰스 체크 */
 	auto network = Network::getInstance();
 	network->sendLoginRequest(nickname.c_str());
 
