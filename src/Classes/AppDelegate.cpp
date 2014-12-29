@@ -71,6 +71,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
 			if(result){
 				
 			}
+			else{
+				MessageBoxA(
+					NULL, "서버에 연결할 수 없습니다.", "ERROR",
+					MB_OK | MB_ICONERROR | MB_TOPMOST);
+
+				exit(0);
+			}
 	});
 
 	glview->setDesignResolutionSize(
