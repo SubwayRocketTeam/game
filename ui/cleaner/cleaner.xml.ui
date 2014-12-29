@@ -23,27 +23,7 @@
   <ProjectType>UIProject</ProjectType>
   <ResRelativePath />
   <imageFileList />
-  <imagePngList>
-    <string>title_background.png</string>
-    <string>panel.png</string>
-    <string>lobby_background.png</string>
-    <string>panel.png</string>
-    <string>select_background.png</string>
-    <string>panel.png</string>
-    <string>robot1.png</string>
-    <string>robot2.png</string>
-    <string>robot3.png</string>
-    <string>status_hp.png</string>
-    <string>status_attack.png</string>
-    <string>status_speed.png</string>
-    <string>status_range.png</string>
-    <string>GUI/image.png</string>
-    <string>panel.png</string>
-    <string>result_background.png</string>
-    <string>panel.png</string>
-    <string>GUI/image.png</string>
-    <string>waiting_background.png</string>
-  </imagePngList>
+  <imagePngList />
   <JsonSuffix>.json</JsonSuffix>
-  <CurrentUIJson>login_scene.json</CurrentUIJson>
+  <CurrentUIJson>select_scene.json</CurrentUIJson>
 </UIProject>
