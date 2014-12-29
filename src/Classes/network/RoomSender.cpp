@@ -1,5 +1,6 @@
 ﻿#include "pch.h"
 #include "Network.h"
+#include "GameRoom.h"
 
 void Network::sendRoomRequest(){
 	RoomRequest pkt;
@@ -14,6 +15,7 @@ void Network::sendEnterRoom(
 void Network::sendLeaveRoom(){
 	LeaveRoom pkt;
 	send(pkt);
+	GameRoom::getInstance()->clear();
 }
 void Network::sendSelectRobot(
 	int robot_id) {
