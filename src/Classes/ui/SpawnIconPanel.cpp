@@ -112,3 +112,7 @@ void SpawnIconPanel::updateCooltime(
 	}
 }
 
+void SpawnIconPanel::onExit() {
+	disableKeyboardInput();
+	Node::onExit();
+}

@@ -34,6 +34,8 @@ protected:
 	virtual void onKeyboardUp(
 		cocos2d::EventKeyboard::KeyCode key);
 
+	virtual void onExit();
+
 private:
 	std::list<cocos2d::LabelTTF*> lines;
 

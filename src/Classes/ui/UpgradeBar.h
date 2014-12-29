@@ -33,6 +33,8 @@ protected:
 	virtual void onKeyboardUp(
 		cocos2d::EventKeyboard::KeyCode key);
 
+	virtual void onExit();
+
 protected:
 	std::map<int, UpgradeItem*> items;
 	float itemHeight;

@@ -31,6 +31,8 @@ protected:
 	virtual void onMouseMove(
 		int btn, float x,float y);
 
+	virtual void onExit();
+
 protected:
 	Stage();
 	virtual ~Stage();

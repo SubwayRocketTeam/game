@@ -32,6 +32,8 @@ protected:
 	void updateCooltime(
 		float dt);
 
+	virtual void onExit();
+
 private:
 	std::map<int, SpawnIcon *> icons;
 	std::map<int, float> cooltimes;

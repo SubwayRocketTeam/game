@@ -189,3 +189,8 @@ void Stage::onMouseMove(
 
 	mousePos.set(x,y);
 }
+
+void Stage::onExit() {
+	disableMouseInput();
+	Node::onExit();
+}

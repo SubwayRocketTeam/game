@@ -113,3 +113,8 @@ void ChatBox::onKeyboardUp(
 		bgi->setOpacity(32);
 	}
 }
+
+void ChatBox::onExit() {
+	disableKeyboardInput();
+	Node::onExit();
+}

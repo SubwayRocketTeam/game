@@ -141,3 +141,8 @@ void UpgradeBar::upgradeOver() {
 	cost = MIN(Max::Tank, cost+10);
 	upgradeTrying = false;
 }
+
+void UpgradeBar::onExit() {
+	disableKeyboardInput();
+	Node::onExit();
+}

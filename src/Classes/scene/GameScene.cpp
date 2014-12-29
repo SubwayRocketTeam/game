@@ -161,6 +161,7 @@ void GameScene::onExit(){
 	auto audio = SimpleAudioEngine::getInstance();
 	audio->stopBackgroundMusic();
 
+	disableKeyboardInput();
 	ShowCursor(true);
 }
 
