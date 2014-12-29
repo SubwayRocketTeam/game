@@ -98,7 +98,7 @@ void Enemy::update(
 	}
 
 	attackData.position = getPosition();
-	Ally::getInstance(_OPPOSITE(allyID))->processAttack(attackData);
+	Stage::getInstance()->getAlly(_OPPOSITE(allyID))->processAttack(attackData);
 
 	if (skill)
 	{
@@ -131,7 +131,7 @@ bool Enemy::onDeath(){
 }
 
 void Enemy::resetAggro(){
-	auto players = Ally::getInstance(
+	auto players = Stage::getInstance(stageID)->getAlly(
 		Ally::Type::allyPlayer);
 	auto pos = getPosition();
 

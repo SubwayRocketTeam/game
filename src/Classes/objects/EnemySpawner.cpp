@@ -47,7 +47,7 @@ void EnemySpawner::spawn(
 	EnemyType type){
 
 	auto stage = Stage::getInstance(0);
-	auto ally = Ally::getInstance(
+	auto ally = Stage::getInstance(0)->getAlly(
 		Ally::Type::allyEnemy);
 	auto factory = EnemyFactory::getInstance();
 

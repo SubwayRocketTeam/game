@@ -24,6 +24,7 @@ void Slash::use(
 
 	auto bullet = Bullet::create();
 	bullet->setPosition(u->getPosition());
+	bullet->setStageID(u->getStageID());
 	bullet->fire(pos.x, pos.y, 800);
 
 	bullet->setUser(u);
@@ -42,7 +43,7 @@ void Slash::use(
 
 	/*
 	auto slash = Sprite::create(R::SkillSlash);
-	auto ally = Ally::getInstance(
+	auto ally = Stage::getInstance()->getAlly(
 		_OPPOSITE(u->getAllyID()));
 
 	AttackData attackData;

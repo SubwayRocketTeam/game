@@ -5,6 +5,7 @@
 
 #include "common/resource.h"
 
+#include "objects/Ally.h"
 #include "objects/ControlablePlayer.h"
 #include "objects/EnemySpawner.h"
 #include "objects/CollisionDetector.h"
@@ -20,6 +21,9 @@ static Stage *instances[2] =
 Stage::Stage(){
 }
 Stage::~Stage(){
+	for (int i = 0; i < 2; ++i) {
+		ally[i]->release();
+	}
 }
 
 bool Stage::create(){
@@ -55,6 +59,10 @@ CollisionDetector* Stage::getCollisionDetector(){
 	return collisionDetector;
 }
 
+Ally* Stage::getAlly(int type) {
+	return ally[type];
+}
+
 
 bool Stage::init(
 	int _id){
@@ -77,6 +85,11 @@ bool Stage::init(
 
 	collisionDetector = CollisionDetector::create();
 	addChild(collisionDetector);
+
+	for (int i = 0; i < 2; ++i) {
+		ally[i] = Ally::create();
+		ally[i]->retain();
+	}
 
 	return true;
 }

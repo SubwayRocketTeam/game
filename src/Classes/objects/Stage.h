@@ -5,6 +5,7 @@
 #include "MouseEventListener.h"
 #include "KeyboardEventListener.h"
 
+class Ally;
 class CollisionDetector;
 
 class Stage : public cocos2d::Node,
@@ -17,6 +18,7 @@ public:
 	void setObserverMode();
 	void gameOver();
 	CollisionDetector* getCollisionDetector();
+	Ally* getAlly(int type);
 
 protected:
 	virtual bool init(
@@ -42,5 +44,7 @@ protected:
 
 	cocos2d::Sprite *floor;
 	cocos2d::Vec2 mousePos;
+	Ally *ally[2];
 	CollisionDetector *collisionDetector;
+
 };

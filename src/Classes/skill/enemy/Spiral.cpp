@@ -43,6 +43,7 @@ void Spiral::circleShot(
 		Vec2 direction = Vec2::UNIT_X.rotateByAngle(
 			Vec2::ZERO, CC_DEGREES_TO_RADIANS(angle + 90 * i));
 		bullet->setPosition(u->getPosition());
+		bullet->setStageID(u->getStageID());
 		bullet->fire(direction, 600.f);
 
 		bullet->setUser(u);

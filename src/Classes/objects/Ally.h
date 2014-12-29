@@ -16,9 +16,7 @@ public:
 	};
 
 public:
-	static bool create();
-	static Ally *getInstance(
-		Type type);
+	static Ally* create();
 
 	void push(
 		Unit *u);

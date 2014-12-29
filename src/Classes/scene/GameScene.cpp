@@ -68,11 +68,6 @@ bool GameScene::init(){
 		return false;
 	if(!initUI())
 		return false;
-	/*
-	auto players = Ally::getInstance(
-		Ally::Type::allyPlayer);
-	players->push(player);
-	*/
 
 	enableKeyboardInput(this);
 	scheduleUpdate();
@@ -174,7 +169,6 @@ void GameScene::onInitGlobalObjects(){
 	EffectFactory::create();
 	Minimap::create();
 	Stage::create();
-	Ally::create();
 	StatusConsole::create();
 	SkillPool::create();
 	EnemyFactory::create();

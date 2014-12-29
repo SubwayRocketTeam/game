@@ -60,7 +60,7 @@ Enemy* EnemyFactory::createEnemy(EnemyType type)
 void EnemyFactory::spawn(EnemyType type) {
 	auto stage = Stage::getInstance(0);
 	auto stageSize = stage->getContentSize();
-	auto ally = Ally::getInstance(
+	auto ally = Stage::getInstance(0)->getAlly(
 		Ally::Type::allyEnemy);
 	auto factory = EnemyFactory::getInstance();
 

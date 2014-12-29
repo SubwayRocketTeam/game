@@ -34,7 +34,7 @@ void Network::handleSpawn(
 	{
 		// sub_type으로 플레이어 종류 선택
 		unit = Player::create("type1.json");
-		auto players = Ally::getInstance(Ally::allyPlayer);
+		auto players = Stage::getInstance(pkt->stage)->getAlly(Ally::allyPlayer);
 		players->push(unit);
 		z = Z::unit;
 		break;
@@ -43,7 +43,7 @@ void Network::handleSpawn(
 	{
 		// sub_type으로 플레이어 종류 선택
 		unit = ControlablePlayer::create("type1.json");
-		auto players = Ally::getInstance(Ally::allyPlayer);
+		auto players = Stage::getInstance(pkt->stage)->getAlly(Ally::allyPlayer);
 		players->push(unit);
 		z = Z::unit;
 		break;
@@ -60,7 +60,7 @@ void Network::handleSpawn(
 	case UNIT_ENEMY:
 	{
 		auto factory = EnemyFactory::getInstance();
-		auto ally = Ally::getInstance(Ally::Type::allyEnemy);
+		auto ally = Stage::getInstance(pkt->stage)->getAlly(Ally::Type::allyEnemy);
 		auto e = factory->createEnemy((EnemyType)(pkt->sub_type - ENEMY_BASIC));
 		e->resetAggro();
 		ally->push(e);
@@ -93,7 +93,7 @@ void Network::handleRemoveUnit(
 	if (!unit)
 		return;
 
-	auto ally = Ally::getInstance(unit->getAllyID());
+	auto ally = Stage::getInstance(unit->getStageID())->getAlly(unit->getAllyID());
 	ally->remove(unit);
 	unit->remove();
 }

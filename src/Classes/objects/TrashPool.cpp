@@ -110,7 +110,7 @@ void TrashPool::update(
 
 	/* 서버에서 먹여줌 */
 	/*
-	auto players = Ally::getInstance(
+	auto players = Stage::getInstance()->getAlly(
 		Ally::Type::allyPlayer);
 	auto resource = GlobalResource::getInstance();
 	

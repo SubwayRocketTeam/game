@@ -53,9 +53,9 @@ void Minimap::update(
 	drawnode->clear();
 
 	auto size = getContentSize();
-	auto players = Ally::getInstance(
+	auto players = Stage::getInstance(stageID)->getAlly(
 		Ally::Type::allyPlayer);
-	auto enemies = Ally::getInstance(
+	auto enemies = Stage::getInstance(stageID)->getAlly(
 		Ally::Type::allyEnemy);
 	auto stageSize = Stage::getInstance(0)->getContentSize();
 	Vec2 ratio(

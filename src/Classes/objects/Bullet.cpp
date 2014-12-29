@@ -3,6 +3,8 @@
 
 #include "EffectFactory.h"
 
+#include "Stage.h"
+
 #include "common/resource.h"
 #include "common/PhysicsFactory.h"
 
@@ -102,7 +104,7 @@ void Bullet::update(
 	{
 		attackData.position = getPosition();
 
-		Ally::getInstance(_OPPOSITE(allyID))
+		Stage::getInstance(stageID)->getAlly(_OPPOSITE(allyID))
 			->processAttack(attackData);
 	}
 }

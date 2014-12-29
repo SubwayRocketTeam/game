@@ -62,7 +62,7 @@ void Network::handleAttack(
 	attack_data.damage = pkt->damage;
 	attack_data.aggro = pkt->aggro;
 	if (target->damage(attack_data)) {
-		auto ally = Ally::getInstance(target->getAllyID());
+		auto ally = Stage::getInstance(target->getStageID())->getAlly(target->getAllyID());
 		ally->remove(target);
 	}
 }

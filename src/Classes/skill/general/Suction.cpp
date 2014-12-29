@@ -17,7 +17,7 @@ bool Suction::update(
 	float remaining){
 
 //	auto slash = Sprite::create(R::SkillSlash);
-	auto ally = Ally::getInstance(
+	auto ally = Stage::getInstance(user->getStageID())->getAlly(
 	_OPPOSITE(user->getAllyID()));
 
 	AttackData attackData;

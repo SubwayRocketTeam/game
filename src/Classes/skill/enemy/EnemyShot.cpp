@@ -24,6 +24,7 @@ void EnemyShot::use(
 
 	auto bullet = Bullet::create(2);
 	bullet->setPosition(u->getPosition());
+	bullet->setStageID(u->getStageID());
 	bullet->fire(pos.x, pos.y, 600.f);
 
 	bullet->setUser(u);
