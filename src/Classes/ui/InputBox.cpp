@@ -84,7 +84,7 @@ void InputBox::refreshContent(){
 
 	WideCharToMultiByte(CP_UTF8, 0, msg, -1, cmsg, maxLength*3, 0,0);
 
-	setString(string(">>") + cmsg);
+	setString(cmsg);
 
 	delete[] msg;
 	delete[] cmsg;
@@ -106,8 +106,6 @@ void InputBox::beginInput(){
 	restoreConvMode();
 
 	inputEnabled = true;
-
-	setString(">>");
 }
 void InputBox::endInput(){
 	HWND hWnd =
