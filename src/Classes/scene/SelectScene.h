@@ -10,15 +10,20 @@ public:
 
 	static cocos2d::Scene* scene();
 
+	void refreshRoom();
+
 protected:
 	SelectScene();
 	virtual ~SelectScene();
 
 	virtual bool init();
 
+	void selectRobot(int robot);
 
 	virtual void onInitGlobalObjects();
 	virtual void onReleaseGlobalObjects();
+
+	virtual void onEnter();
 
 	void onSelectRobot(
 		Ref *sender, cocos2d::ui::Widget::TouchEventType type, int robot);

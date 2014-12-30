@@ -118,9 +118,11 @@ bool GameRoom::enter(const id_t client_id) {
 	for (auto pair : clientIds) {
 		if (pair.first == client_id)
 			continue;
+		auto other_client = ClientManager::getInstance()->getClient(pair.first);
 		noti.client_id = pair.first;
-		strcpy_s(noti.nickname, ClientManager::getInstance()->getClient(pair.first)->nickname.c_str());
+		strcpy_s(noti.nickname, other_client->nickname.c_str());
 		noti.team_id = getTeam(pair.first);
+		noti.robot_id = other_client->robotType;
 		noti.ready = readyMap[pair.first] ? 1 : 0;
 		client->sendPacket(noti);
 	}
@@ -129,6 +131,7 @@ bool GameRoom::enter(const id_t client_id) {
 	strcpy_s(noti.nickname, client->nickname.c_str());
 	noti.team_id = team;
 	noti.ready = readyMap[client_id] ? 1 : 0;
+	noti.robot_id = client->robotType;
 	sendPacket(noti);
 
 	return true;

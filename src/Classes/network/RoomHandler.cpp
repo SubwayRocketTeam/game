@@ -54,12 +54,21 @@ void Network::handleEnterNoti(
 	client.ready = pkt->ready != 0;
 	printf("enter noti : %d %s\n", pkt->client_id, pkt->nickname);
 	GameRoom::getInstance()->addClient(client);
+
+	auto scene = Director::getInstance()->getRunningScene();
+	auto select = (SelectScene*)scene->getChildByTag(2);
+	if (select) select->refreshRoom();
 }
 void Network::handleLeaveNoti(
 	LeaveNoti *pkt){
 
 	printf("leave noti : %d\n", pkt->client_id);
 	GameRoom::getInstance()->removeClient(pkt->client_id);
+
+	auto scene = Director::getInstance()->getRunningScene();
+	auto select = (SelectScene*)scene->getChildByTag(2);
+	if (select) select->refreshRoom();
+
 }
 void Network::handleSelectRobotNoti(
 	SelectRobotNoti *pkt) {
@@ -70,6 +79,11 @@ void Network::handleSelectRobotNoti(
 	if (client.id == 0)
 		return;
 	client.robot = pkt->robot_id;
+
+	auto scene = Director::getInstance()->getRunningScene();
+	auto select = (SelectScene*)scene->getChildByTag(2);
+	if (select) select->refreshRoom();
+
 }
 void Network::handleSelectTeamNoti(
 	SelectTeamNoti *pkt) {
@@ -79,6 +93,11 @@ void Network::handleSelectTeamNoti(
 	if (client.id == 0)
 		return;
 	client.team = pkt->team_id;
+
+	auto scene = Director::getInstance()->getRunningScene();
+	auto select = (SelectScene*)scene->getChildByTag(2);
+	if (select) select->refreshRoom();
+
 }
 
 void Network::handleReadyNoti(
@@ -87,6 +106,11 @@ void Network::handleReadyNoti(
 	if (client.id == 0)
 		return;
 	client.ready = pkt->ready != 0;
+
+	auto scene = Director::getInstance()->getRunningScene();
+	auto select = (SelectScene*)scene->getChildByTag(2);
+	if (select) select->refreshRoom();
+
 }
 void Network::handleStartGame(
 	StartGame *pkt){

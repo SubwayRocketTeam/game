@@ -7,7 +7,7 @@
 #include "ui/UIImageView.h"
 #include "ui/UIText.h"
 
-#include "scene/WaitingScene.h"
+#include "scene/LobbyScene.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -87,7 +87,7 @@ void ResultScene::onExitRoom(
 	auto network = Network::getInstance();
 	network->sendLeaveRoom();
 
-	auto scene = WaitingScene::scene();
+	auto scene = LobbyScene::scene();
 	Director::getInstance()
 		->replaceScene(scene);
 }

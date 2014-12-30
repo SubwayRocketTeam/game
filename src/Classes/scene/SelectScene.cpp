@@ -10,6 +10,7 @@
 
 #include "ui/UILoadingBar.h"
 #include "ui/UIText.h"
+#include "ui/UIImageView.h"
 
 #include "shared/JsonLoader.h"
 
@@ -29,7 +30,7 @@ SelectScene::~SelectScene(){
 Scene* SelectScene::scene(){
 	auto scene = Scene::create();
 	SelectScene *layer = SelectScene::create();
-	scene->addChild(layer);
+	scene->addChild(layer, 0, 2);
 	return scene;
 }
 
@@ -46,9 +47,6 @@ bool SelectScene::init(){
 	auto room_text = (ui::Text*)((ui::Widget*)layout->getChildByName("pn_room_no"))
 		->getChildByName("label");
 	room_text->setString(_MAKE_PATH("Room #%d", gameroom->getRoomId()));
-
-	onSelectRobot(nullptr, ui::Widget::TouchEventType::ENDED
-		, gameroom->getClient(gameroom->getMyId()).robot);
 
 	((ui::Widget*)layout->getChildByName("btn_ready"))
 		->addTouchEventListener(CC_CALLBACK_2(SelectScene::onReady, this));
@@ -71,11 +69,51 @@ bool SelectScene::init(){
 	return true;
 }
 
-void SelectScene::onSelectRobot(
-	Ref *sender, ui::Widget::TouchEventType type, int robot) {
-	if (type != ui::Widget::TouchEventType::ENDED)
-		return;
+void SelectScene::onEnter() {
+	Layer::onEnter();
+	auto gameroom = GameRoom::getInstance();
+	selectRobot(gameroom->getClient(gameroom->getMyId()).robot);
+	refreshRoom();
+}
 
+
+void SelectScene::refreshRoom() {
+	auto gameroom = GameRoom::getInstance();
+	auto layout = getChildByTag(layoutTag);
+
+	auto team1 = layout->getChildByName("pn_team1");
+	auto team2 = layout->getChildByName("pn_team2");
+
+	int team1_idx = 0;
+	int team2_idx = 0;
+	for (auto& pair : *gameroom) {
+		const GameRoom::Client& client = pair.second;
+		Node* panel = nullptr;
+
+		if (client.team == 0)
+			panel = team1->getChildByTag(team1_idx++);
+		else
+			panel = team2->getChildByTag(team2_idx++);
+
+		panel->setVisible(true);
+
+		auto robot_img = (ui::ImageView*)panel->getChildByName("robot");
+		auto nickname_text = (ui::Text*)panel->getChildByName("nickname");
+
+		robot_img->loadTexture(_MAKE_PATH("ui_robot%d.png", client.robot));
+		std::string nickname = client.nickname;
+		if (client.ready)
+			nickname += " (READY)";
+		nickname_text->setString(nickname);
+	}
+
+	while (team1_idx < 2)
+		team1->getChildByTag(team1_idx++)->setVisible(false);
+	while (team2_idx < 2)
+		team2->getChildByTag(team2_idx++)->setVisible(false);
+}
+
+void SelectScene::selectRobot(int robot) {
 	auto gameroom = GameRoom::getInstance();
 	if (gameroom->getClient(gameroom->getMyId()).robot == robot)
 		return;
@@ -113,18 +151,31 @@ void SelectScene::onSelectRobot(
 		float value = attr.get("value", 0).asFloat();
 
 		if (name == Attr::hp) {
-			pbHp->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value/100.f*100.f)));
+			pbHp->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value / 40.f*100.f)));
 		}
 		else if (name == Attr::attack) {
-			pbAttack->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value / 20.f*100.f)));
+			pbAttack->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value / 6.f*100.f)));
 		}
 		else if (name == Attr::speed) {
-			pbSpeed->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value / 600.f*100.f)));
+			pbSpeed->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value / 500.f*100.f)));
 		}
 		else if (name == Attr::range) {
-			pbRange->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value / 2000.f*100.f)));
+			pbRange->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value / 1000.f*100.f)));
 		}
 	}
+}
+
+
+void SelectScene::onSelectRobot(
+	Ref *sender, ui::Widget::TouchEventType type, int robot) {
+	if (type != ui::Widget::TouchEventType::ENDED)
+		return;
+
+	auto gameroom = GameRoom::getInstance();
+	if (gameroom->getClient(gameroom->getMyId()).ready)
+		return;
+
+	selectRobot(robot);
 }
 void SelectScene::onSelectTeam(
 	Ref *sender, ui::Widget::TouchEventType type, int team) {
@@ -132,6 +183,9 @@ void SelectScene::onSelectTeam(
 		return;
 
 	auto gameroom = GameRoom::getInstance();
+	if (gameroom->getClient(gameroom->getMyId()).ready)
+		return;
+
 	if (gameroom->getClient(gameroom->getMyId()).team != team)
 		Network::getInstance()->sendSelectTeam(team);
 }
