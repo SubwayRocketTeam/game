@@ -151,6 +151,16 @@ bool GameRoom::leave(const id_t client_id) {
 	noti.client_id = client_id;
 	sendPacket(noti);
 
+	if (gameRunning) {
+		auto player = getClientUnit(client_id);
+		if (player) {
+			player->stage->removeUnit(player);
+			RemoveUnit noti;
+			noti.id = player->id;
+			sendPacket(noti);
+		}
+	}
+
 	// 모두 나가면 방폭
 	if (clientIds.size() == 0)
 		GameRoomManager::getInstance()->removeGameRoom(id);
