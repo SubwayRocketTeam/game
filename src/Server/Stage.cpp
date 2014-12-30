@@ -104,6 +104,8 @@ id_t Stage::addUnitImmediate(Unit* unit) {
 	case UT_TRASH:
 		trashPool->push((Trash*)unit);
 		break;
+	case UT_REPAIR_AREA:
+		break;
 	default:
 		break;
 	}
@@ -138,6 +140,8 @@ void Stage::removeUnitImmediate(Unit* unit) {
 		break;
 	case UT_TRASH:
 		trashPool->remove((Trash*)unit);
+		break;
+	case UT_REPAIR_AREA:
 		break;
 	default:
 		break;

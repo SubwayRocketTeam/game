@@ -24,6 +24,7 @@ void WorkerThread(HANDLE hCP);
 #undef main
 void main()
 {
+	srand((unsigned int)time(nullptr));
 	SDL_Init(SDL_INIT_VIDEO);
 
 	WSAData wsadata = { 0, };

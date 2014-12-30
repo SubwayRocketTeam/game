@@ -14,6 +14,7 @@
 
 
 RepairArea::RepairArea() {
+	type = UT_REPAIR_AREA;
 }
 RepairArea::~RepairArea(){
 }

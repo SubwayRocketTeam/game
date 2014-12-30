@@ -23,6 +23,7 @@ enum UnitType {
 	UT_ENEMY,
 	UT_BULLET,
 	UT_TRASH,
+	UT_REPAIR_AREA,
 
 	UT_MAX
 };
