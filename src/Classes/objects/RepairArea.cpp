@@ -31,25 +31,6 @@ bool RepairArea::init(){
 		return false;
 
 	setTag(UnitType::RepairArea);
-//	scheduleUpdate();
 
 	return true;
-}
-
-void RepairArea::update(
-	float dt){
-
-	// 서버에서 처리
-	/*
-	auto players = Stage::getInstance()->getAlly(
-		Ally::Type::allyPlayer);
-
-	Rect rect = getBoundingBox();
-	for(auto player : *players){
-		Vec2 pos = player->getPosition();
-
-		if(rect.containsPoint(pos))
-			player->addPassive(skillRepair);
-	}
-	*/
 }

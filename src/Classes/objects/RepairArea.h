@@ -13,7 +13,5 @@ protected:
 	virtual ~RepairArea();
 
 	virtual bool init();
-	virtual void update(
-		float dt);
 
 };
