@@ -20,14 +20,32 @@
 로봇 청소기 종류
 ----
 * D2
-  ![D2](img/robot1.png)
+<br>
+![D2](img/robot1.png)
 
 * Allergy
-  ![Allergy](img/robot2.png)
+<br>
+![Allergy](img/robot2.png)
 
 * Pesticide
-  ![Pesticide](img/robot3.png)
+<br>
+![Pesticide](img/robot3.png)
 
 
 스폰할 수 있는 로봇의 특징
 ----
+* Basic
+<br>
+![D2](img/enemy1.png)
+
+* Follow
+<br>
+![D2](img/enemy2.png)
+
+* Spiral
+<br>
+![D2](img/enemy3.png)
+
+* Explode
+<br>
+![D2](img/enemy4.png)
