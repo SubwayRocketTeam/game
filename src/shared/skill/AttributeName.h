@@ -8,6 +8,7 @@ namespace Attr{
 	const std::string mp = "mp";
 	const std::string attack = "attack";
 	const std::string melee_attack = "melee_attack";
+	const std::string attackSpeed = "attack_speed";
 	const std::string vacuum_range = "vacuum_range";
 	const std::string range = "range";
 	const std::string defence = "defence";

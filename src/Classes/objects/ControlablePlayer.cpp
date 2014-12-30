@@ -95,6 +95,8 @@ bool ControlablePlayer::useSkill(
 		return false;
 	if (skill->cost > _ATTR(mp))
 		return false;
+	if (index == skillMouseLeft)
+		cooltime *= _ATTR(attackSpeed);
 
 	skill->use(this, Vec2(x,y));
 
