@@ -127,7 +127,7 @@ bool GameScene::initUI(){
 	auto spawnPanel = SpawnIconPanel::getInstance();
 	spawnPanel->setIconList(enemies);
 	spawnPanel->setAnchorPoint(Vec2(0.5,1));
-	spawnPanel->setPosition(visibleSize.width/2, 25.f);
+	spawnPanel->setPosition(trashTank->getContentSize().width/2, 25.f);
 	trashTank->addChild(spawnPanel);
 
 	auto chatBox = ChatBox::getInstance();
