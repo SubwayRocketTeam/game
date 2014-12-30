@@ -39,27 +39,17 @@ void Ally::processAttack(
 	Unit* object = data.object;
 
 	for (auto it = members.begin(); it != members.end();){
-		// bool flag = true;
 		auto member = *it;
 		auto memberPosition = member->getPosition();
-//		float r = ((PhysicsShapeCircle*)member->getPhysicsBody()->getFirstShape())->getRadius()
-//			+ data.radius;
 		float r = member->radius + data.radius;
 		Vec2 delta = memberPosition - data.position;
 
 		if(data.position.getDistance(memberPosition) <= r){
-			// 서버에서 때림
-			/*
-			if (member->damage(data)){
-				it = members.erase(it);
-				flag = false;
-			}
-			*/
 			if (data.user != object)
 				object->damage(AttackData(1));
 		}
-		// if (flag)
-			++it;
+
+		++it;
 	}
 }
 
