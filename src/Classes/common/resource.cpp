@@ -42,7 +42,7 @@ namespace R{
 	_RESD(TankOverlay, "tankui_back.png");
 
 	_RESD(TitleBGM, "titlebgm.mp3");
-	_RESD(GameBGM, "bgm.mid");
+	_RESD(GameBGM, "bgm.mp3");
 	_RESD(Fire, "fire.wav");
 
 	_RESD(GameOver, "gameover.png");
