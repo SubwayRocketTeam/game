@@ -26,6 +26,9 @@ protected:
 
 	virtual void onEnter();
 
+	void onButtonPressed(
+		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+
 	void onEnterRoom(
 		cocos2d::Ref *sender, int room_id);
 	void onFastStart(

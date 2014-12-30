@@ -6,6 +6,7 @@
 
 #include "ui/UIText.h"
 #include "ui/UIListView.h"
+#include "ui/UIButton.h"
 
 #include "audio/include/SimpleAudioEngine.h"
 
@@ -40,9 +41,12 @@ bool LobbyScene::init(){
 	auto list = (ui::ListView*)layout->getChildByName("rooms");
 
 	auto btnFast =
-		(ui::Widget*)layout->getChildByName("btn_fast");
+		(ui::Button*)layout->getChildByName("btn_fast");
 	auto btnRefresh =
-		(ui::Widget*)layout->getChildByName("btn_refresh");
+		(ui::Button*)layout->getChildByName("btn_refresh");
+
+	btnFast->setPressedActionEnabled(true);
+	btnRefresh->setPressedActionEnabled(true);
 
 	btnFast->addClickEventListener(
 		CC_CALLBACK_1(LobbyScene::onFastStart, this));
@@ -94,6 +98,21 @@ void LobbyScene::onInitGlobalObjects(){
 void LobbyScene::onReleaseGlobalObjects(){
 }
 
+void LobbyScene::onButtonPressed(
+	Ref *_sender, ui::Widget::TouchEventType type){
+
+	if(type != ui::Widget::TouchEventType::BEGAN)
+		return;
+
+	auto sender = (ui::Button*)_sender;
+	sender->runAction(
+		Sequence::create(
+			ScaleTo::create(0.23 / 2, 1.1, 0.95),
+			ScaleTo::create(0.17 / 2, 0.9, 1.1),
+			ScaleTo::create(0.15 / 2, 1.05, 0.95),
+			ScaleTo::create(0.08 / 2, 1, 1),
+			nullptr));
+}
 void LobbyScene::onEnterRoom(
 	cocos2d::Ref *sender, int room_id) {
 
