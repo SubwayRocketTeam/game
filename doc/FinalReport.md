@@ -1,3 +1,5 @@
+![logo](img/logo.png)
+
 * __팀명__ : SubwayRocket
 
 * __구성원__ : 박 민수, 박 준철
