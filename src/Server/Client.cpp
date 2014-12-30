@@ -34,7 +34,7 @@ int Client::sendAllocatedData(void* const buf, const size_t size) {
 
 	if (WSASend(socket, &wsabuf, 1, &byteSent, 0, &context->overlapped, nullptr) == SOCKET_ERROR) {
 		int error = WSAGetLastError();
-		if (error != WSA_IO_PENDING)
+		if (error != WSA_IO_PENDING && error != WSAECONNRESET)
 		{
 			ErrorLog(error);
 			return SOCKET_ERROR;
