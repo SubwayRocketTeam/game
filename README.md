@@ -33,3 +33,8 @@ Outer Links
 * [팀 wiki](https://github.com/SubwayRocketTeam/documents/wiki)
 * [게임 컨셉 기획](https://github.com/SubwayRocketTeam/documents/wiki/%EA%B2%8C%EC%9E%84-%EC%BB%A8%EC%85%89-%EA%B8%B0%ED%9A%8D)
 * [프로토타입 레포](https://github.com/SubwayRocketTeam/Prototype)
+
+BGM
+----
+* [Idiotape's Cannon - Idiotape](https://soundcloud.com/idiotape/idiotapes-cannon)
+* Boiling Point - Idiotape
