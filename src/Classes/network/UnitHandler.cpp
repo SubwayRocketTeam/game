@@ -93,7 +93,11 @@ void Network::handleRemoveUnit(
 	if (!unit)
 		return;
 
-	auto ally = Stage::getInstance(unit->getStageID())->getAlly(unit->getAllyID());
+	auto stage = Stage::getInstance(unit->getStageID());
+	if(stage == nullptr) return;
+	auto ally = stage->getAlly(unit->getAllyID());
+	if(ally == nullptr) return;
+
 	ally->remove(unit);
 	unit->remove();
 }
