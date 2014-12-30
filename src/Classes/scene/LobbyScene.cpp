@@ -8,6 +8,8 @@
 #include "ui/UIListView.h"
 #include "ui/UIButton.h"
 
+#include "common\resource.h"
+
 #include "audio/include/SimpleAudioEngine.h"
 
 using namespace std;
@@ -89,6 +91,8 @@ void LobbyScene::addRooms(int room_num, char* room_ids) {
 
 void LobbyScene::onEnter() {
 	Layer::onEnter();
+	auto audio = SimpleAudioEngine::getInstance();
+	audio->playBackgroundMusic(R::TitleBGM.c_str(), true);
 	refresh();
 }
 
