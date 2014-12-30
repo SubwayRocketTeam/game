@@ -17,13 +17,17 @@
   * 업그레이드 하기 : F1 ~ F4
 * 유닛 보내기 : 숫자 1~4
 
-로봇의 특징
+로봇 청소기 종류
 ----
 * D2
-![D2](/img/robot1.png)
+  ![D2](img/robot1.png)
 
 * Allergy
-![Allergy](/img/robot2.png)
+  ![Allergy](img/robot2.png)
 
 * Pesticide
-![Pesticide](/img/robot3.png)
+  ![Pesticide](img/robot3.png)
+
+
+스폰할 수 있는 로봇의 특징
+----
