@@ -232,7 +232,7 @@ bool GameRoom::startGame() {
 	for (int i = 0; i < Max::Teams; ++i) {
 		// Repair Area 스폰
 		SpawnUnit noti;
-		noti.id = id;
+		noti.id = stage[i]->repairArea->id;
 		noti.stage = i;
 		noti.unit_type = UNIT_REPAIR_AREA;
 		noti.x = stage[i]->repairArea->position.x;
