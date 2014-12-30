@@ -6,7 +6,7 @@
 using namespace cocos2d;
 
 DamageLabel::DamageLabel() :
-	counter(1){
+	counter(0){
 }
 DamageLabel::~DamageLabel(){
 }
@@ -38,9 +38,13 @@ void DamageLabel::update(
 		-getParent()->getRotation());
 }
 
-void DamageLabel::active(){
+void DamageLabel::active(
+	int value){
+
+	counter += value;
+
 	char dmg[32];
-	sprintf(dmg, "-%d", counter++);
+	sprintf(dmg, "-%d", counter);
 
 	stopActionByTag(ActionType::Fade);
 	setString(dmg);
@@ -52,7 +56,7 @@ void DamageLabel::active(){
 void DamageLabel::fadeOut(
 	float dt){
 
-	counter = 1;
+	counter = 0;
 	runAction(
 		Spawn::create(
 			FadeOut::create(0.1),

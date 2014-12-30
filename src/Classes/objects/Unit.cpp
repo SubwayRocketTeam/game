@@ -237,7 +237,8 @@ bool Unit::damage(
 	if (onDamage(attackData)){
 		__ATTR(hp).increase(-attackData.damage);
 
-		damageLabel->active();
+		damageLabel->active(
+			attackData.damage);
 	}
 	
 	if (_ATTR(hp) <= 0) {

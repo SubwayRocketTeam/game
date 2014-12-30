@@ -9,7 +9,8 @@ public:
 public:
 	static DamageLabel *create();
 
-	void active();
+	void active(
+		int value =0);
 
 protected:
 	DamageLabel();
