@@ -8,7 +8,7 @@
   "bonus" : [
     {
       "target" : "hp_regen",
-      "value" : 4,
+      "value" : 1,
       "rate" : 0
     }
   ]

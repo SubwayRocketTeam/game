@@ -6,9 +6,9 @@
   "attrs" : [
     {"name" : "hp", "value" : 15},
     {"name" : "hp_gen", "value" : 0},
-    {"name" : "speed", "value" : 300},
     {"name" : "attack", "value" : 5},
-    {"name" : "attack_speed", "value" : 1.5},
+    {"name" : "attack_speed", "value" : 2},
+    {"name" : "speed", "value" : 300},
     {"name" : "range", "value" : 800},
     {"name" : "vacuum_range", "value" : 150},
     {"name" : "radius", "value" : 40}

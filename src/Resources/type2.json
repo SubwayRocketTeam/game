@@ -6,17 +6,17 @@
   "attrs" : [
     {"name" : "hp", "value" : 30},
     {"name" : "hp_gen", "value" : 0},
-    {"name" : "speed", "value" : 420},
     {"name" : "attack", "value" : 2},
     {"name" : "attack_speed", "value" : 0.5},
-    {"name" : "range", "value" : 400},
+    {"name" : "speed", "value" : 420},
+    {"name" : "range", "value" : 450},
     {"name" : "vacuum_range", "value" : 80},
     {"name" : "radius", "value" : 40}
   ],
 
   "max_attrs" : [
-    {"name" : "hp", "value" : 40},
-    {"name" : "attack", "value" : 5},
+    {"name" : "hp", "value" : 50},
+    {"name" : "attack", "value" : 6},
     {"name" : "speed", "value" : 550},
     {"name" : "range", "value" : 900}
   ],
