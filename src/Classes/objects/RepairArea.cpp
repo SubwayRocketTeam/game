@@ -3,14 +3,10 @@
 
 #include "common/resource.h"
 
-#include "skill/id.h"
-
-#include "Ally.h"
 #include "tags.h"
 
 using namespace cocos2d;
 
-/* TODO : json에서 리젠률 설정 */
 RepairArea::RepairArea(){
 }
 RepairArea::~RepairArea(){
