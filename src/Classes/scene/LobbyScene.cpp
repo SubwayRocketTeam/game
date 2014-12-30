@@ -92,7 +92,8 @@ void LobbyScene::addRooms(int room_num, char* room_ids) {
 void LobbyScene::onEnter() {
 	Layer::onEnter();
 	auto audio = SimpleAudioEngine::getInstance();
-	audio->playBackgroundMusic(R::TitleBGM.c_str(), true);
+	if (!audio->isBackgroundMusicPlaying())
+		audio->playBackgroundMusic(R::TitleBGM.c_str(), true);
 	refresh();
 }
 
