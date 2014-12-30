@@ -7,6 +7,7 @@ KeyboardEventListener::KeyboardEventListener() :
 	keyboardListener(nullptr){
 }
 KeyboardEventListener::~KeyboardEventListener(){
+	disableKeyboardInput();
 }
 
 void KeyboardEventListener::enableKeyboardInput(

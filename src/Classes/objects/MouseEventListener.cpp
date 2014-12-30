@@ -17,6 +17,7 @@ MouseEventListener::MouseEventListener() :
 	mouseListener(nullptr){
 }
 MouseEventListener::~MouseEventListener(){
+	disableMouseInput();
 }
 
 void MouseEventListener::enableMouseInput(
