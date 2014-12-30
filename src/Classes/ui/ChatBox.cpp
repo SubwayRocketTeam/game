@@ -36,7 +36,7 @@ bool ChatBox::init(){
 
 	bgi = Sprite::create("chatbox.png");
 	bgi->setAnchorPoint(Vec2(0,0));
-	bgi->setOpacity(32);
+	bgi->setOpacity(64);
 	addChild(bgi);
 
 	input = InputBox::create(
@@ -79,11 +79,11 @@ void ChatBox::addLine(
 
 	auto label = LabelTTF::create(
 		msg, Global::Font, LineSize);
-	label->setColor(Color3B::RED);
+	label->setColor(Color3B::WHITE);
 	label->setOpacity(0);
 	label->setAnchorPoint(Vec2(0,0));
 	label->setPosition(
-		Vec2(0, MaxLines*5));
+		Vec2(0, LineSize));
 	label->runAction(
 		Spawn::create(
 			MoveBy::create(0.0, Vec2(0,LineSize)),
@@ -107,8 +107,10 @@ void ChatBox::onKeyboardUp(
 	EventKeyboard::KeyCode key){
 
 	if(key == EventKeyboard::KeyCode::KEY_KP_ENTER){
-		Network::getInstance()
-			->sendChatMessage(input->getString().c_str());
+		if (input->getString().length() > 0) {
+			Network::getInstance()
+				->sendChatMessage(input->getString().c_str());
+		}
 		input->clear();
 		bgi->setOpacity(32);
 	}

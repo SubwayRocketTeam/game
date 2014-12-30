@@ -9,8 +9,8 @@ class InputBox;
 class ChatBox : public cocos2d::ClippingRectangleNode,
 	public KeyboardEventListener{
 public:
-	static const int MaxLines = 5;
-	static const int LineSize = 30;
+	static const int MaxLines = 8;
+	static const int LineSize = 20;
 
 public:
 	static ChatBox *create();
