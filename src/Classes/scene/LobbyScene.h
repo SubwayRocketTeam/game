@@ -27,11 +27,11 @@ protected:
 	virtual void onEnter();
 
 	void onEnterRoom(
-		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type, int room_id);
+		cocos2d::Ref *sender, int room_id);
 	void onFastStart(
-		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+		cocos2d::Ref *sender);
 	void onRefresh(
-		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+		cocos2d::Ref *sender);
 
 
 protected:
