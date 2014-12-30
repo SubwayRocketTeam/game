@@ -238,7 +238,9 @@ REGISTER_HANDLER(ChatMessage) {
 	NULLCHECK(gameroom);
 
 	ChatNoti noti;
-	strcat_s(noti.msg, packet->msg);
+	sprintf_s(noti.msg,
+		"[%s] : %s",
+		client->nickname.c_str(), packet->msg);
 
 	gameroom->sendPacket(noti);
 } END
