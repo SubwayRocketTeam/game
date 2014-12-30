@@ -50,14 +50,14 @@ void CollisionDetector::update(
 
 		// 벽과의 충돌
 		// TODO: 상하좌우 벽의 위치를 외부에서 가져오기.
-		if (pos.x < -800)
-			me->collide(Vec2(-(pos.x + 800), 0), nullptr);
-		if (pos.x > 800)
-			me->collide(Vec2(-(pos.x - 800), 0), nullptr);
-		if (pos.y < -600)
-			me->collide(Vec2(0, -(pos.y + 600)), nullptr);
-		if (pos.y > 600)
-			me->collide(Vec2(0, -(pos.y - 600)), nullptr);
+		if (pos.x < -760)
+			me->collide(Vec2(-(pos.x + 760), 0), nullptr);
+		if (pos.x > 760)
+			me->collide(Vec2(-(pos.x - 760), 0), nullptr);
+		if (pos.y < -560)
+			me->collide(Vec2(0, -(pos.y + 560)), nullptr);
+		if (pos.y > 560)
+			me->collide(Vec2(0, -(pos.y - 560)), nullptr);
 	}
 }
 
