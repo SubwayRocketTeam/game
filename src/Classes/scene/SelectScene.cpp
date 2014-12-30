@@ -115,10 +115,6 @@ void SelectScene::refreshRoom() {
 
 void SelectScene::selectRobot(int robot) {
 	auto gameroom = GameRoom::getInstance();
-	if (gameroom->getClient(gameroom->getMyId()).robot == robot)
-		return;
-
-	Network::getInstance()->sendSelectRobot(robot);
 
 	auto layout = getChildByTag(layoutTag);
 	auto robots = layout->getChildByName("pn_robot");
@@ -174,6 +170,11 @@ void SelectScene::onSelectRobot(
 	auto gameroom = GameRoom::getInstance();
 	if (gameroom->getClient(gameroom->getMyId()).ready)
 		return;
+
+	if (gameroom->getClient(gameroom->getMyId()).robot == robot)
+		return;
+
+	Network::getInstance()->sendSelectRobot(robot);
 
 	selectRobot(robot);
 }
