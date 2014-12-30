@@ -35,9 +35,9 @@ https://github.com/SubwayRocketTeam/game/blob/master/doc/PostMortem.md
 * __데모 동영상__
 
 * __스크린샷__
-![screenshot](img/screenshot1.png)<br>
-![screenshot](img/screenshot2.png)<br>
-![screenshot](img/screenshot3.png)<br>
-![screenshot](img/screenshot4.png)<br>
-![screenshot](img/screenshot5.png)<br>
-![screenshot](img/screenshot6.png)<br>
+![screenshot](img/screenshot1.jpg)<br>
+![screenshot](img/screenshot2.jpg)<br>
+![screenshot](img/screenshot3.jpg)<br>
+![screenshot](img/screenshot4.jpg)<br>
+![screenshot](img/screenshot5.jpg)<br>
+![screenshot](img/screenshot6.jpg)<br>
