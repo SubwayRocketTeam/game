@@ -17,7 +17,7 @@
 typedef std::pair<id_t, id_t> IdPair;
 
 GameRoom::GameRoom(const id_t id)
-	:id(id), gameRunning(false), gameOver(false) {
+	:id(id), gameRunning(false), gameOver(false), gameOverTick(0) {
 	for (int i = 0; i < Max::Teams; ++i)
 		stage[i] = new Stage(this, i);
 	
@@ -39,15 +39,15 @@ GameRoom::~GameRoom() {
 
 void GameRoom::update() {
 
+	DWORD now_tick = timeGetTime();
+
 	if (gameRunning) {
-		DWORD now_tick = timeGetTime();
 
 		for (int i = 0; i < Max::Teams; ++i)
 			stage[i]->update((now_tick - tick) * 0.001f);
 
 		flush();
 
-		tick = now_tick;
 
 		if (!gameOver) {
 			for (int i = 0; i < Max::Teams; ++i) {
@@ -56,12 +56,18 @@ void GameRoom::update() {
 					noti.win_team = _OPPOSITE(i);
 					sendPacket(noti);
 					gameOver = true;
+					gameOverTick = now_tick;
 					return;
 				}
 			}
 		}
+		else if (now_tick > gameOverTick + config::gameover_time_wait){
+			gameRunning = false;
+		}
 
 	}
+
+	tick = now_tick;
 
 	if (config::gui) {
 		SDL_SetRenderDrawColor(renderer, 255, 2552, 255, 255);
@@ -399,7 +405,7 @@ size_t GameRoom::size() const {
 }
 
 bool GameRoom::isPlaying() {
-	return gameRunning;
+	return gameRunning || gameOver;
 }
 
 bool GameRoom::isFull() {

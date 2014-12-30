@@ -76,6 +76,7 @@ private:
 
 	bool gameRunning;
 	bool gameOver;
+	DWORD gameOverTick;
 
 	std::vector<Unit*> units;
 	std::set<Unit*> addUnits;

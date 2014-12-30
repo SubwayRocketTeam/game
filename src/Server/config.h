@@ -20,4 +20,7 @@ namespace config {
 
 	// 보너스 몹 스폰까지 걸리는 시간
 	const float bonus_time_wait = 10.f;
+
+	// 게임 오버 후 게임 종료까지 기다리는 시간
+	const DWORD gameover_time_wait = 4000;
 }
