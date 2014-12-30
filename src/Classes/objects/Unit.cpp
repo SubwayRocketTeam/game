@@ -86,6 +86,11 @@ Unit *Unit::getInstanceByID(
 		return nullptr;
 }
 
+void Unit::clearInstanceMap() {
+	instances.clear();
+}
+
+
 bool Unit::init(){
 	if (!Sprite::init())
 		return false;

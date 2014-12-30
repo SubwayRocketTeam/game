@@ -23,12 +23,18 @@ void EnemySpawner::init(){
 
 Enemy* EnemySpawner::spawn(
 	EnemyType type){
+	return spawn(type, Vec2(rand()%1600-800, rand()%1200-600));
+}
+
+Enemy* EnemySpawner::spawn(
+	EnemyType type,
+	const Vec2& position){
 
 	auto ally = stage->ally[Ally::Type::allyEnemy];
 	auto factory = EnemyFactory::getInstance();
 
 	Enemy *e = factory->createEnemy(type);
-	e->position = Vec2(rand()%1600-800, rand()%1200-600);
+	e->position = position;
 
 	// ally->push(e);
 	stage->addUnit(e);
@@ -38,8 +44,8 @@ Enemy* EnemySpawner::spawn(
 	SpawnUnit noti;
 	noti.id = e->id;
 	noti.stage = stage->id;
-	noti.x = e->position.x;
-	noti.y = e->position.y;
+	noti.x = position.x;
+	noti.y = position.y;
 	noti.unit_type = UNIT_ENEMY;
 	noti.sub_type = type + ENEMY_BASIC;
 
@@ -47,3 +53,4 @@ Enemy* EnemySpawner::spawn(
 
 	return e;
 }
+

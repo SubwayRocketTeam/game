@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "EnemyType.h"
+#include "Vec2.h"
 
 class Enemy;
 class Stage;
@@ -13,6 +14,7 @@ public:
 	void init();
 
 	Enemy* spawn(EnemyType type);
+	Enemy* spawn(EnemyType type, const Vec2& position);
 
 public:
 	Stage* const stage;

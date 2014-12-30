@@ -4,7 +4,7 @@
   "image" : "robot1",
   
   "attrs" : [
-    {"name" : "hp", "value" : 30},
+    {"name" : "hp", "value" : 20},
     {"name" : "hp_gen", "value" : 0},
     {"name" : "speed", "value" : 350},
     {"name" : "attack", "value" : 3},

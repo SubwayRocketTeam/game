@@ -92,6 +92,12 @@ void SpawnIconPanel::processSpawn(
 	case EventKeyboard::KeyCode::KEY_4:
 		type = enemyExplode;
 		break;
+	case EventKeyboard::KeyCode::KEY_5:
+		type = enemyDup;
+		break;
+	case EventKeyboard::KeyCode::KEY_6:
+		type = enemyBoss;
+		break;
 	}
 
 	if (type >= 0)

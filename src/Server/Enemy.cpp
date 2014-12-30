@@ -16,7 +16,7 @@
 
 #include "PacketType.h"
 
-Enemy::Enemy() :enemyType(0) {
+Enemy::Enemy() :Unit(), enemyType(0) {
 	type = UT_ENEMY;
 	ally = Ally::Type::allyEnemy;
 	skill = nullptr;

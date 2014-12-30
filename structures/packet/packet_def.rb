@@ -134,8 +134,9 @@ class EnemyType_ < Enum
   :ENEMY_FOLLOW,
   :ENEMY_SPIRAL,
   :ENEMY_EXPLODE,
-  :ENEMY_5,
-  :ENEMY_6,
+  :ENEMY_DUP,
+  :ENEMY_BOSS,
+  :ENEMY_BONUS,
 
   :ENEMY_MAX
   ]

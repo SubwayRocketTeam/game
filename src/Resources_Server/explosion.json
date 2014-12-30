@@ -4,6 +4,6 @@
   "tooltip" : "explosion",
 
   "duration" : 0,
-  "cooltime" : 0,
+  "cooltime" : 2,
   "cost" : 0
 }

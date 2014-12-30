@@ -4,6 +4,7 @@
 #include "Unit.h"
 #include "Enemy.h"
 #include "EnemyExplode.h"
+#include "EnemyDup.h"
 #include "Stage.h"
 #include "GameRoom.h"
 #include "Ally.h"
@@ -43,6 +44,9 @@ Enemy* EnemyFactory::createEnemy(EnemyType type)
 	switch (type) {
 	case enemyExplode:
 		enemy = new EnemyExplode();
+		break;
+	case enemyDup:
+		enemy = new EnemyDup();
 		break;
 	default:
 		enemy = new Enemy();

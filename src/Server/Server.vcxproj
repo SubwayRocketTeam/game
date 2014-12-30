@@ -125,6 +125,7 @@ xcopy /s $(ProjectDir)..\Resources_Server %bin_path%</Command>
     <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="DBContext.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyDup.cpp" />
     <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="common\resource.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
@@ -191,6 +192,7 @@ xcopy /s $(ProjectDir)..\Resources_Server %bin_path%</Command>
     <ClInclude Include="config.h" />
     <ClInclude Include="DBContext.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyDup.h" />
     <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="EnemyInfo.h" />
     <ClInclude Include="EnemySpawner.h" />

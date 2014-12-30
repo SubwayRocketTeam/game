@@ -126,4 +126,5 @@ void Network::handleGameOver(
 	printf("game over. team %d win.\n", pkt->win_team);
 	GameRoom::getInstance()->setWinTeam(pkt->win_team);
 	Stage::getInstance(0)->gameOver();
+	Unit::clearInstanceMap();
 }

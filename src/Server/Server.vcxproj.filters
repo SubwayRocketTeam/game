@@ -119,6 +119,7 @@
     </ClCompile>
     <ClCompile Include="DBContext.cpp" />
     <ClCompile Include="RepairArea.cpp" />
+    <ClCompile Include="EnemyDup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferQueue.h" />
@@ -252,6 +253,7 @@
     </ClInclude>
     <ClInclude Include="DBContext.h" />
     <ClInclude Include="RepairArea.h" />
+    <ClInclude Include="EnemyDup.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\jsoncpp\src\lib_json\json_internalarray.inl">

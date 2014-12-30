@@ -29,7 +29,8 @@
 #include "config.h"
 
 Player::Player()
-	:playerType(PLAYER_NONE)
+	:Unit()
+	, playerType(PLAYER_NONE)
 	, immortal(0), stiff(0)
 	, trash(0), upgradeCost(config::upgrade_cost_start){
 	type = UT_PLAYER;

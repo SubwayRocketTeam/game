@@ -7,7 +7,7 @@
 				{"name" : "hp", "value" : 8},
 				{"name" : "hp_gen", "value" : 0},
 				{"name" : "speed", "value" : 360},
-				{"name" : "melee_attack", "value" : 1},
+				{"name" : "melee_attack", "value" : 2},
 				{"name" : "range", "value" : 0},
 				{"name" : "radius", "value" : 30}
 			],
@@ -25,14 +25,14 @@
 				{"name" : "hp_gen", "value" : 0},
 				{"name" : "speed", "value" : 300},
 				{"name" : "attack", "value" : 2},
-				{"name" : "melee_attack", "value" : 2},
+				{"name" : "melee_attack", "value" : 3},
 				{"name" : "range", "value" : 800},
 				{"name" : "radius", "value" : 30}
 			],
 			
 			"skills" : [202],
 			
-			"cost" : 6,
+			"cost" : 8,
 			"cooltime" : 0.5
 		},
 		{
@@ -62,7 +62,7 @@
 				{"name" : "hp", "value" : 5},
 				{"name" : "hp_gen", "value" : 0},
 				{"name" : "speed", "value" : 500},
-				{"name" : "attack", "value" : 10},
+				{"name" : "attack", "value" : 8},
 				{"name" : "melee_attack", "value" : 5},
 				{"name" : "range", "value" : 2000},
 				{"name" : "radius", "value" : 30}
@@ -70,7 +70,7 @@
 			
 			"skills" : [],
 			
-			"cost" : 30,
+			"cost" : 35,
 			"cooltime" : 1.5
 		},
 		{
@@ -79,7 +79,7 @@
 			"attrs" : [
 				{"name" : "hp", "value" : 20},
 				{"name" : "hp_gen", "value" : 1},
-				{"name" : "speed", "value" : 500},
+				{"name" : "speed", "value" : 400},
 				{"name" : "attack", "value" : 10},
 				{"name" : "melee_attack", "value" : 10},
 				{"name" : "range", "value" : 800},
@@ -88,10 +88,10 @@
 			
 			"skills" : [202],
 			
-			"cost" : 40,
+			"cost" : 55,
 			"cooltime" : 2
 		},
-				{
+		{
 			"name" : "enemyBoss",
 			
 			"attrs" : [
@@ -104,12 +104,12 @@
 				{"name" : "radius", "value" : 30}
 			],
 			
-			"skills" : [],
+			"skills" : [201],
 			
-			"cost" : 75,
+			"cost" : 80,
 			"cooltime" : 5
 		},
-				{
+		{
 			"name" : "enemyBonus",
 			
 			"attrs" : [

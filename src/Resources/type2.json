@@ -4,10 +4,10 @@
   "image" : "robot2",
   
   "attrs" : [
-    {"name" : "hp", "value" : 20},
+    {"name" : "hp", "value" : 30},
     {"name" : "hp_gen", "value" : 0},
     {"name" : "speed", "value" : 420},
-    {"name" : "attack", "value" : 1},
+    {"name" : "attack", "value" : 2},
     {"name" : "attack_speed", "value" : 0.5},
     {"name" : "range", "value" : 400},
     {"name" : "vacuum_range", "value" : 80},

@@ -190,10 +190,12 @@ void ControlablePlayer::processAttack(
 void ControlablePlayer::onKeyboardDown(
 	EventKeyboard::KeyCode keycode){
 
+	/*
 	if(keycode == EventKeyboard::KeyCode::KEY_1)
 		addPassive(100);
 	if (keycode == EventKeyboard::KeyCode::KEY_SPACE)
 		addPassive(12);
+	*/
 
 	if (keycode == EventKeyboard::KeyCode::KEY_2)
 		Player::useSkill(13, getPosition());

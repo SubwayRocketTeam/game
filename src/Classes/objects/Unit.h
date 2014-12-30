@@ -35,6 +35,7 @@ public:
 
 	static Unit *getInstanceByID(
 		int id);
+	static void clearInstanceMap();
 
 	void blink();
 

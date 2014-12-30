@@ -37,7 +37,7 @@ bool EnemyDup::onDeath(){
 	if (!Enemy::onDeath())
 		return false;
 
-	useSkill(skillExplosion, getPosition());
+//	useSkill(skillExplosion, getPosition());
 
 	return true;
 }
