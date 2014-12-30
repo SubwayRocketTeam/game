@@ -8,7 +8,7 @@ Docs
 
 파이널 리포트
 ----
-* __[마지막 주 릴리즈]()__
+* __[마지막 주 릴리즈](https://github.com/SubwayRocketTeam/game/tree/Release09)__
 * __[게임 리포트](FinalReport.md)__
 * __[모스트 포템](PostMortem.md)__
 
