@@ -50,8 +50,6 @@ bool LobbyScene::init(){
 	btnRefresh->addTouchEventListener(
 		CC_CALLBACK_2(LobbyScene::onRefresh, this));
 
-	refresh();
-
 	return true;
 }
 
@@ -81,11 +79,15 @@ void LobbyScene::addRooms(int room_num, char* room_ids) {
 		text->setString(_MAKE_PATH("Room #%d", room_ids[i]));
 		item->setPositionX(20);
 		item->addTouchEventListener(
-			CC_CALLBACK_2(LobbyScene::onEnter, this, room_ids[i]));
+			CC_CALLBACK_2(LobbyScene::onEnterRoom, this, room_ids[i]));
 		list->pushBackCustomItem(item);
 	}
 }
 
+void LobbyScene::onEnter() {
+	Layer::onEnter();
+	refresh();
+}
 
 
 void LobbyScene::onInitGlobalObjects(){
@@ -93,7 +95,7 @@ void LobbyScene::onInitGlobalObjects(){
 void LobbyScene::onReleaseGlobalObjects(){
 }
 
-void LobbyScene::onEnter(
+void LobbyScene::onEnterRoom(
 	cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type, int room_id) {
 	if (type != ui::Widget::TouchEventType::ENDED)
 		return;
@@ -107,7 +109,7 @@ void LobbyScene::onFastStart(
 	if (rooms.empty())
 		return;
 
-	enter(rand() % rooms.size());
+	enter(rooms.[rand() % rooms.size()]);
 }
 void LobbyScene::onRefresh(
 	cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type) {

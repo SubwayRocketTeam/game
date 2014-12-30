@@ -24,12 +24,15 @@ protected:
 	virtual void onInitGlobalObjects();
 	virtual void onReleaseGlobalObjects();
 
-	void onEnter(
+	virtual void onEnter();
+
+	void onEnterRoom(
 		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type, int room_id);
 	void onFastStart(
 		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void onRefresh(
 		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+
 
 protected:
 	std::vector<int> rooms;
