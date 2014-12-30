@@ -109,7 +109,7 @@ void LobbyScene::onFastStart(
 	if (rooms.empty())
 		return;
 
-	enter(rooms.[rand() % rooms.size()]);
+	enter(rooms[rand() % rooms.size()]);
 }
 void LobbyScene::onRefresh(
 	cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type) {
