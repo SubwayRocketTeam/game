@@ -1,0 +1,27 @@
+{
+  "name" : "D2",
+  
+  "image" : "robot1",
+  
+  "attrs" : [
+    {"name" : "hp", "value" : 20},
+    {"name" : "hp_gen", "value" : 0},
+    {"name" : "attack", "value" : 3},
+    {"name" : "attack_speed", "value" : 1.0},
+    {"name" : "speed", "value" : 350},
+    {"name" : "range", "value" : 600},
+    {"name" : "vacuum_range", "value" : 100},
+    {"name" : "radius", "value" : 40}
+  ],
+
+  "max_attrs" : [
+    {"name" : "hp", "value" : 45},
+    {"name" : "attack", "value" : 10},
+    {"name" : "speed", "value" : 450},
+    {"name" : "range", "value" : 1200}
+  ],
+  
+  "skills" : [
+    10, 12
+  ]
+}

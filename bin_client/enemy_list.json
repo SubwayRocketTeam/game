@@ -1,0 +1,131 @@
+{	
+	"enemyList" : [
+		{
+			"name" : "enemyBasic",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 8},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 360},
+				{"name" : "melee_attack", "value" : 2},
+				{"name" : "range", "value" : 0},
+				{"name" : "radius", "value" : 30}
+			],
+			
+			"skills" : [],
+			
+			"cost" : 3,
+			"cooltime" : 0.2
+		},
+		{
+			"name" : "enemyFollow",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 12},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 300},
+				{"name" : "attack", "value" : 2},
+				{"name" : "melee_attack", "value" : 3},
+				{"name" : "range", "value" : 800},
+				{"name" : "radius", "value" : 30}
+			],
+			
+			"skills" : [202],
+			
+			"cost" : 8,
+			"cooltime" : 0.5
+		},
+		{
+			"name" : "enemySpiral",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 35},
+				{"name" : "hp_gen", "value" : 0.1},
+				{"name" : "speed", "value" : 0},
+				{"name" : "attack", "value" : 5},
+				{"name" : "melee_attack", "value" : 10},
+				{"name" : "range", "value" : 1000},
+				{"name" : "radius", "value" : 30}
+			],
+			
+			"skills" : [
+				200
+			],
+			
+			"cost" : 20,
+			"cooltime" : 1
+		},
+		{
+			"name" : "enemyExplosion",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 5},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 500},
+				{"name" : "attack", "value" : 8},
+				{"name" : "melee_attack", "value" : 5},
+				{"name" : "range", "value" : 2000},
+				{"name" : "radius", "value" : 30}
+			],
+			
+			"skills" : [],
+			
+			"cost" : 35,
+			"cooltime" : 1.5
+		},
+		{
+			"name" : "enemyDup",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 20},
+				{"name" : "hp_gen", "value" : 1},
+				{"name" : "speed", "value" : 400},
+				{"name" : "attack", "value" : 10},
+				{"name" : "melee_attack", "value" : 10},
+				{"name" : "range", "value" : 800},
+				{"name" : "radius", "value" : 30}
+			],
+			
+			"skills" : [202],
+			
+			"cost" : 55,
+			"cooltime" : 2
+		},
+		{
+			"name" : "enemyBoss",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 100},
+				{"name" : "hp_gen", "value" : 2},
+				{"name" : "speed", "value" : 100},
+				{"name" : "attack", "value" : 10},
+				{"name" : "melee_attack", "value" : 20},
+				{"name" : "range", "value" : 2000},
+				{"name" : "radius", "value" : 30}
+			],
+			
+			"skills" : [201],
+			
+			"cost" : 80,
+			"cooltime" : 5
+		},
+		{
+			"name" : "enemyBonus",
+			
+			"attrs" : [
+				{"name" : "hp", "value" : 100},
+				{"name" : "hp_gen", "value" : 0},
+				{"name" : "speed", "value" : 0},
+				{"name" : "attack", "value" : 0},
+				{"name" : "melee_attack", "value" : 0},
+				{"name" : "range", "value" : 0},
+				{"name" : "radius", "value" : 30}
+			],
+			
+			"skills" : [],
+			
+			"cost" : 100,
+			"cooltime" : 1
+		}
+	]
+}

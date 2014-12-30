@@ -14,5 +14,5 @@ namespace Global{
 	const std::string Font = "arial";
 
 	/* 서버 주소 */
-	const std::string Host = "localhost";
+	const std::string Host = "10.73.45.142";
 };

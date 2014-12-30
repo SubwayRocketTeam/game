@@ -1,0 +1,9 @@
+{
+  "id" : 200,
+  "name" : "spiral",
+  "tooltip" : "gdgd",
+
+  "duration" : 1.0,
+  "cooltime" : 1.0,
+  "cost" : 0
+}
