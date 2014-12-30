@@ -106,8 +106,7 @@ bool Unit::init(
 		return false;
 
 	damageLabel = DamageLabel::create();
-	damageLabel->setPositionX(getContentSize().width/2);
-	damageLabel->setAnchorPoint(Vec2(0.5,0));
+	damageLabel->setAnchorPoint(Vec2(0.5,0.5));
 	addChild(damageLabel);
 	/*
 	label = LabelTTF::create(_MAKE_PATH("%d", id), "Arial", 20.f);

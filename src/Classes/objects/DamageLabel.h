@@ -16,7 +16,9 @@ protected:
 	virtual ~DamageLabel();
 
 	virtual bool init();
-	
+	virtual void update(
+		float dt);
+
 	void fadeOut(
 		float dt);
 

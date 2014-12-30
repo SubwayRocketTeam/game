@@ -27,7 +27,15 @@ bool DamageLabel::init(){
 
 	setColor(Color3B::RED);
 
+	scheduleUpdate();
+
 	return true;
+}
+void DamageLabel::update(
+	float dt){
+
+	setRotation(
+		-getParent()->getRotation());
 }
 
 void DamageLabel::active(){
