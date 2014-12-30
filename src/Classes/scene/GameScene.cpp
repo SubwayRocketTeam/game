@@ -123,7 +123,7 @@ bool GameScene::initUI(){
 	trashTank->setPosition(visibleSize.width/2, 0);
 	addChild(trashTank);
 
-	int enemies[Max::Enemies] = { enemyBasic, enemyFollow, enemySpiral, enemyExplode };
+	int enemies[Max::Enemies] = { enemyBasic, enemyFollow, enemySpiral, enemyExplode, enemyDup };
 	auto spawnPanel = SpawnIconPanel::getInstance();
 	spawnPanel->setIconList(enemies);
 	spawnPanel->setAnchorPoint(Vec2(0.5,1));

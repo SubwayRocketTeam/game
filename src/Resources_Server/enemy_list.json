@@ -86,7 +86,7 @@
 				{"name" : "radius", "value" : 30}
 			],
 			
-			"skills" : [],
+			"skills" : [202],
 			
 			"cost" : 40,
 			"cooltime" : 2
