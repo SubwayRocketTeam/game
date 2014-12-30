@@ -17,7 +17,7 @@
 typedef std::pair<id_t, id_t> IdPair;
 
 GameRoom::GameRoom(const id_t id)
-	:id(id), ready(0), gameRunning(false), gameOver(false) {
+	:id(id), gameRunning(false), gameOver(false) {
 	for (int i = 0; i < Max::Teams; ++i)
 		stage[i] = new Stage(this, i);
 	
@@ -111,6 +111,7 @@ bool GameRoom::enter(const id_t client_id) {
 	client->gameRoomId = id;
 	int team = getTeamNum(0) <= getTeamNum(1) ? 0 : 1;
 	teams[client_id] = team;
+	readyMap[client_id] = false;
 
 	EnterNoti noti;
 
@@ -120,12 +121,14 @@ bool GameRoom::enter(const id_t client_id) {
 		noti.client_id = pair.first;
 		strcpy_s(noti.nickname, ClientManager::getInstance()->getClient(pair.first)->nickname.c_str());
 		noti.team_id = getTeam(pair.first);
+		noti.ready = readyMap[pair.first] ? 1 : 0;
 		client->sendPacket(noti);
 	}
 
 	noti.client_id = client_id;
 	strcpy_s(noti.nickname, client->nickname.c_str());
 	noti.team_id = team;
+	noti.ready = readyMap[client_id] ? 1 : 0;
 	sendPacket(noti);
 
 	return true;
@@ -138,6 +141,7 @@ bool GameRoom::leave(const id_t client_id) {
 		return false;
 	clientIds.erase(it);
 	teams.erase(client_id);
+	readyMap.erase(client_id);
 	ClientManager::getInstance()->getClient(client_id)->gameRoomId = INVALID_ID;
 
 	LeaveNoti noti;
@@ -150,9 +154,29 @@ bool GameRoom::leave(const id_t client_id) {
 	return true;
 }
 
+bool GameRoom::ready(const id_t client_id, const bool is_ready) {
+	if (client_id == INVALID_ID) return false;
+	auto it = clientIds.find(client_id);
+	if (it == clientIds.end())
+		return false;
+	if (readyMap[client_id] == is_ready)
+		return false;
+
+	readyMap[client_id] = is_ready;
+
+	ReadyNoti noti;
+	noti.client_id = client_id;
+	noti.ready = is_ready ? 1 : 0;
+	sendPacket(noti);
+
+	if (isAllReady() && getTeamNum(0) == getTeamNum(1))
+		startGame();
+	return true;
+}
+
 
 bool GameRoom::startGame() {
-	if (gameRunning || (size_t)ready < clientIds.size()) return false;
+	if (gameRunning) return false;
 	gameRunning = true;
 
 	StartGame packet;
@@ -367,4 +391,12 @@ bool GameRoom::isPlaying() {
 
 bool GameRoom::isFull() {
 	return clientIds.size() >= 4;
+}
+
+bool GameRoom::isAllReady() {
+	for (auto pair : readyMap) {
+		if (!pair.second)
+			return false;
+	}
+	return true;
 }

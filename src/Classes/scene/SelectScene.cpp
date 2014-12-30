@@ -43,7 +43,7 @@ bool SelectScene::init(){
 	addChild(layout, 0, layoutTag);
 
 	auto gameroom = GameRoom::getInstance();
-	auto room_text = (ui::Text*)((ui::Widget*)layout->getChildByName("btn_ready"))
+	auto room_text = (ui::Text*)((ui::Widget*)layout->getChildByName("pn_room_no"))
 		->getChildByName("label");
 	room_text->setString(_MAKE_PATH("Room #%d", gameroom->getRoomId()));
 
@@ -113,16 +113,16 @@ void SelectScene::onSelectRobot(
 		float value = attr.get("value", 0).asFloat();
 
 		if (name == Attr::hp) {
-			pbHp->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value/100.f)));
+			pbHp->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value/100.f*100.f)));
 		}
 		else if (name == Attr::attack) {
-			pbAttack->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value/20.f)));
+			pbAttack->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value / 20.f*100.f)));
 		}
 		else if (name == Attr::speed) {
-			pbSpeed->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value/600.f)));
+			pbSpeed->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value / 600.f*100.f)));
 		}
 		else if (name == Attr::range) {
-			pbRange->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value/2000.f)));
+			pbRange->runAction(EaseElasticOut::create(UiProgressTo::create(0.6, value / 2000.f*100.f)));
 		}
 	}
 }
@@ -141,10 +141,7 @@ void SelectScene::onReady(
 		return;
 
 	auto gameroom = GameRoom::getInstance();
-	if (gameroom->getClient(gameroom->getMyId()).ready)
-		return;
-
-	Network::getInstance()->sendReadyRequest();
+	Network::getInstance()->sendReadyRequest(!gameroom->getClient(gameroom->getMyId()).ready);
 }
 void SelectScene::onExitRoom(
 	Ref *sender, ui::Widget::TouchEventType type) {

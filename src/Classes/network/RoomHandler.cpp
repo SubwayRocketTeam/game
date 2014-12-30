@@ -9,6 +9,8 @@
 #include "objects/Unit.h"
 
 #include "scene/GameScene.h"
+#include "scene/LobbyScene.h"
+#include "scene/SelectScene.h"
 
 using namespace cocos2d;
 
@@ -18,6 +20,9 @@ void Network::handleRoomResponse(
 	for (int i = 0; i < pkt->room_num; ++i) {
 		printf("%d\n", pkt->room_list[i]);
 	}
+	auto scene = Director::getInstance()->getRunningScene();
+	auto lobby = (LobbyScene*)scene->getChildByTag(1);
+	lobby->addRooms(pkt->room_num, pkt->room_list);
 }
 void Network::handleEnterResponse(
 	EnterResponse *pkt) {
@@ -27,10 +32,14 @@ void Network::handleEnterResponse(
 		printf("enter success : %d\n", pkt->room_id);
 		GameRoom::getInstance()->setRoomId(pkt->room_id);
 
+		auto scene = SelectScene::scene();
+		Director::getInstance()
+			->replaceScene(scene);
+		/*
 		auto network = Network::getInstance();
 		network->sendReadyRequest();
 		printf("ready\n");
-
+		*/
 	}
 }
 

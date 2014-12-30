@@ -81,7 +81,7 @@
           "colorType": 0,
           "direction": 1,
           "editorClipAble": false,
-          "gravity": 0,
+          "gravity": 2,
           "innerHeight": 0,
           "innerWidth": 0,
           "itemMargin": 20,

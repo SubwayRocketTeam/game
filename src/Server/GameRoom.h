@@ -36,6 +36,7 @@ public:
 
 	bool enter(const id_t client_id);
 	bool leave(const id_t client_id);
+	bool ready(const id_t client_id, const bool is_ready);
 
 	IdPairMap::const_iterator begin() const;
 	IdPairMap::const_iterator end() const;
@@ -48,6 +49,7 @@ public:
 
 	bool isPlaying();
 	bool isFull();
+	bool isAllReady();
 
 private:
 	void addUnitImmediate(Unit* unit);
@@ -57,7 +59,6 @@ private:
 
 public:
 	const id_t id;
-	int ready;
 
 private:
 	IDDispenser dispenser;
@@ -67,6 +68,7 @@ private:
 	IdPairMap clientIds;
 
 	std::map<id_t, int> teams;
+	std::map<id_t, bool> readyMap;
 
 	DWORD tick;
 

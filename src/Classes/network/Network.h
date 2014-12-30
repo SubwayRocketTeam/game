@@ -47,7 +47,8 @@ public:
 		int robot_id);
 	void sendSelectTeam(
 		int team_id);
-	void sendReadyRequest();
+	void sendReadyRequest(
+		bool ready);
 
 	void sendSpawnRequest(
 		int unitType);

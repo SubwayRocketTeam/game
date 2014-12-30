@@ -74,8 +74,9 @@ REGISTER_HANDLER(RoomRequest) {
 
 
 REGISTER_HANDLER(EnterRoom) {
-//	auto gameroom = GameRoomManager::getInstance()->getGameRoom(packet->room_id);
-	auto gameroom = GameRoomManager::getInstance()->getAvailableGameRoom();
+	auto gameroom = GameRoomManager::getInstance()->getGameRoom(packet->room_id);
+//	auto gameroom = GameRoomManager::getInstance()->getAvailableGameRoom();
+	NULLCHECK(gameroom);
 
 	EnterResponse response;
 	if (!gameroom || gameroom->isPlaying() || gameroom->isFull()) {
@@ -119,20 +120,7 @@ REGISTER_HANDLER(ReadyRequest) {
 	auto gameroom = GameRoomManager::getInstance()->getGameRoom(
 		client->gameRoomId);
 	NULLCHECK(gameroom);
-
-	ReadyNoti noti;
-	noti.client_id = client->id;
-	noti.ready = packet->ready;
-	gameroom->sendPacket(noti);
-
-	if (packet->ready)
-		gameroom->ready++;
-	else
-		gameroom->ready--;
-
-	if (gameroom->ready >= gameroom->getClientNum()
-		&& gameroom->getTeamNum(0) == gameroom->getTeamNum(1))
-		gameroom->startGame();
+	gameroom->ready(client->id, packet->ready != 0);
 } END
 
 

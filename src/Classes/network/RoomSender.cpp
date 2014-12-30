@@ -29,9 +29,10 @@ void Network::sendSelectTeam(
 	pkt.team_id = team_id;
 	send(pkt);
 }
-void Network::sendReadyRequest(){
+void Network::sendReadyRequest(
+	bool ready){
 
 	ReadyRequest pkt;
-	pkt.ready = 1;
+	pkt.ready = ready ? 1 : 0;
 	send(pkt);
 }

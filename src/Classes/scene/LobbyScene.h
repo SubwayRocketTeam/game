@@ -8,7 +8,9 @@ class LobbyScene : public cocos2d::Layer{
 public:
 	CREATE_FUNC(LobbyScene);
 
-    static cocos2d::Scene* scene();
+	static cocos2d::Scene* scene();
+
+	void addRooms(int room_num, char* room_ids);
 
 protected:
 	LobbyScene();
@@ -16,6 +18,19 @@ protected:
 
 	virtual bool init();
 
+	void enter(int room_id);
+	void refresh();
+
 	virtual void onInitGlobalObjects();
 	virtual void onReleaseGlobalObjects();
+
+	void onEnter(
+		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type, int room_id);
+	void onFastStart(
+		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void onRefresh(
+		cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+
+protected:
+	std::vector<int> rooms;
 };

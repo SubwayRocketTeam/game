@@ -94,7 +94,8 @@ void LoginScene::onLogin(
 	auto network = Network::getInstance();
 	network->sendLoginRequest(nickname.c_str());
 
-	auto scene = WaitingScene::scene();
+	// auto scene = WaitingScene::scene();
+	auto scene = LobbyScene::scene();
 	Director::getInstance()
 		->pushScene(scene);
 }

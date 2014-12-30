@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <UIProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ProjectDir>C:\Users\nhnnext\Documents\GitHub\game\ui\cleaner</ProjectDir>
+  <ProjectDir>C:\Users\Rini\Documents\GitHub\SubwayRocket\game\ui\cleaner</ProjectDir>
   <Version>1.6.0.0</Version>
-  <Resources>C:\Users\nhnnext\Documents\GitHub\game\ui\cleaner\Resources</Resources>
+  <Resources>C:\Users\Rini\Documents\GitHub\SubwayRocket\game\ui\cleaner\Resources</Resources>
   <Name>cleaner</Name>
   <JsonFileName>cleaner.json</JsonFileName>
-  <JsonFolder>C:\Users\nhnnext\Documents\GitHub\game\ui\cleaner\Json</JsonFolder>
+  <JsonFolder>C:\Users\Rini\Documents\GitHub\SubwayRocket\game\ui\cleaner\Json</JsonFolder>
   <JsonList>
     <string>login_scene.json</string>
     <string>pause_menu.json</string>
@@ -19,14 +19,11 @@
     <Width>1024</Width>
     <Height>768</Height>
   </CanvasSize>
-  <filePath>C:\Users\nhnnext\Documents\GitHub\game\ui\cleaner\cleaner.xml.ui</filePath>
+  <filePath>C:\Users\Rini\Documents\GitHub\SubwayRocket\game\ui\cleaner\cleaner.xml.ui</filePath>
   <ProjectType>UIProject</ProjectType>
   <ResRelativePath />
   <imageFileList />
-  <imagePngList>
-    <string>title_background.png</string>
-    <string>panel.png</string>
-  </imagePngList>
+  <imagePngList />
   <JsonSuffix>.json</JsonSuffix>
-  <CurrentUIJson>select_scene.json</CurrentUIJson>
+  <CurrentUIJson>room_item.json</CurrentUIJson>
 </UIProject>
