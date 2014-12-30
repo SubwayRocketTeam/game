@@ -1,4 +1,4 @@
-게임 방법
+HowToPlay
 ====
 
 게임의 목표
@@ -32,20 +32,24 @@
 ![Pesticide](img/robot3.png)
 
 
-스폰할 수 있는 로봇의 특징
+스폰할 수 있는 로봇들
 ----
 * Basic
 <br>
 ![D2](img/enemy1.png)
+가장 기본적인 적 유닛으로 로봇 청소기를 따라다니며 몸통 박치기 공격을 합니다.
 
 * Follow
 <br>
 ![D2](img/enemy2.png)
+로봇 청소기를 향해서 총알을 발사하면서 다가오는 로봇입니다.
 
 * Spiral
 <br>
 ![D2](img/enemy3.png)
+움직이지 않으며, 제자리에서 원형의 탄막을 발사합니다.
 
 * Explode
 <br>
 ![D2](img/enemy4.png)
+매우 빠르게 다가오며, 죽을 경우 원형의 탄막을 뿌리면서 죽는 자폭 유닛입니다.
