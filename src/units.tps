@@ -188,9 +188,6 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>Resources/robot1.png</filename>
-            <filename>Resources/robot2.png</filename>
-            <filename>Resources/robot3.png</filename>
             <filename>Resources/repair_area.png</filename>
             <filename>../../../../../Creative Cloud Files/개경프/enemy1.png</filename>
             <filename>../../../../../Creative Cloud Files/개경프/enemy2.png</filename>
@@ -205,6 +202,9 @@
             <filename>../../../../../Creative Cloud Files/개경프/trashs4.png</filename>
             <filename>../../../../../Creative Cloud Files/개경프/trashs5.png</filename>
             <filename>../../../../../Creative Cloud Files/개경프/trashs6.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/robot1.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/robot2.png</filename>
+            <filename>../../../../../Creative Cloud Files/개경프/robot3.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
